@@ -1,101 +1,220 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import {
+  Settings,
+  Layout,
+  Database,
+  FileJson,
+  ArrowRight,
+  Github,
+  Sparkles,
+} from "lucide-react";
+import { useConfig } from "@/lib/hooks/use-config";
+
+const features = [
+  {
+    title: "Scenes Explorer",
+    description: "Navigate through your Knack app's scenes and views",
+    icon: Layout,
+    href: "/scenes",
+    color: "bg-blue-500/10 text-blue-500",
+  },
+  {
+    title: "Objects & Fields",
+    description: "Explore your data model and field configurations",
+    icon: Database,
+    href: "/objects",
+    color: "bg-purple-500/10 text-purple-500",
+  },
+  {
+    title: "API Explorer",
+    description: "Test API endpoints and explore your data",
+    icon: FileJson,
+    href: "/api-explorer",
+    color: "bg-green-500/10 text-green-500",
+  },
+  {
+    title: "Settings",
+    description: "Configure your Knack application settings",
+    icon: Settings,
+    href: "/config",
+    color: "bg-orange-500/10 text-orange-500",
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const router = useRouter();
+  const { hasConfig } = useConfig();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+  if (hasConfig === null) return null;
+
+  if (!hasConfig) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-md px-4 py-8"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <Card className="border-2 border-dashed">
+            <CardHeader className="text-center space-y-4">
+              <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <Sparkles className="w-8 h-8 text-primary" />
+              </div>
+              <CardTitle className="text-2xl">
+                Welcome to Knack Explorer!
+              </CardTitle>
+              <CardDescription className="text-base">
+                To get started, you&apos;ll need to configure your Knack
+                application settings. This only takes a minute!
+              </CardDescription>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <Button
+                  className="w-full gap-2"
+                  size="lg"
+                  onClick={() => router.push("/config")}
+                >
+                  Configure Now
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </motion.div>
+              <div className="text-xs text-muted-foreground pt-4">
+                You&apos;ll need your Knack application ID and API key handy.
+                <br />
+                <a
+                  href="https://docs.knack.com/docs/api-key-app-id"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  Learn how to find these →
+                </a>
+              </div>
+            </CardHeader>
+          </Card>
+        </motion.div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+      <div className="px-4 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <h1 className="text-4xl font-bold tracking-tight mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            Knack Application Explorer
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            A powerful tool for exploring and managing your Knack application.
+            Navigate through scenes, analyze data models, and test API
+            endpoints.
+          </p>
+        </motion.div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto"
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          {features.map((feature) => (
+            <motion.div key={feature.title} variants={itemVariants}>
+              <Card
+                className="group hover:shadow-lg transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+                onClick={() => router.push(feature.href)}
+              >
+                <CardHeader>
+                  <div
+                    className={`w-12 h-12 rounded-lg ${feature.color} flex items-center justify-center mb-4`}
+                  >
+                    <feature.icon className="w-6 h-6" />
+                  </div>
+                  <CardTitle className="flex items-center justify-between">
+                    {feature.title}
+                    <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </CardTitle>
+                  <CardDescription>{feature.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="mt-16 text-center"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-sm text-muted-foreground mb-8">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            Open Source Project
+          </div>
+
+          <div className="flex justify-center gap-4">
+            <Button
+              variant="outline"
+              className="gap-2"
+              onClick={() =>
+                window.open(
+                  "https://github.com/productcolab/knack-explorer",
+                  "_blank"
+                )
+              }
+            >
+              <Github className="w-4 h-4" />
+              Star on GitHub
+            </Button>
+            <Button
+              variant="default"
+              className="gap-2"
+              onClick={() => router.push("/docs")}
+            >
+              Read Documentation
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 }
