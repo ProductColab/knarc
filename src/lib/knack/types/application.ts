@@ -16,6 +16,8 @@ export interface KnackApplicationSchema {
   id: string;
   objects: KnackObject[];
   scenes: KnackScene[];
+  account: KnackAccount;
+  logo_url: string;
   [key: string]: unknown;
 }
 
@@ -34,4 +36,9 @@ export interface KnackObject {
     order: "asc" | "desc";
   };
   [key: string]: unknown;
+}
+
+
+export interface KnackAccount {
+  slug: string;
 }

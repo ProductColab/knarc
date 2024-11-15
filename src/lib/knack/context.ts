@@ -1,13 +1,16 @@
 "use client";
 
 import { createContext, useContext } from "react";
-import type { KnackClient } from "./api";
+import type { RxDatabase } from "rxdb";
+import { KnackClient } from "./api";
 
-interface KnackContextValue {
-  client: KnackClient;
+interface KnackContextType {
+  db: RxDatabase;
+  client: KnackClient | null;
+  isInitialized: boolean;
 }
 
-export const KnackContext = createContext<KnackContextValue | null>(null);
+export const KnackContext = createContext<KnackContextType | null>(null);
 
 export function useKnack() {
   const context = useContext(KnackContext);

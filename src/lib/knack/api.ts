@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * Types and client for interacting with the Knack API.
  * @packageDocumentation
@@ -52,30 +53,41 @@ export class KnackClient {
   private config: KnackConfig;
   private userToken?: string;
   private baseUrl: string;
+  private isPublicClient: boolean;
 
-  constructor(config: KnackConfig) {
+  constructor(config: KnackConfig, isPublicClient: boolean = true) {
     this.config = config;
-    this.baseUrl = `${config.apiHost}/v1`;
+    this.isPublicClient = isPublicClient;
+
+    const domain = config.apiDomain || 'api';
+    const host = config.apiHost || 'knack.com';
+    const version = config.apiVersion || 'v1';
+    this.baseUrl = `https://${domain}.${host}/${version}`;
   }
 
-  private getObjectHeaders(): HeadersInit {
-    if (!this.config.apiKey) {
-      throw new Error("API key is required for object-based operations");
+  // Create a new instance with private access
+  withPrivateAccess(apiKey: string): KnackClient {
+    const newConfig = {
+      ...this.config,
+      apiKey
+    };
+    console.log('Creating private client with config:', newConfig);
+    return new KnackClient(newConfig, false);
+  }
+
+  private getHeaders(): HeadersInit {
+    const headers: HeadersInit = {
+      "X-Knack-Application-Id": this.config.applicationId,
+      "Content-Type": "application/json",
+    };
+
+    if (!this.isPublicClient && this.config.apiKey) {
+      headers["X-Knack-REST-API-Key"] = this.config.apiKey;
+    } else {
+      headers["X-Knack-REST-API-Key"] = "knack";
     }
 
-    return {
-      "X-Knack-Application-Id": this.config.applicationId,
-      "X-Knack-REST-API-Key": this.config.apiKey,
-      "Content-Type": "application/json",
-    };
-  }
-
-  private getViewHeaders(): HeadersInit {
-    return {
-      "X-Knack-Application-Id": this.config.applicationId,
-      "X-Knack-REST-API-Key": "knack",
-      "Content-Type": "application/json",
-    };
+    return headers;
   }
 
   private buildUrl(path: string): string {
@@ -110,14 +122,11 @@ export class KnackClient {
             value: filter.value.toISOString(),
           };
 
-          if (
-            filter.operator.startsWith("is_") &&
-            filter.value instanceof Date
-          ) {
+          if (filter.operator.startsWith("is_")) {
             return {
               ...baseFilter,
-              range: filter.range,
-              type: filter.type,
+              range: (filter as DateRangeFilter).range,
+              type: (filter as DateRangeFilter).type,
             };
           }
 
@@ -219,13 +228,10 @@ export class KnackClient {
       `objects/${objectKey}/records${this.buildQueryString(options)}`
     );
     const response = await fetch(url, {
-      headers: this.getObjectHeaders(),
+      headers: this.getHeaders(),
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch records: ${response.statusText}`);
-    }
-
+    await this.handleResponse(response);
     const data: KnackResponse<KnackRecordWithFormat<KnackRecord, F>> =
       await response.json();
     return data.records;
@@ -254,13 +260,10 @@ export class KnackClient {
       )}`
     );
     const response = await fetch(url, {
-      headers: this.getObjectHeaders(),
+      headers: this.getHeaders(),
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch record: ${response.statusText}`);
-    }
-
+    await this.handleResponse(response);
     return response.json();
   }
 
@@ -285,14 +288,11 @@ export class KnackClient {
     const url = this.buildUrl(`objects/${objectKey}/records`);
     const response = await fetch(url, {
       method: "POST",
-      headers: this.getObjectHeaders(),
+      headers: this.getHeaders(),
       body: JSON.stringify(data),
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to create record: ${response.statusText}`);
-    }
-
+    await this.handleResponse(response);
     return response.json();
   }
 
@@ -320,14 +320,11 @@ export class KnackClient {
     const url = this.buildUrl(`objects/${objectKey}/records/${recordId}`);
     const response = await fetch(url, {
       method: "PUT",
-      headers: this.getObjectHeaders(),
+      headers: this.getHeaders(),
       body: JSON.stringify(data),
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to update record: ${response.statusText}`);
-    }
-
+    await this.handleResponse(response);
     return response.json();
   }
 
@@ -345,12 +342,10 @@ export class KnackClient {
     const url = this.buildUrl(`objects/${objectKey}/records/${recordId}`);
     const response = await fetch(url, {
       method: "DELETE",
-      headers: this.getObjectHeaders(),
+      headers: this.getHeaders(),
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to delete record: ${response.statusText}`);
-    }
+    await this.handleResponse(response);
   }
 
   /**
@@ -368,15 +363,15 @@ export class KnackClient {
    * ```
    */
   formatConnectionInput(
-    connections: KnackConnectionField | string[]
+    connections: (KnackConnectionField | string)[]
   ): string[] {
-    if (Array.isArray(connections) && connections.length > 0) {
-      if (typeof connections[0] === "string") {
-        return connections as string[];
-      }
-      return connections.map((conn) => conn.id);
+    if (!Array.isArray(connections) || connections.length === 0) {
+      return [];
     }
-    return [];
+
+    return typeof connections[0] === "string"
+      ? connections as string[]
+      : connections.map((conn: any) => conn.id);
   }
 
   /**
@@ -463,27 +458,27 @@ export class KnackClient {
     );
 
     const response = await fetch(url, {
-      headers: this.getAuthenticatedViewHeaders(),
+      headers: this.getHeaders(),
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch view records: ${response.statusText}`);
-    }
-
+    await this.handleResponse(response);
     const data: KnackResponse<KnackRecordWithFormat<KnackRecord, F>> =
       await response.json();
     return data.records;
   }
 
   private getUploadHeaders(): HeadersInit {
-    if (!this.config.apiKey) {
-      throw new Error("API key is required for file uploads");
+    const headers: HeadersInit = {
+      "X-Knack-Application-Id": this.config.applicationId,
+    };
+
+    if (!this.isPublicClient && this.config.apiKey) {
+      headers["X-Knack-REST-API-Key"] = this.config.apiKey;
+    } else {
+      headers["X-Knack-REST-API-Key"] = "knack";
     }
 
-    return {
-      "X-Knack-Application-Id": this.config.applicationId,
-      "X-Knack-REST-API-Key": this.config.apiKey,
-    };
+    return headers;
   }
 
   /**
@@ -511,14 +506,11 @@ export class KnackClient {
 
     const response = await fetch(url, {
       method: "POST",
-      headers: this.getUploadHeaders(),
+      headers: this.getHeaders(),
       body: formData,
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to upload ${assetType}: ${response.statusText}`);
-    }
-
+    await this.handleResponse(response);
     return response.json();
   }
 
@@ -615,7 +607,6 @@ export class KnackClient {
    */
   getAssetDownloadUrl(record: KnackRecord, fieldKey: string): string | null {
     const rawField = `${fieldKey}_raw`;
-    // Cast to unknown first to handle type conversion safely
     const fileData = record[rawField] as unknown as
       | KnackAssetResponse
       | undefined;
@@ -629,8 +620,7 @@ export class KnackClient {
    * @returns Headers including authentication if user is logged in
    */
   private getAuthenticatedViewHeaders(): HeadersInit {
-    // Create a new headers object
-    const headers = new Headers(this.getViewHeaders());
+    const headers = new Headers(this.getHeaders());
 
     if (this.userToken) {
       headers.set("Authorization", this.userToken);
@@ -665,10 +655,7 @@ export class KnackClient {
       body: JSON.stringify(credentials),
     });
 
-    if (!response.ok) {
-      throw new Error(`Login failed: ${response.statusText}`);
-    }
-
+    await this.handleResponse(response);
     const loginResponse: KnackLoginResponse = await response.json();
     this.userToken = loginResponse.session.user.token;
 
@@ -706,6 +693,62 @@ export class KnackClient {
     return this.userToken;
   }
 
+  private async handleResponse(response: Response) {
+    if (!response.ok) {
+      const responseText = await response.text();
+      let errorMessage = response.statusText;
+
+      try {
+        const errorData = JSON.parse(responseText);
+        errorMessage = errorData?.errors?.[0] ||
+          errorData?.message ||
+          responseText ||
+          response.statusText;
+      } catch {
+        errorMessage = responseText || response.statusText;
+      }
+
+      throw new Error(`API Error (${response.status}): ${errorMessage}`);
+    }
+    return response;
+  }
+
+  /**
+   * Retrieves the complete application data from Knack
+   * @throws {Error} If the API key is not configured or if the request fails
+   * @returns The complete application response including schema
+   *
+   * @example
+   * ```typescript
+   * const response = await client.getApplication();
+   * console.log(response.scenes); // List all scenes in the application
+   * ```
+   */
+  async getApplication(): Promise<KnackApplicationSchema> {
+    // if (this.isPublicClient) {
+    //   throw new Error("API key required: Use withPrivateAccess() to access private endpoints");
+    // }
+
+    const applicationId = this.getApplicationId();
+    console.log('Fetching application:', { applicationId });
+
+    if (!applicationId) {
+      throw new Error("Application ID is required to fetch application");
+    }
+
+    const url = this.buildUrl(`applications/${applicationId}`);
+    console.log('Making request to:', url);
+
+    const headers = this.getHeaders();
+    console.log('Using headers:', headers);
+
+    const response = await fetch(url, { headers });
+    await this.handleResponse(response);
+
+    const data = await response.json();
+    return data.application;
+  }
+
   /**
    * Retrieves the complete application schema from Knack
    * @throws {Error} If the API key is not configured or if the request fails
@@ -718,24 +761,8 @@ export class KnackClient {
    * ```
    */
   async getApplicationSchema(): Promise<KnackApplicationSchema> {
-    if (!this.config.apiKey) {
-      throw new Error("API key is required to fetch application schema");
-    }
-
-    const url = this.buildUrl(`applications/${this.config.applicationId}`);
-
-    const response = await fetch(url, {
-      headers: this.getObjectHeaders(),
-    });
-
-    if (!response.ok) {
-      throw new Error(
-        `Failed to fetch application schema: ${response.statusText}`
-      );
-    }
-
-    const { application } = await response.json();
-    return application;
+    // Now we can just call getApplication since they use the same endpoint
+    return this.getApplication();
   }
 
   /**
@@ -818,9 +845,8 @@ export class KnackClient {
    * ```
    */
   async getSceneSchema(sceneKey: string): Promise<KnackScene> {
-    const schema =
-      (await this.getApplicationSchema()) as KnackApplicationSchema;
-    const scene = schema.scenes.find((s: KnackScene) => s.key === sceneKey);
+    const schema = await this.getApplicationSchema();
+    const scene = schema.scenes.find((s) => s.key === sceneKey);
 
     if (!scene) {
       throw new Error(`Scene ${sceneKey} not found in application schema`);
@@ -871,8 +897,8 @@ export class KnackClient {
     return view;
   }
 
-  // Add getter methods for config values that API Explorer needs
-  getApplicationId(): string {
+  // Getters for config values needed by API Explorer
+  public getApplicationId(): string {
     return this.config.applicationId;
   }
 
@@ -882,12 +908,5 @@ export class KnackClient {
 
   getApiHost(): string | undefined {
     return this.config.apiHost;
-  }
-
-  getHeaders(): HeadersInit {
-    return {
-      "X-Knack-Application-Id": this.getApplicationId(),
-      ...(this.getApiKey() && { "X-Knack-REST-API-Key": this.getApiKey() }),
-    };
   }
 }

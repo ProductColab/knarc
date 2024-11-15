@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Providers from "./providers";
 import localFont from "next/font/local";
 import "./globals.css";
-import { AppSidebar } from "@/components/AppSidebar";
-import { SidebarTrigger } from "@/components/ui/sidebar";
+import { ConfigGuard } from "./[configId]/components/config-guard";
+import { AppSidebar } from "@/components/ui/AppSidebar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,7 +19,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Knack Explorer",
   description:
-    "A powerful tool for exploring and managing your Knack application",
+    "A powerful tool for exploring and managing your Knack application schema",
 };
 
 export default function RootLayout({
@@ -28,19 +28,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`
+          ${geistSans.variable} ${geistMono.variable}
+          min-h-screen bg-background text-foreground antialiased
+          selection:bg-primary/20 selection:text-primary
+          overflow-x-hidden
+        `}
       >
-        <div className="flex min-h-screen">
-          <Providers>
-            <AppSidebar />
-            <main className="flex-1">
-              <SidebarTrigger />
-              {children}
+        <Providers>
+          <AppSidebar />
+          <ConfigGuard>
+            <main className="flex-1 p-4 md:p-6">
+              <div className="mx-auto max-w-7xl">{children}</div>
             </main>
-          </Providers>
-        </div>
+          </ConfigGuard>
+
+          {/* Ambient background glow */}
+          <div className="fixed inset-0 pointer-events-none">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,hsl(var(--cyber-purple))_0%,rgba(0,0,0,0)_50%)] opacity-[0.15]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,hsl(var(--cyber-red))_0%,rgba(0,0,0,0)_50%)] opacity-[0.1]" />
+          </div>
+        </Providers>
       </body>
     </html>
   );

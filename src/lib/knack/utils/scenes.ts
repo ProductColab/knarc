@@ -1,4 +1,4 @@
-import type { KnackScene } from "../types";
+import type { KnackScene } from "../types/scenes";
 
 const DEBUG = process.env.NODE_ENV === "development";
 
@@ -44,14 +44,19 @@ export function findParentScenes(
 }
 
 /**
- * Checks if a scene requires authentication
+ * Checks if a scene requires authentication based on its properties
  */
 function isSceneAuthenticated(scene: KnackScene): boolean {
   return (
+    // Explicit authentication flag
     scene.authenticated === true ||
-    (Array.isArray(scene.allowed_profiles) &&
-      scene.allowed_profiles.length > 0) ||
-    scene.slug?.endsWith("-login")
+    // Has restricted profiles
+    (Array.isArray(scene.allowed_profiles) && scene.allowed_profiles.length > 0) ||
+    // Login scenes are protected
+    scene.slug?.endsWith("-login") ||
+    // Scenes with user-specific data are protected
+    scene.slug?.includes("user") ||
+    scene.slug?.includes("profile")
   );
 }
 

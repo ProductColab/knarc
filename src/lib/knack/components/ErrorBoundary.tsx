@@ -1,50 +1,39 @@
 "use client";
 
-import { useEffect, type ReactNode } from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
+import React from "react";
 
-interface Props {
-  children: ReactNode;
-  fallback?: ReactNode;
+interface ErrorBoundaryProps {
+  fallback: React.ReactNode | ((error: Error) => React.ReactNode);
+  children: React.ReactNode;
 }
 
-export function ErrorBoundary({ children, fallback }: Props) {
-  useEffect(() => {
-    const handleError = (error: ErrorEvent) => {
-      console.error("Error caught by boundary:", error);
-    };
-
-    window.addEventListener("error", handleError);
-    return () => window.removeEventListener("error", handleError);
-  }, []);
-
-  return (
-    <ErrorBoundaryInternal fallback={fallback}>
-      {children}
-    </ErrorBoundaryInternal>
-  );
+interface ErrorBoundaryState {
+  hasError: boolean;
+  error: Error | null;
 }
 
-function ErrorBoundaryInternal({
-  children,
-  fallback = (
-    <Card className="bg-destructive/10">
-      <CardHeader>
-        <CardTitle className="text-destructive">Error</CardTitle>
-        <CardDescription>Something went wrong</CardDescription>
-      </CardHeader>
-    </Card>
-  ),
-}: Props) {
-  try {
-    return <>{children}</>;
-  } catch (error) {
-    console.error("Error caught by boundary:", error);
-    return <>{fallback}</>;
+export class ErrorBoundary extends React.Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+> {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      const { fallback } = this.props;
+      if (typeof fallback === "function") {
+        return fallback(this.state.error!);
+      }
+      return fallback;
+    }
+
+    return this.props.children;
   }
 }

@@ -7,9 +7,9 @@ export interface KnackConfig {
   applicationId: string;
   /** API key for object-based operations. Required for CRUD operations */
   apiKey?: string;
-  /** The domain of the Knack API. Defaults to knack.com */
+  /** The domain of the Knack API. Defaults to api */
   apiDomain?: string;
-  /** Base URL for the Knack API. Defaults to https://api.knack.com/v1 */
+  /** Base URL for the Knack API. Defaults to knack.com */
   apiHost?: string;
   /** API version. Defaults to v1 */
   apiVersion?: string;

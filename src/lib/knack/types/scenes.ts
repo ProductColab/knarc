@@ -11,20 +11,14 @@ export interface KnackScene {
   slug: string;
   parent?: string;
   views: KnackView[];
-  groups?: Array<{
-    columns: Array<{
-      width?: number;
-      keys?: string[];
-    }>;
-  }>;
+  authenticated?: boolean;
+  allowed_profiles?: string[];
   modal?: boolean;
   modal_prevent_background_click_close?: boolean;
-  allowed_profiles?: string[];
-  print?: boolean;
-  object?: string;
   icon?: {
     icon: string;
-    align: "left" | "right" | "center";
+    align: 'left' | 'right' | 'center';
   };
-  authenticated?: boolean;
+  print?: boolean;
+  object?: string;
 }

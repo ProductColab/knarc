@@ -1,7 +1,7 @@
 "use client";
 
-import ConfigPage from "@/app/config/_components/config-form";
+import ConfigForm from "./config-form";
 
-export default function ConfigRoute() {
-  return <ConfigPage />;
+export default function NewConfigPage() {
+  return <ConfigForm />;
 }

@@ -2,87 +2,160 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    /* Base theme colors */
+    --background: 260 30% 4%; /* Deep space black with slight purple tint */
+    --foreground: 220 60% 95%; /* Cool white */
+
+    /* Card and UI elements */
+    --card: 260 30% 8%;
+    --card-foreground: 220 60% 95%;
+    --popover: 260 30% 8%;
+    --popover-foreground: 220 60% 95%;
+
+    /* Primary colors - Electric Blue */
+    --primary: 210 100% 60%; /* Electric blue */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 210 100% 60%;
+    --primary-glow-hover: 195 100% 65%; /* Shift towards cyan */
+    --primary-glow-rgb: 0, 157, 255; /* RGB values for shadow utilities */
+
+    /* Secondary colors - Deep Space Purple */
+    --secondary: 260 50% 30%;
+    --secondary-foreground: 220 60% 95%;
+
+    /* Muted and accent colors */
+    --muted: 260 30% 12%;
+    --muted-foreground: 220 30% 65%;
+    --accent: 195 80% 40%; /* Cosmic cyan */
+    --accent-foreground: 0 0% 100%;
+
+    /* System colors */
+    --destructive: 0 100% 40%; /* Keep red for destructive actions */
+    --destructive-foreground: 0 0% 95%;
+    --border: 260 30% 15%;
+    --input: 260 30% 12%;
+    --ring: 210 100% 60%; /* Match primary */
+
+    /* Cyberpunk accent colors */
+    --cyber-red: 0 100% 60%;
+    --cyber-blue: 210 100% 60%; /* Electric blue */
+    --cyber-purple: 280 100% 70%; /* Bright purple */
+    --cyber-cyan: 195 100% 60%; /* Cosmic cyan */
+
+    /* Sidebar colors - Using theme colors */
+    --sidebar-background: 260 30% 6%;
+    --sidebar-foreground: 220 60% 95%;
+    --sidebar-primary: 210 100% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: linear-gradient(
+      135deg,
+      hsl(260 50% 30%),
+      hsl(280 100% 70%)
+    );
+    --sidebar-accent-solid: 260 50% 30%; /* Fallback solid color */
+    --sidebar-accent-foreground: 350 100% 95%; /* poppy glow pink */
+    --sidebar-border: 260 30% 15%;
+    --sidebar-ring: 210 100% 60%;
+
+    /* Chart colors - Using space theme */
+    --chart-1: 210 100% 60%; /* Electric blue */
+    --chart-2: 195 100% 60%; /* Cosmic cyan */
+    --chart-3: 280 100% 70%; /* Bright purple */
+    --chart-4: 260 80% 60%; /* Deep purple */
+    --chart-5: 230 100% 65%; /* Royal blue */
+
+    /* Border radius */
+    --radius: 0.5rem;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+/* Add some global utility classes */
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--primary-glow));
   }
-  body {
-    @apply bg-background text-foreground;
+
+  .border-glow {
+    box-shadow: 0 0 10px hsl(var(--primary-glow));
+  }
+
+  /* Additional cyberpunk utilities */
+  .text-glow-sm {
+    text-shadow: 0 0 5px hsl(var(--primary-glow));
+  }
+
+  .text-glow-lg {
+    text-shadow: 0 0 15px hsl(var(--primary-glow));
+  }
+
+  .border-glow-sm {
+    box-shadow: 0 0 5px hsl(var(--primary-glow));
+  }
+
+  .border-glow-lg {
+    box-shadow: 0 0 20px hsl(var(--primary-glow));
+  }
+
+  /* Gradient text utility */
+  .text-gradient {
+    background: linear-gradient(
+      to right,
+      hsl(var(--cyber-red)),
+      hsl(var(--cyber-orange))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .sidebar-item-active {
+    text-shadow: 0 0 8px rgba(255, 140, 0, 0.6);
+    box-shadow: inset 0 0 15px rgba(255, 140, 0, 0.15),
+      0 0 12px rgba(255, 140, 0, 0.4);
+  }
+
+  /* Update hover effect */
+  .sidebar-item-hover:hover {
+    box-shadow: inset 0 0 15px rgba(255, 140, 0, 0.08);
+  }
+
+  /* Remove the previous hover border effect since we're using a new approach */
+  .sidebar-item-hover::after {
+    display: none;
+  }
+}
+
+/* Optional: Add some global styles for better cyberpunk feel */
+@layer base {
+  /* Smoother font rendering */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Better focus outlines */
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: var(--radius);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
   }
 }
