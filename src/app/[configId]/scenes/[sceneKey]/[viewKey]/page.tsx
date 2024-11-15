@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import { ViewContent } from "./components/view-content";
 import { cn } from "@/lib/utils";
 
