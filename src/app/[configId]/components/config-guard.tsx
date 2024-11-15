@@ -2,8 +2,8 @@
 
 import { useKnack } from "@/lib/knack/context";
 import { useConfig } from "@/hooks/useConfig";
-import { useParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export function ConfigGuard({ children }: { children: React.ReactNode }) {
   const { isInitialized } = useKnack();
@@ -11,13 +11,18 @@ export function ConfigGuard({ children }: { children: React.ReactNode }) {
   const params = useParams();
   const router = useRouter();
 
+  useEffect(() => {
+    if (activeConfig && params.configId !== activeConfig.id) {
+      router.push(`/${activeConfig.id}`);
+    }
+  }, [activeConfig, params.configId, router]);
+
   if (!isInitialized) {
     return <div>Loading...</div>;
   }
 
-  // Redirect if the configId in the URL doesn't match the active config
+  // If we're about to redirect, show nothing to prevent flash of content
   if (activeConfig && params.configId !== activeConfig.id) {
-    router.push(`/${activeConfig.id}`);
     return null;
   }
 

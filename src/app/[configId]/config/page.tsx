@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import ConfigForm from "@/app/config/config-form";
 
 export default async function ConfigPage({

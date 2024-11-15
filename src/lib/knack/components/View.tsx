@@ -26,9 +26,10 @@ interface ViewProps {
 }
 
 export function View({ view, scene, loading, error }: ViewProps) {
-  console.log(view);
   return (
-    <ErrorBoundary>
+    <ErrorBoundary
+      fallback={<ErrorState error={new Error("Component Error")} />}
+    >
       <ViewContent view={view} scene={scene} loading={loading} error={error} />
     </ErrorBoundary>
   );
@@ -44,7 +45,7 @@ function ViewContent({ view, scene, loading, error }: ViewProps) {
   }
 
   return (
-    <Card>
+    <Card className="glass-card border-glow">
       <CardHeader>
         <ViewHeader view={view} scene={scene} />
       </CardHeader>
@@ -57,7 +58,7 @@ function ViewContent({ view, scene, loading, error }: ViewProps) {
 
 function LoadingState() {
   return (
-    <Card>
+    <Card className="glass-card border-glow">
       <CardHeader>
         <div className="h-8 w-[200px] bg-muted animate-pulse rounded" />
         <div className="h-4 w-[300px] bg-muted animate-pulse rounded" />
@@ -71,10 +72,12 @@ function LoadingState() {
 
 function ErrorState({ error }: { error: Error }) {
   return (
-    <Card className="bg-destructive/10">
+    <Card className="glass-card error-glow">
       <CardHeader>
-        <CardTitle className="text-destructive">Error</CardTitle>
-        <CardDescription>{error.message}</CardDescription>
+        <CardTitle className="text-glow-sm text-destructive">Error</CardTitle>
+        <CardDescription className="text-destructive/80">
+          {error.message}
+        </CardDescription>
       </CardHeader>
     </Card>
   );
@@ -84,12 +87,16 @@ function ViewHeader({ view, scene }: { view: KnackView; scene: KnackScene }) {
   return (
     <div className="flex items-center justify-between">
       <div>
-        <CardTitle>{view.name}</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-glow-white text-glow-sm">
+          {view.name}
+        </CardTitle>
+        <CardDescription className="text-muted-foreground">
           Scene: {scene.name} ({scene.key})
         </CardDescription>
       </div>
-      <Badge variant="outline">{view.type}</Badge>
+      <Badge variant="outline" className="glass-border">
+        {view.type}
+      </Badge>
     </div>
   );
 }
@@ -101,7 +108,7 @@ function ViewBody({ view }: { view: KnackView }) {
     view.source;
 
   return (
-    <>
+    <div className="space-y-4">
       {showSource && (
         <ViewSource
           source={
@@ -114,7 +121,7 @@ function ViewBody({ view }: { view: KnackView }) {
       <ViewRenderer
         view={view as KnackTableView | KnackFormView | KnackRichTextView}
       />
-    </>
+    </div>
   );
 }
 
@@ -137,8 +144,8 @@ function ViewRenderer({ view }: ViewRendererProps) {
 
 function DefaultViewRenderer({ view }: { view: KnackView }) {
   return (
-    <div className="rounded-md bg-muted p-4">
-      <pre className="text-sm whitespace-pre-wrap">
+    <div className="glass-border bg-muted/5 p-4 rounded-md">
+      <pre className="text-sm whitespace-pre-wrap text-muted-foreground">
         {JSON.stringify(view, null, 2)}
       </pre>
     </div>
@@ -157,16 +164,24 @@ function TableViewRenderer({ view }: { view: KnackTableView }) {
 function TableViewHeader({ view }: { view: KnackTableView }) {
   return (
     <div className="flex items-center gap-4 flex-wrap">
-      <Badge variant="secondary">
+      <Badge variant="secondary" className="glass-border">
         {view.columns?.length || 0} Column
         {!view.columns?.length || view.columns.length === 1 ? "" : "s"}
       </Badge>
       {view.keyword_search && (
-        <Badge variant="outline">Keyword Search Enabled</Badge>
+        <Badge variant="outline" className="glass-border">
+          Keyword Search Enabled
+        </Badge>
       )}
-      {view.allow_exporting && <Badge variant="outline">Export Enabled</Badge>}
+      {view.allow_exporting && (
+        <Badge variant="outline" className="glass-border">
+          Export Enabled
+        </Badge>
+      )}
       {view.rows_per_page && (
-        <Badge variant="outline">{view.rows_per_page} Rows Per Page</Badge>
+        <Badge variant="outline" className="glass-border">
+          {view.rows_per_page} Rows Per Page
+        </Badge>
       )}
     </div>
   );
@@ -180,8 +195,10 @@ function TableViewColumns({
   if (!columns.length) return null;
 
   return (
-    <div className="rounded-md bg-muted p-4">
-      <h4 className="text-sm font-medium mb-4">Columns</h4>
+    <div className="glass-border bg-muted/5 p-4 rounded-md">
+      <h4 className="text-sm font-medium mb-4 text-glow-white text-glow-sm">
+        Columns
+      </h4>
       <div className="grid gap-4">
         {columns.map((column, index) => (
           <TableViewColumn
@@ -196,17 +213,19 @@ function TableViewColumns({
 
 function TableViewColumn({ column }: { column: KnackTableView["columns"][0] }) {
   return (
-    <div className="border rounded-lg p-4 bg-background">
+    <div className="glass-border bg-muted/5 p-4 rounded-lg">
       <div className="flex items-start justify-between mb-2">
         <div>
-          <h5 className="font-medium">{column.header || "(No Header)"}</h5>
+          <h5 className="font-medium text-glow-white">
+            {column.header || "(No Header)"}
+          </h5>
           {column.type === "field" && (
-            <code className="text-sm text-muted-foreground">
+            <code className="text-sm text-muted-foreground font-mono">
               {column.field.key}
             </code>
           )}
         </div>
-        <Badge>{column.type}</Badge>
+        <Badge className="glass-border">{column.type}</Badge>
       </div>
 
       <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm mt-4">
@@ -224,26 +243,28 @@ function ColumnProperties({
   return (
     <>
       <dt className="text-muted-foreground">Width</dt>
-      <dd>
+      <dd className="text-glow-white">
         {column.width?.type === "custom"
           ? `${column.width?.amount}${column.width?.units}`
           : "Default"}
       </dd>
 
       <dt className="text-muted-foreground">Alignment</dt>
-      <dd className="capitalize">{column.align}</dd>
+      <dd className="capitalize text-glow-white">{column.align}</dd>
 
       {column.grouping && (
         <>
           <dt className="text-muted-foreground">Grouping</dt>
-          <dd>Enabled ({column.group_sort?.toUpperCase() || "Default"})</dd>
+          <dd className="text-glow-white">
+            Enabled ({column.group_sort?.toUpperCase() || "Default"})
+          </dd>
         </>
       )}
 
       {column.connection && (
         <>
           <dt className="text-muted-foreground">Connection</dt>
-          <dd>{column.connection.key}</dd>
+          <dd className="text-glow-white">{column.connection.key}</dd>
         </>
       )}
 
@@ -260,19 +281,19 @@ function LinkColumnProperties({
   return (
     <>
       <dt className="text-muted-foreground">Link Type</dt>
-      <dd className="capitalize">{column.link_type}</dd>
+      <dd className="capitalize text-glow-white">{column.link_type}</dd>
 
       {column.link_text && (
         <>
           <dt className="text-muted-foreground">Link Text</dt>
-          <dd>{column.link_text}</dd>
+          <dd className="text-glow-white">{column.link_text}</dd>
         </>
       )}
 
       {column.scene && (
         <>
           <dt className="text-muted-foreground">Target Scene</dt>
-          <dd>{column.scene}</dd>
+          <dd className="text-glow-white">{column.scene}</dd>
         </>
       )}
 
@@ -295,17 +316,25 @@ function LinkDesignProperties({
       <dt className="text-muted-foreground">Link Style</dt>
       <dd>
         <div className="space-x-2">
-          <Badge variant="outline" className="capitalize">
+          <Badge variant="outline" className="capitalize glass-border">
             {design.format}
           </Badge>
-          <Badge variant="outline" className="capitalize">
+          <Badge variant="outline" className="capitalize glass-border">
             {design.size}
           </Badge>
-          {design.rounded && <Badge variant="outline">Rounded</Badge>}
-          {design.raised && <Badge variant="outline">Raised</Badge>}
+          {design.rounded && (
+            <Badge variant="outline" className="glass-border">
+              Rounded
+            </Badge>
+          )}
+          {design.raised && (
+            <Badge variant="outline" className="glass-border">
+              Raised
+            </Badge>
+          )}
           {design.colors?.button?.custom && (
             <div
-              className="inline-block w-4 h-4 rounded border"
+              className="inline-block w-4 h-4 rounded border glass-border"
               style={{
                 backgroundColor: design.colors.button.color,
               }}
@@ -320,7 +349,7 @@ function LinkDesignProperties({
 function RichTextViewRenderer({ view }: { view: KnackRichTextView }) {
   return (
     <div
-      className="prose prose-sm max-w-none"
+      className="prose prose-sm max-w-none prose-invert"
       dangerouslySetInnerHTML={{ __html: view.content }}
     />
   );

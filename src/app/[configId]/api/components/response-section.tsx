@@ -1,9 +1,11 @@
+"use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check, Copy } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export interface ApiResponse {
   status: number;
@@ -39,7 +41,15 @@ export function ResponseSection({ response }: ResponseSectionProps) {
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Badge variant={response.status < 400 ? "default" : "destructive"}>
+            <Badge
+              variant={response.status < 400 ? "default" : "destructive"}
+              className={cn(
+                "glass-border",
+                response.status < 400
+                  ? "border-glow-purple text-glow-purple"
+                  : "border-destructive/50 text-destructive"
+              )}
+            >
               Status: {response.status}
             </Badge>
             <span className="text-sm text-muted-foreground">
@@ -49,7 +59,11 @@ export function ResponseSection({ response }: ResponseSectionProps) {
           <Button
             variant="ghost"
             size="sm"
-            className="gap-2"
+            className={cn(
+              "gap-2",
+              "hover:text-glow-purple hover:text-glow-sm",
+              "transition-all duration-300"
+            )}
             onClick={copyResponse}
           >
             {copied ? (
@@ -67,17 +81,27 @@ export function ResponseSection({ response }: ResponseSectionProps) {
         </div>
 
         <Tabs defaultValue="response" className="w-full">
-          <TabsList>
-            <TabsTrigger value="response">Response</TabsTrigger>
-            <TabsTrigger value="headers">Headers</TabsTrigger>
+          <TabsList className="glass-card">
+            <TabsTrigger
+              value="response"
+              className="data-[state=active]:text-glow-purple data-[state=active]:text-glow-sm"
+            >
+              Response
+            </TabsTrigger>
+            <TabsTrigger
+              value="headers"
+              className="data-[state=active]:text-glow-purple data-[state=active]:text-glow-sm"
+            >
+              Headers
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="response">
-            <pre className="bg-muted/50 p-4 rounded-lg overflow-auto max-h-[400px] text-sm">
+            <pre className="glass-card p-4 rounded-lg overflow-auto max-h-[400px] text-sm">
               {JSON.stringify(response.data, null, 2)}
             </pre>
           </TabsContent>
           <TabsContent value="headers">
-            <pre className="bg-muted/50 p-4 rounded-lg overflow-auto max-h-[400px] text-sm">
+            <pre className="glass-card p-4 rounded-lg overflow-auto max-h-[400px] text-sm">
               {JSON.stringify(response.headers, null, 2)}
             </pre>
           </TabsContent>

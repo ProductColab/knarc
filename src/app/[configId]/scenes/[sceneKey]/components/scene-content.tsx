@@ -7,6 +7,7 @@ import { SceneViewsCard } from "./scene-views-card";
 import { LoadingSkeleton } from "../../components/loading-skeleton";
 import { ErrorCard } from "../../components/error-card";
 import Content from "@/components/ui/Content";
+import { KnackScene } from "@/lib/knack/types/scenes";
 
 interface SceneContentProps {
   configId: string;
@@ -14,24 +15,32 @@ interface SceneContentProps {
 }
 
 export function SceneContent({ configId, sceneKey }: SceneContentProps) {
-  const { scenes, isLoading, error } = useScenes(configId);
+  const { data: scenes, isLoading, error } = useScenes(configId);
 
   if (isLoading) {
-    return <LoadingSkeleton />;
+    return (
+      <div className="animate-in fade-in duration-500">
+        <LoadingSkeleton />
+      </div>
+    );
   }
 
   if (error) {
-    return <ErrorCard error={error} />;
+    return (
+      <div className="animate-in fade-in duration-500">
+        <ErrorCard error={error} />
+      </div>
+    );
   }
 
-  const scene = scenes.find((s) => s.key === sceneKey);
+  const scene = scenes?.find((s: KnackScene) => s.key === sceneKey);
 
   if (!scene) {
     notFound();
   }
 
   return (
-    <Content className="space-y-4">
+    <Content className="space-y-4 animate-in fade-in duration-500">
       <SceneDetailsCard scene={scene} />
       <SceneViewsCard
         configId={configId}

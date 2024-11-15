@@ -1,3 +1,4 @@
+"use client";
 import {
   Select,
   SelectContent,
@@ -13,6 +14,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
 
 export type QueryParamBase = {
   name: string;
@@ -105,12 +107,16 @@ export function QueryParameters({
           onValueChange={(value) => onUpdateQueryParam(param.name, value)}
           disabled={param.name === "sort_order" && !queryParams.sort_field}
         >
-          <SelectTrigger>
+          <SelectTrigger className="glass-border hover:border-glow-purple/20 transition-all duration-300">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="glass-card border-glow">
             {param.options.map((option) => (
-              <SelectItem key={option} value={option}>
+              <SelectItem
+                key={option}
+                value={option}
+                className="hover:text-glow-purple hover:text-glow-sm transition-all duration-300"
+              >
                 {option}
               </SelectItem>
             ))}
@@ -119,47 +125,48 @@ export function QueryParameters({
       );
     }
 
-    if (param.type === "number") {
-      return (
-        <Input
-          type="number"
-          min={param.min}
-          max={param.max}
-          value={queryParams[param.name] || ""}
-          onChange={(e) => onUpdateQueryParam(param.name, e.target.value)}
-          placeholder={param.example.split("=")[1]}
-        />
-      );
-    }
-
     return (
       <Input
-        type="text"
+        type={param.type === "number" ? "number" : "text"}
+        min={param.type === "number" ? param.min : undefined}
+        max={param.type === "number" ? param.max : undefined}
         value={queryParams[param.name] || ""}
         onChange={(e) => onUpdateQueryParam(param.name, e.target.value)}
-        placeholder={param.placeholder}
+        placeholder={
+          param.type === "number"
+            ? param.example.split("=")[1]
+            : param.placeholder
+        }
+        className={cn(
+          "glass-border",
+          "hover:border-glow-purple/20",
+          "focus:border-glow-purple/30",
+          "transition-all duration-300"
+        )}
       />
     );
   };
 
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">Query Parameters</label>
+      <label className="text-sm font-medium text-glow-blue">
+        Query Parameters
+      </label>
       <div className="grid grid-cols-1 gap-2">
         {QUERY_PARAMS.map((param) => (
           <div
             key={param.name}
-            className="flex flex-col sm:flex-row sm:items-center gap-4 p-3 rounded-md bg-muted"
+            className="flex flex-col sm:flex-row sm:items-center gap-4 p-3 rounded-md glass-card"
           >
             <div className="flex-1 space-y-1">
               <div className="flex items-center gap-2">
-                <code className="font-mono text-primary">{param.name}</code>
+                <code className="font-mono text-glow-purple">{param.name}</code>
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger>
-                      <HelpCircle className="w-4 h-4 text-muted-foreground" />
+                      <HelpCircle className="w-4 h-4 text-muted-foreground hover:text-glow-purple transition-colors duration-300" />
                     </TooltipTrigger>
-                    <TooltipContent>
+                    <TooltipContent className="glass-card border-glow">
                       <p>
                         {param.description}
                         {param.name === "sort_order" &&

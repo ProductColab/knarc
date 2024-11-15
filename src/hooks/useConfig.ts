@@ -2,16 +2,11 @@
 
 import { useKnack } from "@/lib/knack/context";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import type { ConfigDocument, ConfigDocType } from "@/lib/store";
-import {
-  getConfigs,
-  getActiveConfig,
-  setActiveConfig,
-  insertConfig,
-  updateConfig,
-} from "@/lib/store";
+import type { ConfigDocument } from "@/lib/store";
+import { getConfigs, getActiveConfig, setActiveConfig } from "@/lib/store";
 
 export function useConfig() {
+  console.log("🔄 useConfig hook called");
   const { db } = useKnack();
   const queryClient = useQueryClient();
 
@@ -22,47 +17,45 @@ export function useConfig() {
     error,
   } = useQuery<ConfigDocument[]>({
     queryKey: ["configs"],
-    queryFn: () => getConfigs(db),
+    queryFn: async () => {
+      console.log("📥 Fetching configs from DB");
+      const result = await getConfigs(db);
+      console.log("📤 Fetched configs:", result.length);
+      return result;
+    },
   });
 
   // Get active config
   const { data: activeConfig } = useQuery<ConfigDocument | null>({
     queryKey: ["activeConfig"],
-    queryFn: () => getActiveConfig(db),
-  });
-
-  // Create new config
-  const createMutation = useMutation({
-    mutationFn: (config: Omit<ConfigDocType, "id" | "createdAt" | "updatedAt">) =>
-      insertConfig(db, config),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["configs"] });
-      queryClient.invalidateQueries({ queryKey: ["activeConfig"] });
-    },
-  });
-
-  // Update existing config
-  const updateMutation = useMutation({
-    mutationFn: ({
-      id,
-      config,
-    }: {
-      id: string;
-      config: Partial<ConfigDocType>;
-    }) => updateConfig(db, id, config),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["configs"] });
-      queryClient.invalidateQueries({ queryKey: ["activeConfig"] });
+    queryFn: async () => {
+      console.log("🎯 Fetching active config");
+      const result = await getActiveConfig(db);
+      console.log("📍 Active config:", result?.id);
+      return result;
     },
   });
 
   // Set active config
   const setActiveMutation = useMutation({
-    mutationFn: (configId: string) => setActiveConfig(db, configId),
+    mutationFn: async (configId: string) => {
+      console.log("⚡ Setting active config:", configId);
+      const result = await setActiveConfig(db, configId);
+      console.log("✅ Active config set:", result);
+      return result;
+    },
     onSuccess: () => {
+      console.log("🔄 Invalidating queries after config change");
       queryClient.invalidateQueries({ queryKey: ["configs"] });
       queryClient.invalidateQueries({ queryKey: ["activeConfig"] });
     },
+  });
+
+  console.log("📊 useConfig state:", {
+    configsCount: configs.length,
+    activeConfigId: activeConfig?.id,
+    isLoading,
+    hasError: !!error,
   });
 
   return {
@@ -70,11 +63,7 @@ export function useConfig() {
     activeConfig,
     isLoading,
     error,
-    createConfig: createMutation.mutateAsync,
-    updateConfig: updateMutation.mutateAsync,
     setActiveConfig: setActiveMutation.mutateAsync,
-    isCreating: createMutation.isPending,
-    isUpdating: updateMutation.isPending,
     isSettingActive: setActiveMutation.isPending,
   };
 }

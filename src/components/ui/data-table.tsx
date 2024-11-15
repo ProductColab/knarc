@@ -29,6 +29,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 interface DataTableProps<TData> {
   data: TData[];
@@ -66,10 +67,14 @@ export function DataTable<TData>({
   });
 
   return (
-    <Card>
+    <Card className="glass-card border-glow">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        {description && <CardDescription>{description}</CardDescription>}
+        <CardTitle className="text-glow-purple text-glow-sm">{title}</CardTitle>
+        {description && (
+          <CardDescription className="text-muted-foreground">
+            {description}
+          </CardDescription>
+        )}
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
@@ -80,11 +85,26 @@ export function DataTable<TData>({
                 placeholder={searchPlaceholder}
                 value={globalFilter ?? ""}
                 onChange={(event) => setGlobalFilter(event.target.value)}
-                className="pl-8 w-full"
+                className={cn(
+                  "pl-8 w-full",
+                  "glass-border",
+                  "hover:border-glow-purple/20",
+                  "focus:border-glow-purple/30",
+                  "transition-all duration-300"
+                )}
               />
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm">
+              <Button
+                variant="outline"
+                size="sm"
+                className={cn(
+                  "glass-border",
+                  "hover:border-glow-purple/20",
+                  "hover:text-glow-purple hover:text-glow-sm",
+                  "transition-all duration-300"
+                )}
+              >
                 <SlidersHorizontal className="mr-2 h-4 w-4" />
                 View Options
               </Button>
@@ -94,13 +114,19 @@ export function DataTable<TData>({
             </div>
           </div>
 
-          <div className="rounded-md border">
+          <div className="rounded-md glass-border">
             <Table>
               <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
-                  <TableRow key={headerGroup.id}>
+                  <TableRow
+                    key={headerGroup.id}
+                    className="hover:bg-white/5 border-b border-white/10"
+                  >
                     {headerGroup.headers.map((header) => (
-                      <TableHead key={header.id}>
+                      <TableHead
+                        key={header.id}
+                        className="text-glow-blue/70 font-medium"
+                      >
                         {header.isPlaceholder
                           ? null
                           : flexRender(
@@ -120,7 +146,7 @@ export function DataTable<TData>({
                       className="h-24 text-center"
                     >
                       <div className="flex items-center justify-center">
-                        <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+                        <div className="h-6 w-6 animate-spin rounded-full border-2 border-glow-purple border-t-transparent" />
                       </div>
                     </TableCell>
                   </TableRow>
@@ -129,7 +155,11 @@ export function DataTable<TData>({
                     <TableRow
                       key={row.id}
                       data-state={row.getIsSelected() && "selected"}
-                      className="hover:bg-muted/50"
+                      className={cn(
+                        "hover:bg-white/5 border-b border-white/10",
+                        "hover:text-glow-purple hover:text-glow-sm",
+                        "transition-all duration-300"
+                      )}
                     >
                       {row.getVisibleCells().map((cell) => (
                         <TableCell key={cell.id}>
@@ -145,7 +175,7 @@ export function DataTable<TData>({
                   <TableRow>
                     <TableCell
                       colSpan={columns.length}
-                      className="h-24 text-center"
+                      className="h-24 text-center text-muted-foreground"
                     >
                       No items found.
                     </TableCell>
@@ -166,6 +196,13 @@ export function DataTable<TData>({
                 size="sm"
                 onClick={() => table.previousPage()}
                 disabled={!table.getCanPreviousPage() || loading}
+                className={cn(
+                  "glass-border",
+                  "hover:border-glow-purple/20",
+                  "hover:text-glow-purple hover:text-glow-sm",
+                  "transition-all duration-300",
+                  "disabled:opacity-50"
+                )}
               >
                 Previous
               </Button>
@@ -174,6 +211,13 @@ export function DataTable<TData>({
                 size="sm"
                 onClick={() => table.nextPage()}
                 disabled={!table.getCanNextPage() || loading}
+                className={cn(
+                  "glass-border",
+                  "hover:border-glow-purple/20",
+                  "hover:text-glow-purple hover:text-glow-sm",
+                  "transition-all duration-300",
+                  "disabled:opacity-50"
+                )}
               >
                 Next
               </Button>

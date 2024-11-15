@@ -163,14 +163,14 @@ export function RulesSequence({ rules, fieldLabels = {} }: RulesSequenceProps) {
   }
 
   return (
-    <div className="overflow-x-auto relative min-h-[200px]">
+    <div className="overflow-x-auto relative min-h-[200px] glass-border rounded-md p-4">
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <Loader2 className="h-6 w-6 animate-spin" />
+          <Loader2 className="h-6 w-6 animate-spin text-glow-white" />
         </div>
       )}
       {error && (
-        <div className="text-destructive text-sm p-4 bg-destructive/10 rounded-md">
+        <div className="text-destructive text-sm p-4 bg-destructive/10 rounded-md glass-border">
           Error loading diagram: {error}
         </div>
       )}

@@ -37,7 +37,6 @@ export function RulesTable({
     return <div className="text-muted-foreground">No rules defined</div>;
   }
 
-  // Sort rules by key
   const sortedRules = [...rules].sort((a, b) => {
     const keyA = parseInt(a.key) || 0;
     const keyB = parseInt(b.key) || 0;
@@ -45,18 +44,23 @@ export function RulesTable({
   });
 
   return (
-    <div className="rounded-md border">
+    <div className="glass-border rounded-md">
       <Table>
         <TableHeader>
-          <TableRow>
+          <TableRow className="hover:bg-muted/5 border-b border-white/10">
             {columns.map((column) => (
-              <TableHead key={column}>{column}</TableHead>
+              <TableHead key={column} className="text-glow-white">
+                {column}
+              </TableHead>
             ))}
           </TableRow>
         </TableHeader>
         <TableBody>
           {sortedRules.map((rule, index) => (
-            <TableRow key={rule.key || index}>
+            <TableRow
+              key={rule.key || index}
+              className="hover:bg-muted/5 border-b border-white/10"
+            >
               {columns.map((column) => (
                 <TableCell key={column}>
                   {formatCellContent(rule, column.toLowerCase(), fieldLabels)}

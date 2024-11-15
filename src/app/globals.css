@@ -5,136 +5,157 @@
 @layer base {
   :root {
     /* Base theme colors */
-    --background: 260 30% 4%; /* Deep space black with slight purple tint */
-    --foreground: 220 60% 95%; /* Cool white */
+    --background: 240 10% 3.9%; /* Deep space black */
+    --foreground: 0 0% 100%;
 
-    /* Card and UI elements */
-    --card: 260 30% 8%;
-    --card-foreground: 220 60% 95%;
-    --popover: 260 30% 8%;
-    --popover-foreground: 220 60% 95%;
+    /* Incandescent glows */
+    --glow-blue: 195 100% 50%; /* Electric cyan #00FAFF */
+    --glow-purple: 280 100% 70%; /* Neon purple #D8ACFF */
+    --glow-pink: 330 100% 70%; /* Hot pink #FF99CC */
+    --glow-amber: 45 100% 65%; /* Warm amber #FFB84D */
 
-    /* Primary colors - Electric Blue */
-    --primary: 210 100% 60%; /* Electric blue */
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 210 100% 60%;
-    --primary-glow-hover: 195 100% 65%; /* Shift towards cyan */
-    --primary-glow-rgb: 0, 157, 255; /* RGB values for shadow utilities */
+    /* Glass effects with color tints */
+    --glass-bg: rgba(17, 18, 20, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --glass-highlight: rgba(255, 255, 255, 0.1);
+    --glass-shadow: rgba(0, 0, 0, 0.4);
+    --glass-glow: rgba(216, 172, 255, 0.15); /* Purple tint */
 
-    /* Secondary colors - Deep Space Purple */
-    --secondary: 260 50% 30%;
-    --secondary-foreground: 220 60% 95%;
+    /* Text colors with glow effects */
+    --text-primary: 0 0% 100%;
+    --text-secondary: 0 0% 100% 0.6;
+    --text-tertiary: 0 0% 100% 0.4;
+    --text-glow: 280 100% 70%; /* Glowing purple text */
 
-    /* Muted and accent colors */
-    --muted: 260 30% 12%;
-    --muted-foreground: 220 30% 65%;
-    --accent: 195 80% 40%; /* Cosmic cyan */
+    /* Card and UI gradients */
+    --card-gradient: linear-gradient(
+      137deg,
+      rgba(17, 18, 20, 0.75) 4.87%,
+      rgba(12, 13, 15, 0.9) 75.88%
+    );
+    --glow-gradient: linear-gradient(
+      150deg,
+      hsl(var(--glow-purple)) 0%,
+      hsl(var(--glow-blue)) 50%,
+      hsl(var(--glow-pink)) 100%
+    );
+
+    /* Status colors with glow */
+    --success-glow: 145 80% 60%; /* Glowing green #4DFFA0 */
+    --warning-glow: 45 100% 65%; /* Glowing amber #FFB84D */
+    --error-glow: 0 100% 65%; /* Glowing red #FF6666 */
+    --info-glow: 195 100% 50%; /* Glowing cyan #00FAFF */
+
+    /* Other colors */
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --destructive: 0 100% 69%;
+    --destructive-foreground: 0 0% 100%;
+    --muted: 0 0% 100% 0.05;
+    --muted-foreground: 0 0% 100% 0.4;
+    --accent: 0 0% 100% 0.05;
     --accent-foreground: 0 0% 100%;
 
-    /* System colors */
-    --destructive: 0 100% 40%; /* Keep red for destructive actions */
-    --destructive-foreground: 0 0% 95%;
-    --border: 260 30% 15%;
-    --input: 260 30% 12%;
-    --ring: 210 100% 60%; /* Match primary */
-
-    /* Cyberpunk accent colors */
-    --cyber-red: 0 100% 60%;
-    --cyber-blue: 210 100% 60%; /* Electric blue */
-    --cyber-purple: 280 100% 70%; /* Bright purple */
-    --cyber-cyan: 195 100% 60%; /* Cosmic cyan */
-
-    /* Sidebar colors - Using theme colors */
-    --sidebar-background: 260 30% 6%;
-    --sidebar-foreground: 220 60% 95%;
-    --sidebar-primary: 210 100% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: linear-gradient(
-      135deg,
-      hsl(260 50% 30%),
-      hsl(280 100% 70%)
-    );
-    --sidebar-accent-solid: 260 50% 30%; /* Fallback solid color */
-    --sidebar-accent-foreground: 350 100% 95%; /* poppy glow pink */
-    --sidebar-border: 260 30% 15%;
-    --sidebar-ring: 210 100% 60%;
-
-    /* Chart colors - Using space theme */
-    --chart-1: 210 100% 60%; /* Electric blue */
-    --chart-2: 195 100% 60%; /* Cosmic cyan */
-    --chart-3: 280 100% 70%; /* Bright purple */
-    --chart-4: 260 80% 60%; /* Deep purple */
-    --chart-5: 230 100% 65%; /* Royal blue */
+    /* Border and input */
+    --border: 0 0% 100% 0.1;
+    --input: 0 0% 100% 0.05;
+    --ring: 0 0% 100% 0.1;
 
     /* Border radius */
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 }
 
-/* Add some global utility classes */
 @layer utilities {
-  .text-glow {
-    text-shadow: 0 0 10px hsl(var(--primary-glow));
+  /* Modern glass card effect */
+  .glass-card {
+    background: var(--card-gradient);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--card-border);
+    box-shadow: inset 0 1px 1px 0 var(--card-highlight);
+    transform: translateZ(0);
   }
 
-  .border-glow {
-    box-shadow: 0 0 10px hsl(var(--primary-glow));
+  /* Glass border effect */
+  .glass-border {
+    position: relative;
+    border: 1px solid var(--glass-border);
   }
 
-  /* Additional cyberpunk utilities */
+  .glass-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(
+      150deg,
+      hsla(0, 0%, 100%, 0.23),
+      hsla(0, 0%, 100%, 0.07)
+    );
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+
+  /* Gradient glow effect */
+  .gradient-glow {
+    position: relative;
+  }
+
+  .gradient-glow::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background: radial-gradient(
+      50% 50% at 50% -20%,
+      rgba(255, 99, 99, 0.08) 0,
+      hsla(0, 100%, 73%, 0.04) 50.5%,
+      rgba(90, 23, 177, 0) 100%
+    );
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  /* Add new glow utilities */
   .text-glow-sm {
-    text-shadow: 0 0 5px hsl(var(--primary-glow));
+    text-shadow: 0 0 10px hsl(var(--text-glow) / 0.5);
   }
 
   .text-glow-lg {
-    text-shadow: 0 0 15px hsl(var(--primary-glow));
+    text-shadow: 0 0 20px hsl(var(--text-glow) / 0.7);
   }
 
-  .border-glow-sm {
-    box-shadow: 0 0 5px hsl(var(--primary-glow));
+  .border-glow {
+    box-shadow: 0 0 20px -5px hsl(var(--glow-purple) / 0.3);
   }
 
-  .border-glow-lg {
-    box-shadow: 0 0 20px hsl(var(--primary-glow));
+  .border-glow-active {
+    box-shadow: 0 0 20px -5px hsl(var(--glow-purple) / 0.3),
+      inset 0 0 15px -5px hsl(var(--glow-purple) / 0.2);
   }
 
-  /* Gradient text utility */
-  .text-gradient {
-    background: linear-gradient(
-      to right,
-      hsl(var(--cyber-red)),
-      hsl(var(--cyber-orange))
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /* Status glows */
+  .success-glow {
+    box-shadow: 0 0 20px -5px hsl(var(--success-glow) / 0.3);
   }
 
-  .sidebar-item-active {
-    text-shadow: 0 0 8px rgba(255, 140, 0, 0.6);
-    box-shadow: inset 0 0 15px rgba(255, 140, 0, 0.15),
-      0 0 12px rgba(255, 140, 0, 0.4);
+  .warning-glow {
+    box-shadow: 0 0 20px -5px hsl(var(--warning-glow) / 0.3);
   }
 
-  /* Update hover effect */
-  .sidebar-item-hover:hover {
-    box-shadow: inset 0 0 15px rgba(255, 140, 0, 0.08);
-  }
-
-  /* Remove the previous hover border effect since we're using a new approach */
-  .sidebar-item-hover::after {
-    display: none;
+  .error-glow {
+    box-shadow: 0 0 20px -5px hsl(var(--error-glow) / 0.3);
   }
 }
 
-/* Optional: Add some global styles for better cyberpunk feel */
+/* Base styles */
 @layer base {
-  /* Smoother font rendering */
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Better focus outlines */
+  /* Focus styles */
   :focus-visible {
     outline: 2px solid hsl(var(--primary));
     outline-offset: 2px;

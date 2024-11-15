@@ -46,7 +46,10 @@ function StoryHeading({
 }) {
   return (
     <h3
-      className={cn("text-lg font-semibold text-primary mt-4 mb-2", className)}
+      className={cn(
+        "text-lg font-semibold text-glow-white text-glow-sm mt-4 mb-2",
+        className
+      )}
     >
       {children}
     </h3>
@@ -59,34 +62,90 @@ export function FormView({ view }: FormViewProps) {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold">{view.title}</h1>
+      <h1 className="text-2xl font-bold text-glow-white text-glow-sm">
+        {view.title}
+      </h1>
       <FormHeader view={view} />
       <FormGroups groups={view.groups} />
 
       {view.rules && (
         <Tabs defaultValue="fields" className="w-full">
-          <TabsList className="grid w-full grid-cols-6">
-            <TabsTrigger value="stories" className="flex items-center gap-2">
+          <TabsList className="glass-card grid w-full grid-cols-6">
+            <TabsTrigger
+              value="stories"
+              className={cn(
+                "flex items-center gap-2 transition-all duration-300",
+                "data-[state=active]:text-glow-white data-[state=active]:text-glow-sm",
+                "data-[state=active]:bg-glow-purple/10",
+                "data-[state=active]:border-glow-active",
+                "hover:text-glow-white hover:bg-glow-purple/5"
+              )}
+            >
               <ClipboardList className="h-4 w-4" />
               Stories
             </TabsTrigger>
-            <TabsTrigger value="sequence" className="flex items-center gap-2">
+            <TabsTrigger
+              value="sequence"
+              className={cn(
+                "flex items-center gap-2 transition-all duration-300",
+                "data-[state=active]:text-glow-white data-[state=active]:text-glow-sm",
+                "data-[state=active]:bg-glow-blue/10",
+                "data-[state=active]:border-glow-active",
+                "hover:text-glow-white hover:bg-glow-blue/5"
+              )}
+            >
               <Activity className="h-4 w-4" />
               Sequence
             </TabsTrigger>
-            <TabsTrigger value="fields" className="flex items-center gap-2">
+            <TabsTrigger
+              value="fields"
+              className={cn(
+                "flex items-center gap-2 transition-all duration-300",
+                "data-[state=active]:text-glow-white data-[state=active]:text-glow-sm",
+                "data-[state=active]:bg-glow-amber/10",
+                "data-[state=active]:border-glow-active",
+                "hover:text-glow-white hover:bg-glow-amber/5"
+              )}
+            >
               <FileText className="h-4 w-4" />
               Fields ({view.rules.fields?.length || 0})
             </TabsTrigger>
-            <TabsTrigger value="submits" className="flex items-center gap-2">
+            <TabsTrigger
+              value="submits"
+              className={cn(
+                "flex items-center gap-2 transition-all duration-300",
+                "data-[state=active]:text-glow-white data-[state=active]:text-glow-sm",
+                "data-[state=active]:bg-success-glow/10",
+                "data-[state=active]:border-glow-active",
+                "hover:text-glow-white hover:bg-success-glow/5"
+              )}
+            >
               <Send className="h-4 w-4" />
               Submits ({view.rules.submits?.length || 0})
             </TabsTrigger>
-            <TabsTrigger value="records" className="flex items-center gap-2">
+            <TabsTrigger
+              value="records"
+              className={cn(
+                "flex items-center gap-2 transition-all duration-300",
+                "data-[state=active]:text-glow-white data-[state=active]:text-glow-sm",
+                "data-[state=active]:bg-glow-pink/10",
+                "data-[state=active]:border-glow-active",
+                "hover:text-glow-white hover:bg-glow-pink/5"
+              )}
+            >
               <Database className="h-4 w-4" />
               Records ({view.rules.records?.length || 0})
             </TabsTrigger>
-            <TabsTrigger value="emails" className="flex items-center gap-2">
+            <TabsTrigger
+              value="emails"
+              className={cn(
+                "flex items-center gap-2 transition-all duration-300",
+                "data-[state=active]:text-glow-white data-[state=active]:text-glow-sm",
+                "data-[state=active]:bg-info-glow/10",
+                "data-[state=active]:border-glow-active",
+                "hover:text-glow-white hover:bg-info-glow/5"
+              )}
+            >
               <Mail className="h-4 w-4" />
               Emails ({view.rules.emails?.length || 0})
             </TabsTrigger>
@@ -94,22 +153,25 @@ export function FormView({ view }: FormViewProps) {
 
           <TabsContent value="stories" className="mt-4 space-y-6">
             {stories.map((story, index) => (
-              <Card key={index} className="p-6">
+              <Card key={index} className="glass-card border-glow p-6">
                 <StoryHeading>{story.title}</StoryHeading>
-                <div className="space-y-2 mb-4">
+                <div className="space-y-2 mb-4 text-muted-foreground">
                   <p>
-                    <strong>As a</strong> {story.asA}
+                    <strong className="text-glow-white">As a</strong>{" "}
+                    {story.asA}
                   </p>
                   <p>
-                    <strong>I want</strong> {story.iWant}
+                    <strong className="text-glow-white">I want</strong>{" "}
+                    {story.iWant}
                   </p>
                   <p>
-                    <strong>So that</strong> {story.soThat}
+                    <strong className="text-glow-white">So that</strong>{" "}
+                    {story.soThat}
                   </p>
                 </div>
                 <div className="space-y-2">
                   <StoryHeading>Acceptance Criteria:</StoryHeading>
-                  <div className="space-y-4 prose prose-sm max-w-none">
+                  <div className="space-y-4 prose prose-sm prose-invert max-w-none">
                     {story.acceptanceCriteria.map((criteria, criteriaIndex) => (
                       <ReactMarkdown
                         key={criteriaIndex}
@@ -219,7 +281,7 @@ export function FormView({ view }: FormViewProps) {
 function FormHeader({ view }: FormViewProps) {
   return (
     <div className="flex items-center gap-4 flex-wrap">
-      <Badge variant="secondary">
+      <Badge variant="secondary" className="glass-border">
         {view.groups.reduce(
           (total, group) =>
             total +
@@ -231,11 +293,13 @@ function FormHeader({ view }: FormViewProps) {
         )}{" "}
         Fields
       </Badge>
-      <Badge variant="outline" className="capitalize">
+      <Badge variant="outline" className="capitalize glass-border">
         {view.action} Form
       </Badge>
       {view.submit_button_text && (
-        <Badge variant="outline">Submit: {view.submit_button_text}</Badge>
+        <Badge variant="outline" className="glass-border">
+          Submit: {view.submit_button_text}
+        </Badge>
       )}
     </div>
   );

@@ -29,6 +29,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { cn } from "@/lib/utils";
 
 // Form validation schema
 const configFormSchema = z.object({
@@ -112,18 +113,18 @@ const FormFieldWithPopover = ({
 }: FormFieldProps) => (
   <FormItem>
     <div className="flex items-center gap-2">
-      <FormLabel>{label}</FormLabel>
+      <FormLabel className="text-glow-blue">{label}</FormLabel>
       {helpText && (
         <Popover>
           <PopoverTrigger asChild>
             <Button
               variant="ghost"
-              className="h-4 w-4 p-0 hover:bg-transparent"
+              className="h-4 w-4 p-0 hover:bg-transparent hover:text-glow-purple hover:text-glow-sm transition-all duration-300"
             >
               <HelpCircle className="h-4 w-4" />
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="w-80">
+          <PopoverContent className="w-80 glass-card border-glow">
             <div className="space-y-2">{helpText}</div>
           </PopoverContent>
         </Popover>
@@ -137,9 +138,19 @@ const FormFieldWithPopover = ({
         disabled={disabled}
         value={value}
         onChange={(e) => onChange?.(e.target.value)}
+        className={cn(
+          "glass-border",
+          "hover:border-glow-purple/20",
+          "focus:border-glow-purple/30",
+          "transition-all duration-300"
+        )}
       />
     </FormControl>
-    {description && <FormDescription>{description}</FormDescription>}
+    {description && (
+      <FormDescription className="text-muted-foreground">
+        {description}
+      </FormDescription>
+    )}
     <FormMessage />
   </FormItem>
 );
@@ -297,7 +308,7 @@ export default function ConfigForm({ configId }: ConfigFormProps) {
   return (
     <>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">
+        <h1 className="text-3xl font-bold mb-2 text-glow-purple text-glow-sm">
           {existingConfig ? "Edit Configuration" : "New Configuration"}
         </h1>
         <p className="text-muted-foreground">
@@ -305,8 +316,10 @@ export default function ConfigForm({ configId }: ConfigFormProps) {
         </p>
       </div>
 
-      <div className="bg-muted p-4 rounded-lg mb-8">
-        <h3 className="font-semibold mb-2">Why is your API Key necessary?</h3>
+      <div className="glass-card border-glow p-4 rounded-lg mb-8">
+        <h3 className="font-semibold mb-2 text-glow-blue">
+          Why is your API Key necessary?
+        </h3>
         <p className="text-sm text-muted-foreground mb-4">
           We use your API key to verify your ownership of the application.
           Without it, anyone would be able to add your application ID here and
@@ -316,12 +329,14 @@ export default function ConfigForm({ configId }: ConfigFormProps) {
             href="https://docs.knack.com/docs/api-key-app-id"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:underline"
+            className="text-glow-amber hover:text-glow-sm transition-all duration-300"
           >
             Learn more about Knack API keys →
           </a>
         </p>
-        <h3 className="font-semibold mb-2">Is my API Key secure?</h3>
+        <h3 className="font-semibold mb-2 text-glow-blue">
+          Is my API Key secure?
+        </h3>
         <p className="text-sm text-muted-foreground">
           Your API key is stored securely in your browser&apos;s local database
           and never leaves your device. We don&apos;t transmit your credentials
@@ -331,14 +346,20 @@ export default function ConfigForm({ configId }: ConfigFormProps) {
       </div>
 
       {validationError && (
-        <div className="bg-destructive/10 text-destructive px-6 py-4 rounded-lg mb-6">
+        <div className="glass-card border border-destructive/50 text-destructive px-6 py-4 rounded-lg mb-6">
           <div className="font-semibold mb-1">Validation Error</div>
           <p className="text-sm">{validationError}</p>
           {validationError.includes("HIPAA") && (
             <Button
               variant="outline"
               size="sm"
-              className="mt-2"
+              className={cn(
+                "mt-2",
+                "glass-border",
+                "hover:border-glow-purple/20",
+                "hover:text-glow-purple hover:text-glow-sm",
+                "transition-all duration-300"
+              )}
               onClick={() => setIsAdvancedOpen(true)}
             >
               Open Advanced Settings
@@ -348,7 +369,7 @@ export default function ConfigForm({ configId }: ConfigFormProps) {
       )}
 
       {isVerified && (
-        <div className="bg-green-500/10 text-green-600 px-4 py-2 rounded-md mb-6 flex items-center gap-2">
+        <div className="glass-card border border-green-500/50 text-green-400 px-4 py-2 rounded-md mb-6 flex items-center gap-2">
           <Check className="h-4 w-4" />
           Credentials verified successfully
         </div>
@@ -356,13 +377,25 @@ export default function ConfigForm({ configId }: ConfigFormProps) {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
-          <FormField
-            name="name"
-            label="Configuration Name"
-            description="A friendly name to identify this configuration"
-            placeholder="My Knack App"
-            register={form.register}
-          />
+          <FormItem>
+            <FormLabel className="text-glow-blue">Configuration Name</FormLabel>
+            <FormControl>
+              <Input
+                {...form.register("name")}
+                className={cn(
+                  "glass-border",
+                  "hover:border-glow-purple/20",
+                  "focus:border-glow-purple/30",
+                  "transition-all duration-300"
+                )}
+                placeholder="My Knack App"
+              />
+            </FormControl>
+            <FormDescription className="text-muted-foreground">
+              A friendly name to identify this configuration
+            </FormDescription>
+            <FormMessage />
+          </FormItem>
 
           <FormFieldWithPopover
             name="applicationId"
@@ -411,17 +444,18 @@ export default function ConfigForm({ configId }: ConfigFormProps) {
             }
           />
 
-          <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+          <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md glass-border p-4">
             <FormControl>
               <Checkbox
                 checked={form.watch("storeApiKey")}
                 onCheckedChange={(checked) => {
                   form.setValue("storeApiKey", checked as boolean);
                 }}
+                className="border-glow-purple/30"
               />
             </FormControl>
             <div className="space-y-1 leading-none">
-              <FormLabel>
+              <FormLabel className="text-glow-blue">
                 Store API Key
                 <Popover>
                   <PopoverTrigger asChild>
@@ -446,24 +480,36 @@ export default function ConfigForm({ configId }: ConfigFormProps) {
                   </PopoverContent>
                 </Popover>
               </FormLabel>
-              <FormDescription>
+              <FormDescription className="text-muted-foreground">
                 Choose whether to store the API key locally
               </FormDescription>
             </div>
           </FormItem>
 
-          <div className="flex gap-4 py-6 border-y">
+          <div className="flex gap-4 py-6 border-y border-white/10">
             <Button
               type="button"
               onClick={() => validateCredentials(form.getValues())}
               disabled={isCreating || isUpdating}
+              className={cn(
+                "glass-border",
+                "hover:border-glow-purple/20",
+                "hover:text-glow-purple hover:text-glow-sm",
+                "transition-all duration-300"
+              )}
             >
               Verify Credentials
             </Button>
             <Button
               type="submit"
               disabled={!isVerified || isCreating || isUpdating}
-              className="bg-green-600 hover:bg-green-700"
+              className={cn(
+                "glass-border",
+                "bg-green-600/20 hover:bg-green-600/30",
+                "border-green-500/30 hover:border-green-500/50",
+                "text-green-400 hover:text-green-300",
+                "transition-all duration-300"
+              )}
             >
               {isCreating || isUpdating ? "Saving..." : "Save Configuration"}
             </Button>
@@ -471,6 +517,12 @@ export default function ConfigForm({ configId }: ConfigFormProps) {
               type="button"
               variant="outline"
               onClick={() => router.back()}
+              className={cn(
+                "glass-border",
+                "hover:border-glow-purple/20",
+                "hover:text-glow-purple hover:text-glow-sm",
+                "transition-all duration-300"
+              )}
             >
               Cancel
             </Button>
@@ -484,7 +536,11 @@ export default function ConfigForm({ configId }: ConfigFormProps) {
             <CollapsibleTrigger asChild>
               <Button
                 variant="ghost"
-                className="flex w-full justify-between p-0 font-semibold"
+                className={cn(
+                  "flex w-full justify-between p-0 font-semibold",
+                  "hover:text-glow-purple hover:text-glow-sm",
+                  "transition-all duration-300"
+                )}
               >
                 <span>Advanced Settings</span>
                 <ChevronDown
@@ -494,7 +550,7 @@ export default function ConfigForm({ configId }: ConfigFormProps) {
                 />
               </Button>
             </CollapsibleTrigger>
-            <CollapsibleContent className="space-y-6">
+            <CollapsibleContent className="space-y-6 glass-card p-4 rounded-lg">
               <FormField
                 name="apiDomain"
                 label="API Domain"

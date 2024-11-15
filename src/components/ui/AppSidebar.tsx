@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import * as React from "react";
@@ -35,44 +36,113 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useConfig } from "@/hooks/useConfig";
 import { useKnack } from "@/lib/knack/context";
+import { cn } from "@/lib/utils";
+import { useCallback } from "react";
 
 function ConfigurationSelector() {
   const { configs, activeConfig, setActiveConfig, isSettingActive } =
     useConfig();
   const router = useRouter();
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  // Memoize the configs to prevent unnecessary re-renders
+  const memoizedConfigs = React.useMemo(() => configs, [configs]);
+
+  const handleConfigSelect = useCallback(
+    async (configId: string) => {
+      try {
+        setIsOpen(false); // Close dropdown before state change
+        await setActiveConfig(configId);
+        router.refresh();
+      } catch (error) {
+        console.error("Failed to set active config:", error);
+      }
+    },
+    [setActiveConfig, router]
+  );
+
+  // Early return with a non-interactive button if configs is empty
+  if (memoizedConfigs.length === 0) {
+    return (
+      <SidebarMenuButton
+        className={cn(
+          "w-full justify-between",
+          "glass-card border border-white/10",
+          "transition-all duration-300"
+        )}
+        disabled={true}
+      >
+        <span className="flex items-center gap-2">
+          <Database className="h-4 w-4 text-glow-blue" />
+          <span className="group-data-[collapsible=icon]:hidden">
+            No configurations
+          </span>
+        </span>
+      </SidebarMenuButton>
+    );
+  }
 
   return (
-    <DropdownMenu>
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild disabled={isSettingActive}>
-        <SidebarMenuButton className="w-full justify-between">
+        <SidebarMenuButton
+          className={cn(
+            "w-full justify-between",
+            "glass-card border border-white/10",
+            "hover:border-glow-purple/30 hover:shadow-none",
+            "transition-all duration-300",
+            isOpen && "border-glow-purple/30" // Highlight when open
+          )}
+        >
           <span className="flex items-center gap-2">
-            <Database className="h-4 w-4" />
+            <Database className="h-4 w-4 text-glow-blue" />
             <span className="group-data-[collapsible=icon]:hidden">
               {activeConfig?.name ?? "Select configuration..."}
             </span>
           </span>
-          <ChevronDown className="ml-auto h-4 w-4 opacity-50 group-data-[collapsible=icon]:hidden" />
+          <ChevronDown
+            className={cn(
+              "ml-auto h-4 w-4 opacity-50 group-data-[collapsible=icon]:hidden",
+              "transition-transform duration-200",
+              isOpen && "rotate-180"
+            )}
+          />
         </SidebarMenuButton>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-[--radix-popper-anchor-width]">
-        {configs.map((config) => (
+      <DropdownMenuContent
+        className={cn(
+          "w-[--radix-popper-anchor-width]",
+          "glass-card border border-white/10",
+          "shadow-glow"
+        )}
+        onCloseAutoFocus={(e) => e.preventDefault()} // Prevent focus issues
+      >
+        {memoizedConfigs.map((config) => (
           <DropdownMenuItem
             key={config.id}
-            onSelect={() => {
-              setActiveConfig(config.id);
-              router.refresh();
-            }}
+            onSelect={() => handleConfigSelect(config.id)}
+            className={cn(
+              "hover:bg-white/5",
+              "hover:text-glow-purple hover:text-glow-sm",
+              "transition-all duration-300"
+            )}
           >
             <span>{config.name}</span>
             {activeConfig?.id === config.id && (
-              <Check className="ml-auto h-4 w-4" />
+              <Check className="ml-auto h-4 w-4 text-glow-blue" />
             )}
           </DropdownMenuItem>
         ))}
         <DropdownMenuItem
           onSelect={() => {
+            setIsOpen(false); // Close dropdown before navigation
             router.push("/config/new");
           }}
+          className={cn(
+            "hover:bg-white/5",
+            "hover:text-glow-amber hover:text-glow-sm",
+            "transition-all duration-300"
+          )}
         >
           <PlusCircle className="mr-2 h-4 w-4" />
           <span>Add Configuration</span>
@@ -170,9 +240,9 @@ export function AppSidebar() {
           href: getNavHref("/views"),
         },
         {
-          title: "API Explorer",
+          title: "API",
           icon: Code,
-          href: getNavHref("/api-explorer"),
+          href: getNavHref("/api"),
         },
       ],
     },
@@ -207,11 +277,10 @@ export function AppSidebar() {
   return (
     <>
       <Sidebar variant="floating" collapsible="icon">
-        <SidebarHeader className="border-b border-border p-4">
+        <SidebarHeader className="border-b border-white/10 p-4 glass-card">
           <div className="flex flex-col gap-4">
             {appLogo ? (
               <div className="flex justify-center items-center h-12 overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={appLogo}
                   alt="Application Logo"
@@ -219,7 +288,7 @@ export function AppSidebar() {
                 />
               </div>
             ) : (
-              <div className="h-12 flex items-center justify-center text-lg font-semibold">
+              <div className="h-12 flex items-center justify-center text-lg font-semibold text-glow-purple text-glow-lg">
                 Knack Explorer
               </div>
             )}
@@ -229,7 +298,9 @@ export function AppSidebar() {
         <SidebarContent>
           {navigationItems.map((section) => (
             <SidebarGroup key={section.section}>
-              <SidebarGroupLabel>{section.section}</SidebarGroupLabel>
+              <SidebarGroupLabel className="text-glow-blue/70">
+                {section.section}
+              </SidebarGroupLabel>
               <SidebarGroupContent>
                 <SidebarMenu>
                   {section.items.map((item) => (
@@ -238,10 +309,13 @@ export function AppSidebar() {
                         <SidebarMenuButton
                           asChild
                           tooltip={`Open ${item.title} in new tab`}
-                          className="
-                            hover:bg-transparent hover:border hover:border-[hsl(280_100%_70%)] 
-                            hover:shadow-[inset_0_0_10px_rgba(147,51,234,0.2)] 
-                            transition-all duration-300"
+                          className={cn(
+                            "glass-border",
+                            "hover:bg-white/5",
+                            "hover:text-glow-amber hover:text-glow-sm",
+                            "hover:border-glow-amber/30",
+                            "transition-all duration-300"
+                          )}
                         >
                           <a
                             href={item.href}
@@ -256,15 +330,26 @@ export function AppSidebar() {
                         <SidebarMenuButton
                           asChild
                           isActive={isActiveLink(item.href)}
-                          className={`
-                            ${
-                              isActiveLink(item.href)
-                                ? "bg-[hsl(260_30%_15%)] relative before:absolute before:inset-[-1px] before:rounded-[inherit] before:p-[1px] before:bg-gradient-to-r before:from-[hsl(32_100%_50%)] before:via-[hsl(260_30%_15%)] before:to-[hsl(32_100%_50%)] before:-z-10 before:opacity-80 sidebar-item-active"
-                                : ""
-                            }
-                            hover:bg-[hsl(260_30%_12%)]
-                            transition-all duration-300 relative
-                          `}
+                          className={cn(
+                            "transition-all duration-300 relative",
+                            isActiveLink(item.href) && [
+                              "glass-card",
+                              "border-glow-active",
+                              "text-glow-purple text-glow-sm",
+                              "before:absolute before:inset-0",
+                              "before:bg-glow-gradient before:opacity-5",
+                              "after:absolute after:inset-[-1px]",
+                              "after:rounded-[inherit] after:p-[1px]",
+                              "after:bg-gradient-to-r",
+                              "after:from-glow-purple/20 after:via-transparent after:to-glow-blue/20",
+                              "after:-z-10",
+                            ],
+                            !isActiveLink(item.href) && [
+                              "hover:bg-white/5",
+                              "hover:text-glow-purple hover:text-glow-sm",
+                              "hover:border-glow-purple/20",
+                            ]
+                          )}
                         >
                           <Link href={item.href}>
                             <item.icon className="h-4 w-4" />

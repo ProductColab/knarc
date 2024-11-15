@@ -9,6 +9,7 @@ import Link from "next/link";
 import { KnackView } from "@/lib/knack/types/views";
 import { motion } from "framer-motion";
 import { ViewTypeIcon } from "./view-type-icon";
+import { cn } from "@/lib/utils";
 
 interface SceneViewsCardProps {
   configId: string;
@@ -24,10 +25,12 @@ export function SceneViewsCard({
   if (!views?.length) return null;
 
   return (
-    <Card>
+    <Card className="glass-card border-glow">
       <CardHeader>
-        <CardTitle>Views</CardTitle>
-        <CardDescription>Scene views and components</CardDescription>
+        <CardTitle className="text-glow-white text-glow-sm">Views</CardTitle>
+        <CardDescription className="text-muted-foreground">
+          Scene views and components
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -39,20 +42,27 @@ export function SceneViewsCard({
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <Link href={`/${configId}/scenes/${sceneKey}/${view.key}`}>
-                <Card className="h-full hover:shadow-lg transition-shadow duration-200 hover:border-primary/50">
+                <Card
+                  className={cn(
+                    "h-full transition-all duration-300",
+                    "glass-border",
+                    "hover:border-glow-purple/20",
+                    "hover:border-glow-active"
+                  )}
+                >
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3">
-                      <div className="p-2 bg-primary/10 rounded-lg">
+                      <div className="p-2 rounded-lg bg-glow-purple/5 border-glow">
                         <ViewTypeIcon
                           type={view.type}
-                          className="text-primary"
+                          className="text-glow-purple"
                         />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-lg mb-2 text-primary">
+                        <h3 className="font-semibold text-lg mb-2 text-glow-white text-glow-sm">
                           {view.name}
                         </h3>
-                        <p className="text-sm text-muted-foreground font-mono">
+                        <p className="font-mono text-sm glass-border px-2 py-1 rounded bg-muted/5 inline-block">
                           {view.key}
                         </p>
                         <div className="mt-4 text-sm text-muted-foreground">

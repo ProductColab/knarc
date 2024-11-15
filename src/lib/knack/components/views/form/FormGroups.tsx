@@ -15,17 +15,19 @@ export function FormGroups({ groups }: FormGroupsProps) {
   );
 
   return (
-    <Table>
-      <TableHeader>
-        <TableRow className="hover:bg-background">
-          <TableHead>Field</TableHead>
-          <TableHead>Type</TableHead>
-          <TableHead>Instructions</TableHead>
-          <TableHead>Preview</TableHead>
-          <TableHead className="w-[52px]">Format</TableHead>
-        </TableRow>
-      </TableHeader>
-      <FormInputs inputs={allInputs} className="even:bg-muted/50" />
-    </Table>
+    <div className="glass-border rounded-md">
+      <Table>
+        <TableHeader>
+          <TableRow className="hover:bg-muted/5 border-b border-white/10">
+            <TableHead className="text-glow-white">Field</TableHead>
+            <TableHead className="text-glow-white">Type</TableHead>
+            <TableHead className="text-glow-white">Instructions</TableHead>
+            <TableHead className="text-glow-white">Preview</TableHead>
+            <TableHead className="w-[52px] text-glow-white">Format</TableHead>
+          </TableRow>
+        </TableHeader>
+        <FormInputs inputs={allInputs} className="even:bg-muted/5" />
+      </Table>
+    </div>
   );
 }
