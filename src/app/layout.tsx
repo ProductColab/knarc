@@ -17,7 +17,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Knack Explorer",
+  title: "Knarc",
   description:
     "A powerful tool for exploring and managing your Knack application schema",
 };
