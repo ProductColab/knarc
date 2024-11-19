@@ -1,4 +1,5 @@
 import { KnackObject } from "./object";
+import { KnackScene } from "./scene";
 
 export interface KnackAccount {
   slug: string;
@@ -17,24 +18,4 @@ export interface KnackApplication {
   account: KnackAccount;
   logo_url: string;
   [key: string]: unknown;
-}
-
-
-export interface KnackScene {
-  _id: string;
-  key: string;
-  name: string;
-  slug: string;
-  parent?: string;
-  views: KnackView[];
-  authenticated?: boolean;
-  allowed_profiles?: string[];
-  modal?: boolean;
-  modal_prevent_background_click_close?: boolean;
-  icon?: {
-    icon: string;
-    align: 'left' | 'right' | 'center';
-  };
-  print?: boolean;
-  object?: string;
 }
