@@ -1,8 +1,8 @@
 import { KnackField } from "../field";
 import { KnackFilterOperator } from "../filter";
-import { FORM_VIEW, KnackViewBase, KnackViewSource } from "../view";
+import { FORM_VIEW, KnackView, KnackViewSource } from "../view";
 
-export interface KnackFormView extends KnackViewBase {
+export interface KnackFormView extends KnackView {
   type: FORM_VIEW;
   action: "create" | "update";
   submit_button_text: string;
