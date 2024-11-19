@@ -8,7 +8,8 @@ import { ErrorBoundary } from "@/components/ui/error-boundary";
 import { Loading } from "@/components/ui/loading";
 
 export const DuckDB = dynamic<{ children: ReactNode }>(
-  () => import("@/lib/duckdb/provider").then((mod) => mod.DuckDBProvider),
+  () =>
+    import("@/lib/duckdb/duckdb-provider").then((mod) => mod.DuckDBProvider),
   {
     ssr: false,
   }
