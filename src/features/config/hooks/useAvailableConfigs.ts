@@ -1,16 +1,16 @@
 import { useDuckDB } from "@/lib/duckdb";
 import { useQuery } from "@tanstack/react-query";
-import { fetchAvailableSettings } from "../actions";
+import { fetchAvailableConfigs } from "@/features/config/actions";
 
-export function useAvailableSettings() {
+export function useAvailableConfigs() {
   const { getConnection, isInitialized } = useDuckDB();
 
   return useQuery({
-    queryKey: ["settings", "available"],
+    queryKey: ["config", "available"],
     queryFn: async () => {
       if (!isInitialized) return [];
       const conn = await getConnection();
-      return fetchAvailableSettings(conn);
+      return fetchAvailableConfigs(conn);
     },
     enabled: isInitialized,
   });

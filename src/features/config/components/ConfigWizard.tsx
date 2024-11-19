@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { KnackConfig, SettingsUpdate } from "../types";
+import { KnackConfig, ConfigUpdate } from "../types";
 import {
   ArrowRight,
   ArrowLeft,
@@ -18,7 +18,6 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-// Types
 interface WizardStep {
   title: string;
   description: string;
@@ -28,11 +27,10 @@ interface WizardStep {
   validation?: (value: string) => string | null;
 }
 
-interface SettingsWizardProps {
-  onComplete: (data: SettingsUpdate) => Promise<void>;
+interface ConfigWizardProps {
+  onComplete: (data: ConfigUpdate) => Promise<number>;
 }
 
-// Configuration
 const steps: WizardStep[] = [
   {
     title: "Application ID",
@@ -66,7 +64,6 @@ const steps: WizardStep[] = [
   },
 ];
 
-// Components
 const SuccessCard = () => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -83,7 +80,7 @@ const SuccessCard = () => (
       </motion.div>
       <h2 className="text-2xl font-bold">Configuration Complete!</h2>
       <p className="text-muted-foreground">
-        Your Knack application settings have been saved successfully.
+        Your Knack application configuration has been saved successfully.
       </p>
     </Card>
   </motion.div>
@@ -121,8 +118,7 @@ const ProgressIndicator = ({ currentStep }: { currentStep: number }) => (
   </div>
 );
 
-// Main Component
-export function SettingsWizard({ onComplete }: SettingsWizardProps) {
+export function ConfigWizard({ onComplete }: ConfigWizardProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<Partial<KnackConfig>>({
     apiVersion: "v1",
@@ -160,16 +156,16 @@ export function SettingsWizard({ onComplete }: SettingsWizardProps) {
     setIsSubmitting(true);
     try {
       const config = formData as KnackConfig;
-      await onComplete({
-        id: config.applicationId,
+      const configId = await onComplete({
         config,
       });
       setShowSuccess(true);
+      return configId;
     } catch (err) {
       console.error(err);
       setErrors((prev) => ({
         ...prev,
-        submit: "Failed to save settings. Please try again.",
+        submit: "Failed to save configuration. Please try again.",
       }));
     } finally {
       setIsSubmitting(false);

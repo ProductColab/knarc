@@ -9,26 +9,27 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useAvailableSettings } from "../hooks/useAvailableSettings";
+import { useAvailableConfigs } from "../hooks/useAvailableConfigs";
 import { useRouter } from "next/navigation";
 
-interface SettingsSwitcherProps {
-  activeSetting?: string;
+interface ConfigSwitcherProps {
+  activeConfigId?: number;
 }
 
 interface SwitcherContentProps {
-  settings: string[];
-  activeSetting?: string;
-  onSelect: (setting: string) => void;
+  configs: Array<{ id: number; applicationId: string }>;
+  activeConfigId?: number;
+  onSelect: (configId: number) => void;
 }
 
 function SwitcherContent({
-  settings,
-  activeSetting,
+  configs,
+  activeConfigId,
   onSelect,
 }: SwitcherContentProps) {
-  const activeLabel = activeSetting
-    ? settings.find((s: string) => s === activeSetting) || "Select config"
+  const activeConfig = configs.find((c) => c.id === activeConfigId);
+  const activeLabel = activeConfig
+    ? activeConfig.applicationId
     : "Select config";
 
   return (
@@ -44,17 +45,17 @@ function SwitcherContent({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-[200px]">
-        {settings.map((setting: string) => (
+        {configs.map((config) => (
           <DropdownMenuItem
-            key={setting}
-            onSelect={() => onSelect(setting)}
+            key={config.id}
+            onSelect={() => onSelect(config.id)}
             className={cn(
               "justify-between",
-              activeSetting === setting && "font-medium"
+              activeConfigId === config.id && "font-medium"
             )}
           >
-            {setting}
-            {activeSetting === setting && <Check className="h-4 w-4" />}
+            {config.applicationId}
+            {activeConfigId === config.id && <Check className="h-4 w-4" />}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
@@ -62,9 +63,10 @@ function SwitcherContent({
   );
 }
 
-export function SettingsSwitcher({ activeSetting }: SettingsSwitcherProps) {
-  const { data: settings = [], isLoading } = useAvailableSettings();
+export function ConfigSwitcher({ activeConfigId }: ConfigSwitcherProps) {
+  const { data: configs = [], isLoading } = useAvailableConfigs();
   const router = useRouter();
+
   if (isLoading) {
     return (
       <Button
@@ -80,9 +82,9 @@ export function SettingsSwitcher({ activeSetting }: SettingsSwitcherProps) {
 
   return (
     <SwitcherContent
-      settings={settings}
-      activeSetting={activeSetting}
-      onSelect={(setting) => router.push(`/${setting}`)}
+      configs={configs}
+      activeConfigId={activeConfigId}
+      onSelect={(configId) => router.push(`/${configId}`)}
     />
   );
 }
