@@ -1,10 +1,13 @@
 "use client";
 
+import { AsyncDuckDBConnection } from "@duckdb/duckdb-wasm";
 import { createContext } from "react";
-import type { AsyncDuckDB, AsyncDuckDBConnection } from "@duckdb/duckdb-wasm";
 
 export interface DuckDBContextValue {
-  db: AsyncDuckDB | null;
+  isInitialized: boolean;
+  isLoading: boolean;
+  error: Error | null;
+  isPersistent: boolean;
   getConnection: () => Promise<AsyncDuckDBConnection>;
 }
 
