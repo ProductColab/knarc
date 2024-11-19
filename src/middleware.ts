@@ -2,22 +2,23 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  const response = NextResponse.next();
-
-  // Add CORS headers for WASM files
-  if (request.url.endsWith('.wasm')) {
+  // Only apply WASM headers in development
+  if (process.env.NODE_ENV === 'development' && request.url.endsWith('.wasm')) {
+    const response = NextResponse.next();
     response.headers.set('Cross-Origin-Opener-Policy', 'same-origin');
     response.headers.set('Cross-Origin-Embedder-Policy', 'require-corp');
     response.headers.set('Content-Type', 'application/wasm');
+    return response;
   }
-
-  return response;
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
-    '/duckdb-eh.wasm',
-    '/duckdb-mvp.wasm'
-  ],
+  matcher: process.env.NODE_ENV === 'development'
+    ? [
+      '/((?!api|_next/static|_next/image|favicon.ico).*)',
+      '/duckdb-eh.wasm',
+      '/duckdb-mvp.wasm'
+    ]
+    : [],
 }; 

@@ -13,16 +13,30 @@ const DUCKDB_CONFIG: DuckDBConfig = {
   }
 };
 
-const DUCKDB_BUNDLES = {
+// Add CDN URLs for production
+const DUCKDB_CDN = {
   mvp: {
-    mainModule: '/duckdb-mvp.wasm',
-    mainWorker: '/duckdb-browser-mvp.worker.js',
+    mainModule: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm/dist/duckdb-mvp.wasm',
+    mainWorker: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm/dist/duckdb-browser-mvp.worker.js',
   },
   eh: {
-    mainModule: '/duckdb-eh.wasm',
-    mainWorker: '/duckdb-browser-eh.worker.js',
+    mainModule: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm/dist/duckdb-eh.wasm',
+    mainWorker: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm/dist/duckdb-browser-eh.worker.js',
   },
 };
+
+const DUCKDB_BUNDLES = process.env.NODE_ENV === 'production'
+  ? DUCKDB_CDN
+  : {
+    mvp: {
+      mainModule: '/duckdb-mvp.wasm',
+      mainWorker: '/duckdb-browser-mvp.worker.js',
+    },
+    eh: {
+      mainModule: '/duckdb-eh.wasm',
+      mainWorker: '/duckdb-browser-eh.worker.js',
+    },
+  };
 
 // Database state tracking
 let isInitialized = false;
@@ -160,7 +174,8 @@ async function initializeDatabase(): Promise<AsyncDuckDBConnection> {
 
   await connection.query(`
     CREATE TABLE IF NOT EXISTS settings (
-      application_id TEXT PRIMARY KEY,
+      id INTEGER PRIMARY KEY,
+      application_id TEXT UNIQUE,
       settings JSON
     )
   `);
