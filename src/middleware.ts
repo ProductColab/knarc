@@ -14,11 +14,11 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: process.env.NODE_ENV === 'development'
-    ? [
+  matcher: [
+    ...(process.env.NODE_ENV === 'development' ? [
       '/((?!api|_next/static|_next/image|favicon.ico).*)',
       '/duckdb-eh.wasm',
       '/duckdb-mvp.wasm'
-    ]
-    : [],
-}; 
+    ] : [])
+  ]
+};
