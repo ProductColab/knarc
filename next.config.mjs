@@ -1,28 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  webpack: (config, { dev }) => {
-    config.experiments = {
-      ...config.experiments,
-      asyncWebAssembly: true,
-    };
-
-    // Exclude DuckDB WASM files from production build
-    if (!dev) {
-      config.module.rules.push({
-        test: /\.wasm$/,
-        type: 'asset/resource',
-        generator: {
-          filename: '_ignored/[name][ext]'
-        }
-      });
-    }
-
-    return config;
-  },
   reactStrictMode: false,
+  // Keep CORS headers for development only
   async headers() {
-    // Only apply WASM headers in development
     if (process.env.NODE_ENV === 'development') {
       return [
         {
@@ -35,15 +15,6 @@ const nextConfig = {
             {
               key: 'Cross-Origin-Embedder-Policy',
               value: 'require-corp',
-            },
-          ],
-        },
-        {
-          source: '/:path*.wasm',
-          headers: [
-            {
-              key: 'Content-Type',
-              value: 'application/wasm',
             },
           ],
         },
