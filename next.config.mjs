@@ -6,6 +6,18 @@ const nextConfig = {
       ...config.experiments,
       asyncWebAssembly: true,
     };
+
+    // Exclude DuckDB WASM files from production build
+    if (!dev) {
+      config.module.rules.push({
+        test: /\.wasm$/,
+        type: 'asset/resource',
+        generator: {
+          filename: '_ignored/[name][ext]'
+        }
+      });
+    }
+
     return config;
   },
   reactStrictMode: false,
