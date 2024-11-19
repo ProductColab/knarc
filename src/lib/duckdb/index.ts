@@ -1,3 +1,4 @@
+import * as duckdb from '@duckdb/duckdb-wasm';
 import { AsyncDuckDB, AsyncDuckDBConnection, DuckDBConfig } from "@duckdb/duckdb-wasm";
 import { useContext } from "react";
 import { DuckDBContext } from "./context";
@@ -12,31 +13,6 @@ const DUCKDB_CONFIG: DuckDBConfig = {
     castBigIntToDouble: true
   }
 };
-
-// Add CDN URLs for production
-const DUCKDB_CDN = {
-  mvp: {
-    mainModule: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm/dist/duckdb-mvp.wasm',
-    mainWorker: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm/dist/duckdb-browser-mvp.worker.js',
-  },
-  eh: {
-    mainModule: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm/dist/duckdb-eh.wasm',
-    mainWorker: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm/dist/duckdb-browser-eh.worker.js',
-  },
-};
-
-const DUCKDB_BUNDLES = process.env.NODE_ENV === 'production'
-  ? DUCKDB_CDN
-  : {
-    mvp: {
-      mainModule: '/duckdb-mvp.wasm',
-      mainWorker: '/duckdb-browser-mvp.worker.js',
-    },
-    eh: {
-      mainModule: '/duckdb-eh.wasm',
-      mainWorker: '/duckdb-browser-eh.worker.js',
-    },
-  };
 
 // Database state tracking
 let isInitialized = false;
@@ -158,14 +134,19 @@ async function initializeDatabase(): Promise<AsyncDuckDBConnection> {
     return connection;
   }
 
-  const worker = new Worker(DUCKDB_BUNDLES.eh.mainWorker);
-  const logger = {
-    log: (msg: string | number | object) => console.log(msg),
-    error: (msg: string | number | object) => console.error(msg)
-  };
+  const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
+  const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
 
-  db = new AsyncDuckDB(logger, worker);
-  await db.instantiate(DUCKDB_BUNDLES.eh.mainModule);
+  const worker_url = URL.createObjectURL(
+    new Blob([`importScripts("${bundle.mainWorker!}");`], { type: 'text/javascript' })
+  );
+
+  const worker = new Worker(worker_url);
+  const logger = new duckdb.ConsoleLogger();
+  db = new duckdb.AsyncDuckDB(logger, worker);
+  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+  URL.revokeObjectURL(worker_url);
+
   await db.open({
     query: DUCKDB_CONFIG.query
   });
