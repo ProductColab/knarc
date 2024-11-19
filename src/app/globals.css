@@ -10,93 +10,132 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .bg-gradient {
+    @apply bg-gradient-to-r from-primary/20 via-background to-secondary/20;
+  }
+
+  .glass-effect {
+    @apply bg-background/80 backdrop-blur-[12px] border border-border/40;
+  }
+
+  .background-gradient {
+    @apply bg-gradient-to-r from-primary/20 via-background to-secondary/20;
+  }
+
+  .inner-shadow {
+    box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1);
+  }
 }
 
 @layer base {
   /* Light mode */
   :root {
+    /* Core palette */
+    --color-dark-grey: 220 10% 12%;
+    --color-teal: 187 85% 43%;
+    --color-purple: 280 90% 65%;
+    --color-pink: 330 85% 62%;
+
     /* Base colors */
-    --background: 220 13% 95%; /* Light sleek grey */
-    --foreground: 220 13% 20%; /* Dark sleek grey for text */
+    --background: var(--color-dark-grey);
+    --foreground: 0 0% 98%;
 
     /* Primary and secondary */
-    --primary: 220 40% 50%; /* Elegant blue-grey that complements the sleek grey */
-    --primary-foreground: var(--background);
-    --secondary: 220 13% 90%; /* Lighter variant of the sleek grey */
-    --secondary-foreground: var(--foreground);
+    --primary: var(--color-teal);
+    --primary-foreground: 0 0% 98%;
+    --secondary: var(--color-purple);
+    --secondary-foreground: 0 0% 98%;
 
     /* Accent and muted */
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 280 100% 70%;
-    --accent-foreground: var(--foreground);
+    --muted: 220 10% 18%;
+    --muted-foreground: 220 10% 65%;
+    --accent: var(--color-pink);
+    --accent-foreground: 0 0% 98%;
 
     /* Utility colors */
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-
-    /* Border radius */
-    --radius: 0.5rem;
+    --border: 220 10% 22%;
+    --input: 220 10% 22%;
+    --ring: var(--color-teal);
 
     /* Chart colors */
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --chart-1: var(--color-teal);
+    --chart-2: var(--color-purple);
+    --chart-3: var(--color-pink);
+    --chart-4: 160 85% 45%;
+    --chart-5: 230 85% 60%;
 
     /* Card and popover */
-    --card: var(--background);
-    --card-foreground: var(--glow-amber);
-    --popover: var(--background);
-    --popover-foreground: var(--foreground);
+    --card: 220 10% 14%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 10% 14%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Sidebar specific */
+    --sidebar-background: 220 10% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: var(--color-teal);
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 220 10% 16%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 10% 20%;
+    --sidebar-ring: var(--color-teal);
+
+    /* RGB values for gradients */
+    --primary-rgb: 43, 184, 213; /* Teal */
+    --secondary-rgb: 171, 56, 224; /* Purple */
+    --radius: 0.5rem;
   }
 
   /* Dark mode */
   .dark {
-    /* Base colors */
-    --background: 0 0% 3.9%;
+    /* We'll use the same colors for dark mode since we're already dark-focused */
+    --background: var(--color-dark-grey);
     --foreground: 0 0% 98%;
 
-    /* Primary and secondary */
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
+    --primary: var(--color-teal);
+    --primary-foreground: 0 0% 98%;
+    --secondary: var(--color-purple);
     --secondary-foreground: 0 0% 98%;
 
-    /* Accent and muted */
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
+    --muted: 220 10% 18%;
+    --muted-foreground: 220 10% 65%;
+    --accent: var(--color-pink);
     --accent-foreground: 0 0% 98%;
 
-    /* Utility colors */
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --border: 220 10% 22%;
+    --input: 220 10% 22%;
+    --ring: var(--color-teal);
 
-    /* Glow effects */
-    --glow-border: var(--foreground);
-    --glow-shadow: var(--foreground);
-    --glow-bg: var(--background);
-
-    /* Card and popover */
-    --card: 0 0% 3.9%;
+    --card: 220 10% 14%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
+    --popover: 220 10% 14%;
     --popover-foreground: 0 0% 98%;
 
-    /* Chart colors */
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    /* Keep the same chart colors */
+    --chart-1: var(--color-teal);
+    --chart-2: var(--color-purple);
+    --chart-3: var(--color-pink);
+    --chart-4: 160 85% 45%;
+    --chart-5: 230 85% 60%;
+
+    /* Sidebar stays consistent */
+    --sidebar-background: 220 10% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: var(--color-teal);
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 220 10% 16%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 10% 20%;
+    --sidebar-ring: var(--color-teal);
+
+    /* RGB values remain the same */
+    --primary-rgb: 43, 184, 213;
+    --secondary-rgb: 171, 56, 224;
   }
 }
 

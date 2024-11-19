@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import dynamic from "next/dynamic";
 import type { ReactNode } from "react";
-
-const DuckDBProvider = dynamic<{ children: ReactNode }>(
-  () =>
-    import("@/lib/duckdb/duckdb-provider").then((mod) => mod.DuckDBProvider),
-  {
-    ssr: false,
-  }
-);
+import { Providers } from "./providers";
+import { AppSidebar } from "./AppSidebar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,9 +27,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <DuckDBProvider>
-          <main>{children}</main>
-        </DuckDBProvider>
+        <Providers>
+          <AppSidebar />
+          <main className="flex-1 overflow-y-auto">{children}</main>
+        </Providers>
       </body>
     </html>
   );
