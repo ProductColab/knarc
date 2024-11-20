@@ -1,10 +1,10 @@
 import { Node, Edge } from "@xyflow/react";
-import { HierarchyPointNode, stratify, tree } from "d3-hierarchy";
-import { Direction, getNodeDimensions } from "./node-layout";
+import { stratify, tree } from "d3-hierarchy";
+import { Direction } from "./node-layout";
 
-interface NodeWithPosition extends Node {
-  x: number;
-  y: number;
+interface HierarchyData {
+  id: string;
+  parentId?: string;
 }
 
 export async function createHierarchicalLayout(
@@ -18,99 +18,49 @@ export async function createHierarchicalLayout(
   console.log("🎯 Starting hierarchical layout with nodes:", nodes);
   console.log("🔗 Edges:", edges);
 
-  const { width: maxNodeWidth, height: maxNodeHeight } = getNodeDimensions(nodes);
-  const nodeLevels = new Map<string, number>();
-  const nodeParents = new Map<string, string>();
-  const nodeChildren = new Map<string, string[]>();
+  // Create hierarchy data from nodes and edges
+  const hierarchyData: HierarchyData[] = nodes.map(node => ({
+    id: node.id,
+    parentId: edges.find(e => e.source === node.id)?.target
+  }));
 
-  // Build parent-child relationships
-  edges.forEach(edge => {
-    nodeParents.set(edge.source, edge.target);
-    const children = nodeChildren.get(edge.target) || [];
-    children.push(edge.source);
-    nodeChildren.set(edge.target, children);
-  });
+  // Create D3 hierarchy
+  const root = stratify<HierarchyData>()
+    .id(d => d.id)
+    .parentId(d => d.parentId)
+    (hierarchyData);
 
-  console.log("👨‍👧‍👦 Node children map:", Object.fromEntries(nodeChildren));
+  // Create tree layout
+  const treeLayout = tree<HierarchyData>()
+    .nodeSize([options.spacing[0], options.spacing[1]]);
 
-  // First pass: identify primitive (input) nodes
-  nodes.forEach(node => {
-    if (node.data.type === 'short_text') {
-      nodeLevels.set(node.id, 0); // Primitive nodes at level 0 (top)
-      console.log(`📝 Identified primitive node "${node.data.label}" -> level 0`);
-    }
-  });
+  // Apply layout
+  const hierarchyNodes = treeLayout(root);
 
-  // Second pass: calculate levels for computed nodes
-  function calculateLevel(nodeId: string, visited: Set<string> = new Set()): number {
-    if (visited.has(nodeId)) return nodeLevels.get(nodeId) || 0;
-    visited.add(nodeId);
-
-    const node = nodes.find(n => n.id === nodeId);
-    if (!node) return 0;
-
-    // If level is already set (primitive node), return it
-    if (nodeLevels.has(nodeId)) {
-      return nodeLevels.get(nodeId)!;
-    }
-
-    console.log(`📊 Calculating level for computed node "${node.data.label}"`);
-
-    // Get all children (dependencies) of this node
-    const children = nodeChildren.get(nodeId) || [];
-    
-    if (children.length === 0) {
-      // No children but not a primitive - shouldn't happen but handle anyway
-      const level = 0;
-      nodeLevels.set(nodeId, level);
-      return level;
-    }
-
-    // Level is one more than the maximum level of dependencies
-    const childLevels = children.map(child => calculateLevel(child, visited));
-    const level = Math.max(...childLevels) + 1;
-    console.log(`📈 Computed node "${node.data.label}" -> level ${level}`);
-    nodeLevels.set(nodeId, level);
-    return level;
-  }
-
-  // Calculate levels for all non-primitive nodes
-  nodes.forEach(node => {
-    if (!nodeLevels.has(node.id)) {
-      calculateLevel(node.id);
-    }
-  });
-
-  console.log("📊 Final node levels:", Object.fromEntries(nodeLevels));
-
-  // Group nodes by level
-  const nodesByLevel = new Map<number, Node[]>();
-  nodes.forEach(node => {
-    const level = nodeLevels.get(node.id) || 0;
-    const levelNodes = nodesByLevel.get(level) || [];
-    levelNodes.push(node);
-    nodesByLevel.set(level, levelNodes);
-  });
-
-  // Position nodes
-  const maxLevel = Math.max(...Array.from(nodeLevels.values()));
+  // Map hierarchy nodes back to React Flow nodes with positions
   const nextNodes = nodes.map(node => {
-    const level = nodeLevels.get(node.id) || 0;
-    const levelNodes = nodesByLevel.get(level) || [];
-    const nodeIndex = levelNodes.indexOf(node);
-    
-    // y increases with level (top to bottom)
-    const y = level * options.spacing[1];
-    const levelWidth = (levelNodes.length - 1) * options.spacing[0];
-    const x = (nodeIndex * options.spacing[0]) - (levelWidth / 2);
+    const hierarchyNode = hierarchyNodes.descendants()
+      .find(n => n.data.id === node.id);
 
-    console.log(`📍 Positioning "${node.data.label}": level=${level}, x=${x}, y=${y}`);
+    if (!hierarchyNode) {
+      console.warn(`Could not find hierarchy node for ${node.id}`);
+      return node;
+    }
+
+    // D3 hierarchy uses y for depth (vertical) and x for breadth (horizontal)
+    // We swap these to match the expected top-to-bottom layout
+    const position = {
+      x: hierarchyNode.x,
+      y: hierarchyNode.y
+    };
+
+    console.log(`📍 Positioning "${node.data.label}": x=${position.x}, y=${position.y}`);
 
     return {
       ...node,
-      position: { x, y },
+      position
     };
   });
 
   return { nodes: nextNodes, edges };
-} 
+}

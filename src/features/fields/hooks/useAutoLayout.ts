@@ -1,14 +1,11 @@
 import { useEffect, useCallback } from 'react';
 import {
-  type Node,
-  type Edge,
   useReactFlow,
   useNodesInitialized,
   useNodes,
   useEdges,
 } from '@xyflow/react';
 
-import { getSourceHandlePosition, getTargetHandlePosition } from '../utils/node-layout';
 import { createHierarchicalLayout } from '../utils/node-hierarchy';
 
 export type Direction = 'TB' | 'LR' | 'RL' | 'BT';
@@ -23,7 +20,7 @@ function useAutoLayout(options: LayoutOptions) {
   const nodesInitialized = useNodesInitialized();
   const nodes = useNodes();
   const edges = useEdges();
-  
+
   const runLayout = useCallback(async () => {
     if (!nodesInitialized || nodes.length === 0) return;
 
@@ -31,7 +28,7 @@ function useAutoLayout(options: LayoutOptions) {
     console.log("🔗 Current edges:", edges);
 
     try {
-      const { nodes: layoutedNodes, edges: layoutedEdges } = 
+      const { nodes: layoutedNodes, edges: layoutedEdges } =
         await createHierarchicalLayout(
           nodes,
           edges,

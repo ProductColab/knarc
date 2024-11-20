@@ -1,4 +1,4 @@
-import { Node, Edge, Position } from "@xyflow/react";
+import { Node, Position } from "@xyflow/react";
 
 export type Direction = 'TB' | 'BT' | 'LR' | 'RL';
 

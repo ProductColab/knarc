@@ -131,7 +131,7 @@ export async function getFieldDependencies(
     }
     console.log("🔗 Concatenation field references:", referencedKeys);
   } else if (isSumField(sourceField)) {
-    referencedKeys = [sourceField.format.field];
+    referencedKeys = [sourceField.format.field.key];
     console.log("➕ Sum field references:", referencedKeys);
   }
 
