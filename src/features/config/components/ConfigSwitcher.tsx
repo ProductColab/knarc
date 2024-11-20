@@ -9,15 +9,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useAvailableConfigs } from "../hooks/useAvailableConfigs";
 import { useRouter } from "next/navigation";
+import { useActiveConfig } from "../config-provider";
 
-interface ConfigSwitcherProps {
-  activeConfigId?: number;
+interface ConfigOption {
+  id: number;
+  applicationId: string;
+  name?: string;
 }
 
 interface SwitcherContentProps {
-  configs: Array<{ id: number; applicationId: string }>;
+  configs: ConfigOption[];
   activeConfigId?: number;
   onSelect: (configId: number) => void;
 }
@@ -29,7 +31,7 @@ function SwitcherContent({
 }: SwitcherContentProps) {
   const activeConfig = configs.find((c) => c.id === activeConfigId);
   const activeLabel = activeConfig
-    ? activeConfig.applicationId
+    ? activeConfig.name || activeConfig.applicationId
     : "Select config";
 
   return (
@@ -54,7 +56,7 @@ function SwitcherContent({
               activeConfigId === config.id && "font-medium"
             )}
           >
-            {config.applicationId}
+            {config.name || config.applicationId}
             {activeConfigId === config.id && <Check className="h-4 w-4" />}
           </DropdownMenuItem>
         ))}
@@ -63,8 +65,12 @@ function SwitcherContent({
   );
 }
 
-export function ConfigSwitcher({ activeConfigId }: ConfigSwitcherProps) {
-  const { data: configs = [], isLoading } = useAvailableConfigs();
+export function ConfigSwitcher() {
+  const {
+    config: activeConfig,
+    availableConfigs,
+    isLoading,
+  } = useActiveConfig();
   const router = useRouter();
 
   if (isLoading) {
@@ -80,10 +86,16 @@ export function ConfigSwitcher({ activeConfigId }: ConfigSwitcherProps) {
     );
   }
 
+  const mappedConfigs = availableConfigs.map((config) => ({
+    id: config.id!,
+    applicationId: config.config.applicationId,
+    name: config.applicationInfo?.name,
+  }));
+
   return (
     <SwitcherContent
-      configs={configs}
-      activeConfigId={activeConfigId}
+      configs={mappedConfigs}
+      activeConfigId={activeConfig?.id}
       onSelect={(configId) => router.push(`/${configId}`)}
     />
   );

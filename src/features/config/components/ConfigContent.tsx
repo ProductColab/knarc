@@ -1,99 +1,38 @@
 "use client";
-import { useRouter } from "next/navigation";
+
 import { ConfigForm } from "./ConfigForm";
-import { ErrorBoundary } from "@/components/ui/error-boundary";
-import { Skeleton } from "@/components/ui/skeleton";
+import { useActiveConfig } from "../config-provider";
+import { ConfigUpdate } from "../types";
+import { Loading } from "@/components/ui/loading";
 import { useConfig } from "../hooks/useConfig";
-import { ConfigWizard } from "./ConfigWizard";
-import { useAvailableConfigs } from "../hooks/useAvailableConfigs";
-import { ConfigId, Config, ConfigUpdate } from "../types";
 
-interface ConfigContentProps {
-  configId: ConfigId | null;
-  onConfigured?: (id: number) => void;
-}
-
-export function ConfigContent({ configId, onConfigured }: ConfigContentProps) {
-  const router = useRouter();
-  const { config, error, isLoading, updateConfig } = useConfig(configId);
-  const { data: availableConfigs } = useAvailableConfigs();
+export function ConfigContent() {
+  const { config, isLoading, isError } = useActiveConfig();
+  const { updateConfig } = useConfig(config?.id);
 
   if (isLoading) {
-    return <Skeleton className="w-full h-[500px]" />;
+    return <Loading message="Loading configuration..." />;
   }
 
-  // If we're on the main page and have configs, redirect to the first one
-  if (!configId && availableConfigs && availableConfigs.length > 0) {
-    router.push(`/${availableConfigs[0].id}`);
-    return null;
-  }
-
-  // Show wizard only on main page when no configs exist
-  if (!configId && availableConfigs?.length === 0) {
+  if (isError) {
     return (
-      <ConfigWizard
-        onComplete={async (data: ConfigUpdate) => {
-          const newConfigId = await updateConfig(data);
-          if (onConfigured) {
-            onConfigured(newConfigId);
-          } else {
-            router.push(`/${newConfigId}`);
-          }
-          return newConfigId;
-        }}
-      />
-    );
-  }
-
-  if (!config) {
-    return null;
-  }
-
-  return (
-    <ErrorBoundary>
-      <ConfigEditor
-        config={config}
-        error={error}
-        configId={configId}
-        updateConfig={updateConfig}
-      />
-    </ErrorBoundary>
-  );
-}
-
-interface ConfigEditorProps {
-  config: Config;
-  error: Error | null;
-  configId: ConfigId | null;
-  updateConfig: (data: ConfigUpdate) => Promise<number>;
-}
-
-function ConfigEditor({
-  config,
-  error,
-  configId,
-  updateConfig,
-}: ConfigEditorProps) {
-  if (error) {
-    throw error;
-  }
-
-  if (!config) {
-    return (
-      <div className="text-sm text-muted-foreground">
-        No configuration found for ID: {configId}
+      <div className="flex items-center justify-center h-64">
+        <p className="text-muted-foreground">Configuration not found</p>
       </div>
     );
   }
 
-  const handleSubmit = async (data: ConfigUpdate) => {
-    await updateConfig(data);
+  const defaultConfig: ConfigUpdate = {
+    config: {
+      applicationId: "",
+      apiKey: "",
+      apiDomain: "api",
+      apiHost: "knack.com",
+      apiVersion: "v1",
+    },
   };
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold">Update Configuration</h1>
-      <ConfigForm config={config} onSubmit={handleSubmit} />
-    </div>
+    <ConfigForm config={config || defaultConfig} onSubmit={updateConfig} />
   );
 }

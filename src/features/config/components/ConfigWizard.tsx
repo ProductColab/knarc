@@ -17,11 +17,13 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { ConfigForm } from "./ConfigForm";
+import { useVerifyConfig } from "@/lib/knack/hooks/useVerifyConfig";
 
 interface WizardStep {
   title: string;
   description: string;
-  field: keyof KnackConfig;
+  field: keyof KnackConfig | "verify";
   icon: React.ReactNode;
   placeholder: string;
   validation?: (value: string) => string | null;
@@ -61,6 +63,13 @@ const steps: WizardStep[] = [
     field: "apiHost",
     icon: <Server className="w-6 h-6" />,
     placeholder: "knack.com",
+  },
+  {
+    title: "Verify Connection",
+    description: "Let's verify your Knack application credentials",
+    field: "verify",
+    icon: <CheckCircle2 className="w-6 h-6" />,
+    placeholder: "",
   },
 ];
 
@@ -122,23 +131,39 @@ export function ConfigWizard({ onComplete }: ConfigWizardProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<Partial<KnackConfig>>({
     apiVersion: "v1",
+    apiDomain: "api",
+    apiHost: "knack.com",
+    applicationId: "6707c48f6f4c5d028061aba5",
+    apiKey: "1362c64a-6c63-4431-b993-84ba28682f20",
   });
   const [errors, setErrors] = useState<Record<string, string | null>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const { verify, isVerifying, error: verificationError } = useVerifyConfig();
+  const [verificationSuccess, setVerificationSuccess] = useState(false);
 
   const validateField = (field: keyof KnackConfig, value: string) => {
     const step = steps.find((s) => s.field === field);
     return step?.validation?.(value) || null;
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     const currentField = steps[currentStep].field;
-    const error = validateField(currentField, formData[currentField] as string);
 
-    if (error) {
-      setErrors((prev) => ({ ...prev, [currentField]: error }));
-      return;
+    if (currentField === "verify") {
+      const isValid = await verify(formData as KnackConfig);
+      if (!isValid) {
+        return;
+      }
+    } else {
+      const error = validateField(
+        currentField as keyof KnackConfig,
+        formData[currentField as keyof KnackConfig] as string
+      );
+      if (error) {
+        setErrors((prev) => ({ ...prev, [currentField]: error }));
+        return;
+      }
     }
 
     if (currentStep < steps.length - 1) {
@@ -161,8 +186,8 @@ export function ConfigWizard({ onComplete }: ConfigWizardProps) {
       });
       setShowSuccess(true);
       return configId;
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
       setErrors((prev) => ({
         ...prev,
         submit: "Failed to save configuration. Please try again.",
@@ -177,12 +202,39 @@ export function ConfigWizard({ onComplete }: ConfigWizardProps) {
     setErrors((prev) => ({ ...prev, [field]: null }));
   };
 
+  const handleVerify = async () => {
+    const isValid = await verify(formData as KnackConfig);
+    if (isValid) {
+      setVerificationSuccess(true);
+    }
+  };
+
+  const handleFormSubmit = async (data: ConfigUpdate): Promise<number> => {
+    setIsSubmitting(true);
+    try {
+      const configData = {
+        config: data.config,
+      };
+      const configId = await onComplete(configData);
+      setShowSuccess(true);
+      return configId;
+    } catch (error) {
+      console.error(error);
+      setErrors((prev) => ({
+        ...prev,
+        submit: "Failed to save configuration. Please try again.",
+      }));
+      throw error;
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   if (showSuccess) {
     return <SuccessCard />;
   }
 
   const currentStepData = steps[currentStep];
-  const isLastStep = currentStep === steps.length - 1;
   const isFirstStep = currentStep === 0;
 
   return (
@@ -227,18 +279,70 @@ export function ConfigWizard({ onComplete }: ConfigWizardProps) {
               </div>
 
               <div className="space-y-2">
-                <Input
-                  placeholder={currentStepData.placeholder}
-                  value={(formData[currentStepData.field] as string) || ""}
-                  onChange={(e) =>
-                    handleInputChange(currentStepData.field, e.target.value)
-                  }
-                  className={cn(
-                    "rounded-lg",
-                    errors[currentStepData.field] &&
-                      "border-red-500 focus-visible:ring-red-500"
-                  )}
-                />
+                {currentStepData.field === "verify" ? (
+                  <div className="space-y-4">
+                    {isVerifying ? (
+                      <div className="flex items-center justify-center space-x-2">
+                        <Loader2 className="w-6 h-6 animate-spin" />
+                        <span>Verifying connection...</span>
+                      </div>
+                    ) : verificationError ? (
+                      <>
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="flex items-start space-x-2 text-red-500 bg-red-50 p-4 rounded-lg"
+                        >
+                          <AlertCircle className="w-6 h-6 text-red-500 shrink-0" />
+                          <span className="text-sm text-left">
+                            {verificationError}
+                          </span>
+                        </motion.div>
+                        <ConfigForm
+                          config={{
+                            id: 0,
+                            config: formData as KnackConfig,
+                          }}
+                          onSubmit={handleFormSubmit}
+                        />
+                      </>
+                    ) : verificationSuccess ? (
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-center space-x-2 text-green-500">
+                          <CheckCircle2 className="w-6 h-6" />
+                          <span>Connection verified successfully!</span>
+                        </div>
+                        <p className="text-muted-foreground">
+                          Click Save Configuration to complete setup
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="text-muted-foreground">
+                        Click Verify to test your connection
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Input
+                    placeholder={currentStepData.placeholder}
+                    value={
+                      (formData[
+                        currentStepData.field as keyof KnackConfig
+                      ] as string) || ""
+                    }
+                    onChange={(e) =>
+                      handleInputChange(
+                        currentStepData.field as keyof KnackConfig,
+                        e.target.value
+                      )
+                    }
+                    className={cn(
+                      "rounded-lg",
+                      errors[currentStepData.field] &&
+                        "border-red-500 focus-visible:ring-red-500"
+                    )}
+                  />
+                )}
                 {errors[currentStepData.field] && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
@@ -252,29 +356,47 @@ export function ConfigWizard({ onComplete }: ConfigWizardProps) {
               </div>
 
               <div className="flex justify-between pt-4">
-                <Button
-                  variant="outline"
-                  onClick={handleBack}
-                  disabled={isFirstStep || isSubmitting}
-                  className="rounded-lg"
-                >
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Back
-                </Button>
-                <Button
-                  onClick={handleNext}
-                  disabled={!formData[currentStepData.field] || isSubmitting}
-                  className="min-w-[100px] rounded-lg"
-                >
-                  {isSubmitting ? (
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                  ) : (
-                    <>
-                      {isLastStep ? "Complete" : "Next"}
-                      {!isLastStep && <ArrowRight className="w-4 h-4 ml-2" />}
-                    </>
-                  )}
-                </Button>
+                {!verificationError && (
+                  <>
+                    <Button
+                      variant="outline"
+                      onClick={handleBack}
+                      disabled={isFirstStep || isSubmitting}
+                      className="rounded-lg"
+                    >
+                      <ArrowLeft className="w-4 h-4 mr-2" />
+                      Back
+                    </Button>
+                    {currentStepData.field === "verify" ? (
+                      <Button
+                        onClick={
+                          verificationSuccess ? handleComplete : handleVerify
+                        }
+                        disabled={isVerifying || isSubmitting}
+                        className="min-w-[100px] rounded-lg bg-green-600 hover:bg-green-700"
+                      >
+                        {isVerifying || isSubmitting ? (
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                        ) : verificationSuccess ? (
+                          "Save Configuration"
+                        ) : (
+                          "Verify"
+                        )}
+                      </Button>
+                    ) : (
+                      <Button
+                        onClick={handleNext}
+                        disabled={
+                          !formData[currentStepData.field as keyof KnackConfig]
+                        }
+                        className="min-w-[100px] rounded-lg"
+                      >
+                        Next
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    )}
+                  </>
+                )}
               </div>
             </div>
           </Card>
