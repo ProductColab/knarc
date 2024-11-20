@@ -8,12 +8,21 @@ export interface QueryResult<T = unknown> {
   error: Error | null;
 }
 
+export interface QueryState<T = unknown> extends QueryResult<T> {
+  isLoading: boolean;
+  retry: () => Promise<QueryState<T>>;
+}
+
 export interface DatabaseOperations {
   query: <T = unknown>(sql: string, params?: unknown[]) => Promise<QueryResult<T>>;
   execute: (sql: string, params?: unknown[]) => Promise<void>;
   transaction: <T>(
     operations: (transaction: Transaction) => Promise<T>
   ) => Promise<T>;
+  preparedQuery: <T = unknown>(
+    sql: string,
+    params?: unknown[]
+  ) => Promise<QueryState<T>>;
 }
 
 async function prepareAndExecute(
@@ -26,7 +35,7 @@ async function prepareAndExecute(
   return statement.query();
 }
 
-export function useDatabase(): DatabaseOperations {
+export function useDB(): DatabaseOperations {
   const context = useContext(DuckDBContext);
 
   if (!context) {
@@ -93,6 +102,51 @@ export function useDatabase(): DatabaseOperations {
         await transaction.rollback();
         throw error;
       }
+    },
+
+    preparedQuery: async <T = unknown>(
+      sql: string,
+      params?: unknown[]
+    ): Promise<QueryState<T>> => {
+      const retryCount = 3;
+      const retryDelay = 1000;
+
+      const executeQuery = async (attempt: number = 0): Promise<QueryState<T>> => {
+        try {
+          const conn = await getConnection();
+          const statement = await conn.prepare(sql);
+          const result = await prepareAndExecute(statement, params);
+          await statement.close();
+
+          return {
+            data: result.toArray() as T[],
+            error: null,
+            isLoading: false,
+            retry: () => executeQuery(),
+          };
+        } catch (err) {
+          const error = err instanceof Error ? err : new Error(String(err));
+
+          if (attempt < retryCount) {
+            await new Promise(resolve => setTimeout(resolve, retryDelay * (attempt + 1)));
+            return executeQuery(attempt + 1);
+          }
+
+          return {
+            data: [],
+            error,
+            isLoading: false,
+            retry: () => executeQuery(),
+          };
+        }
+      };
+
+      return {
+        data: [],
+        error: null,
+        isLoading: true,
+        retry: () => executeQuery(),
+      };
     },
   };
 }
