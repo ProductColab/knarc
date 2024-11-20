@@ -1,25 +1,37 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { KnackApplication } from "./types/application";
 import { KnackObject } from "./types/object";
 
 interface KnackClientConfig {
   applicationId: string;
   apiKey?: string;
   userToken?: string;
-  baseUrl?: string;
+  apiDomain?: string;
+  apiHost?: string;
+  apiVersion?: string;
 }
 
 export class KnackClient {
-  private readonly baseUrl: string = 'https://api.knack.com/v1';
   private readonly applicationId: string;
   private readonly apiKey?: string;
   private readonly userToken?: string;
+  private readonly baseUrl: string;
 
   constructor(config: KnackClientConfig) {
     this.applicationId = config.applicationId;
     this.apiKey = config.apiKey;
     this.userToken = config.userToken;
-    this.baseUrl = config.baseUrl || this.baseUrl;
+
+    // Default values for API configuration
+    const domain = config.apiDomain || 'api';
+    const host = config.apiHost || 'knack.com';
+    const version = config.apiVersion || 'v1';
+
+    // Special case for HIPAA accounts
+    if (host.includes('hipaa')) {
+      this.baseUrl = 'https://usgc-api.knack.com/v1';
+    } else {
+      this.baseUrl = `https://${domain}.${host}/${version}`;
+    }
   }
 
   private getHeaders(requiresJson: boolean = false): HeadersInit {
@@ -66,21 +78,47 @@ export class KnackClient {
     return data.objects;
   }
 
-  async getApplicationSchema(): Promise<KnackApplication> {
-    if (!this.apiKey) {
-      throw new Error("API key required for application schema requests");
+  async getApplicationSchema(): Promise<any> {
+    try {
+      const response = await fetch(
+        `${this.baseUrl}/applications/${this.applicationId}`,
+        {
+          method: 'GET',
+          headers: this.getHeaders(),
+        }
+      );
+
+      if (!response.ok) {
+        const contentType = response.headers.get('content-type');
+        let errorMessage = `HTTP error! status: ${response.status}`;
+
+        try {
+          // Try to get error details from response
+          if (contentType?.includes('application/json')) {
+            const errorData = await response.json();
+            errorMessage = errorData.message || errorMessage;
+          } else {
+            const text = await response.text();
+            errorMessage = `API Error: ${response.status} - ${text.slice(0, 100)}...`;
+          }
+        } catch (parseError) {
+          console.error('Error parsing error response:', parseError);
+        }
+
+        throw new Error(errorMessage);
+      }
+
+      const contentType = response.headers.get('content-type');
+      if (!contentType?.includes('application/json')) {
+        throw new Error(`Expected JSON response but got ${contentType}`);
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Failed to fetch application schema:', error);
+      throw error;
     }
-
-    const response = await fetch(`${this.baseUrl}/applications/${this.applicationId}`, {
-      headers: this.getHeaders()
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch application schema: ${response.statusText}`);
-    }
-
-    const data = await response.json();
-    return data.application;
   }
 
   // View-based API methods
