@@ -1,12 +1,20 @@
 "use client";
 
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
@@ -18,54 +26,46 @@ interface ConfigOption {
   name?: string;
 }
 
-interface SwitcherContentProps {
-  configs: ConfigOption[];
-  activeConfigId?: number;
-  onSelect: (configId: number) => void;
-}
-
-function SwitcherContent({
+function ConfigList({
   configs,
   activeConfigId,
+  setOpen,
   onSelect,
-}: SwitcherContentProps) {
-  const activeConfig = configs.find((c) => c.id === activeConfigId);
-  const activeLabel = activeConfig
-    ? activeConfig.name || activeConfig.applicationId
-    : "Select config";
-
+}: {
+  configs: ConfigOption[];
+  activeConfigId?: number;
+  setOpen: (open: boolean) => void;
+  onSelect: (configId: number) => void;
+}) {
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          className="w-[200px] justify-between"
-        >
-          {activeLabel}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-[200px]">
-        {configs.map((config) => (
-          <DropdownMenuItem
-            key={config.id}
-            onSelect={() => onSelect(config.id)}
-            className={cn(
-              "justify-between",
-              activeConfigId === config.id && "font-medium"
-            )}
-          >
-            {config.name || config.applicationId}
-            {activeConfigId === config.id && <Check className="h-4 w-4" />}
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Command>
+      <CommandInput placeholder="Search configs..." />
+      <CommandList>
+        <CommandEmpty>No configs found.</CommandEmpty>
+        <CommandGroup>
+          {configs.map((config) => (
+            <CommandItem
+              key={config.id}
+              value={config.name || config.applicationId}
+              onSelect={() => {
+                onSelect(config.id);
+                setOpen(false);
+              }}
+            >
+              <span>{config.name || config.applicationId}</span>
+              {activeConfigId === config.id && (
+                <Check className="ml-auto h-4 w-4" />
+              )}
+            </CommandItem>
+          ))}
+        </CommandGroup>
+      </CommandList>
+    </Command>
   );
 }
 
 export function ConfigSwitcher() {
+  const [open, setOpen] = React.useState(false);
   const {
     config: activeConfig,
     availableConfigs,
@@ -77,7 +77,7 @@ export function ConfigSwitcher() {
     return (
       <Button
         variant="outline"
-        className="w-[200px] justify-between animate-pulse bg-gray-200 dark:bg-gray-800"
+        className="justify-between animate-pulse bg-gray-200 dark:bg-gray-800"
         disabled
       >
         <span className="invisible">Loading...</span>
@@ -92,11 +92,31 @@ export function ConfigSwitcher() {
     name: config.applicationInfo?.name,
   }));
 
+  const activeLabel = activeConfig
+    ? activeConfig.applicationInfo?.name || activeConfig.config.applicationId
+    : "Select config";
+
   return (
-    <SwitcherContent
-      configs={mappedConfigs}
-      activeConfigId={activeConfig?.id}
-      onSelect={(configId) => router.push(`/${configId}`)}
-    />
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={open}
+          className="w-full justify-between"
+        >
+          {activeLabel}
+          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-full p-0" align="start">
+        <ConfigList
+          configs={mappedConfigs}
+          activeConfigId={activeConfig?.id}
+          setOpen={setOpen}
+          onSelect={(configId) => router.push(`/${configId}`)}
+        />
+      </PopoverContent>
+    </Popover>
   );
 }
