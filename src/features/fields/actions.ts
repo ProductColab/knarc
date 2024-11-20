@@ -2,6 +2,12 @@ import { AsyncDuckDBConnection } from "@duckdb/duckdb-wasm";
 import { FormulaFieldDependency, FieldWithObject } from "@/lib/knack/types/field";
 import { isEquationField, isConcatenationField, isSumField } from "@/lib/knack/types/fields/formula";
 
+export type FieldDependencyNode = {
+  field: FieldWithObject;
+  dependencies: FieldDependencyNode[];
+  dependents: FieldDependencyNode[];
+}
+
 export async function getAllFields(
   conn: AsyncDuckDBConnection,
   configId: number
