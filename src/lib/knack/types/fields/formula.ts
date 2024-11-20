@@ -36,8 +36,8 @@ export interface ConcatenationField extends EquationFormatField {
 export interface SumField extends NumericFormulaField {
   type: 'sum';
   format: NumericFormulaField['format'] & {
-    field: string; // The field to sum
-    connection: string; // The connection to follow
+    field: { key: string }; // The field to sum
+    connection?: { key: string }; // Optional connection with key property
   };
 }
 

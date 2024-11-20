@@ -11,6 +11,7 @@ export const CONCATENATION = 'concatenation' as const;
 export interface KnackField {
   key: string;
   name: string;
+  description?: string;
   type: string;
   required?: boolean;
   unique?: boolean;
