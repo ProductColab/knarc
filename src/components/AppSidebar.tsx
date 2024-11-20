@@ -14,32 +14,39 @@ import {
 import { ConfigSwitcher } from "@/features/config/components/ConfigSwitcher";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { Database, Layout, Box, Table, Settings } from "lucide-react";
 
 interface AppLink {
   label: string;
   href: string;
+  icon: React.ReactNode;
 }
 
 const AppLinks: AppLink[] = [
   {
     label: "Objects",
     href: "/objects",
+    icon: <Database className="w-4 h-4" />,
   },
   {
     label: "Scenes",
     href: "/scenes",
+    icon: <Layout className="w-4 h-4" />,
   },
   {
     label: "Fields",
     href: "/fields",
+    icon: <Box className="w-4 h-4" />,
   },
   {
     label: "Views",
     href: "/views",
+    icon: <Table className="w-4 h-4" />,
   },
   {
     label: "Config",
     href: "/config",
+    icon: <Settings className="w-4 h-4" />,
   },
 ];
 
@@ -72,7 +79,12 @@ export function AppSidebar() {
                         : link.href
                     }
                   >
-                    <SidebarMenuButton>{link.label}</SidebarMenuButton>
+                    <SidebarMenuButton>
+                      <span className="flex items-center gap-2">
+                        {link.icon}
+                        {link.label}
+                      </span>
+                    </SidebarMenuButton>
                   </Link>
                 </SidebarMenuItem>
               ))}
