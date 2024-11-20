@@ -83,7 +83,7 @@ export function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <ConfigSwitcher activeConfigId={parsedConfigId} />
+            <ConfigSwitcher />
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>

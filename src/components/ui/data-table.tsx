@@ -11,6 +11,7 @@ import {
   getSortedRowModel,
   ColumnFiltersState,
   getFilteredRowModel,
+  Row,
 } from "@tanstack/react-table";
 
 import {
@@ -24,15 +25,20 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  onRowClick?: (row: Row<TData>) => void;
+  selectedRow?: TData | null;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  onRowClick,
+  selectedRow,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -92,6 +98,11 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  className={cn(
+                    "cursor-pointer hover:bg-muted/50",
+                    selectedRow === row.original && "bg-muted"
+                  )}
+                  onClick={() => onRowClick?.(row)}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
