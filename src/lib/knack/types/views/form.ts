@@ -1,8 +1,13 @@
 import { KnackField } from "../field";
-import { KnackFilterOperator } from "../filter";
-import { FORM_VIEW, KnackView, KnackViewSource } from "../view";
+import { ViewRule } from "../../rule";
+import {
+  FORM_VIEW,
+  KnackViewBase,
+  KnackViewSource,
+  KnackRecordRule,
+} from "../view";
 
-export interface KnackFormView extends KnackView {
+export interface KnackFormView extends KnackViewBase {
   type: FORM_VIEW;
   action: "create" | "update";
   submit_button_text: string;
@@ -12,9 +17,11 @@ export interface KnackFormView extends KnackView {
 }
 
 export interface FormInput {
+  id: string;
   instructions?: string;
   label: string;
   type: KnackField["type"];
+  field?: { key: string };
   format?: unknown;
 }
 
@@ -26,33 +33,14 @@ interface ViewGroup {
   columns: ViewColumn[];
 }
 
-interface DisplayRule {
-  field: KnackField["key"];
-  operator: KnackFilterOperator;
-  value: string;
-}
-
-interface SubmitRule {
-  field: KnackField["key"];
-  operator: KnackFilterOperator;
-  value: string;
-}
-
-interface RecordRule {
-  field: KnackField["key"];
-  operator: KnackFilterOperator;
-  value: string;
-}
-
-interface EmailRule {
-  field: KnackField["key"];
-  operator: KnackFilterOperator;
-  value: string;
-}
+type FormDisplayRule = ViewRule;
+type FormSubmitRule = ViewRule;
+type FormRecordRule = KnackRecordRule;
+type FormEmailRule = ViewRule;
 
 interface FormRules {
-  field: DisplayRule[];
-  submit: SubmitRule[];
-  record: RecordRule[];
-  email: EmailRule[];
+  fields: FormDisplayRule[];
+  submits?: FormSubmitRule[];
+  records: FormRecordRule[];
+  emails: FormEmailRule[];
 }

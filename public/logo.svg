@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .node { fill: #22c55e; } /* Equivalent to gooi-green-600 */
+    .accent-node { fill: rgb(197, 243, 13); } /* Equivalent to gooi-green-yellow-700 */
+    .connection { stroke: #16a34a; stroke-width: 2; fill: none; } /* Equivalent to gooi-green-700 */
+    .center-node { fill: #10b981; } /* Equivalent to gooi-green-500 */
+    
+    @media (prefers-color-scheme: dark) {
+      .node { fill: #4ade80; } /* Equivalent to gooi-green-300 */
+      .accent-node { fill:rgb(197, 243, 13); } /* Equivalent to gooi-green-yellow-400 */
+      .connection { stroke: #86efac; } /* Equivalent to gooi-green-200 */
+      .center-node { fill: #34d399; } /* Equivalent to gooi-light-green-600 */
+    }
+  </style>
+  
+  <!-- Connection lines -->
+  <line class="connection" x1="16" y1="16" x2="8" y2="8" />
+  <line class="connection" x1="16" y1="16" x2="24" y2="8" />
+  <line class="connection" x1="16" y1="16" x2="6" y2="20" />
+  <line class="connection" x1="16" y1="16" x2="26" y2="20" />
+  <line class="connection" x1="16" y1="16" x2="16" y2="26" />
+  <line class="connection" x1="8" y1="8" x2="24" y2="8" />
+  <line class="connection" x1="6" y1="20" x2="16" y2="26" />
+  
+  <!-- Outer nodes -->
+  <circle class="node" cx="8" cy="8" r="3" />
+  <circle class="accent-node" cx="24" cy="8" r="3" />
+  <circle class="node" cx="6" cy="20" r="3" />
+  <circle class="node" cx="26" cy="20" r="3" />
+  <circle class="node" cx="16" cy="26" r="3" />
+  
+  <!-- Center node (highlighted as main focus) -->
+  <circle class="center-node" cx="16" cy="16" r="4" />
+</svg>

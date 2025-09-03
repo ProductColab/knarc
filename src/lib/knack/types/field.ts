@@ -1,13 +1,19 @@
 import { ShortTextField } from "./fields/short-text";
 import { EquationField, SumField, ConcatenationField } from "./fields/formula";
+import { RuleValue, RuleCriterion } from "../rule";
 
 // Field types constants
-export const SHORT_TEXT = 'short_text' as const;
-export const EQUATION = 'equation' as const;
-export const SUM = 'sum' as const;
-export const CONCATENATION = 'concatenation' as const;
+export const SHORT_TEXT = "short_text" as const;
+export const EQUATION = "equation" as const;
+export const SUM = "sum" as const;
+export const CONCATENATION = "concatenation" as const;
 
-// Base field interface
+export interface KnackFieldRule {
+  key?: string;
+  values?: RuleValue[];
+  criteria?: RuleCriterion[];
+}
+
 export interface KnackField {
   key: string;
   name: string;
@@ -17,7 +23,7 @@ export interface KnackField {
   unique?: boolean;
   user?: boolean;
   conditional?: boolean;
-  rules?: unknown[];
+  rules?: KnackFieldRule[];
   validation?: {
     min?: number;
     max?: number;
@@ -34,15 +40,14 @@ export type KnackFieldType =
   | ShortTextField
   | EquationField
   | SumField
-  | ConcatenationField
-  // Add other field types here
-  ;
+  | ConcatenationField;
+// Add other field types here
 
 // Helper type for fields with object context
 export interface FieldWithObject extends KnackField {
   objectName: string;
   objectKey: string;
-  format: KnackFieldType['format'];
+  format: KnackFieldType["format"];
 }
 
 // Helper type for formula fields with dependencies
@@ -55,7 +60,7 @@ export interface FormulaFieldDependency {
 // Type guard to check if a field is a specific field type
 export function isFieldType<T extends KnackFieldType>(
   field: FieldWithObject,
-  type: T['type']
+  type: T["type"]
 ): field is FieldWithObject & T {
   return field.type === type;
 }
