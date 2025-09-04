@@ -75,7 +75,7 @@ export class KnackClient {
       throw new Error(`Failed to fetch objects: ${response.statusText}`);
     }
 
-    const data = await response.json();
+    const data = (await response.json()) as { objects: KnackObject[] };
     return data.objects;
   }
 
@@ -97,8 +97,8 @@ export class KnackClient {
       throw new Error(`Failed to fetch object records: ${response.statusText}`);
     }
 
-    const data = await response.json();
-    return data.records;
+    const data = (await response.json()) as { records: KnackRecord[] };
+    return data;
   }
 
   async getApplicationSchema(): Promise<{ application: KnackApplication }> {
@@ -118,7 +118,7 @@ export class KnackClient {
         try {
           // Try to get error details from response
           if (contentType?.includes("application/json")) {
-            const errorData = await response.json();
+            const errorData = (await response.json()) as { message: string };
             errorMessage = errorData.message || errorMessage;
           } else {
             const text = await response.text();
@@ -139,7 +139,9 @@ export class KnackClient {
         throw new Error(`Expected JSON response but got ${contentType}`);
       }
 
-      const data = await response.json();
+      const data = (await response.json()) as {
+        application: KnackApplication;
+      };
       return data;
     } catch (error) {
       console.error("Failed to fetch application schema:", error);

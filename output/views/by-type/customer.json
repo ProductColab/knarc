@@ -1,0 +1,171 @@
+{
+  "type": "customer",
+  "count": 2,
+  "views": [
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5e5fbd2ba22faf0015f3b82a",
+      "key": "view_57",
+      "name": "Manage a payment method",
+      "type": "customer",
+      "label": "Payment",
+      "rules": {
+        "emails": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Your payment was successfully submitted.",
+            "is_default": true,
+            "reload_show": false
+          }
+        ]
+      },
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_1",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_1",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "authenticated_user": true
+      },
+      "reportType": null,
+      "description": "",
+      "checkout_page": {
+        "name": "Payment Method",
+        "title": "Save or edit payment information",
+        "layout": "full",
+        "source": {
+          "object": "object_1",
+          "authenticated_user": true
+        },
+        "columns": [
+          {
+            "width": 100,
+            "groups": []
+          },
+          {
+            "groups": []
+          }
+        ],
+        "description": ""
+      },
+      "logged_in_user": true,
+      "summary_fields": [],
+      "charge_customer": "",
+      "first_connection": false,
+      "customer_optional": false,
+      "payment_processors": [
+        {
+          "type": "stripe",
+          "currency": "USD",
+          "payment_processor_key": "payment_processor_1"
+        }
+      ],
+      "submit_button_text": "Save payment information",
+      "ecommerce_test_mode": false,
+      "remove_card_button_text": "Remove payment information",
+      "charge_description_field": "field_1",
+      "update_billing_button_text": "Update payment information",
+      "_scene_key": "scene_38",
+      "_scene_name": "Payments",
+      "_scene_slug": "payments"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "6262b7d499fb7b001ece070a",
+      "key": "view_147",
+      "name": "Manage a payment method",
+      "type": "customer",
+      "label": "Payment",
+      "rules": {
+        "emails": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Your payment was successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_1",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_1",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "authenticated_user": true
+      },
+      "reportType": null,
+      "description": "",
+      "checkout_page": {
+        "name": "Payment Method",
+        "title": "Save or edit payment information",
+        "layout": "full",
+        "source": {
+          "object": "object_1",
+          "authenticated_user": true
+        },
+        "columns": [
+          {
+            "width": 100,
+            "groups": [
+              {
+                "columns": [
+                  []
+                ]
+              }
+            ]
+          }
+        ],
+        "description": "",
+        "label_format": "left"
+      },
+      "logged_in_user": true,
+      "summary_fields": [],
+      "charge_customer": "",
+      "first_connection": false,
+      "customer_optional": false,
+      "payment_processors": [
+        {
+          "type": "stripe",
+          "currency": "USD",
+          "payment_processor_key": "payment_processor_1"
+        }
+      ],
+      "submit_button_text": "Save payment information",
+      "ecommerce_test_mode": false,
+      "remove_card_button_text": "Remove payment information",
+      "update_billing_button_text": "Update payment information",
+      "_scene_key": "scene_87",
+      "_scene_name": "Edit Payment Method",
+      "_scene_slug": "edit-payment-method"
+    }
+  ]
+}

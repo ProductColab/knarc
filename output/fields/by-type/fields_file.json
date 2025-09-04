@@ -1,0 +1,25 @@
+{
+  "type": "file",
+  "category": "field",
+  "count": 1,
+  "fields": [
+    {
+      "type": "file",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5e738194b75d5f0015bd573f",
+      "key": "field_87",
+      "name": "File",
+      "format": {
+        "secure": false
+      },
+      "_object_key": "object_11",
+      "_object_name": "Shareable Files"
+    }
+  ]
+}

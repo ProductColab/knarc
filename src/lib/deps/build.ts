@@ -2,41 +2,57 @@ import { KnackApplication } from "@/lib/knack/types/application";
 import { DependencyGraph } from "./graph";
 import { extractFromObject } from "./extractors/objects";
 import { extractFromScene, extractFromView } from "./extractors/views";
-import { toNodeId } from "./types";
+import { buildResolvers } from "./resolvers";
+import { KnackScene } from "../knack/types/scene";
+
+function addObjectEdges(
+  graph: DependencyGraph,
+  app: KnackApplication,
+  resolvers: ReturnType<typeof buildResolvers>
+) {
+  for (let objectIndex = 0; objectIndex < app.objects.length; objectIndex++) {
+    const object = app.objects[objectIndex];
+    const edges = extractFromObject(object, objectIndex, resolvers);
+    for (const edge of edges) {
+      graph.addEdge(edge);
+    }
+  }
+}
+
+function addSceneAndViewEdges(
+  graph: DependencyGraph,
+  app: KnackApplication,
+  resolvers: ReturnType<typeof buildResolvers>
+) {
+  for (let sceneIndex = 0; sceneIndex < app.scenes.length; sceneIndex++) {
+    const scene = app.scenes[sceneIndex];
+    const sceneEdges = extractFromScene(scene, sceneIndex);
+    for (const edge of sceneEdges) {
+      graph.addEdge(edge);
+    }
+    addViewEdges(graph, scene, sceneIndex, resolvers);
+  }
+}
+
+function addViewEdges(
+  graph: DependencyGraph,
+  scene: KnackScene,
+  sceneIndex: number,
+  resolvers: ReturnType<typeof buildResolvers>
+) {
+  for (let viewIndex = 0; viewIndex < scene.views.length; viewIndex++) {
+    const view = scene.views[viewIndex];
+    const viewEdges = extractFromView(view, sceneIndex, viewIndex, resolvers);
+    for (const edge of viewEdges) {
+      graph.addEdge(edge);
+    }
+  }
+}
 
 export function buildGraph(app: KnackApplication): DependencyGraph {
   const graph = new DependencyGraph();
-  // Objects
-  for (let oi = 0; oi < app.objects.length; oi++) {
-    const object = app.objects[oi];
-    const objectEdges = extractFromObject(object, oi);
-    for (const e of objectEdges) graph.addEdge(e);
-  }
-  // Scenes and Views
-  for (let si = 0; si < app.scenes.length; si++) {
-    const scene = app.scenes[si];
-    const sceneEdges = extractFromScene(scene, si);
-    for (const e of sceneEdges) graph.addEdge(e);
-    for (let vi = 0; vi < scene.views.length; vi++) {
-      const v = scene.views[vi];
-      const viewEdges = extractFromView(v, si, vi);
-      for (const e of viewEdges) graph.addEdge(e);
-    }
-  }
+  const resolvers = buildResolvers(app);
+  addObjectEdges(graph, app, resolvers);
+  addSceneAndViewEdges(graph, app, resolvers);
   return graph;
-}
-
-export function whereUsed(graph: DependencyGraph, nodeId: string) {
-  // Return incoming edges grouped by type
-  const node = graph.getNode(nodeId);
-  if (!node) return { nodeId, incoming: [] };
-  const incoming = graph.getIncoming(node);
-  return { nodeId, incoming };
-}
-
-export function impact(graph: DependencyGraph, nodeId: string) {
-  const node = graph.getNode(nodeId);
-  if (!node) return { nodeId, impacted: [] };
-  const impacted = graph.bfs(node, "out");
-  return { nodeId, impacted: impacted.map(toNodeId) };
 }

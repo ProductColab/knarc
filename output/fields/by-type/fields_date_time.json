@@ -1,0 +1,196 @@
+{
+  "type": "date_time",
+  "category": "field",
+  "count": 8,
+  "fields": [
+    {
+      "type": "date_time",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de8562a817ffb0019e50908",
+      "key": "field_34",
+      "name": "Due Date",
+      "format": {
+        "calendar": false,
+        "time_type": "current",
+        "date_format": "mm/dd/yyyy",
+        "time_format": "Ignore Time",
+        "default_date": "12/04/2019",
+        "default_type": "none"
+      },
+      "object_key": "object_4",
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "date_time",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "602ff773fdf67a001cdbe324",
+      "key": "field_113",
+      "meta": {
+        "description": ""
+      },
+      "name": "Date Range",
+      "format": {
+        "calendar": true,
+        "time_type": "current",
+        "date_format": "mm/dd/yyyy",
+        "time_format": "Ignore Time",
+        "default_time": "",
+        "default_type": "none"
+      },
+      "_object_key": "object_13",
+      "_object_name": "Pay Periods"
+    },
+    {
+      "type": "date_time",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5f7e2cf2daf17f001592e696",
+      "key": "field_97",
+      "meta": {
+        "description": ""
+      },
+      "name": "Date/Time",
+      "format": {
+        "calendar": false,
+        "time_type": "current",
+        "date_format": "mm/dd/yyyy",
+        "time_format": "Ignore Time",
+        "default_time": "",
+        "default_type": "current"
+      },
+      "_object_key": "object_12",
+      "_object_name": "Timesheet"
+    },
+    {
+      "type": "date_time",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "61edb200ad73cd001f639a8c",
+      "key": "field_132",
+      "name": "Date/Time",
+      "format": {
+        "calendar": false,
+        "time_type": "current",
+        "date_format": "mm/dd/yyyy",
+        "time_format": "HH:MM am",
+        "default_time": "",
+        "default_type": "current"
+      },
+      "_object_key": "object_14",
+      "_object_name": "Website Contacts"
+    },
+    {
+      "type": "date_time",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de853a2ec7bd00015d9d1f1",
+      "key": "field_20",
+      "name": "Date/Time",
+      "format": {
+        "calendar": false,
+        "date_format": "mm/dd/yyyy",
+        "time_format": "Ignore Time",
+        "default_date": "12/04/2019",
+        "default_type": "current"
+      },
+      "object_key": "object_5",
+      "_object_key": "object_5",
+      "_object_name": "Notes"
+    },
+    {
+      "type": "date_time",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de8569af799f100165fd12a",
+      "key": "field_37",
+      "name": "Start Date",
+      "format": {
+        "calendar": false,
+        "date_format": "mm/dd/yyyy",
+        "time_format": "Ignore Time",
+        "default_date": "12/04/2019",
+        "default_type": "current"
+      },
+      "object_key": "object_2",
+      "_object_key": "object_2",
+      "_object_name": "Student"
+    },
+    {
+      "type": "date_time",
+      "required": true,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de853bbedea5c00175c8181",
+      "key": "field_24",
+      "name": "Date",
+      "format": {
+        "date_format": "mm/dd/yyyy",
+        "time_format": "HH:MM am"
+      },
+      "immutable": true,
+      "read_only": true,
+      "charge_key": "date",
+      "_object_key": "object_6",
+      "_object_name": "Payments"
+    },
+    {
+      "type": "date_time",
+      "required": true,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de8584d31e10e001553534b",
+      "key": "field_45",
+      "name": "Expiration Date",
+      "format": {
+        "date_format": "mm/dd/yyyy",
+        "time_format": "HH:MM am"
+      },
+      "immutable": true,
+      "read_only": true,
+      "charge_key": "expiration_date",
+      "_object_key": "object_7",
+      "_object_name": "Payment Methods"
+    }
+  ]
+}

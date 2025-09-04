@@ -1,0 +1,8 @@
+{
+  "src/worker/index.ts": {
+    "file": "index.mjs",
+    "name": "index",
+    "src": "src/worker/index.ts",
+    "isEntry": true
+  }
+}

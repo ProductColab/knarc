@@ -1,0 +1,174 @@
+{
+  "type": "currency",
+  "category": "field",
+  "count": 6,
+  "fields": [
+    {
+      "type": "currency",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": true,
+      "rules": [
+        {
+          "key": "1",
+          "values": [
+            {
+              "type": "record",
+              "field": "field_182",
+              "input": "field_39",
+              "value": "",
+              "connection_field": null
+            }
+          ],
+          "criteria": [
+            {
+              "field": "field_34",
+              "value": {
+                "date": "02/18/2024",
+                "all_day": false
+              },
+              "operator": "is before",
+              "value_type": "custom",
+              "value_field": "field_21"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "action": "record",
+          "values": [
+            {
+              "type": "record",
+              "field": "field_182",
+              "input": "field_180",
+              "value": "",
+              "connection_field": ""
+            }
+          ],
+          "criteria": [
+            {
+              "field": "field_34",
+              "value": {
+                "date": "02/19/2024",
+                "all_day": false
+              },
+              "operator": "is after",
+              "value_type": "custom",
+              "value_field": "field_21"
+            }
+          ],
+          "connection": "object_2.field_21"
+        }
+      ],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65e89c6ca7ec0e0029f1adad",
+      "key": "field_182",
+      "name": "Sub Total Base",
+      "format": {
+        "format": "$"
+      },
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "currency",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "66303502415e1800283fb46e",
+      "key": "field_184",
+      "name": "Hourly Rate",
+      "format": {
+        "format": "$"
+      },
+      "_object_key": "object_16",
+      "_object_name": "Institutions"
+    },
+    {
+      "type": "currency",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "602ee55022a406001ea6560d",
+      "key": "field_103",
+      "meta": {
+        "description": ""
+      },
+      "name": "Supervision Hourly Rate",
+      "format": {
+        "format": "$"
+      },
+      "_object_key": "object_3",
+      "_object_name": "Supervisor"
+    },
+    {
+      "type": "currency",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "602ee55a903ebf001d780ee7",
+      "key": "field_104",
+      "meta": {
+        "description": ""
+      },
+      "name": "Content Hourly Rate",
+      "format": {
+        "format": "$"
+      },
+      "_object_key": "object_3",
+      "_object_name": "Supervisor"
+    },
+    {
+      "type": "currency",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65b8027ec6933100298a46be",
+      "key": "field_146",
+      "name": "Group Hourly Rate",
+      "format": {
+        "format": "$"
+      },
+      "default": "100",
+      "_object_key": "object_3",
+      "_object_name": "Supervisor"
+    },
+    {
+      "type": "currency",
+      "required": true,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de853bbedea5c00175c8182",
+      "key": "field_23",
+      "name": "Amount",
+      "format": null,
+      "immutable": true,
+      "read_only": true,
+      "charge_key": "amount",
+      "_object_key": "object_6",
+      "_object_name": "Payments"
+    }
+  ]
+}

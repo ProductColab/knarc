@@ -1,0 +1,33 @@
+{
+  "type": "count",
+  "category": "field",
+  "count": 1,
+  "fields": [
+    {
+      "type": "count",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65d3ffc837284f00286d783c",
+      "key": "field_163",
+      "name": "# Students",
+      "format": {
+        "pre": "",
+        "post": "",
+        "format": "",
+        "rounding": "none",
+        "precision": "2",
+        "connection": "field_156",
+        "count_field": "none",
+        "mark_decimal": "none",
+        "mark_thousands": "none"
+      },
+      "_object_key": "object_16",
+      "_object_name": "Institutions"
+    }
+  ]
+}

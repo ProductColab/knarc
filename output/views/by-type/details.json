@@ -1,0 +1,2916 @@
+{
+  "type": "details",
+  "count": 10,
+  "views": [
+    {
+      "columns": [
+        {
+          "width": 100,
+          "groups": [
+            {
+              "columns": [
+                [
+                  {
+                    "key": "field_6",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Name",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_7",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Email",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_85",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Timezone ",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_62",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Status",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_37",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Start Date",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "object": {
+                      "key": "object_2"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  }
+                ],
+                [
+                  {
+                    "key": "field_77",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Weekly Meeting Link",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_79",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Customer Folder Link",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  }
+                ]
+              ]
+            },
+            {
+              "columns": [
+                [
+                  {
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "type": "scene_link",
+                    "scene": "edit-student3",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "edit",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5de85481cd06470015cbc982",
+      "key": "view_6",
+      "name": "Student Details",
+      "type": "details",
+      "rules": {
+        "fields": []
+      },
+      "title": "Customer Details",
+      "groups": [],
+      "layout": "full",
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "hide_fields": false,
+      "label_format": "left",
+      "_scene_key": "scene_5",
+      "_scene_name": "Student Details",
+      "_scene_slug": "student-details"
+    },
+    {
+      "columns": [
+        {
+          "width": 100,
+          "groups": [
+            {
+              "columns": [
+                [
+                  {
+                    "key": "field_6",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Name",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_7",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Email",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_85",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Timezone ",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_37",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Start Date",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_40",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Starting Hours",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_42",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Total Hours",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_61",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Supervisor",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  }
+                ],
+                [
+                  {
+                    "key": "field_61",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Supervisor",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_79",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Customer Folder Link",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_77",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Weekly Meeting Link",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5e5c4ac81cf2660015a76ef8",
+      "key": "view_31",
+      "name": "Student",
+      "type": "details",
+      "rules": {
+        "fields": []
+      },
+      "title": "Customer Details",
+      "groups": [],
+      "layout": "full",
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "hide_fields": false,
+      "label_format": "left",
+      "_scene_key": "scene_21",
+      "_scene_name": "Student Details",
+      "_scene_slug": "student-details2"
+    },
+    {
+      "columns": [
+        {
+          "width": 100,
+          "groups": [
+            {
+              "columns": [
+                [
+                  {
+                    "key": "field_6",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Name",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_7",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Email",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_37",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Start Date",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  }
+                ],
+                [
+                  {
+                    "key": "field_61",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Supervisor",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_12",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Supervisor Email",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "connection": {
+                      "key": "field_61"
+                    },
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_79",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Folder Link",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_77",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Weekly Meeting Link",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  }
+                ]
+              ]
+            },
+            {
+              "columns": [
+                [
+                  {
+                    "key": "field_6",
+                    "copy": "",
+                    "icon": {
+                      "icon": "fa-pencil",
+                      "align": "left"
+                    },
+                    "type": "scene_link",
+                    "scene": "edit-student2",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "edit profile",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "copy": "",
+                    "icon": {
+                      "icon": "fa-credit-card",
+                      "align": "left"
+                    },
+                    "type": "scene_link",
+                    "scene": "edit-payment-method",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "edit saved payment method",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5e5fada6dbc8f60015e2ab30",
+      "key": "view_41",
+      "name": "Student Details",
+      "type": "details",
+      "rules": {
+        "fields": []
+      },
+      "title": "My Profile",
+      "groups": [],
+      "layout": "full",
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "authenticated_user": true
+      },
+      "reportType": null,
+      "description": "",
+      "hide_fields": false,
+      "label_format": "left",
+      "_scene_key": "scene_29",
+      "_scene_name": "Student Profile",
+      "_scene_slug": "student-profile"
+    },
+    {
+      "columns": [
+        {
+          "width": 100,
+          "groups": [
+            {
+              "columns": [
+                [
+                  {
+                    "key": "field_174",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Number RSABA Hours",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_136",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Rate",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_34",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Due Date",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_36",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Paid",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_182",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Sub Total",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "type": "divider",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_121",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Overdue",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_140",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Late Fee",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_141",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Sub Total + Late Fee",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "type": "divider",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_75",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Final Total",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "6265fe3aaee9ed001e31d4a6",
+      "key": "view_148",
+      "name": "Invoice Details",
+      "type": "details",
+      "rules": {
+        "fields": [
+          {
+            "key": "5",
+            "actions": [
+              {
+                "field": "field_143",
+                "value": "",
+                "action": "hide"
+              },
+              {
+                "field": "field_141",
+                "value": "",
+                "action": "hide"
+              },
+              {
+                "field": "field_140",
+                "value": "",
+                "action": "hide"
+              },
+              {
+                "field": "field_121",
+                "value": "",
+                "action": "hide"
+              }
+            ],
+            "criteria": [
+              {
+                "field": "field_121",
+                "value": false,
+                "operator": "is"
+              }
+            ]
+          },
+          {
+            "key": "3",
+            "actions": [
+              {
+                "field": "field_143",
+                "value": "",
+                "action": "hide"
+              },
+              {
+                "field": "field_141",
+                "value": "",
+                "action": "show"
+              },
+              {
+                "field": "field_140",
+                "value": "",
+                "action": "show"
+              }
+            ],
+            "criteria": [
+              {
+                "field": "field_121",
+                "value": true,
+                "operator": "is"
+              },
+              {
+                "field": "field_34",
+                "value": {
+                  "date": "04/01/2022",
+                  "all_day": false
+                },
+                "operator": "is after"
+              },
+              {
+                "field": "field_139",
+                "value": "11",
+                "operator": "lower than"
+              }
+            ]
+          },
+          {
+            "key": "2",
+            "actions": [
+              {
+                "field": "field_141",
+                "value": "",
+                "action": "hide"
+              },
+              {
+                "field": "field_140",
+                "value": "",
+                "action": "hide"
+              },
+              {
+                "field": "field_143",
+                "value": "",
+                "action": "show"
+              }
+            ],
+            "criteria": [
+              {
+                "field": "field_121",
+                "value": true,
+                "operator": "is"
+              },
+              {
+                "field": "field_34",
+                "value": {
+                  "date": "04/01/2022",
+                  "all_day": false
+                },
+                "operator": "is after"
+              },
+              {
+                "field": "field_139",
+                "value": "10",
+                "operator": "higher than"
+              }
+            ]
+          }
+        ]
+      },
+      "title": "Invoice Details",
+      "groups": [],
+      "layout": "full",
+      "source": {
+        "sort": [
+          {
+            "field": "field_34",
+            "order": "desc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "reportType": null,
+      "description": "",
+      "hide_fields": false,
+      "label_format": "left",
+      "_scene_key": "scene_35",
+      "_scene_name": "View Invoice Details",
+      "_scene_slug": "view-invoice-details"
+    },
+    {
+      "columns": [
+        {
+          "width": 100,
+          "groups": [
+            {
+              "columns": [
+                [
+                  {
+                    "key": "field_21",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Customer",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_34",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Due Date",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_33",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Number of Supervision/Tutoring Hours (OLD)",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_136",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Rate",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_39",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Sub Total Old",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_43",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Payment",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_36",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Paid",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_63",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Completed Hours",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_75",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Final Total",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5e611502534be40017e70925",
+      "key": "view_67",
+      "name": "Invoice",
+      "type": "details",
+      "rules": {
+        "fields": []
+      },
+      "title": "Invoice Details",
+      "groups": [],
+      "layout": "full",
+      "source": {
+        "sort": [
+          {
+            "field": "field_34",
+            "order": "desc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "hide_fields": false,
+      "label_format": "left",
+      "_scene_key": "scene_43",
+      "_scene_name": "Invoice Details",
+      "_scene_slug": "invoice-details"
+    },
+    {
+      "columns": [
+        {
+          "width": 100,
+          "groups": [
+            {
+              "columns": [
+                [
+                  {
+                    "key": "field_11",
+                    "name": "Name",
+                    "format": {
+                      "styles": []
+                    }
+                  },
+                  {
+                    "key": "field_12",
+                    "name": "Email",
+                    "format": {
+                      "styles": []
+                    }
+                  }
+                ]
+              ],
+              "label_format": "left"
+            }
+          ]
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5e61164aae045300158ea527",
+      "key": "view_74",
+      "name": "Supervisor",
+      "type": "details",
+      "title": "Supervisor Details",
+      "layout": "full",
+      "source": {
+        "object": "object_3"
+      },
+      "description": "",
+      "_scene_key": "scene_48",
+      "_scene_name": "Supervisor Details",
+      "_scene_slug": "supervisor-details"
+    },
+    {
+      "columns": [
+        {
+          "width": 100,
+          "groups": [
+            {
+              "columns": [
+                [
+                  {
+                    "key": "field_11",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Name",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_12",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Email",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_103",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Supervision Hourly Rate",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_146",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Group Hourly Rate",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_104",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Content Hourly Rate",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "602eda94e379ce001b1c980c",
+      "key": "view_114",
+      "name": "View Supervisor Details",
+      "type": "details",
+      "rules": {
+        "fields": []
+      },
+      "title": "Supervisor Payroll",
+      "groups": [],
+      "layout": "full",
+      "source": {
+        "sort": [
+          {
+            "field": "field_11",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_3",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "hide_fields": false,
+      "label_format": "left",
+      "_scene_key": "scene_67",
+      "_scene_name": "Supervisor Payroll",
+      "_scene_slug": "view-supervisor-details"
+    },
+    {
+      "columns": [
+        {
+          "groups": [
+            {
+              "columns": [
+                [
+                  {
+                    "key": "field_22",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Charge",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "connection": {
+                      "key": "field_43"
+                    },
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_23",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Amount",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "connection": {
+                      "key": "field_43"
+                    },
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_24",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Date",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "connection": {
+                      "key": "field_43"
+                    },
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_25",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Status",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "connection": {
+                      "key": "field_43"
+                    },
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_26",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Source",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "connection": {
+                      "key": "field_43"
+                    },
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_27",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Processor",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "connection": {
+                      "key": "field_43"
+                    },
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_28",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "ID",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "connection": {
+                      "key": "field_43"
+                    },
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_29",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "IP Address",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "connection": {
+                      "key": "field_43"
+                    },
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_30",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Description",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "connection": {
+                      "key": "field_43"
+                    },
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_31",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Notes",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "connection": {
+                      "key": "field_43"
+                    },
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_32",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Account",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "connection": {
+                      "key": "field_43"
+                    },
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "602ef1e8adce8f001c8ec0a3",
+      "key": "view_118",
+      "name": "Invoice Details",
+      "type": "details",
+      "rules": {
+        "fields": []
+      },
+      "title": "Payment Details",
+      "groups": [],
+      "layout": "full",
+      "source": {
+        "sort": [
+          {
+            "field": "field_21",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "reportType": null,
+      "description": "Details from payments sent to Stripe.",
+      "hide_fields": false,
+      "label_format": "left",
+      "_scene_key": "scene_68",
+      "_scene_name": "View Invoice Details",
+      "_scene_slug": "view-invoice-details2"
+    },
+    {
+      "columns": [
+        {
+          "width": 100,
+          "groups": [
+            {
+              "columns": [
+                [
+                  {
+                    "key": "field_21",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Student",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_136",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Student Rate",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_34",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Due Date",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_118",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Pay Period",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_111",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Due Date Month",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_33",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Number of Supervision/Tutoring Hours (OLD)",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_36",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Paid",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_39",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Sub Total Old",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "type": "divider",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_121",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Overdue",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_140",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Late Fee Calc",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_141",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Sub Total Base + Late Fee",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_143",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Sub Total Base + Max Late Fee",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "type": "divider",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  },
+                  {
+                    "key": "field_75",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Final Total",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": ""
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "6262b3e2ffada5001e82f3b6",
+      "key": "view_144",
+      "name": "Invoice",
+      "type": "details",
+      "rules": {
+        "fields": [
+          {
+            "key": "2",
+            "actions": [
+              {
+                "field": "field_121",
+                "value": "",
+                "action": "show"
+              },
+              {
+                "field": "field_140",
+                "value": "",
+                "action": "show"
+              },
+              {
+                "field": "field_141",
+                "value": "",
+                "action": "show"
+              },
+              {
+                "field": "field_143",
+                "value": "",
+                "action": "hide"
+              }
+            ],
+            "criteria": [
+              {
+                "field": "field_121",
+                "value": true,
+                "operator": "is"
+              }
+            ]
+          },
+          {
+            "key": "3",
+            "actions": [
+              {
+                "field": "field_121",
+                "value": "",
+                "action": "show"
+              },
+              {
+                "field": "field_140",
+                "value": "",
+                "action": "show"
+              },
+              {
+                "field": "field_141",
+                "value": "",
+                "action": "hide"
+              },
+              {
+                "field": "field_143",
+                "value": "",
+                "action": "show"
+              }
+            ],
+            "criteria": [
+              {
+                "field": "field_121",
+                "value": true,
+                "operator": "is"
+              },
+              {
+                "field": "field_139",
+                "value": "10",
+                "operator": "higher than"
+              }
+            ]
+          }
+        ]
+      },
+      "title": "Invoice Details",
+      "groups": [],
+      "layout": "full",
+      "source": {
+        "sort": [
+          {
+            "field": "field_34",
+            "order": "desc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "hide_fields": false,
+      "label_format": "left",
+      "_scene_key": "scene_86",
+      "_scene_name": "Invoice Details",
+      "_scene_slug": "invoice-details2"
+    },
+    {
+      "columns": [
+        {
+          "width": 100,
+          "groups": [
+            {
+              "columns": [
+                [
+                  {
+                    "key": "field_6",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Name",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_7",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Email",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_61",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Supervisor",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_37",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Start Date",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_175",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Total 1-1 Hours",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_176",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Total Group Hours",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_177",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Total RSABA Hours",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_42",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Total Hours",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  },
+                  {
+                    "key": "field_62",
+                    "copy": "",
+                    "icon": {
+                      "icon": "",
+                      "align": "left"
+                    },
+                    "name": "Status",
+                    "type": "field",
+                    "value": "",
+                    "format": {
+                      "styles": [],
+                      "label_custom": false,
+                      "label_format": "left"
+                    },
+                    "show_map": false,
+                    "conn_link": "",
+                    "link_text": "",
+                    "link_type": "text",
+                    "map_width": 400,
+                    "link_field": "",
+                    "map_height": 300,
+                    "img_gallery": "",
+                    "conn_separator": "",
+                    "link_design_active": false
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "65d422f814997d0028993f71",
+      "key": "view_155",
+      "name": "Student",
+      "type": "details",
+      "rules": {
+        "fields": []
+      },
+      "title": "Student Details",
+      "groups": [],
+      "layout": "full",
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "hide_fields": false,
+      "label_format": "left",
+      "_scene_key": "scene_93",
+      "_scene_name": "Student Details",
+      "_scene_slug": "student-details3"
+    }
+  ]
+}

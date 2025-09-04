@@ -1,0 +1,2779 @@
+{
+  "type": "form",
+  "count": 22,
+  "views": [
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "61edb228e9a257001fe78f6a",
+      "key": "view_137",
+      "name": "Add Website Contact",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [
+          {
+            "key": "3",
+            "email": {
+              "message": "<p>New lead for RSABA:</p><ul><li><p>{field_129}</p></li><li><p>{field_130}</p></li><li><p>{field_131}</p></li><li><p>{field_132}</p></li><li><p>{field_185}</p></li><li><p>{field_133}</p></li></ul>",
+              "subject": "New RSABA {field_185} Lead - {field_132}",
+              "from_name": "RSABA Website",
+              "from_email": "hi@readysetaba.com",
+              "recipients": [
+                {
+                  "email": "katherine@readysetaba.com",
+                  "field": "field_130",
+                  "recipient_mode": "to",
+                  "recipient_type": "custom"
+                }
+              ]
+            },
+            "action": "email",
+            "values": [
+              {
+                "type": "value",
+                "input": "",
+                "value": "",
+                "connection_field": ""
+              }
+            ],
+            "criteria": [],
+            "connection": null
+          }
+        ],
+        "fields": [],
+        "records": [
+          {
+            "key": "1",
+            "action": "record",
+            "values": [
+              {
+                "type": "current_date",
+                "field": "field_132",
+                "input": "",
+                "value": {
+                  "date": "01/23/2022",
+                  "all_day": false
+                },
+                "action": "",
+                "connection_field": ""
+              }
+            ],
+            "criteria": [],
+            "connection": null
+          }
+        ],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "<p>Thanks for reaching out, we will be in contact soon!\n</p>",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "",
+      "action": "create",
+      "groups": [
+        {
+          "id": "group_JJcpW28yxT",
+          "columns": [
+            {
+              "id": "column_5EHOGeW-gT",
+              "inputs": [
+                {
+                  "id": "field_129",
+                  "type": "name",
+                  "field": {
+                    "key": "field_129"
+                  },
+                  "label": "Name",
+                  "format": {
+                    "format": "First Last"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_130",
+                  "type": "email",
+                  "field": {
+                    "key": "field_130"
+                  },
+                  "label": "Email",
+                  "format": {
+                    "text_format": "url"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_131",
+                  "type": "phone",
+                  "field": {
+                    "key": "field_131"
+                  },
+                  "label": "Phone",
+                  "format": {
+                    "format": "(999) 999-9999",
+                    "extension": false
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_185",
+                  "type": "multiple_choice",
+                  "field": {
+                    "key": "field_185"
+                  },
+                  "label": "Are you looking for tutoring, supervision or consulting?",
+                  "format": {
+                    "type": "single",
+                    "blank": "Select...",
+                    "default": "kn-blank",
+                    "options": [
+                      "Tutoring",
+                      "Supervision",
+                      "Consulting"
+                    ],
+                    "sorting": "custom"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_133",
+                  "type": "paragraph_text",
+                  "field": {
+                    "key": "field_133"
+                  },
+                  "label": "How can we help?",
+                  "instructions": "Tell us more about how we can help."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_129",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_14",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "reportType": null,
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_81",
+      "_scene_name": "Contact Form",
+      "_scene_slug": "contact-form"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5de853103b3aca00189e6fdf",
+      "key": "view_1",
+      "name": "Account Settings",
+      "type": "form",
+      "rules": {
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Your account settings have been updated.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Account Settings",
+      "action": "update",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "id": "field_1",
+                  "key": "field_1",
+                  "type": "name",
+                  "field": {
+                    "key": "field_1"
+                  },
+                  "label": "Name"
+                },
+                {
+                  "id": "field_2",
+                  "key": "field_2",
+                  "type": "email",
+                  "field": {
+                    "key": "field_2"
+                  },
+                  "label": "Email"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "object": "object_1",
+        "authenticated_user": true
+      },
+      "description": "",
+      "_scene_key": "scene_2",
+      "_scene_name": "Account Settings",
+      "_scene_slug": "account-settings"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5de853103b3aca00189e6fde",
+      "key": "view_2",
+      "name": "Change Password",
+      "type": "form",
+      "rules": {
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Password successfully changed.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Change Password",
+      "action": "update",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "id": "field_3",
+                  "key": "field_3",
+                  "type": "password",
+                  "field": {
+                    "key": "field_3"
+                  },
+                  "label": "Password",
+                  "label_update": "New Password",
+                  "action_update": true,
+                  "label_authenticate": "Current Password",
+                  "action_authenticate": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "object": "object_1",
+        "authenticated_user": true
+      },
+      "description": "",
+      "_scene_key": "scene_2",
+      "_scene_name": "Account Settings",
+      "_scene_slug": "account-settings"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5de85481cd06470015cbc97e",
+      "key": "view_5",
+      "name": "Add Student",
+      "type": "form",
+      "alert": "none",
+      "label": "Form",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [
+          {
+            "key": "1",
+            "action": "record",
+            "values": [
+              {
+                "type": "value",
+                "field": "field_9",
+                "input": "",
+                "value": "active",
+                "action": "",
+                "connection_field": ""
+              },
+              {
+                "type": "value",
+                "field": "field_62",
+                "input": "",
+                "value": "Active",
+                "connection_field": ""
+              },
+              {
+                "type": "user",
+                "field": "field_61",
+                "input": "",
+                "value": "",
+                "connection_field": ""
+              },
+              {
+                "type": "value",
+                "field": "field_156",
+                "input": "",
+                "value": [
+                  {
+                    "id": "65d421b0acd9ae002802bbc4",
+                    "identifier": "ReadySetABA - Supervision"
+                  }
+                ],
+                "connection_field": ""
+              }
+            ],
+            "criteria": [],
+            "connection": "object_3.field_61"
+          }
+        ],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Add Student",
+      "action": "insert",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "id": "field_6",
+                  "key": "field_6",
+                  "type": "name",
+                  "field": {
+                    "key": "field_6"
+                  },
+                  "label": "Name",
+                  "format": {
+                    "format": "First Last"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_7",
+                  "key": "field_7",
+                  "type": "email",
+                  "field": {
+                    "key": "field_7"
+                  },
+                  "label": "Email",
+                  "format": {
+                    "label": "",
+                    "text_format": "url"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_8",
+                  "key": "field_8",
+                  "type": "password",
+                  "field": {
+                    "key": "field_8"
+                  },
+                  "label": "Password",
+                  "instructions": "",
+                  "label_update": "Password",
+                  "action_update": true
+                },
+                {
+                  "id": "field_85",
+                  "type": "short_text",
+                  "field": {
+                    "key": "field_85"
+                  },
+                  "label": "Timezone ",
+                  "instructions": ""
+                },
+                {
+                  "id": "field_37",
+                  "key": "field_37",
+                  "type": "date_time",
+                  "field": {
+                    "key": "field_37"
+                  },
+                  "label": "Start Date",
+                  "format": {
+                    "calendar": false,
+                    "date_format": "mm/dd/yyyy",
+                    "time_format": "Ignore Time",
+                    "default_date": "12/04/2019",
+                    "default_type": "current"
+                  },
+                  "instructions": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "type": "database",
+        "limit": null,
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "child_views": [],
+      "description": "This student will be assigned to the logged in Supervisor and set to Active.",
+      "child_scenes": [],
+      "reload_form_text": "Reload form",
+      "child_child_views": [],
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_4",
+      "_scene_name": "Add Student",
+      "_scene_slug": "add-student"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5de854c431e10e0015534cb3",
+      "key": "view_11",
+      "name": "Add Note",
+      "type": "form",
+      "alert": "none",
+      "label": "Form",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [
+          {
+            "key": "record_cf354fe0dfb6",
+            "action": "record",
+            "values": [
+              {
+                "type": "current_date",
+                "field": "field_20",
+                "input": "field_19",
+                "value": {
+                  "date": "12/04/2019"
+                },
+                "connection_field": "field_18-field_6"
+              }
+            ],
+            "criteria": []
+          }
+        ],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "parent_page",
+            "is_default": true
+          }
+        ]
+      },
+      "title": "Add Note",
+      "action": "insert",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "id": "field_19",
+                  "type": "paragraph_text",
+                  "field": {
+                    "key": "field_19"
+                  },
+                  "label": "Note",
+                  "instructions": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_18",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_5",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_18",
+        "relationship_type": "foreign"
+      },
+      "child_views": [],
+      "description": "",
+      "child_scenes": [],
+      "reload_form_text": "Reload form",
+      "child_child_views": [],
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_7",
+      "_scene_name": "Add Note",
+      "_scene_slug": "add-note"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5de85ff7f799f100165fdf62",
+      "key": "view_25",
+      "name": "Add Invoice",
+      "type": "form",
+      "alert": "none",
+      "label": "Form",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [
+          {
+            "key": "1",
+            "action": "record",
+            "values": [
+              {
+                "type": "user",
+                "field": "field_99",
+                "input": "",
+                "value": "",
+                "action": "",
+                "connection_field": ""
+              }
+            ],
+            "criteria": [],
+            "connection": "object_2.field_21"
+          }
+        ],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "<p>Form successfully submitted.\n</p>",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Add Invoice & Hours",
+      "action": "insert",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "id": "field_178",
+                  "type": "number",
+                  "field": {
+                    "key": "field_178"
+                  },
+                  "label": "Number of 1-1 Hours",
+                  "format": {
+                    "format": "",
+                    "rounding": "none",
+                    "precision": 2,
+                    "mark_decimal": "period",
+                    "mark_thousands": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_171",
+                  "type": "number",
+                  "field": {
+                    "key": "field_171"
+                  },
+                  "label": "Number of Group Hours",
+                  "format": {
+                    "format": "",
+                    "rounding": "none",
+                    "precision": 2,
+                    "mark_decimal": "period",
+                    "mark_thousands": "period"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_174",
+                  "type": "equation",
+                  "field": {
+                    "key": "field_174"
+                  },
+                  "label": "Number of ReadySetABA Hours",
+                  "format": {
+                    "pre": "",
+                    "post": "",
+                    "format": "",
+                    "equation": "{field_178}+{field_171}",
+                    "rounding": "none",
+                    "date_type": "hours",
+                    "precision": "2",
+                    "count_field": "Connection",
+                    "date_format": "mm/dd/yyyy",
+                    "date_result": "number",
+                    "time_format": "Ignore Time",
+                    "mark_decimal": "period",
+                    "equation_type": "numeric",
+                    "formula_field": "Field",
+                    "mark_thousands": "period"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "divider",
+                  "instructions": ""
+                },
+                {
+                  "id": "field_100",
+                  "type": "paragraph_text",
+                  "field": {
+                    "key": "field_100"
+                  },
+                  "label": "Meeting Dates",
+                  "instructions": ""
+                },
+                {
+                  "id": "field_118",
+                  "type": "connection",
+                  "field": {
+                    "key": "field_118"
+                  },
+                  "label": "Billing Period",
+                  "source": {
+                    "filters": []
+                  },
+                  "instructions": "This should be the same as the pay period your timesheet is associated with. "
+                },
+                {
+                  "id": "field_34",
+                  "type": "date_time",
+                  "field": {
+                    "key": "field_34"
+                  },
+                  "label": "Invoice Due Date",
+                  "format": {
+                    "calendar": false,
+                    "time_type": "current",
+                    "date_format": "mm/dd/yyyy",
+                    "time_format": "Ignore Time",
+                    "default_date": "12/04/2019",
+                    "default_type": "none"
+                  },
+                  "instructions": "<br />\nDUE DATE MUST BE THE LAST DAY OF MONTH FOR SERVICES RENDERED"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_21",
+            "order": "asc"
+          }
+        ],
+        "type": "database",
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_21",
+        "relationship_type": "foreign"
+      },
+      "child_views": [],
+      "description": "",
+      "child_scenes": [],
+      "reload_form_text": "Reload form",
+      "child_child_views": [],
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_15",
+      "_scene_name": "Add Invoice",
+      "_scene_slug": "add-invoice"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5e5c4ac81cf2660015a76ef6",
+      "key": "view_30",
+      "name": "Edit Student",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Edit Customer",
+      "action": "update",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "name",
+                  "field": {
+                    "key": "field_6"
+                  },
+                  "label": "Name",
+                  "format": {
+                    "format": "First Last"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "email",
+                  "field": {
+                    "key": "field_7"
+                  },
+                  "label": "Email",
+                  "format": {
+                    "label": "",
+                    "text_format": "url"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_85",
+                  "type": "short_text",
+                  "field": {
+                    "key": "field_85"
+                  },
+                  "label": "Timezone ",
+                  "instructions": ""
+                },
+                {
+                  "type": "date_time",
+                  "field": {
+                    "key": "field_37"
+                  },
+                  "label": "Start Date",
+                  "format": {
+                    "calendar": false,
+                    "date_format": "mm/dd/yyyy",
+                    "time_format": "Ignore Time",
+                    "default_date": "12/04/2019",
+                    "default_type": "current"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_62",
+                  "type": "multiple_choice",
+                  "field": {
+                    "key": "field_62"
+                  },
+                  "label": "Status",
+                  "format": {
+                    "type": "single",
+                    "blank": "Select...",
+                    "default": "kn-blank",
+                    "options": [
+                      "Active",
+                      "Paused",
+                      "Inactive"
+                    ],
+                    "sorting": "custom"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "number",
+                  "field": {
+                    "key": "field_40"
+                  },
+                  "label": "Starting Hours",
+                  "format": {
+                    "pre": "",
+                    "post": "",
+                    "format": "",
+                    "rounding": "none",
+                    "precision": "2",
+                    "mark_decimal": "none",
+                    "mark_thousands": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "divider",
+                  "instructions": ""
+                },
+                {
+                  "type": "connection",
+                  "field": {
+                    "key": "field_61"
+                  },
+                  "label": "Supervisor",
+                  "format": {
+                    "separator": "new_line"
+                  },
+                  "source": {
+                    "filters": []
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_79",
+                  "type": "link",
+                  "field": {
+                    "key": "field_79"
+                  },
+                  "label": "Customer Folder Link",
+                  "format": {
+                    "label": "link to folder",
+                    "target": "_self",
+                    "text_format": "same"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_77",
+                  "type": "link",
+                  "field": {
+                    "key": "field_77"
+                  },
+                  "label": "Weekly Meeting Link",
+                  "format": {
+                    "label": "link to meeting",
+                    "target": "_self",
+                    "text_format": "same"
+                  },
+                  "instructions": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_20",
+      "_scene_name": "Edit Student",
+      "_scene_slug": "edit-student"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5e6114470b715100170b3a90",
+      "key": "view_64",
+      "name": "Update Student",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Deactivate Customer",
+      "action": "update",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "multiple_choice",
+                  "field": {
+                    "key": "field_9"
+                  },
+                  "label": "Portal Status",
+                  "format": {
+                    "default": "active",
+                    "options": [
+                      "active",
+                      "inactive",
+                      "pending approval"
+                    ]
+                  },
+                  "instructions": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "reportType": null,
+      "description": "Setting the student to inactive will prevent them from logging into this portal. ",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_20",
+      "_scene_name": "Edit Student",
+      "_scene_slug": "edit-student"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "620aa52d638eb0001ed41e0f",
+      "key": "view_140",
+      "name": "Update Customer Rate",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Update Customer Rate",
+      "action": "update",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": []
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "reportType": null,
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_20",
+      "_scene_name": "Edit Student",
+      "_scene_slug": "edit-student"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5e5c7273e61aa60015b4ddb3",
+      "key": "view_39",
+      "name": "Edit Invoice",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Edit Invoice",
+      "action": "update",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "connection",
+                  "field": {
+                    "key": "field_21"
+                  },
+                  "label": "Student",
+                  "format": {
+                    "separator": "new_line"
+                  },
+                  "source": {
+                    "filters": []
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_178",
+                  "type": "number",
+                  "field": {
+                    "key": "field_178"
+                  },
+                  "label": "1-1 Hours",
+                  "format": {
+                    "format": "",
+                    "rounding": "none",
+                    "precision": 2,
+                    "mark_decimal": "period",
+                    "mark_thousands": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_171",
+                  "type": "number",
+                  "field": {
+                    "key": "field_171"
+                  },
+                  "label": "Group Hours",
+                  "format": {
+                    "format": "",
+                    "rounding": "none",
+                    "precision": 2,
+                    "mark_decimal": "period",
+                    "mark_thousands": "period"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_174",
+                  "type": "equation",
+                  "field": {
+                    "key": "field_174"
+                  },
+                  "label": "Number RSABA Hours",
+                  "format": {
+                    "pre": "",
+                    "post": "",
+                    "format": "",
+                    "equation": "{field_178}+{field_171}",
+                    "rounding": "none",
+                    "date_type": "hours",
+                    "precision": "2",
+                    "count_field": "Connection",
+                    "date_format": "mm/dd/yyyy",
+                    "date_result": "number",
+                    "time_format": "Ignore Time",
+                    "mark_decimal": "period",
+                    "equation_type": "numeric",
+                    "formula_field": "Field",
+                    "mark_thousands": "period"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "date_time",
+                  "field": {
+                    "key": "field_34"
+                  },
+                  "label": "Due Date",
+                  "format": {
+                    "calendar": false,
+                    "time_type": "current",
+                    "date_format": "mm/dd/yyyy",
+                    "time_format": "Ignore Time",
+                    "default_date": "12/04/2019",
+                    "default_type": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "boolean",
+                  "field": {
+                    "key": "field_36"
+                  },
+                  "label": "Paid",
+                  "format": {
+                    "input": "dropdown",
+                    "format": "yes_no",
+                    "default": false,
+                    "required": false
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_180",
+                  "type": "equation",
+                  "field": {
+                    "key": "field_180"
+                  },
+                  "label": "Sub Total",
+                  "format": {
+                    "pre": "",
+                    "post": "",
+                    "format": "$",
+                    "equation": "{field_136}*({field_178}+{field_171})",
+                    "rounding": "none",
+                    "date_type": "hours",
+                    "precision": "2",
+                    "count_field": "Connection",
+                    "date_format": "mm/dd/yyyy",
+                    "date_result": "number",
+                    "time_format": "Ignore Time",
+                    "mark_decimal": "period",
+                    "equation_type": "numeric",
+                    "formula_field": "Field",
+                    "mark_thousands": "none"
+                  },
+                  "instructions": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_34",
+            "order": "desc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_28",
+      "_scene_name": "Edit Invoice",
+      "_scene_slug": "edit-invoice2"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5e5fb00d61a51a00154eaa13",
+      "key": "view_47",
+      "name": "Edit Student",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Edit Profile",
+      "action": "update",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "name",
+                  "field": {
+                    "key": "field_6"
+                  },
+                  "label": "Name",
+                  "format": {
+                    "format": "First Last"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "email",
+                  "field": {
+                    "key": "field_7"
+                  },
+                  "label": "Email",
+                  "format": {
+                    "label": "",
+                    "text_format": "url"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "password",
+                  "field": {
+                    "key": "field_8"
+                  },
+                  "label": "Password",
+                  "instructions": "",
+                  "label_update": "Password",
+                  "action_update": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_34",
+      "_scene_name": "Edit Student",
+      "_scene_slug": "edit-student2"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5e611502534be40017e70923",
+      "key": "view_66",
+      "name": "Edit Invoice",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Edit Invoice",
+      "action": "update",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "connection",
+                  "field": {
+                    "key": "field_21"
+                  },
+                  "label": "Customer",
+                  "format": {
+                    "separator": "new_line"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "date_time",
+                  "field": {
+                    "key": "field_34"
+                  },
+                  "label": "Due Date",
+                  "format": {
+                    "calendar": false,
+                    "time_type": "current",
+                    "date_format": "mm/dd/yyyy",
+                    "time_format": "Ignore Time",
+                    "default_date": "12/04/2019",
+                    "default_type": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "number",
+                  "field": {
+                    "key": "field_33"
+                  },
+                  "label": "Number of Supervision/Tutoring Hours (OLD)",
+                  "format": {
+                    "pre": "",
+                    "post": "",
+                    "format": "",
+                    "rounding": "none",
+                    "precision": "2",
+                    "mark_decimal": "period",
+                    "mark_thousands": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "equation",
+                  "field": {
+                    "key": "field_39"
+                  },
+                  "label": "Sub Total Old",
+                  "format": {
+                    "pre": "",
+                    "post": "",
+                    "format": "$",
+                    "equation": "({field_136}*{field_33})",
+                    "rounding": "none",
+                    "precision": "2",
+                    "count_field": "Connection",
+                    "mark_decimal": "period",
+                    "equation_type": "numeric",
+                    "formula_field": "Field",
+                    "mark_thousands": "comma"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "boolean",
+                  "field": {
+                    "key": "field_36"
+                  },
+                  "label": "Paid",
+                  "format": {
+                    "input": "dropdown",
+                    "format": "yes_no",
+                    "default": false,
+                    "required": false
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "boolean",
+                  "field": {
+                    "key": "field_63"
+                  },
+                  "label": "Completed Hours",
+                  "format": {
+                    "input": "dropdown",
+                    "format": "yes_no",
+                    "default": false,
+                    "required": false
+                  },
+                  "instructions": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_34",
+            "order": "desc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_42",
+      "_scene_name": "Edit Invoice",
+      "_scene_slug": "edit-invoice"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5e61164aae045300158ea525",
+      "key": "view_73",
+      "name": "Edit Supervisor",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Edit Supervisor",
+      "action": "update",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "name",
+                  "field": {
+                    "key": "field_11"
+                  },
+                  "label": "Name",
+                  "format": {
+                    "format": "First Last"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "email",
+                  "field": {
+                    "key": "field_12"
+                  },
+                  "label": "Email",
+                  "format": {
+                    "label": "",
+                    "text_format": "url"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "password",
+                  "field": {
+                    "key": "field_13"
+                  },
+                  "label": "Password",
+                  "instructions": ""
+                },
+                {
+                  "type": "multiple_choice",
+                  "field": {
+                    "key": "field_14"
+                  },
+                  "label": "User Status",
+                  "format": {
+                    "default": "active",
+                    "options": [
+                      "active",
+                      "inactive",
+                      "pending approval"
+                    ]
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "user_roles",
+                  "field": {
+                    "key": "field_15"
+                  },
+                  "label": "User Roles",
+                  "instructions": ""
+                },
+                {
+                  "id": "field_103",
+                  "type": "currency",
+                  "field": {
+                    "key": "field_103"
+                  },
+                  "label": "Supervision Hourly Rate",
+                  "format": {
+                    "format": "$"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_146",
+                  "type": "currency",
+                  "field": {
+                    "key": "field_146"
+                  },
+                  "label": "Group Hourly Rate",
+                  "format": {
+                    "format": "$"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_104",
+                  "type": "currency",
+                  "field": {
+                    "key": "field_104"
+                  },
+                  "label": "Content Hourly Rate",
+                  "format": {
+                    "format": "$"
+                  },
+                  "instructions": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_11",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_3",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_47",
+      "_scene_name": "Edit Supervisor",
+      "_scene_slug": "edit-supervisor"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5e611e23ae045300158eb5e3",
+      "key": "view_89",
+      "name": "Add Invoice",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [
+          {
+            "key": "record_78a8f22120d4",
+            "action": "record",
+            "values": [
+              {
+                "type": "value",
+                "field": "field_36",
+                "input": "",
+                "value": "",
+                "connection_field": ""
+              },
+              {
+                "type": "value",
+                "field": "field_63",
+                "input": "",
+                "value": "",
+                "connection_field": ""
+              }
+            ],
+            "criteria": [],
+            "connection": "object_2.field_21"
+          }
+        ],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Add Invoice",
+      "action": "create",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "connection",
+                  "field": {
+                    "key": "field_21"
+                  },
+                  "label": "Customer",
+                  "format": {
+                    "separator": "new_line"
+                  },
+                  "source": {
+                    "filters": [
+                      {
+                        "field": "field_62",
+                        "value": "Active",
+                        "operator": "contains"
+                      }
+                    ]
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_99",
+                  "type": "connection",
+                  "field": {
+                    "key": "field_99"
+                  },
+                  "label": "Supervisor",
+                  "source": {
+                    "filters": []
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_118",
+                  "type": "connection",
+                  "field": {
+                    "key": "field_118"
+                  },
+                  "label": "Pay Period",
+                  "source": {
+                    "filters": []
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "date_time",
+                  "field": {
+                    "key": "field_34"
+                  },
+                  "label": "Due Date",
+                  "format": {
+                    "calendar": false,
+                    "time_type": "current",
+                    "date_format": "mm/dd/yyyy",
+                    "time_format": "Ignore Time",
+                    "default_date": "12/04/2019",
+                    "default_type": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "number",
+                  "field": {
+                    "key": "field_33"
+                  },
+                  "label": "Number of Supervision/Tutoring Hours (OLD)",
+                  "format": {
+                    "pre": "",
+                    "post": "",
+                    "format": "",
+                    "rounding": "none",
+                    "precision": "2",
+                    "mark_decimal": "period",
+                    "mark_thousands": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_100",
+                  "type": "paragraph_text",
+                  "field": {
+                    "key": "field_100"
+                  },
+                  "label": "Meeting Dates",
+                  "instructions": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_21",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "reportType": null,
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_54",
+      "_scene_name": "Add Invoice",
+      "_scene_slug": "add-invoice2"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5e611ed81af5420016bdc63b",
+      "key": "view_91",
+      "name": "Add Invoice",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [
+          {
+            "key": "record_e2df51638a07",
+            "action": "record",
+            "values": [
+              {
+                "type": "value",
+                "field": "field_36",
+                "input": "",
+                "value": "",
+                "connection_field": ""
+              },
+              {
+                "type": "value",
+                "field": "field_63",
+                "input": "",
+                "value": "",
+                "connection_field": ""
+              }
+            ],
+            "criteria": [],
+            "connection": "object_2.field_21"
+          }
+        ],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "<p>Form successfully submitted.\n</p>",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Add Invoice",
+      "action": "create",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "date_time",
+                  "field": {
+                    "key": "field_34"
+                  },
+                  "label": "Due Date",
+                  "format": {
+                    "calendar": false,
+                    "time_type": "current",
+                    "date_format": "mm/dd/yyyy",
+                    "time_format": "Ignore Time",
+                    "default_date": "12/04/2019",
+                    "default_type": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_178",
+                  "type": "number",
+                  "field": {
+                    "key": "field_178"
+                  },
+                  "label": "1-1 Hours",
+                  "format": {
+                    "format": "",
+                    "rounding": "none",
+                    "precision": 2,
+                    "mark_decimal": "period",
+                    "mark_thousands": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_171",
+                  "type": "number",
+                  "field": {
+                    "key": "field_171"
+                  },
+                  "label": "Number of Group Hours",
+                  "format": {
+                    "format": "",
+                    "rounding": "none",
+                    "precision": 2,
+                    "mark_decimal": "period",
+                    "mark_thousands": "period"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_174",
+                  "type": "equation",
+                  "field": {
+                    "key": "field_174"
+                  },
+                  "label": "Number RSABA Hours",
+                  "format": {
+                    "pre": "",
+                    "post": "",
+                    "format": "",
+                    "equation": "{field_178}+{field_171}",
+                    "rounding": "none",
+                    "date_type": "hours",
+                    "precision": "2",
+                    "count_field": "Connection",
+                    "date_format": "mm/dd/yyyy",
+                    "date_result": "number",
+                    "time_format": "Ignore Time",
+                    "mark_decimal": "period",
+                    "equation_type": "numeric",
+                    "formula_field": "Field",
+                    "mark_thousands": "period"
+                  },
+                  "instructions": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_21",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_21",
+        "relationship_type": "foreign"
+      },
+      "reportType": null,
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_55",
+      "_scene_name": "Add Invoice",
+      "_scene_slug": "add-invoice3"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5e611f2a12f5b10015f6395e",
+      "key": "view_92",
+      "name": "Add Note",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Add Note",
+      "action": "create",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "connection",
+                  "field": {
+                    "key": "field_83"
+                  },
+                  "label": "Supervisor",
+                  "source": {
+                    "filters": []
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "paragraph_text",
+                  "field": {
+                    "key": "field_19"
+                  },
+                  "label": "Note",
+                  "instructions": ""
+                },
+                {
+                  "type": "date_time",
+                  "field": {
+                    "key": "field_20"
+                  },
+                  "label": "Date/Time",
+                  "format": {
+                    "calendar": false,
+                    "date_format": "mm/dd/yyyy",
+                    "time_format": "Ignore Time",
+                    "default_date": "12/04/2019",
+                    "default_type": "current"
+                  },
+                  "instructions": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_18",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_5",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_18",
+        "relationship_type": "foreign"
+      },
+      "reportType": null,
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_56",
+      "_scene_name": "Add Note",
+      "_scene_slug": "add-note2"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5e6128861af5420016bdd375",
+      "key": "view_96",
+      "name": "Edit Student",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Edit Student",
+      "action": "update",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "name",
+                  "field": {
+                    "key": "field_6"
+                  },
+                  "label": "Name",
+                  "format": {
+                    "format": "First Last"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "email",
+                  "field": {
+                    "key": "field_7"
+                  },
+                  "label": "Email",
+                  "format": {
+                    "label": "",
+                    "text_format": "url"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "short_text",
+                  "field": {
+                    "key": "field_85"
+                  },
+                  "label": "Timezone ",
+                  "instructions": ""
+                },
+                {
+                  "type": "date_time",
+                  "field": {
+                    "key": "field_37"
+                  },
+                  "label": "Start Date",
+                  "format": {
+                    "calendar": false,
+                    "date_format": "mm/dd/yyyy",
+                    "time_format": "Ignore Time",
+                    "default_date": "12/04/2019",
+                    "default_type": "current"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "number",
+                  "field": {
+                    "key": "field_40"
+                  },
+                  "label": "Starting Hours",
+                  "format": {
+                    "pre": "",
+                    "post": "",
+                    "format": "",
+                    "rounding": "none",
+                    "precision": "2",
+                    "mark_decimal": "period",
+                    "mark_thousands": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "multiple_choice",
+                  "field": {
+                    "key": "field_62"
+                  },
+                  "label": "Status",
+                  "format": {
+                    "type": "single",
+                    "blank": "Select...",
+                    "default": "kn-blank",
+                    "options": [
+                      "Active",
+                      "Paused",
+                      "Inactive"
+                    ],
+                    "sorting": "custom"
+                  },
+                  "instructions": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_59",
+      "_scene_name": "Edit Student",
+      "_scene_slug": "edit-student3"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5eb2b352d58b4c0015b82e35",
+      "key": "view_100",
+      "name": "Edit Student",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Edit Customer Password",
+      "action": "update",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "name",
+                  "field": {
+                    "key": "field_6"
+                  },
+                  "label": "Name",
+                  "format": {
+                    "format": "First Last"
+                  },
+                  "read_only": true,
+                  "instructions": ""
+                },
+                {
+                  "type": "email",
+                  "field": {
+                    "key": "field_7"
+                  },
+                  "label": "Email",
+                  "format": {
+                    "label": "",
+                    "text_format": "url"
+                  },
+                  "read_only": true,
+                  "instructions": ""
+                },
+                {
+                  "type": "password",
+                  "field": {
+                    "key": "field_8"
+                  },
+                  "label": "Password",
+                  "instructions": "",
+                  "label_update": "Password",
+                  "action_update": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_62",
+      "_scene_name": "Edit Student Password",
+      "_scene_slug": "edit-student5"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5f6015d2bc0fb50017eb0bec",
+      "key": "view_105",
+      "name": "Add Supervisor",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Add Supervisor",
+      "action": "create",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "name",
+                  "field": {
+                    "key": "field_11"
+                  },
+                  "label": "Name",
+                  "format": {
+                    "format": "First Last"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "email",
+                  "field": {
+                    "key": "field_12"
+                  },
+                  "label": "Email",
+                  "format": {
+                    "label": "",
+                    "text_format": "url"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "password",
+                  "field": {
+                    "key": "field_13"
+                  },
+                  "label": "Password",
+                  "instructions": "",
+                  "label_update": "Password",
+                  "action_update": true
+                },
+                {
+                  "type": "multiple_choice",
+                  "field": {
+                    "key": "field_14"
+                  },
+                  "label": "User Status",
+                  "format": {
+                    "default": "active",
+                    "options": [
+                      "active",
+                      "inactive",
+                      "pending approval"
+                    ]
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "user_roles",
+                  "field": {
+                    "key": "field_15"
+                  },
+                  "label": "User Roles",
+                  "instructions": ""
+                },
+                {
+                  "id": "field_103",
+                  "type": "currency",
+                  "field": {
+                    "key": "field_103"
+                  },
+                  "label": "Supervision Hourly Rate",
+                  "format": {
+                    "format": "$"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_146",
+                  "type": "currency",
+                  "field": {
+                    "key": "field_146"
+                  },
+                  "label": "Group Hourly Rate",
+                  "format": {
+                    "format": "$"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_104",
+                  "type": "currency",
+                  "field": {
+                    "key": "field_104"
+                  },
+                  "label": "Content Hourly Rate",
+                  "format": {
+                    "format": "$"
+                  },
+                  "instructions": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_11",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_3",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "reportType": null,
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_63",
+      "_scene_name": "Add Supervisor",
+      "_scene_slug": "add-supervisor"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5f7e2e4a5f9ee400164e6215",
+      "key": "view_107",
+      "name": "Add Timesheet",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [
+          {
+            "key": "record_86d6d47aa2ef",
+            "action": "record",
+            "values": [
+              {
+                "type": "current_date",
+                "field": "field_97",
+                "input": "",
+                "value": {
+                  "date": "02/18/2021",
+                  "time": 972,
+                  "am_pm": "PM",
+                  "hours": 16,
+                  "allDay": false,
+                  "minutes": 12
+                },
+                "action": "",
+                "connection_field": ""
+              }
+            ],
+            "criteria": [],
+            "connection": "object_3.field_96"
+          }
+        ],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "<p>Form successfully submitted.\n</p>",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Add Timesheet",
+      "action": "create",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "number",
+                  "field": {
+                    "key": "field_94"
+                  },
+                  "label": "Supervision Hours",
+                  "format": {
+                    "format": "",
+                    "rounding": "none",
+                    "precision": 2,
+                    "mark_decimal": "period",
+                    "mark_thousands": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_147",
+                  "type": "number",
+                  "field": {
+                    "key": "field_147"
+                  },
+                  "label": "Group Supervision Hours ",
+                  "format": {
+                    "format": "",
+                    "rounding": "none",
+                    "precision": 2,
+                    "mark_decimal": "period",
+                    "mark_thousands": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "number",
+                  "field": {
+                    "key": "field_95"
+                  },
+                  "label": "Content Writing Hours",
+                  "format": {
+                    "format": "",
+                    "rounding": "none",
+                    "precision": 2,
+                    "mark_decimal": "period",
+                    "mark_thousands": "none"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_98",
+                  "type": "paragraph_text",
+                  "field": {
+                    "key": "field_98"
+                  },
+                  "label": "Content Writing Hour Breakdown",
+                  "instructions": ""
+                },
+                {
+                  "id": "field_115",
+                  "type": "connection",
+                  "field": {
+                    "key": "field_115"
+                  },
+                  "label": "Pay Period",
+                  "source": {
+                    "filters": [
+                      {
+                        "type": "year",
+                        "field": "field_113",
+                        "value": {
+                          "date": "",
+                          "all_day": false
+                        },
+                        "operator": "is during the current"
+                      }
+                    ]
+                  },
+                  "instructions": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_94",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_12",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_96",
+        "relationship_type": "foreign",
+        "authenticated_user": true
+      },
+      "reportType": null,
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_64",
+      "_scene_name": "My Timesheets",
+      "_scene_slug": "supervisor-time-sheet"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "603006dc8224b6001b43663c",
+      "key": "view_127",
+      "name": "Add Student",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [
+          {
+            "key": "record_686c0235a9c9",
+            "action": "record",
+            "values": [
+              {
+                "type": "value",
+                "field": "field_9",
+                "input": "",
+                "value": "active",
+                "action": "",
+                "connection_field": ""
+              },
+              {
+                "type": "value",
+                "field": "field_62",
+                "input": "",
+                "value": "Active",
+                "connection_field": ""
+              }
+            ],
+            "criteria": [],
+            "connection": "object_3.field_61"
+          }
+        ],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Add Student",
+      "action": "create",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "name",
+                  "field": {
+                    "key": "field_6"
+                  },
+                  "label": "Name",
+                  "format": {
+                    "format": "First Last"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "email",
+                  "field": {
+                    "key": "field_7"
+                  },
+                  "label": "Email",
+                  "format": {
+                    "label": "",
+                    "text_format": "url"
+                  },
+                  "instructions": ""
+                },
+                {
+                  "type": "password",
+                  "field": {
+                    "key": "field_8"
+                  },
+                  "label": "Password",
+                  "instructions": ""
+                },
+                {
+                  "type": "short_text",
+                  "field": {
+                    "key": "field_85"
+                  },
+                  "label": "Timezone ",
+                  "instructions": ""
+                },
+                {
+                  "type": "connection",
+                  "field": {
+                    "key": "field_61"
+                  },
+                  "label": "Supervisor",
+                  "format": {
+                    "separator": "new_line"
+                  },
+                  "source": {
+                    "filters": []
+                  },
+                  "instructions": ""
+                },
+                {
+                  "id": "field_156",
+                  "type": "connection",
+                  "view": "view_157",
+                  "field": {
+                    "key": "field_156"
+                  },
+                  "label": "Institution",
+                  "format": {
+                    "input": "chosen",
+                    "conn_default": "none"
+                  },
+                  "source": {
+                    "filters": []
+                  },
+                  "instructions": "Sets Student hourly rate",
+                  "allow_option_inserts": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "reportType": null,
+      "description": "",
+      "submit_button_text": "Submit",
+      "_scene_key": "scene_72",
+      "_scene_name": "Add Student",
+      "_scene_slug": "add-student2"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "66303452dad8d900284d1e9a",
+      "key": "view_157",
+      "name": "Add Institution",
+      "type": "form",
+      "alert": "none",
+      "rules": {
+        "emails": [],
+        "fields": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Form successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Add Institution",
+      "action": "insert",
+      "groups": [
+        {
+          "columns": [
+            {
+              "inputs": [
+                {
+                  "type": "text_field",
+                  "field": {
+                    "key": "field_155"
+                  },
+                  "label": "Name"
+                },
+                {
+                  "type": "text_field",
+                  "field": {
+                    "key": "field_160"
+                  },
+                  "label": "Billing Email"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parent": "view_127",
+      "source": {
+        "sort": [],
+        "object": "object_16"
+      },
+      "description": "",
+      "_scene_key": "scene_72",
+      "_scene_name": "Add Student",
+      "_scene_slug": "add-student2"
+    }
+  ]
+}

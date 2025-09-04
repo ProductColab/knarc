@@ -1,0 +1,1150 @@
+{
+  "type": "UserObject",
+  "category": "object",
+  "count": 5,
+  "objects": [
+    {
+      "inflections": {
+        "plural": "Students",
+        "singular": "Student"
+      },
+      "connections": {
+        "inbound": [
+          {
+            "has": "one",
+            "key": "field_21",
+            "name": "Student",
+            "field": {
+              "name": "Student",
+              "inflections": {
+                "plural": "Students",
+                "singular": "Student"
+              }
+            },
+            "object": "object_4",
+            "belongs_to": "many"
+          },
+          {
+            "has": "one",
+            "key": "field_18",
+            "name": "Student",
+            "field": {
+              "name": "Student",
+              "inflections": {
+                "plural": "Students",
+                "singular": "Student"
+              }
+            },
+            "object": "object_5",
+            "belongs_to": "many"
+          },
+          {
+            "has": "one",
+            "key": "field_50",
+            "name": "Student",
+            "field": {
+              "name": "Student",
+              "inflections": {
+                "plural": "Students",
+                "singular": "Student"
+              }
+            },
+            "object": "object_8",
+            "belongs_to": "many"
+          }
+        ],
+        "outbound": [
+          {
+            "has": "one",
+            "key": "field_61",
+            "name": "Supervisor",
+            "field": {
+              "name": "Supervisor",
+              "inflections": {
+                "plural": "Supervisors",
+                "singular": "Supervisor"
+              }
+            },
+            "object": "object_3",
+            "belongs_to": "many"
+          },
+          {
+            "has": "one",
+            "key": "field_156",
+            "name": "Institution",
+            "field": {
+              "name": "Institution",
+              "inflections": {
+                "plural": "Institutions",
+                "singular": "Institution"
+              }
+            },
+            "object": "object_16",
+            "belongs_to": "many"
+          }
+        ]
+      },
+      "sort": {
+        "field": "field_37",
+        "order": "desc"
+      },
+      "name": "Student",
+      "user": true,
+      "status": "current",
+      "tasks": [],
+      "type": "UserObject",
+      "schemaChangeInProgress": false,
+      "_id": "5de85317cd06470015cbc605",
+      "key": "object_2",
+      "uuid": "019390cf-05f8-75fc-8962-c3687f503ab3",
+      "conns": [],
+      "fields": [
+        {
+          "type": "name",
+          "required": true,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85317cd06470015cbc60a",
+          "key": "field_6",
+          "name": "Name",
+          "format": {
+            "format": "First Last"
+          },
+          "immutable": true
+        },
+        {
+          "type": "email",
+          "required": true,
+          "unique": true,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85317cd06470015cbc609",
+          "key": "field_7",
+          "name": "Email",
+          "format": {
+            "label": "",
+            "text_format": "url"
+          },
+          "immutable": true
+        },
+        {
+          "type": "password",
+          "required": true,
+          "unique": true,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85317cd06470015cbc608",
+          "key": "field_8",
+          "name": "Password",
+          "format": null,
+          "immutable": true
+        },
+        {
+          "type": "multiple_choice",
+          "required": true,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85317cd06470015cbc607",
+          "key": "field_9",
+          "name": "User Status",
+          "format": {
+            "type": "single",
+            "default": "active",
+            "options": [
+              "active",
+              "inactive",
+              "pending approval"
+            ]
+          },
+          "immutable": true
+        },
+        {
+          "type": "user_roles",
+          "required": false,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85317cd06470015cbc606",
+          "key": "field_10",
+          "name": "User Roles",
+          "immutable": true
+        },
+        {
+          "type": "connection",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e5c4a73e61aa60015b4c74a",
+          "key": "field_61",
+          "name": "Supervisor",
+          "format": {
+            "input": "chosen",
+            "conn_default": "none"
+          },
+          "relationship": {
+            "has": "one",
+            "object": "object_3",
+            "belongs_to": "many"
+          }
+        },
+        {
+          "type": "date_time",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de8569af799f100165fd12a",
+          "key": "field_37",
+          "name": "Start Date",
+          "format": {
+            "calendar": false,
+            "date_format": "mm/dd/yyyy",
+            "time_format": "Ignore Time",
+            "default_date": "12/04/2019",
+            "default_type": "current"
+          },
+          "object_key": "object_2"
+        },
+        {
+          "type": "number",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de857395b3632001514146b",
+          "key": "field_40",
+          "name": "Starting Hours",
+          "format": {
+            "format": "none",
+            "rounding": "none",
+            "precision": "2",
+            "mark_decimal": "period",
+            "mark_thousands": "none"
+          },
+          "default": "0",
+          "object_key": "object_2"
+        },
+        {
+          "type": "sum",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d42122acf355002a25e4ea",
+          "key": "field_176",
+          "name": "Total Group Hours",
+          "format": {
+            "pre": "",
+            "post": "",
+            "field": {
+              "key": "field_171"
+            },
+            "format": "",
+            "rounding": "none",
+            "precision": "2",
+            "connection": {
+              "key": "field_21"
+            },
+            "mark_decimal": "period",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "sum",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d4213e1086e1002862ecc8",
+          "key": "field_177",
+          "name": "Total RSABA Hours",
+          "format": {
+            "pre": "",
+            "post": "",
+            "field": {
+              "key": "field_174"
+            },
+            "format": "",
+            "rounding": "none",
+            "precision": "2",
+            "connection": {
+              "key": "field_21"
+            },
+            "mark_decimal": "period",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de8576990738600152bfe78",
+          "key": "field_42",
+          "name": "Total Hours",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "",
+            "equation": "{field_40}+{field_177}",
+            "rounding": "none",
+            "precision": "2",
+            "count_field": "Connection",
+            "mark_decimal": "period",
+            "equation_type": "numeric",
+            "formula_field": "Field",
+            "mark_thousands": "none"
+          },
+          "object_key": "object_2"
+        },
+        {
+          "type": "multiple_choice",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e5c4fc7299871001531f9b7",
+          "key": "field_62",
+          "name": "Status",
+          "format": {
+            "type": "single",
+            "blank": "Select...",
+            "default": "kn-blank",
+            "options": [
+              "Active",
+              "Paused",
+              "Inactive"
+            ],
+            "sorting": "custom"
+          }
+        },
+        {
+          "type": "link",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e5fa31aa8b5640015df270c",
+          "key": "field_79",
+          "name": "Student Folder Link",
+          "format": {
+            "label": "link to folder",
+            "target": "_self",
+            "text_format": "same"
+          },
+          "default": ""
+        },
+        {
+          "type": "link",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e5fa21bdbc8f60015e2941b",
+          "key": "field_77",
+          "name": "Weekly Meeting Link",
+          "format": {
+            "label": "link to meeting",
+            "target": "_self",
+            "text_format": "same"
+          },
+          "default": ""
+        },
+        {
+          "type": "short_text",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e612762dc1eff00168048cc",
+          "key": "field_85",
+          "name": "Timezone "
+        },
+        {
+          "type": "connection",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d3faef7e94000028989609",
+          "key": "field_156",
+          "name": "Institution",
+          "format": {
+            "input": "chosen",
+            "conn_default": "none"
+          },
+          "relationship": {
+            "has": "one",
+            "object": "object_16",
+            "belongs_to": "many"
+          }
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d40401acd9ae002801bd93",
+          "key": "field_167",
+          "name": "Institution Rate",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "$",
+            "equation": "{field_156.field_184}",
+            "rounding": "none",
+            "date_type": "hours",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "number",
+            "time_format": "Ignore Time",
+            "mark_decimal": "none",
+            "equation_type": "numeric",
+            "formula_field": "Field",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "number",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": true,
+          "rules": [
+            {
+              "key": "1",
+              "values": [
+                {
+                  "type": "record",
+                  "field": "field_168",
+                  "input": "field_167",
+                  "value": "",
+                  "connection_field": null
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_156",
+                  "value": "",
+                  "operator": "is not blank",
+                  "value_type": "custom",
+                  "value_field": "field_6"
+                }
+              ]
+            }
+          ],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d40e77acd9ae0028021d90",
+          "key": "field_168",
+          "name": "Hourly Rate",
+          "format": {
+            "format": "$",
+            "rounding": "none",
+            "precision": 2,
+            "mark_decimal": "none",
+            "mark_thousands": "none"
+          },
+          "default": "100"
+        },
+        {
+          "type": "short_text",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d40ee81086e100286262c7",
+          "key": "field_169",
+          "name": "Short Text"
+        }
+      ],
+      "identifier": "field_6",
+      "profile_key": "profile_2"
+    },
+    {
+      "inflections": {
+        "plural": "Supervisors",
+        "singular": "Supervisor"
+      },
+      "connections": {
+        "inbound": [
+          {
+            "has": "one",
+            "key": "field_99",
+            "name": "Supervisor",
+            "field": {
+              "name": "Supervisor",
+              "inflections": {
+                "plural": "Supervisors",
+                "singular": "Supervisor"
+              }
+            },
+            "object": "object_4",
+            "belongs_to": "many"
+          },
+          {
+            "has": "one",
+            "key": "field_96",
+            "name": "Supervisor",
+            "field": {
+              "name": "Supervisor",
+              "inflections": {
+                "plural": "Supervisors",
+                "singular": "Supervisor"
+              }
+            },
+            "object": "object_12",
+            "belongs_to": "many"
+          },
+          {
+            "has": "one",
+            "key": "field_83",
+            "name": "Supervisor",
+            "field": {
+              "name": "Supervisor",
+              "inflections": {
+                "plural": "Supervisors",
+                "singular": "Supervisor"
+              }
+            },
+            "object": "object_5",
+            "belongs_to": "many"
+          },
+          {
+            "has": "one",
+            "key": "field_61",
+            "name": "Supervisor",
+            "field": {
+              "name": "Supervisor",
+              "inflections": {
+                "plural": "Supervisors",
+                "singular": "Supervisor"
+              }
+            },
+            "object": "object_2",
+            "belongs_to": "many"
+          }
+        ],
+        "outbound": []
+      },
+      "name": "Supervisor",
+      "user": true,
+      "status": "current",
+      "tasks": [],
+      "type": "UserObject",
+      "schemaChangeInProgress": false,
+      "_id": "5de8531e475a0600171f1015",
+      "key": "object_3",
+      "uuid": "019390cf-0607-7a04-b9eb-4b5b4eae0107",
+      "conns": [],
+      "fields": [
+        {
+          "type": "name",
+          "required": true,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de8531e475a0600171f101a",
+          "key": "field_11",
+          "name": "Name",
+          "format": {
+            "format": "First Last"
+          },
+          "immutable": true
+        },
+        {
+          "type": "email",
+          "required": true,
+          "unique": true,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de8531e475a0600171f1019",
+          "key": "field_12",
+          "name": "Email",
+          "format": {
+            "label": "",
+            "text_format": "url"
+          },
+          "immutable": true
+        },
+        {
+          "type": "password",
+          "required": true,
+          "unique": true,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de8531e475a0600171f1018",
+          "key": "field_13",
+          "name": "Password",
+          "format": null,
+          "immutable": true
+        },
+        {
+          "type": "multiple_choice",
+          "required": true,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de8531e475a0600171f1017",
+          "key": "field_14",
+          "name": "User Status",
+          "format": {
+            "type": "single",
+            "default": "active",
+            "options": [
+              "active",
+              "inactive",
+              "pending approval"
+            ]
+          },
+          "immutable": true
+        },
+        {
+          "type": "user_roles",
+          "required": false,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de8531e475a0600171f1016",
+          "key": "field_15",
+          "name": "User Roles",
+          "immutable": true
+        },
+        {
+          "type": "currency",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602ee55022a406001ea6560d",
+          "key": "field_103",
+          "meta": {
+            "description": ""
+          },
+          "name": "Supervision Hourly Rate",
+          "format": {
+            "format": "$"
+          }
+        },
+        {
+          "type": "currency",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602ee55a903ebf001d780ee7",
+          "key": "field_104",
+          "meta": {
+            "description": ""
+          },
+          "name": "Content Hourly Rate",
+          "format": {
+            "format": "$"
+          }
+        },
+        {
+          "type": "currency",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65b8027ec6933100298a46be",
+          "key": "field_146",
+          "name": "Group Hourly Rate",
+          "format": {
+            "format": "$"
+          },
+          "default": "100"
+        }
+      ],
+      "identifier": "field_11",
+      "profile_key": "profile_3"
+    },
+    {
+      "inflections": {
+        "plural": "Admins",
+        "singular": "Admin"
+      },
+      "connections": {
+        "inbound": [],
+        "outbound": []
+      },
+      "name": "Admin",
+      "user": true,
+      "status": "current",
+      "tasks": [],
+      "type": "UserObject",
+      "schemaChangeInProgress": false,
+      "_id": "5e5c0ed0369a000016774911",
+      "key": "object_9",
+      "uuid": "019390cf-0618-7e24-beb0-8af8d418c493",
+      "fields": [
+        {
+          "type": "name",
+          "required": true,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e5c0ed1369a000016774916",
+          "key": "field_56",
+          "name": "Name",
+          "format": {
+            "format": "First Last"
+          },
+          "immutable": true
+        },
+        {
+          "type": "email",
+          "required": true,
+          "unique": true,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e5c0ed1369a000016774915",
+          "key": "field_57",
+          "name": "Email",
+          "format": {
+            "label": "",
+            "text_format": "url"
+          },
+          "immutable": true
+        },
+        {
+          "type": "password",
+          "required": true,
+          "unique": true,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e5c0ed1369a000016774914",
+          "key": "field_58",
+          "name": "Password",
+          "format": null,
+          "immutable": true
+        },
+        {
+          "type": "multiple_choice",
+          "required": true,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e5c0ed1369a000016774913",
+          "key": "field_59",
+          "name": "User Status",
+          "format": {
+            "type": "single",
+            "default": "active",
+            "options": [
+              "active",
+              "inactive",
+              "pending approval"
+            ]
+          },
+          "immutable": true
+        },
+        {
+          "type": "user_roles",
+          "required": false,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e5c0ed1369a000016774912",
+          "key": "field_60",
+          "name": "User Roles",
+          "immutable": true
+        }
+      ],
+      "template": "",
+      "identifier": "field_56",
+      "profile_key": "profile_9"
+    },
+    {
+      "inflections": {
+        "plural": "Institution Admins",
+        "singular": "Institution Admin"
+      },
+      "connections": {
+        "inbound": [],
+        "outbound": [
+          {
+            "has": "one",
+            "key": "field_157",
+            "name": "Institution",
+            "field": {
+              "name": "Institution",
+              "inflections": {
+                "plural": "Institutions",
+                "singular": "Institution"
+              }
+            },
+            "object": "object_16",
+            "belongs_to": "many"
+          }
+        ]
+      },
+      "sort": {
+        "field": "field_149",
+        "order": "asc"
+      },
+      "name": "Institution Admin",
+      "user": true,
+      "status": "current",
+      "tasks": [],
+      "type": "UserObject",
+      "schemaChangeInProgress": false,
+      "_id": "65d3f8e97dbce100272652fc",
+      "key": "object_15",
+      "uuid": "019390cf-0631-7f8c-97d3-77d18b0c8255",
+      "fields": [
+        {
+          "type": "name",
+          "required": true,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d3f8e97dbce100272652fe",
+          "key": "field_149",
+          "name": "Name",
+          "format": {
+            "format": "First Last"
+          },
+          "immutable": true
+        },
+        {
+          "type": "email",
+          "required": true,
+          "unique": true,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d3f8e97dbce100272652ff",
+          "key": "field_150",
+          "name": "Email",
+          "format": {
+            "label": "",
+            "text_format": "url"
+          },
+          "immutable": true
+        },
+        {
+          "type": "password",
+          "required": true,
+          "unique": true,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d3f8e97dbce10027265300",
+          "key": "field_151",
+          "name": "Password",
+          "format": null,
+          "immutable": true
+        },
+        {
+          "type": "multiple_choice",
+          "required": true,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d3f8e97dbce10027265301",
+          "key": "field_152",
+          "name": "User Status",
+          "format": {
+            "type": "single",
+            "default": "active",
+            "options": [
+              "active",
+              "inactive",
+              "pending approval"
+            ]
+          },
+          "immutable": true
+        },
+        {
+          "type": "user_roles",
+          "required": false,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d3f8e97dbce10027265302",
+          "key": "field_153",
+          "name": "User Roles",
+          "immutable": true
+        },
+        {
+          "type": "connection",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d3fb0cf93c210028f4acc8",
+          "key": "field_157",
+          "name": "Institution",
+          "format": {
+            "input": "chosen",
+            "conn_default": "none"
+          },
+          "relationship": {
+            "has": "one",
+            "object": "object_16",
+            "belongs_to": "many"
+          }
+        }
+      ],
+      "template": "",
+      "identifier": "field_149",
+      "profile_key": "profile_15"
+    },
+    {
+      "inflections": {
+        "plural": "Accounts",
+        "singular": "Account"
+      },
+      "connections": {
+        "inbound": [
+          {
+            "has": "one",
+            "key": "field_32",
+            "name": "Account",
+            "field": {
+              "name": "Account",
+              "inflections": {
+                "plural": "Accounts",
+                "singular": "Account"
+              }
+            },
+            "object": "object_6",
+            "belongs_to": "many"
+          },
+          {
+            "has": "one",
+            "key": "field_44",
+            "name": "Account",
+            "field": {
+              "name": "Account",
+              "inflections": {
+                "plural": "Accounts",
+                "singular": "Account"
+              }
+            },
+            "object": "object_7",
+            "belongs_to": "one"
+          }
+        ],
+        "outbound": []
+      },
+      "name": "Accounts",
+      "user": true,
+      "status": "current",
+      "tasks": [],
+      "type": "UserObject",
+      "schemaChangeInProgress": false,
+      "_id": "5de853103b3aca00189e6fd7",
+      "key": "object_1",
+      "uuid": "019390cf-0653-7b24-8e2d-e3ad7825b929",
+      "fields": [
+        {
+          "type": "name",
+          "required": true,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de853103b3aca00189e6fdc",
+          "key": "field_1",
+          "name": "Name",
+          "format": {
+            "format": "First Last"
+          },
+          "immutable": true
+        },
+        {
+          "type": "email",
+          "required": true,
+          "unique": true,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de853103b3aca00189e6fdb",
+          "key": "field_2",
+          "name": "Email",
+          "format": {
+            "label": "",
+            "text_format": "url"
+          },
+          "immutable": true
+        },
+        {
+          "type": "password",
+          "required": true,
+          "unique": true,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de853103b3aca00189e6fda",
+          "key": "field_3",
+          "name": "Password",
+          "format": null,
+          "immutable": true
+        },
+        {
+          "type": "multiple_choice",
+          "required": true,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de853103b3aca00189e6fd9",
+          "key": "field_4",
+          "name": "User Status",
+          "format": {
+            "type": "single",
+            "default": "active",
+            "options": [
+              "active",
+              "inactive",
+              "pending approval"
+            ]
+          },
+          "immutable": true
+        },
+        {
+          "type": "user_roles",
+          "required": false,
+          "unique": false,
+          "user": true,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de853103b3aca00189e6fd8",
+          "key": "field_5",
+          "name": "User Roles",
+          "immutable": true
+        }
+      ],
+      "identifier": "field_1",
+      "profile_key": "all_users"
+    }
+  ]
+}

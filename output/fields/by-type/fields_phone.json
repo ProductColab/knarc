@@ -1,0 +1,47 @@
+{
+  "type": "phone",
+  "category": "field",
+  "count": 2,
+  "fields": [
+    {
+      "type": "phone",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "61edb1f7063fd7001e704e3a",
+      "key": "field_131",
+      "name": "Phone",
+      "format": {
+        "format": "(999) 999-9999",
+        "extension": false
+      },
+      "_object_key": "object_14",
+      "_object_name": "Website Contacts"
+    },
+    {
+      "type": "phone",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de85bda475a0600171f1c10",
+      "key": "field_55",
+      "name": "Phone",
+      "format": {
+        "format": "(999) 999-9999",
+        "extension": false
+      },
+      "default": "",
+      "object_key": "object_8",
+      "_object_key": "object_8",
+      "_object_name": "Intake Form"
+    }
+  ]
+}

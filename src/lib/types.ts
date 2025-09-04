@@ -1,5 +1,7 @@
 import { KnackObject } from "@/lib/knack/types/object";
 import { KnackScene } from "@/lib/knack/types/scene";
+import type { NodeRef } from "@/lib/deps/types";
+import type { Node } from "@xyflow/react";
 
 export interface KnackConfig {
   applicationId: string;
@@ -44,3 +46,36 @@ export interface ConfigUpdate {
   config: KnackConfig;
   applicationInfo?: ApplicationMetadata;
 }
+
+// ReactFlow node typing for the app
+export type AppNodeType = "entity" | "groupNode" | "ripple";
+
+// Domain-level entity kinds used for NodeRef typing and grouping
+export type EntityKind = "object" | "field" | "view" | "scene";
+
+export type EntityNodeData = {
+  label: string;
+  node?: NodeRef;
+  entityKind?: EntityKind;
+};
+
+export type GroupNodeData = {
+  title: string;
+  count: number;
+  root: NodeRef;
+  groupType: EntityKind;
+};
+
+export type AppNodeData = EntityNodeData | GroupNodeData;
+
+export type RippleNodeData = {
+  label: string;
+  score: number;
+  entityKind: EntityKind;
+  isRoot?: boolean;
+};
+
+export type AppNode =
+  | Node<AppNodeData>
+  | Node<GroupNodeData>
+  | Node<RippleNodeData>;

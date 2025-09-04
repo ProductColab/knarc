@@ -1,0 +1,162 @@
+{
+  "type": "email",
+  "category": "field",
+  "count": 8,
+  "fields": [
+    {
+      "type": "email",
+      "required": true,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "61edb1f3ad73cd001f639a82",
+      "key": "field_130",
+      "name": "Email",
+      "format": {
+        "text_format": "url"
+      },
+      "_object_key": "object_14",
+      "_object_name": "Website Contacts"
+    },
+    {
+      "type": "email",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65d3ff66acd9ae002801a0ab",
+      "key": "field_160",
+      "name": "Billing Email",
+      "format": {
+        "text_format": "url"
+      },
+      "_object_key": "object_16",
+      "_object_name": "Institutions"
+    },
+    {
+      "type": "email",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de85bd7bb407d0017f3ec08",
+      "key": "field_54",
+      "name": "Email",
+      "format": {
+        "text_format": "url"
+      },
+      "object_key": "object_8",
+      "_object_key": "object_8",
+      "_object_name": "Intake Form"
+    },
+    {
+      "type": "email",
+      "required": true,
+      "unique": true,
+      "user": true,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de85317cd06470015cbc609",
+      "key": "field_7",
+      "name": "Email",
+      "format": {
+        "label": "",
+        "text_format": "url"
+      },
+      "immutable": true,
+      "_object_key": "object_2",
+      "_object_name": "Student"
+    },
+    {
+      "type": "email",
+      "required": true,
+      "unique": true,
+      "user": true,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de8531e475a0600171f1019",
+      "key": "field_12",
+      "name": "Email",
+      "format": {
+        "label": "",
+        "text_format": "url"
+      },
+      "immutable": true,
+      "_object_key": "object_3",
+      "_object_name": "Supervisor"
+    },
+    {
+      "type": "email",
+      "required": true,
+      "unique": true,
+      "user": true,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5e5c0ed1369a000016774915",
+      "key": "field_57",
+      "name": "Email",
+      "format": {
+        "label": "",
+        "text_format": "url"
+      },
+      "immutable": true,
+      "_object_key": "object_9",
+      "_object_name": "Admin"
+    },
+    {
+      "type": "email",
+      "required": true,
+      "unique": true,
+      "user": true,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65d3f8e97dbce100272652ff",
+      "key": "field_150",
+      "name": "Email",
+      "format": {
+        "label": "",
+        "text_format": "url"
+      },
+      "immutable": true,
+      "_object_key": "object_15",
+      "_object_name": "Institution Admin"
+    },
+    {
+      "type": "email",
+      "required": true,
+      "unique": true,
+      "user": true,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de853103b3aca00189e6fdb",
+      "key": "field_2",
+      "name": "Email",
+      "format": {
+        "label": "",
+        "text_format": "url"
+      },
+      "immutable": true,
+      "_object_key": "object_1",
+      "_object_name": "Accounts"
+    }
+  ]
+}

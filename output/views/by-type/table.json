@@ -1,0 +1,6955 @@
+{
+  "type": "table",
+  "count": 28,
+  "views": [
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_6"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Name",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_7"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Email",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [],
+          "scene": "student-details",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Student Details",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "view",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5de85481cd06470015cbc97b",
+      "key": "view_4",
+      "name": "Students",
+      "type": "table",
+      "label": "Table",
+      "title": "My Active Students ",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "type": "database",
+        "limit": "",
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [
+            {
+              "field": "field_61",
+              "value": "",
+              "operator": "user"
+            }
+          ],
+          "groups": [
+            [
+              {
+                "field": "field_62",
+                "value": "Active",
+                "operator": "contains"
+              }
+            ]
+          ]
+        }
+      },
+      "totals": [],
+      "options": {
+        "cell_editor": false
+      },
+      "hide_empty": false,
+      "allow_limit": false,
+      "child_views": [],
+      "description": "",
+      "filter_type": "fields",
+      "child_scenes": [
+        "student-details"
+      ],
+      "menu_filters": [
+        {
+          "text": "",
+          "field": "field_6",
+          "value": "",
+          "operator": "contains"
+        }
+      ],
+      "no_data_text": "No Data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "child_child_views": [],
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "display_pagination_below": true,
+      "_scene_key": "scene_3",
+      "_scene_name": "My Students",
+      "_scene_slug": "supervisor"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_21"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Customer",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_178",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_178"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "1-1 Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_171",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_171"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Group Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_174",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_174"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Total RSABA Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_34"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Due Date",
+          "object": {
+            "key": "object_4"
+          },
+          "grouping": false,
+          "sortable": true,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_36"
+          },
+          "rules": [
+            {
+              "actions": [
+                {
+                  "color": "#d32626",
+                  "field": "field_21",
+                  "action": "text-color",
+                  "icon_color": ""
+                },
+                {
+                  "bold": 1,
+                  "field": "field_21",
+                  "action": "text-style",
+                  "icon_color": ""
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_36",
+                  "value": "No",
+                  "operator": "is"
+                }
+              ]
+            },
+            {
+              "actions": [
+                {
+                  "color": "#18b921",
+                  "field": "field_21",
+                  "action": "text-color",
+                  "icon_color": ""
+                },
+                {
+                  "icon": {
+                    "icon": "fa-check",
+                    "align": "left"
+                  },
+                  "color": "#18b921",
+                  "field": "field_21",
+                  "action": "icon",
+                  "icon_color": "#18b921"
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_36",
+                  "value": "Yes",
+                  "operator": "is"
+                }
+              ]
+            }
+          ],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Paid",
+          "object": {
+            "key": "object_4"
+          },
+          "grouping": false,
+          "sortable": true,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_75",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_75"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Final Total",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [],
+          "scene": "edit-invoice2",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Edit Invoice",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "edit",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "delete",
+          "align": "left",
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Delete",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "delete",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5de85481cd06470015cbc980",
+      "key": "view_8",
+      "name": "Invoices",
+      "type": "table",
+      "title": "Invoices",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_34",
+            "order": "desc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "any",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_21",
+        "relationship_type": "foreign"
+      },
+      "totals": [],
+      "options": {
+        "cell_editor": false
+      },
+      "hide_empty": false,
+      "allow_limit": false,
+      "description": "",
+      "filter_type": "none",
+      "menu_filters": [
+        {
+          "text": "",
+          "field": "field_21",
+          "value": "",
+          "operator": "is"
+        }
+      ],
+      "no_data_text": "No Data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": false,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "display_pagination_below": false,
+      "_scene_key": "scene_5",
+      "_scene_name": "Student Details",
+      "_scene_slug": "student-details"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_19"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Note",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_20"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Date/Time",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "delete",
+          "align": "left",
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Delete",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "delete",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5de85481cd06470015cbc981",
+      "key": "view_7",
+      "name": "Notes",
+      "type": "table",
+      "title": "Notes",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_18",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_5",
+        "criteria": {
+          "match": "any",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_18",
+        "relationship_type": "foreign"
+      },
+      "totals": [],
+      "options": {
+        "cell_editor": false
+      },
+      "hide_empty": false,
+      "allow_limit": false,
+      "description": "",
+      "filter_type": "none",
+      "menu_filters": [
+        {
+          "text": "",
+          "field": "field_18",
+          "value": "",
+          "operator": "is"
+        }
+      ],
+      "no_data_text": "No Data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": false,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "display_pagination_below": false,
+      "_scene_key": "scene_5",
+      "_scene_name": "Student Details",
+      "_scene_slug": "student-details"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_6"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Name",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_7"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Email",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_37"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Start Date",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_61",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_61"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Supervisor",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_62",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_62"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Student Status",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [],
+          "scene": "edit-student",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Edit Customer",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "edit",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [],
+          "scene": "student-details2",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Student Customer",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "view",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [],
+          "scene": "edit-student5",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Edit Password",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "edit",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "delete",
+          "align": "left",
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Delete",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "delete",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5e5c4ac81cf2660015a76ef4",
+      "key": "view_29",
+      "name": "Students",
+      "type": "table",
+      "title": "Active Customers",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [
+            {
+              "field": "field_62",
+              "value": "Inactive",
+              "operator": "is not"
+            }
+          ],
+          "groups": []
+        }
+      },
+      "totals": [],
+      "options": {
+        "cell_editor": true
+      },
+      "description": "All Active Supervision and Tutoring Customers.",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "object",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": true,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "_scene_key": "scene_18",
+      "_scene_name": "Admin Manage Students",
+      "_scene_slug": "admin"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_34"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Due Date",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_178",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_178"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "1-1 Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_171",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_171"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Number of Group Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_75",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_75"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Final Total",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_36",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_36"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Paid",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [],
+          "scene": "edit-invoice",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Edit Invoice",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "edit",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [],
+          "scene": "invoice-details",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Invoice Details",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "view",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "delete",
+          "align": "left",
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Delete",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "delete",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5e611502534be40017e70921",
+      "key": "view_65",
+      "name": "Invoices",
+      "type": "table",
+      "title": "Invoices/Hours",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_34",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_21",
+        "relationship_type": "foreign"
+      },
+      "totals": [
+        {
+          "calc": "sum",
+          "label": "Total"
+        }
+      ],
+      "options": {
+        "cell_editor": true
+      },
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "object",
+      "rows_per_page": "10",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": true,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "_scene_key": "scene_21",
+      "_scene_name": "Student Details",
+      "_scene_slug": "student-details2"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_83"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Supervisor",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_19"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Note",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_20"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Date/Time",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5e61151d4003db00157762f1",
+      "key": "view_68",
+      "name": "Notes",
+      "type": "table",
+      "title": "Notes",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_20",
+            "order": "desc"
+          }
+        ],
+        "limit": null,
+        "object": "object_5",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_18",
+        "relationship_type": "foreign"
+      },
+      "totals": [],
+      "reportType": null,
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "10",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "allow_preset_filters": false,
+      "_scene_key": "scene_21",
+      "_scene_name": "Student Details",
+      "_scene_slug": "student-details2"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_21"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Customer",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_34"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Due Date",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_33",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_33"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "# of Supervision/Tutoring Hours (OLD)",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_178",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_178"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "# 1-1 Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_171",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_171"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "# Group Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_174",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_174"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Total RSABA Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_136",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_136"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Customer Rate",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_182",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_182"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Sub Total",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_75",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_75"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Final Total",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "delete",
+          "align": "left",
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Delete",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "delete",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_36",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_36"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Paid",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "action_link",
+          "align": "left",
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Trigger an action",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "action",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "action_rules": [
+            {
+              "key": "2",
+              "criteria": [
+                {
+                  "field": "field_21",
+                  "value": [
+                    "685880ca39c30d36fa04f655"
+                  ],
+                  "operator": "contains"
+                }
+              ],
+              "link_text": "action",
+              "record_rules": [
+                {
+                  "key": "3",
+                  "action": "record",
+                  "values": [
+                    {
+                      "type": "record",
+                      "field": "field_21",
+                      "input": "field_21",
+                      "value": [],
+                      "action": "",
+                      "connection_field": null
+                    }
+                  ],
+                  "criteria": null
+                }
+              ],
+              "submit_rules": [
+                {
+                  "action": "message",
+                  "message": "<p>Action successfully completed.\n</p>",
+                  "reload_show": false
+                }
+              ]
+            }
+          ],
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5e61189cae045300158ea88d",
+      "key": "view_79",
+      "name": "Invoices",
+      "type": "table",
+      "title": "Unpaid Invoices",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_21",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [
+            {
+              "field": "field_36",
+              "value": false,
+              "operator": "is"
+            }
+          ],
+          "groups": []
+        }
+      },
+      "totals": [],
+      "reportType": null,
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "_scene_key": "scene_22",
+      "_scene_name": "Admin Billing",
+      "_scene_slug": "billing"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_21"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Student",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_33",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_33"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "# Supervision/Tutoring Hours (OLD)",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_178",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_178"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "# 1-1 Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_171",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_171"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "# Group Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_174",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_174"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Total RSABA Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_34"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Due Date",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_99",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_99"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Supervisor",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_182",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_182"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Sub Total",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "delete",
+          "align": "left",
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Delete",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "delete",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_36",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_36"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Paid",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "field": {
+            "key": "field_43"
+          },
+          "rules": [],
+          "scene": "view-invoice-details2",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "View Invoice Details",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "view",
+          "link_type": "field",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5ecc5353a99b8600152afa4a",
+      "key": "view_101",
+      "name": "Invoices",
+      "type": "table",
+      "title": "Paid Invoices",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_34",
+            "order": "desc"
+          }
+        ],
+        "limit": null,
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [
+            {
+              "field": "field_36",
+              "value": true,
+              "operator": "is"
+            }
+          ],
+          "groups": []
+        }
+      },
+      "totals": [],
+      "reportType": null,
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "10",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "_scene_key": "scene_22",
+      "_scene_name": "Admin Billing",
+      "_scene_slug": "billing"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_34"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Due Date",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_33"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Number of Supervision/Tutoring Hours (OLD)",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_75",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_75"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Final Total",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_36",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_36"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Paid",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "fa-credit-card",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [
+            {
+              "actions": [
+                {
+                  "bold": true,
+                  "icon": {
+                    "icon": "",
+                    "align": "left"
+                  },
+                  "color": "#2ab27b",
+                  "action": "hide",
+                  "italic": false,
+                  "strikethrough": false
+                },
+                {
+                  "bold": true,
+                  "icon": {
+                    "icon": "fa-check",
+                    "align": "left"
+                  },
+                  "color": "#2ab27b",
+                  "action": "icon",
+                  "italic": false,
+                  "strikethrough": false
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_36",
+                  "value": true,
+                  "operator": "is"
+                }
+              ]
+            }
+          ],
+          "scene": "view-invoice-details",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "View & Pay Invoice",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "pay",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5e5fae252a3b010017fdf45e",
+      "key": "view_42",
+      "name": "Invoices",
+      "type": "table",
+      "title": "Unpaid Invoices",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_34",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [
+            {
+              "field": "field_36",
+              "value": false,
+              "operator": "is"
+            }
+          ],
+          "groups": []
+        },
+        "connection_key": "field_21",
+        "relationship_type": "foreign",
+        "authenticated_user": true
+      },
+      "totals": [],
+      "description": "",
+      "filter_type": "none",
+      "menu_filters": [],
+      "no_data_text": "No outstanding invoices",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": false,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "allow_preset_filters": false,
+      "_scene_key": "scene_29",
+      "_scene_name": "Student Profile",
+      "_scene_slug": "student-profile"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_34"
+          },
+          "rules": [
+            {
+              "actions": [
+                {
+                  "bold": true,
+                  "icon": {
+                    "icon": "",
+                    "align": "left"
+                  },
+                  "color": "#d31b17",
+                  "action": "text-color",
+                  "italic": false,
+                  "strikethrough": false
+                },
+                {
+                  "bold": true,
+                  "icon": {
+                    "icon": "fa-exclamation-circle",
+                    "align": "left"
+                  },
+                  "color": "#d31b17",
+                  "action": "icon",
+                  "italic": false,
+                  "strikethrough": false
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_71",
+                  "value": "0",
+                  "operator": "higher than"
+                }
+              ]
+            }
+          ],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Due Date",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_33"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Number of Supervision/Tutoring Hours (OLD)",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_75",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_75"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Total",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_36",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_36"
+          },
+          "rules": [
+            {
+              "actions": [
+                {
+                  "bold": true,
+                  "icon": {
+                    "icon": "fa-check",
+                    "align": "left"
+                  },
+                  "color": "#2ab27b",
+                  "action": "icon",
+                  "italic": false,
+                  "strikethrough": false
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_36",
+                  "value": true,
+                  "operator": "is"
+                }
+              ]
+            }
+          ],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Paid",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "fa-credit-card",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [
+            {
+              "actions": [
+                {
+                  "bold": true,
+                  "icon": {
+                    "icon": "",
+                    "align": "left"
+                  },
+                  "color": "#2ab27b",
+                  "action": "hide",
+                  "italic": false,
+                  "strikethrough": false
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_36",
+                  "value": true,
+                  "operator": "is"
+                }
+              ]
+            }
+          ],
+          "scene": "view-invoice-details",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "View & Pay Invoice",
+          "remote": true,
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "pay",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5e5fbd540b463a00152773f5",
+      "key": "view_58",
+      "name": "Invoices",
+      "type": "table",
+      "title": "All Invoices",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_34",
+            "order": "desc"
+          }
+        ],
+        "limit": null,
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_21",
+        "relationship_type": "foreign",
+        "authenticated_user": true
+      },
+      "totals": [],
+      "description": "All paid and unpaid invoices.",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": false,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "allow_preset_filters": false,
+      "_scene_key": "scene_38",
+      "_scene_name": "Payments",
+      "_scene_slug": "payments"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_11"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Name",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_12"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Email",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_14"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "User Status",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_15"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "User Roles",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [],
+          "scene": "edit-supervisor",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Edit Supervisor",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "edit",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [],
+          "scene": "supervisor-details",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Students",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "view",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [],
+          "scene": "view-supervisor-details",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Payroll",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "view",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5e61164aae045300158ea523",
+      "key": "view_72",
+      "name": "Supervisors",
+      "type": "table",
+      "title": "Supervisors",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_11",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_3",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "totals": [],
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "allow_preset_filters": false,
+      "_scene_key": "scene_45",
+      "_scene_name": "Admin Manage Supervisors",
+      "_scene_slug": "admin-supervisors"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_6"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Name",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_7"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Email",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_37"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Start Date",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_62",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_62"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Status",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "scene",
+          "align": "left",
+          "rules": [],
+          "scene": "edit-student",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Edit Customer",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "Edit Student",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "scene",
+          "align": "left",
+          "rules": [],
+          "scene": "student-details2",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Student Details",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "Customer Details",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_34",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_34"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Due Date",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "connection": {
+            "key": "field_21"
+          },
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5e611694534be40017e70c42",
+      "key": "view_75",
+      "name": "Students",
+      "type": "table",
+      "title": "Customers",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_61",
+        "relationship_type": "foreign"
+      },
+      "totals": [],
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": false,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "_scene_key": "scene_48",
+      "_scene_name": "Supervisor Details",
+      "_scene_slug": "supervisor-details"
+    },
+    {
+      "columns": [
+        {
+          "id": "field_115",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_115"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Pay Period",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_94"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Supervision Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_147",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_147"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Group Supervision Hours ",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_95"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Content Writing Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_98",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_98"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Content Writing Hour Breakdown",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_97"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Date Submitted",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "5f7e2e9b3c28350016317888",
+      "key": "view_108",
+      "name": "Timesheets",
+      "type": "table",
+      "title": "My Timesheets",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_94",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_12",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_96",
+        "relationship_type": "foreign",
+        "authenticated_user": true
+      },
+      "totals": [],
+      "options": {
+        "cell_editor": true
+      },
+      "reportType": null,
+      "allow_limit": false,
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "_scene_key": "scene_64",
+      "_scene_name": "My Timesheets",
+      "_scene_slug": "supervisor-time-sheet"
+    },
+    {
+      "columns": [
+        {
+          "id": "field_111",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_111"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Due Date Month",
+          "grouping": true,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_21"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Student",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_125",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_125"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Due Date",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_36",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_36"
+          },
+          "rules": [
+            {
+              "key": "1",
+              "actions": [
+                {
+                  "bold": true,
+                  "icon": {
+                    "icon": "",
+                    "align": "left"
+                  },
+                  "color": "#2ab27b",
+                  "action": "text-color",
+                  "italic": false,
+                  "strikethrough": false
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_36",
+                  "value": true,
+                  "operator": "is"
+                }
+              ]
+            },
+            {
+              "key": "2",
+              "actions": [
+                {
+                  "bold": true,
+                  "icon": {
+                    "icon": "",
+                    "align": "left"
+                  },
+                  "color": "#f65e2c",
+                  "action": "text-color",
+                  "italic": false,
+                  "strikethrough": false
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_36",
+                  "value": false,
+                  "operator": "is"
+                }
+              ]
+            }
+          ],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Paid",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_43",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_43"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Payment",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_178",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_178"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Billed 1-1 Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_171",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_171"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Billed Group Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_174",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_174"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Total Billed RSABA Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_136",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_136"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Rate",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_144",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_144"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Final Total",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "602edaaba65287001b9ab41a",
+      "key": "view_115",
+      "name": "Invoices",
+      "type": "table",
+      "title": "Customer Invoices",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_21",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "any",
+          "rules": [
+            {
+              "type": "months",
+              "field": "field_125",
+              "range": 1,
+              "value": "",
+              "operator": "is during the previous"
+            }
+          ],
+          "groups": [
+            [
+              {
+                "type": "month",
+                "field": "field_125",
+                "value": "",
+                "operator": "is during the current"
+              }
+            ]
+          ]
+        },
+        "connection_key": "field_99",
+        "relationship_type": "foreign"
+      },
+      "totals": [
+        {
+          "calc": "sum",
+          "label": "Total"
+        }
+      ],
+      "reportType": null,
+      "description": "Invoices created by the supervisor for their customers from the current month and the previous month.",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "_scene_key": "scene_67",
+      "_scene_name": "Supervisor Payroll",
+      "_scene_slug": "view-supervisor-details"
+    },
+    {
+      "columns": [
+        {
+          "id": "field_115",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_115"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Pay Period",
+          "grouping": true,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_97"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Date Submitted",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_94"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Supervision Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_147",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_147"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Group Supervision Hours ",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_95"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Content Writing",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_98"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Content Writing Hour Breakdown",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_105",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_105"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Supervision Total",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_148",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_148"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Group Supervision Total",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_106",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_106"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Content Total",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_108",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_108"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Total Timesheet Pay",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_107",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_107"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Approved",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "action_link",
+          "align": "left",
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Approve",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "action",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "action_rules": [
+            {
+              "criteria": [],
+              "link_text": "Approved: Added to ADP",
+              "record_rules": [
+                {
+                  "action": "record",
+                  "values": [
+                    {
+                      "type": "value",
+                      "field": "field_107",
+                      "input": "",
+                      "value": true,
+                      "action": "",
+                      "connection_field": null
+                    }
+                  ],
+                  "criteria": null
+                }
+              ],
+              "submit_rules": [
+                {
+                  "action": "message",
+                  "message": "<p>Marked as approved\n</p>",
+                  "reload_show": false
+                }
+              ]
+            }
+          ],
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "602edb01520c69001dfd0f0a",
+      "key": "view_116",
+      "name": "Timesheets During Previous Month",
+      "type": "table",
+      "title": "Timesheets",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_97",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_12",
+        "criteria": {
+          "match": "any",
+          "rules": [
+            {
+              "type": "months",
+              "field": "field_124",
+              "range": 1,
+              "value": "",
+              "operator": "is during the previous"
+            }
+          ],
+          "groups": [
+            [
+              {
+                "type": "month",
+                "field": "field_124",
+                "value": "",
+                "operator": "is during the current"
+              }
+            ]
+          ]
+        },
+        "connection_key": "field_96",
+        "relationship_type": "foreign"
+      },
+      "totals": [
+        {
+          "calc": "sum",
+          "label": "Total"
+        }
+      ],
+      "options": {
+        "cell_editor": true
+      },
+      "reportType": null,
+      "description": "Timesheets created by the supervisor from the current month and the previous month. ",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "_scene_key": "scene_67",
+      "_scene_name": "Supervisor Payroll",
+      "_scene_slug": "view-supervisor-details"
+    },
+    {
+      "columns": [
+        {
+          "type": "field",
+          "field": {
+            "key": "field_22"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Charge"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_23"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Amount"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_24"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Date"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_25"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Status"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_26"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Source"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_27"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Processor"
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "60300032f8244c001b8e7cff",
+      "key": "view_125",
+      "name": "Line Report Records",
+      "type": "table",
+      "title": "",
+      "source": {
+        "sort": [
+          {
+            "field": "field_22",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_6",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "totals": [],
+      "description": "",
+      "filter_type": "fields",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "allow_preset_filters": false,
+      "_scene_key": "scene_71",
+      "_scene_name": "Line Report Records",
+      "_scene_slug": "line-report-records"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_6"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Name",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_7"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Email",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_61"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Supervisor",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_62",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_62"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Student Status",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_9",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_9"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Portal Status",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "6030077f0a1fe2001b53ea48",
+      "key": "view_128",
+      "name": "Students",
+      "type": "table",
+      "title": "Inactive Customers",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_2",
+        "criteria": {
+          "match": "any",
+          "rules": [
+            {
+              "field": "field_9",
+              "value": "inactive",
+              "operator": "is"
+            }
+          ],
+          "groups": [
+            [
+              {
+                "field": "field_62",
+                "value": "Inactive",
+                "operator": "is"
+              }
+            ],
+            [
+              {
+                "field": "field_62",
+                "value": "Paused",
+                "operator": "is"
+              }
+            ]
+          ]
+        }
+      },
+      "totals": [],
+      "options": {
+        "cell_editor": true
+      },
+      "reportType": null,
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "_scene_key": "scene_73",
+      "_scene_name": "View Inactive Students",
+      "_scene_slug": "view-inactive-students"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_96"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Supervisor",
+          "grouping": true,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_115",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_115"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Pay Period",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_94"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Supervision Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_105",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_105"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Supervision Total",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_95"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Content Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_98"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Content Writing Hour Breakdown",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_106",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_106"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Content Total",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_108",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_108"
+          },
+          "rules": [
+            {
+              "key": "1",
+              "actions": [
+                {
+                  "bold": true,
+                  "icon": {
+                    "icon": "",
+                    "align": "left"
+                  },
+                  "color": "#2ab27b",
+                  "action": "text-style",
+                  "italic": false,
+                  "strikethrough": false
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_108",
+                  "value": "",
+                  "operator": "is not blank"
+                }
+              ]
+            }
+          ],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Total Timesheet Pay",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_107",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_107"
+          },
+          "rules": [
+            {
+              "key": "2",
+              "actions": [
+                {
+                  "bold": true,
+                  "icon": {
+                    "icon": "fa-close",
+                    "align": "left"
+                  },
+                  "color": "#f12f2f",
+                  "action": "icon",
+                  "italic": false,
+                  "strikethrough": false
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_107",
+                  "value": false,
+                  "operator": "is"
+                }
+              ]
+            },
+            {
+              "key": "2",
+              "actions": [
+                {
+                  "bold": true,
+                  "icon": {
+                    "icon": "fa-check",
+                    "align": "left"
+                  },
+                  "color": "#38b534",
+                  "action": "icon",
+                  "italic": false,
+                  "strikethrough": false
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_107",
+                  "value": true,
+                  "operator": "is"
+                }
+              ]
+            }
+          ],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Completed Payroll",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "60c21e37394f49001e0a7374",
+      "key": "view_132",
+      "name": "Timesheets",
+      "type": "table",
+      "title": "Current Timesheets",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_94",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_12",
+        "criteria": {
+          "match": "all",
+          "rules": [
+            {
+              "type": "months",
+              "field": "field_124",
+              "range": 1,
+              "value": "",
+              "operator": "is during the previous"
+            }
+          ],
+          "groups": []
+        }
+      },
+      "totals": [
+        {
+          "calc": "sum",
+          "label": "Total"
+        }
+      ],
+      "options": {
+        "cell_editor": true
+      },
+      "reportType": null,
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "allow_preset_filters": false,
+      "_scene_key": "scene_75",
+      "_scene_name": "Payroll",
+      "_scene_slug": "payroll"
+    },
+    {
+      "columns": [
+        {
+          "type": "field",
+          "field": {
+            "key": "field_94"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Supervision Hours"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_95"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Content Writing"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_96"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Supervisor"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_97"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Date/Time"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_101"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Month"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_98"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Content Writing Hour Breakdown"
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "60c2291dd39b0d001ee90372",
+      "key": "view_133",
+      "name": "Bar Report Records",
+      "type": "table",
+      "title": "",
+      "source": {
+        "sort": [
+          {
+            "field": "field_94",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_12",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "totals": [],
+      "description": "",
+      "filter_type": "fields",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "allow_preset_filters": false,
+      "_scene_key": "scene_77",
+      "_scene_name": "Bar Report Records",
+      "_scene_slug": "bar-report-records2"
+    },
+    {
+      "columns": [
+        {
+          "type": "field",
+          "field": {
+            "key": "field_21"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Student"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_34"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Due Date"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_118"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Pay Period"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_111"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Due Date Month"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_33"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Number of Supervision/Tutoring Hours (OLD)"
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "60c243b78af9cf001ec5a39a",
+      "key": "view_135",
+      "name": "Bar Report Records",
+      "type": "table",
+      "title": "",
+      "source": {
+        "sort": [
+          {
+            "field": "field_21",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "totals": [],
+      "description": "",
+      "filter_type": "fields",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "allow_preset_filters": false,
+      "_scene_key": "scene_79",
+      "_scene_name": "Bar Report Records",
+      "_scene_slug": "bar-report-records3"
+    },
+    {
+      "columns": [
+        {
+          "type": "field",
+          "field": {
+            "key": "field_21"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Student"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_34"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Due Date"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_118"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Pay Period"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_111"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Due Date Month"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_33"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Number of Supervision/Tutoring Hours (OLD)"
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "60c24463625864001e8ebedd",
+      "key": "view_136",
+      "name": "Bar Report Records",
+      "type": "table",
+      "title": "",
+      "source": {
+        "sort": [
+          {
+            "field": "field_21",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "totals": [],
+      "description": "",
+      "filter_type": "fields",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "allow_preset_filters": false,
+      "_scene_key": "scene_80",
+      "_scene_name": "Bar Report Records",
+      "_scene_slug": "bar-report-records"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_129"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Name",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_130"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Email",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_131"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Phone",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_132"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Date/Time",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_133"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Contact Message",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": true,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_138",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_138"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Notes",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "61edc57e05b9c1001e8b1afb",
+      "key": "view_139",
+      "name": "Website Contacts",
+      "type": "table",
+      "title": "Website Contacts",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_132",
+            "order": "desc"
+          }
+        ],
+        "limit": null,
+        "object": "object_14",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "totals": [],
+      "options": {
+        "cell_editor": true
+      },
+      "reportType": null,
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "allow_preset_filters": false,
+      "_scene_key": "scene_82",
+      "_scene_name": "Website Contact Requests",
+      "_scene_slug": "website-contact-requests"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_21"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Student",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_136"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Student Rate",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_34"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Due Date",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_33"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Hours Invoiced",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_39",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_39"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Sub Total Old",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_116",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_116"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Days Since Due Date",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_139",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_139"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Days With Late Fee",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_140",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_140"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Late Fee Calc",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "id": "field_141",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_141"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Sub Total Base + Late Fee",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [],
+          "scene": "invoice-details2",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Invoice Details",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "view",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "6262b3e2ffada5001e82f3b4",
+      "key": "view_143",
+      "name": "Unpaid Invoices",
+      "type": "table",
+      "title": "Unpaid Invoices",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_21",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [
+            {
+              "field": "field_34",
+              "value": {
+                "date": "12/01/2021",
+                "all_day": false
+              },
+              "operator": "is after"
+            },
+            {
+              "field": "field_36",
+              "value": false,
+              "operator": "is"
+            }
+          ],
+          "groups": []
+        }
+      },
+      "totals": [],
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": false,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "allow_preset_filters": false,
+      "_scene_key": "scene_84",
+      "_scene_name": "Invoice Charges",
+      "_scene_slug": "invoice-charges"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_6"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Name",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_7"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Email",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_9"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "User Status",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_10"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "User Roles",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_61"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Supervisor",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "630cb44d62c4ea002261b92c",
+      "key": "view_149",
+      "name": "Customers",
+      "type": "table",
+      "title": "All Students",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_61",
+        "relationship_type": "foreign",
+        "authenticated_user": true
+      },
+      "totals": [],
+      "reportType": null,
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "_scene_key": "scene_88",
+      "_scene_name": "All Students",
+      "_scene_slug": "customers"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_6"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Name",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_7"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Email",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_9"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "User Status",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_62",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_62"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Status",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_61"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Supervisor",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_118",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_118"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Pay Period",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "connection": {
+            "key": "field_21"
+          },
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_34",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_34"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Due Date",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "connection": {
+            "key": "field_21"
+          },
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "65985f4b879a13002655e664",
+      "key": "view_150",
+      "name": "All Time Students",
+      "type": "table",
+      "title": "All Time Students",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "totals": [],
+      "reportType": null,
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": true,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "_scene_key": "scene_89",
+      "_scene_name": "All Time Students",
+      "_scene_slug": "all-time-students"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_6"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Student Name",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_7",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_7"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Email",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_61"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Supervisor Name",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_37",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_37"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Start Date",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_175",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_175"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Total 1-1 Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_176",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_176"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Total Group Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_177",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_177"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Total RSABA Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_42",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_42"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Total Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_62",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_62"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Status",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "link",
+          "align": "left",
+          "rules": [],
+          "scene": "student-details3",
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Student Details",
+          "grouping": false,
+          "sortable": false,
+          "conn_link": "",
+          "link_text": "view",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "65d422f814997d0028993f6d",
+      "key": "view_154",
+      "name": "Students",
+      "type": "table",
+      "title": "Students",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_6",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_2",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "parent_source": {
+          "object": "object_15",
+          "connection": "field_157"
+        },
+        "connection_key": "field_156",
+        "relationship_type": "foreign",
+        "authenticated_user": true
+      },
+      "totals": [],
+      "allow_limit": true,
+      "description": "",
+      "filter_type": "none",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": true,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "_scene_key": "scene_90",
+      "_scene_name": "Dashboard",
+      "_scene_slug": "dashboard2"
+    },
+    {
+      "columns": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_118"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Period",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_171",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_171"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Number of Group Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_170",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_170"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Number of Fieldwork Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        },
+        {
+          "id": "field_174",
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "type": "field",
+          "align": "left",
+          "field": {
+            "key": "field_174"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": "50"
+          },
+          "header": "Number RSABA Hours",
+          "grouping": false,
+          "conn_link": "",
+          "link_text": "",
+          "link_type": "text",
+          "group_sort": "asc",
+          "link_field": "",
+          "ignore_edit": false,
+          "img_gallery": "",
+          "conn_separator": "",
+          "ignore_summary": false,
+          "link_design_active": false
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "65d423d6acd9ae002802d55c",
+      "key": "view_156",
+      "name": "Invoices",
+      "type": "table",
+      "title": "Monthly Hours",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_34",
+            "order": "desc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        },
+        "connection_key": "field_21",
+        "relationship_type": "foreign"
+      },
+      "totals": [],
+      "reportType": null,
+      "description": "",
+      "filter_type": "fields",
+      "menu_filters": [],
+      "no_data_text": "No data",
+      "filter_fields": "view",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "table_design_active": false,
+      "allow_preset_filters": false,
+      "keyword_search_fields": "view",
+      "_scene_key": "scene_93",
+      "_scene_name": "Student Details",
+      "_scene_slug": "student-details3"
+    },
+    {
+      "columns": [
+        {
+          "type": "field",
+          "field": {
+            "key": "field_21"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Student"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_136"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Student Rate"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_34"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Due Date"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_118"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Pay Period"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_111"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Due Date Month"
+        },
+        {
+          "type": "field",
+          "field": {
+            "key": "field_33"
+          },
+          "rules": [],
+          "width": {
+            "type": "default",
+            "units": "px",
+            "amount": 50
+          },
+          "header": "Number of Supervision/Tutoring Hours (OLD)"
+        }
+      ],
+      "links": [],
+      "inputs": [],
+      "_id": "6646ca52bf02d50026377fd4",
+      "key": "view_158",
+      "name": "Invoiced Hours Records",
+      "type": "table",
+      "title": "",
+      "source": {
+        "sort": [
+          {
+            "field": "field_21",
+            "order": "asc"
+          }
+        ],
+        "limit": null,
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "totals": [],
+      "description": "",
+      "filter_type": "fields",
+      "rows_per_page": "25",
+      "keyword_search": true,
+      "preset_filters": [],
+      "allow_exporting": false,
+      "allow_preset_filters": false,
+      "_scene_key": "scene_94",
+      "_scene_name": "Invoiced Hours Records",
+      "_scene_slug": "invoiced-hours-records"
+    }
+  ]
+}

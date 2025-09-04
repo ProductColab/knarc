@@ -22,8 +22,8 @@ export interface EquationFormatField extends KnackField {
 
 // Concatenation field type
 export interface ConcatenationField extends EquationFormatField {
-  type: 'concatenation';
-  format: EquationFormatField['format'] & {
+  type: "concatenation";
+  format: EquationFormatField["format"] & {
     values?: Array<{
       type: string;
       field?: string;
@@ -34,17 +34,33 @@ export interface ConcatenationField extends EquationFormatField {
 
 // Sum field type
 export interface SumField extends NumericFormulaField {
-  type: 'sum';
-  format: NumericFormulaField['format'] & {
+  type: "sum";
+  format: NumericFormulaField["format"] & {
     field: { key: string }; // The field to sum
     connection?: { key: string }; // Optional connection with key property
   };
 }
 
+// Count field type
+export interface CountField extends KnackField {
+  type: "count";
+  format: {
+    pre?: string;
+    post?: string;
+    format?: string;
+    rounding?: string;
+    precision?: string;
+    connection: string;
+    count_field: string;
+    mark_decimal?: string;
+    mark_thousands?: string;
+  };
+}
+
 // Equation field type
 export interface EquationField extends NumericFormulaField {
-  type: 'equation';
-  format: NumericFormulaField['format'] & {
+  type: "equation";
+  format: NumericFormulaField["format"] & {
     equation: string; // The equation formula
     referenced_fields?: {
       [key: string]: {
@@ -58,18 +74,26 @@ export interface EquationField extends NumericFormulaField {
 }
 
 // Type guard functions
-export function isFormulaField(field: KnackField): field is NumericFormulaField {
-  return ['sum', 'equation', 'concatenation'].includes(field.type);
+export function isFormulaField(
+  field: KnackField
+): field is NumericFormulaField {
+  return ["sum", "equation", "concatenation", "count"].includes(field.type);
 }
 
 export function isEquationField(field: KnackField): field is EquationField {
-  return field.type === 'equation';
+  return field.type === "equation";
 }
 
 export function isSumField(field: KnackField): field is SumField {
-  return field.type === 'sum';
+  return field.type === "sum";
 }
 
-export function isConcatenationField(field: KnackField): field is ConcatenationField {
-  return field.type === 'concatenation';
-} 
+export function isConcatenationField(
+  field: KnackField
+): field is ConcatenationField {
+  return field.type === "concatenation";
+}
+
+export function isCountField(field: KnackField): field is CountField {
+  return field.type === "count";
+}

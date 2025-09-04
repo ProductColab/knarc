@@ -56,7 +56,6 @@ export function createViewEdge(
   );
 }
 
-// Fix: Accepts either KnackView or KnackField, and uses the correct node creator for each
 export function createFieldEdge(
   entity: KnackView | KnackField,
   fieldKey: string,
@@ -64,10 +63,7 @@ export function createFieldEdge(
   locationPath: string,
   details?: Record<string, unknown>
 ): Edge {
-  // Determine if entity is a KnackView or KnackField by checking for 'rules' (KnackField) or 'scenes' (KnackView)
-  // But more robust: check for 'object' property (KnackField) or 'scene' property (KnackView)
   if ("object" in entity) {
-    // KnackField
     return createEdge(
       fieldNode(entity.key, entity.name),
       fieldNode(fieldKey),
@@ -76,7 +72,6 @@ export function createFieldEdge(
       details
     );
   } else {
-    // KnackView
     return createEdge(
       viewNode(entity.key, entity.name),
       fieldNode(fieldKey),
@@ -90,7 +85,8 @@ export function createFieldEdge(
 export function extractFromCriteria(
   entity: KnackView | KnackField,
   criteria: KnackActionRuleCriterion[] | undefined,
-  basePath: string
+  basePath: string,
+  category?: string
 ): Edge[] {
   return processArray(criteria, `${basePath}.criteria`, (c, i, path) => {
     return c?.field
@@ -98,6 +94,8 @@ export function extractFromCriteria(
           createFieldEdge(entity, c.field, "uses", `${path}.field`, {
             operator: c.operator,
             criterion: c,
+            ruleType: "criteria",
+            ruleCategory: category,
           }),
         ]
       : [];
@@ -107,13 +105,16 @@ export function extractFromCriteria(
 export function extractFromValues(
   entity: KnackView | KnackField,
   values: RuleValue[] | undefined,
-  basePath: string
+  basePath: string,
+  category?: string
 ): Edge[] {
   return processArray(values, `${basePath}.values`, (val, i, path) => {
     return val?.field
       ? [
           createFieldEdge(entity, val.field, "uses", `${path}.field`, {
             value: val,
+            ruleType: "values",
+            ruleCategory: category,
           }),
         ]
       : [];
@@ -128,6 +129,10 @@ export function extractFieldsFromText(
 ): Edge[] {
   const matches = text.match(/field_\d+/g) ?? [];
   return matches.map((fieldKey) =>
-    createFieldEdge(entity, fieldKey, "uses", basePath, details)
+    createFieldEdge(entity, fieldKey, "uses", basePath, {
+      ...details,
+      ruleType: details?.ruleType ?? "text",
+      ruleCategory: details?.ruleCategory,
+    })
   );
 }

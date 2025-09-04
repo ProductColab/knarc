@@ -1,20 +1,23 @@
-import type {
-  Edge as FlowEdge,
-  Node as FlowNode,
-  XYPosition,
-  Position,
-} from "@xyflow/react";
+import type { XYPosition, Position, Edge } from "@xyflow/react";
 import { Subgraph } from "@/lib/deps/serialize";
 import { Edge as DepEdge, NodeRef, toNodeId } from "@/lib/deps/types";
+import { AppNode } from "../types";
+import { computeComplexity } from "@/lib/services/complexity";
+import { computeDagreLayoutForSubgraph } from "@/lib/flow/layout";
+import type { DependencyGraph } from "@/lib/deps/graph";
+import {
+  getDisplayedEndpoints,
+  shouldDisplayEdgeInRipple,
+} from "@/lib/services/edgeDisplay";
 
 export interface FlowGraph {
-  nodes: FlowNode[];
+  nodes: AppNode[];
   edges: AppEdge[];
 }
 
-export type AppEdge = FlowEdge<{
+export type AppEdge = Edge<{
   label?: string;
-  dep: DepEdge;
+  dep?: DepEdge;
 }>;
 
 export function toFlow(
@@ -38,8 +41,9 @@ export function toFlow(
     : direction === "TB"
     ? ("top" as Position)
     : ("bottom" as Position);
-  const nodes: FlowNode[] = subgraph.nodes.map((n) => ({
+  const nodes: AppNode[] = subgraph.nodes.map((n) => ({
     id: toNodeId(n),
+    type: "entity",
     position: positions.get(toNodeId(n)) ?? { x: 0, y: 0 },
     data: { label: labelFor(n), node: n },
     targetPosition: targetPosition,
@@ -63,14 +67,30 @@ export function toFlow(
       }))
     );
   } catch {}
-  // Deduplicate edges by unique source->target and stack labels
   const grouped = new Map<
     string,
     { source: string; target: string; labels: string[]; edges: DepEdge[] }
   >();
+  const rootId = root ? toNodeId(root) : undefined;
   for (const e of subgraph.edges) {
-    const source = toNodeId(e.from);
-    const target = toNodeId(e.to);
+    if (!shouldDisplayEdgeInRipple(e, rootId)) continue;
+    const { sourceId: source, targetId: target } = getDisplayedEndpoints(
+      e,
+      rootId
+    );
+    try {
+      if (e.type === "derivesFrom") {
+        console.log("[ripple:edge] derivesFrom", {
+          rootId,
+          raw: {
+            fromId: toNodeId(e.from),
+            toId: toNodeId(e.to),
+            locationPath: e.locationPath,
+          },
+          displayed: { source, target },
+        });
+      }
+    } catch {}
     const key = `${source}->${target}`;
     const label = describeEdgeRelative(e, root);
     if (!grouped.has(key)) {
@@ -91,11 +111,188 @@ export function toFlow(
   return { nodes, edges };
 }
 
-function labelFor(n: NodeRef): string {
-  return `${n.type}:${n.name ?? n.key}`;
+/**
+ * Simple ripple flow: render all nodes as ripple with complexity and use raw subgraph edges.
+ */
+export function toRippleFlowSimple(
+  graph: DependencyGraph,
+  subgraph: Subgraph,
+  direction: "TB" | "BT" | "LR" | "RL" = "LR",
+  root?: NodeRef
+): FlowGraph {
+  const isHorizontal = direction === "LR" || direction === "RL";
+  const sourcePosition = isHorizontal
+    ? direction === "LR"
+      ? ("right" as Position)
+      : ("left" as Position)
+    : direction === "TB"
+    ? ("bottom" as Position)
+    : ("top" as Position);
+  const targetPosition = isHorizontal
+    ? direction === "LR"
+      ? ("left" as Position)
+      : ("right" as Position)
+    : direction === "TB"
+    ? ("top" as Position)
+    : ("bottom" as Position);
+
+  const positions = computeDagreLayoutForSubgraph(subgraph, direction, {
+    width: 220,
+    height: 48,
+  });
+
+  const nodes: AppNode[] = subgraph.nodes.map((n) => {
+    const c = computeComplexity(graph, n);
+    return {
+      id: toNodeId(n),
+      type: "ripple",
+      position: positions.get(toNodeId(n)) ?? { x: 0, y: 0 },
+      data: {
+        label: labelFor(n),
+        score: c.score,
+        entityKind: n.type,
+        isRoot: root ? toNodeId(n) === toNodeId(root) : false,
+      },
+      targetPosition,
+      sourcePosition,
+    } as AppNode;
+  });
+
+  const grouped = new Map<
+    string,
+    { source: string; target: string; labels: string[]; edges: DepEdge[] }
+  >();
+  for (const e of subgraph.edges) {
+    if (!shouldDisplayEdgeInRipple(e, root ? toNodeId(root) : undefined))
+      continue; // hide structural edges in ripple view
+    const { sourceId: source, targetId: target } = getDisplayedEndpoints(
+      e,
+      root ? toNodeId(root) : undefined
+    );
+    try {
+      if (e.type === "derivesFrom") {
+        console.log("[ripple:edge] derivesFrom", {
+          rootId: root ? toNodeId(root) : undefined,
+          raw: {
+            fromId: toNodeId(e.from),
+            toId: toNodeId(e.to),
+            locationPath: e.locationPath,
+          },
+          displayed: { source, target },
+        });
+      }
+    } catch {}
+    const key = `${source}->${target}`;
+    const label = describeEdgeRelative(e, root);
+    if (!grouped.has(key)) {
+      grouped.set(key, { source, target, labels: [label], edges: [e] });
+    } else {
+      const g = grouped.get(key)!;
+      if (!g.labels.includes(label)) g.labels.push(label);
+      g.edges.push(e);
+    }
+  }
+  const edges: AppEdge[] = Array.from(grouped.values()).map((g) => ({
+    id: `${g.source}->${g.target}`,
+    source: g.source,
+    target: g.target,
+    type: "usage",
+    data: { label: g.labels.join("\n"), dep: g.edges[0] },
+  }));
+
+  return { nodes, edges };
 }
 
-function colorFor(n: NodeRef): string {
+export function toRippleFlowWithPositions(
+  graph: DependencyGraph,
+  subgraph: Subgraph,
+  positions: Map<string, XYPosition>,
+  direction: "TB" | "BT" | "LR" | "RL" = "LR",
+  root?: NodeRef
+): FlowGraph {
+  const isHorizontal = direction === "LR" || direction === "RL";
+  const sourcePosition = isHorizontal
+    ? direction === "LR"
+      ? ("right" as Position)
+      : ("left" as Position)
+    : direction === "TB"
+    ? ("bottom" as Position)
+    : ("top" as Position);
+  const targetPosition = isHorizontal
+    ? direction === "LR"
+      ? ("left" as Position)
+      : ("right" as Position)
+    : direction === "TB"
+    ? ("top" as Position)
+    : ("bottom" as Position);
+
+  const nodes: AppNode[] = subgraph.nodes.map((n) => {
+    const c = computeComplexity(graph, n);
+    return {
+      id: toNodeId(n),
+      type: "ripple",
+      position: positions.get(toNodeId(n)) ?? { x: 0, y: 0 },
+      data: {
+        label: labelFor(n),
+        score: c.score,
+        entityKind: n.type,
+        isRoot: root ? toNodeId(n) === toNodeId(root) : false,
+      },
+      targetPosition,
+      sourcePosition,
+    } as AppNode;
+  });
+
+  const grouped = new Map<
+    string,
+    { source: string; target: string; labels: string[]; edges: DepEdge[] }
+  >();
+  for (const e of subgraph.edges) {
+    if (!shouldDisplayEdgeInRipple(e, root ? toNodeId(root) : undefined))
+      continue;
+    const { sourceId: source, targetId: target } = getDisplayedEndpoints(
+      e,
+      root ? toNodeId(root) : undefined
+    );
+    try {
+      if (e.type === "derivesFrom") {
+        console.log("[ripple:edge] derivesFrom", {
+          rootId: root ? toNodeId(root) : undefined,
+          raw: {
+            fromId: toNodeId(e.from),
+            toId: toNodeId(e.to),
+            locationPath: e.locationPath,
+          },
+          displayed: { source, target },
+        });
+      }
+    } catch {}
+    const key = `${source}->${target}`;
+    const label = describeEdgeRelative(e, root);
+    if (!grouped.has(key)) {
+      grouped.set(key, { source, target, labels: [label], edges: [e] });
+    } else {
+      const g = grouped.get(key)!;
+      if (!g.labels.includes(label)) g.labels.push(label);
+      g.edges.push(e);
+    }
+  }
+  const edges: AppEdge[] = Array.from(grouped.values()).map((g) => ({
+    id: `${g.source}->${g.target}`,
+    source: g.source,
+    target: g.target,
+    type: "usage",
+    data: { label: g.labels.join("\n"), dep: g.edges[0] },
+  }));
+
+  return { nodes, edges };
+}
+
+export function labelFor(n: NodeRef): string {
+  return `${n.name ?? n.key}`;
+}
+
+export function colorFor(n: NodeRef): string {
   switch (n.type) {
     case "field":
       return "#1f77b4";

@@ -1,0 +1,35 @@
+{
+  "type": "image",
+  "category": "field",
+  "count": 1,
+  "fields": [
+    {
+      "type": "image",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5e7382d722dd010015a74f10",
+      "key": "field_88",
+      "name": "Image",
+      "format": {
+        "source": "upload",
+        "thumbs": [
+          {
+            "key": "thumb_1",
+            "width": "200",
+            "height": "200",
+            "length": 100,
+            "percentage": "60",
+            "thumb_type": "percentage"
+          }
+        ]
+      },
+      "_object_key": "object_11",
+      "_object_name": "Shareable Files"
+    }
+  ]
+}

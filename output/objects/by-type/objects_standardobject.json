@@ -1,0 +1,2464 @@
+{
+  "type": "StandardObject",
+  "category": "object",
+  "count": 8,
+  "objects": [
+    {
+      "inflections": {
+        "plural": "Invoices",
+        "singular": "Invoice"
+      },
+      "connections": {
+        "inbound": [],
+        "outbound": [
+          {
+            "has": "one",
+            "key": "field_21",
+            "name": "Student",
+            "field": {
+              "name": "Student",
+              "inflections": {
+                "plural": "Students",
+                "singular": "Student"
+              }
+            },
+            "object": "object_2",
+            "belongs_to": "many"
+          },
+          {
+            "has": "one",
+            "key": "field_118",
+            "name": "Pay Period",
+            "field": {
+              "name": "Pay Period",
+              "inflections": {
+                "plural": "Pay Periods",
+                "singular": "Pay Period"
+              }
+            },
+            "object": "object_13",
+            "belongs_to": "many"
+          },
+          {
+            "has": "one",
+            "key": "field_43",
+            "name": "Payment",
+            "field": {
+              "name": "Payment",
+              "inflections": {
+                "plural": "Payments",
+                "singular": "Payment"
+              }
+            },
+            "object": "object_6",
+            "belongs_to": "one"
+          },
+          {
+            "has": "one",
+            "key": "field_99",
+            "name": "Supervisor",
+            "field": {
+              "name": "Supervisor",
+              "inflections": {
+                "plural": "Supervisors",
+                "singular": "Supervisor"
+              }
+            },
+            "object": "object_3",
+            "belongs_to": "many"
+          }
+        ]
+      },
+      "sort": {
+        "field": "field_34",
+        "order": "desc"
+      },
+      "user": false,
+      "status": "current",
+      "tasks": [
+        {
+          "name": "Due Date Reminder",
+          "object_key": "object_4",
+          "type": "actions",
+          "schedule": {
+            "repeat": "daily",
+            "timezone_offset": -18000,
+            "timezone_dst": 3600,
+            "startOfIncrement": false
+          },
+          "run_status": "running",
+          "action": {
+            "action": "email",
+            "criteria": [
+              {
+                "field": "field_34",
+                "operator": "is today",
+                "value": {
+                  "date": "08/25/2020",
+                  "hours": 19,
+                  "minutes": 21,
+                  "am_pm": "PM",
+                  "time": 1161,
+                  "allDay": false
+                }
+              }
+            ],
+            "values": [
+              {
+                "field": "field_21",
+                "type": "value",
+                "input": "",
+                "connection_field": "",
+                "value": ""
+              }
+            ],
+            "email": {
+              "from_name": "ReadySetABa",
+              "from_email": "katherine@readysetaba.com",
+              "subject": "ReadySetABA Payment Reminder",
+              "message": "<p>Hi, <br><br>Just a reminder to login and make your payment for ReadySetABA.<br>\n</p>\n<p>Due date: {field_34}\n</p>\n<p>Amount Due: {field_75}\n</p>\n<p>You can <a href=\"https://readysetaba.com/student-login/#student-profile/\" target=\"_blank\">login here</a> to view your account.\n</p>",
+              "recipients": [
+                {
+                  "recipient_mode": "to",
+                  "recipient_type": "field",
+                  "email": "danielle@knack.com",
+                  "field": "field_21-field_7"
+                }
+              ]
+            }
+          },
+          "key": "task_1",
+          "scheduled": true
+        }
+      ],
+      "type": "StandardObject",
+      "schemaChangeInProgress": false,
+      "_id": "5de853741a6a88001633e50c",
+      "key": "object_4",
+      "name": "Invoices",
+      "uuid": "019390cf-0583-7f3c-811f-39902d363fa9",
+      "conns": [],
+      "fields": [
+        {
+          "type": "connection",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de853ac7ca5b5001505694c",
+          "key": "field_21",
+          "name": "Student",
+          "format": {
+            "input": "chosen",
+            "conn_default": "none"
+          },
+          "relationship": {
+            "has": "one",
+            "object": "object_2",
+            "belongs_to": "many"
+          }
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "61f0b7d5670df7e7a42ef911",
+          "key": "field_136",
+          "name": "Student Rate",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "$",
+            "equation": "{field_21.field_167}",
+            "rounding": "none",
+            "date_type": "hours",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "number",
+            "time_format": "Ignore Time",
+            "mark_decimal": "period",
+            "equation_type": "numeric",
+            "formula_field": "Field",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "date_time",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de8562a817ffb0019e50908",
+          "key": "field_34",
+          "name": "Due Date",
+          "format": {
+            "calendar": false,
+            "time_type": "current",
+            "date_format": "mm/dd/yyyy",
+            "time_format": "Ignore Time",
+            "default_date": "12/04/2019",
+            "default_type": "none"
+          },
+          "object_key": "object_4"
+        },
+        {
+          "type": "connection",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "609d84a40541ea001ce8bec0",
+          "key": "field_118",
+          "name": "Pay Period",
+          "format": {
+            "input": "chosen",
+            "conn_default": "none"
+          },
+          "relationship": {
+            "has": "one",
+            "object": "object_13",
+            "belongs_to": "many"
+          }
+        },
+        {
+          "type": "concatenation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602ef4d73c845d001b6d5a2c",
+          "key": "field_111",
+          "meta": {
+            "description": ""
+          },
+          "name": "Due Date Month",
+          "format": {
+            "equation": "getDateMonthOfYearName({field_125})",
+            "count_field": "Connection",
+            "equation_type": "numeric",
+            "formula_field": "Field"
+          }
+        },
+        {
+          "type": "number",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85609fbf8dd00157ae8de",
+          "key": "field_33",
+          "meta": {
+            "description": ""
+          },
+          "name": "Number of Supervision/Tutoring Hours (OLD)",
+          "format": {
+            "format": "none",
+            "rounding": "none",
+            "precision": "2",
+            "mark_decimal": "period",
+            "mark_thousands": "none"
+          },
+          "default": "",
+          "object_key": "object_4"
+        },
+        {
+          "type": "number",
+          "required": true,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65e753a52b9f3b002549feb2",
+          "key": "field_178",
+          "name": "1-1 Hours",
+          "format": {
+            "format": "none",
+            "rounding": "none",
+            "precision": 2,
+            "mark_decimal": "period",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "number",
+          "required": true,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d41e19cf9e9000287b3200",
+          "key": "field_171",
+          "name": "Number of Group Hours",
+          "format": {
+            "format": "none",
+            "rounding": "none",
+            "precision": 2,
+            "mark_decimal": "period",
+            "mark_thousands": "period"
+          }
+        },
+        {
+          "type": "number",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d41dee92aa33002835c59b",
+          "key": "field_170",
+          "name": "Number of Fieldwork Hours",
+          "format": {
+            "format": "none",
+            "rounding": "none",
+            "precision": 2,
+            "mark_decimal": "period",
+            "mark_thousands": "period"
+          }
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d41f2537284f00286e54d3",
+          "key": "field_174",
+          "name": "Number RSABA Hours",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "",
+            "equation": "{field_178}+{field_171}",
+            "rounding": "none",
+            "date_type": "hours",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "number",
+            "time_format": "Ignore Time",
+            "mark_decimal": "period",
+            "equation_type": "numeric",
+            "formula_field": "Field",
+            "mark_thousands": "period"
+          }
+        },
+        {
+          "type": "boolean",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "611447665dd245001e375115",
+          "key": "field_127",
+          "name": "Approved On Hold",
+          "format": {
+            "input": "dropdown",
+            "format": "yes_no",
+            "default": false,
+            "required": false
+          },
+          "default": false
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "606c5f871177f4001ed707d8",
+          "key": "field_116",
+          "name": "Days Since Due Date",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "",
+            "equation": "currentTime()-{field_34}",
+            "rounding": "none",
+            "date_type": "days",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "number",
+            "time_format": "Ignore Time",
+            "mark_decimal": "none",
+            "equation_type": "date",
+            "formula_field": "Field",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "boolean",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": true,
+          "rules": [
+            {
+              "values": [
+                {
+                  "type": "value",
+                  "field": "field_36",
+                  "value": true,
+                  "connection_field": null
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_43",
+                  "value": "",
+                  "operator": "is not blank",
+                  "value_type": "custom"
+                }
+              ]
+            }
+          ],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de8564ccd06470015cbccac",
+          "key": "field_36",
+          "name": "Paid",
+          "format": {
+            "input": "dropdown",
+            "format": "yes_no",
+            "default": false,
+            "required": false
+          },
+          "default": false,
+          "object_key": "object_4"
+        },
+        {
+          "type": "connection",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de8584b2e38a000178ad49d",
+          "key": "field_43",
+          "name": "Payment",
+          "format": {
+            "input": "chosen",
+            "conn_default": "none"
+          },
+          "ecommerce": true,
+          "immutable": true,
+          "read_only": true,
+          "charge_key": "charge",
+          "object_key": "object_4",
+          "relationship": {
+            "has": "one",
+            "object": "object_6",
+            "belongs_to": "one"
+          }
+        },
+        {
+          "type": "boolean",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": true,
+          "rules": [
+            {
+              "key": "2",
+              "values": [
+                {
+                  "type": "value",
+                  "field": "field_121",
+                  "value": true,
+                  "connection_field": null
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_116",
+                  "value": "10",
+                  "operator": "higher than"
+                },
+                {
+                  "field": "field_36",
+                  "value": false,
+                  "operator": "is",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                }
+              ]
+            }
+          ],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "60b9a76e6cc396001efe5e6d",
+          "key": "field_121",
+          "name": "Overdue",
+          "format": {
+            "input": "dropdown",
+            "format": "yes_no",
+            "default": false,
+            "required": false
+          },
+          "default": false
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "6262c1183cb211001e3a8652",
+          "key": "field_139",
+          "name": "Days With Late Fee",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "",
+            "equation": "currentTime()-({field_34}+10)",
+            "rounding": "none",
+            "date_type": "days",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "number",
+            "time_format": "Ignore Time",
+            "mark_decimal": "none",
+            "equation_type": "date",
+            "formula_field": "Field",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "number",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": true,
+          "rules": [
+            {
+              "key": "1",
+              "values": [
+                {
+                  "type": "value",
+                  "field": "field_122",
+                  "value": "25",
+                  "connection_field": null
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_121",
+                  "value": true,
+                  "operator": "is"
+                }
+              ]
+            }
+          ],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "60b9a8fe87d5f90021228c06",
+          "key": "field_122",
+          "name": "Late Fee",
+          "format": {
+            "format": "none",
+            "rounding": "none",
+            "precision": 2,
+            "mark_decimal": "none",
+            "mark_thousands": "none"
+          },
+          "default": "0"
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "6262c1d2cd02fd001e2ee1c4",
+          "key": "field_140",
+          "name": "Late Fee Calc",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "$",
+            "equation": "{field_139}*5",
+            "rounding": "none",
+            "date_type": "hours",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "number",
+            "time_format": "Ignore Time",
+            "mark_decimal": "none",
+            "equation_type": "numeric",
+            "formula_field": "Field",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de856f83dd1560015347b05",
+          "key": "field_39",
+          "name": "Sub Total Old",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "$",
+            "equation": "{field_136}*{field_33}",
+            "rounding": "none",
+            "precision": "2",
+            "count_field": "Connection",
+            "mark_decimal": "period",
+            "equation_type": "numeric",
+            "formula_field": "Field",
+            "mark_thousands": "comma"
+          },
+          "object_key": "object_4"
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65e89bfd268c130026102bf7",
+          "key": "field_180",
+          "name": "Sub Total New",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "$",
+            "equation": "{field_136}*({field_178}+{field_171})",
+            "rounding": "none",
+            "date_type": "hours",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "number",
+            "time_format": "Ignore Time",
+            "mark_decimal": "period",
+            "equation_type": "numeric",
+            "formula_field": "Field",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "currency",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": true,
+          "rules": [
+            {
+              "key": "1",
+              "values": [
+                {
+                  "type": "record",
+                  "field": "field_182",
+                  "input": "field_39",
+                  "value": "",
+                  "connection_field": null
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_34",
+                  "value": {
+                    "date": "02/18/2024",
+                    "all_day": false
+                  },
+                  "operator": "is before",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                }
+              ]
+            },
+            {
+              "key": "2",
+              "action": "record",
+              "values": [
+                {
+                  "type": "record",
+                  "field": "field_182",
+                  "input": "field_180",
+                  "value": "",
+                  "connection_field": ""
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_34",
+                  "value": {
+                    "date": "02/19/2024",
+                    "all_day": false
+                  },
+                  "operator": "is after",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                }
+              ],
+              "connection": "object_2.field_21"
+            }
+          ],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65e89c6ca7ec0e0029f1adad",
+          "key": "field_182",
+          "name": "Sub Total Base",
+          "format": {
+            "format": "$"
+          }
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "6262c22f3a2230001fcb4ba3",
+          "key": "field_141",
+          "name": "Sub Total Base + Late Fee",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "$",
+            "equation": "{field_182}+{field_140}",
+            "rounding": "none",
+            "date_type": "hours",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "number",
+            "time_format": "Ignore Time",
+            "mark_decimal": "none",
+            "equation_type": "numeric",
+            "formula_field": "Field",
+            "mark_thousands": "period"
+          }
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "6262ca35c02e57001e64ea97",
+          "key": "field_143",
+          "name": "Sub Total Base + Max Late Fee",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "$",
+            "equation": "{field_182}+50",
+            "rounding": "none",
+            "date_type": "hours",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "number",
+            "time_format": "Ignore Time",
+            "mark_decimal": "none",
+            "equation_type": "numeric",
+            "formula_field": "Field",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "boolean",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e5c508c369a000016776b0b",
+          "key": "field_63",
+          "name": "Completed Hours",
+          "format": {
+            "input": "dropdown",
+            "format": "yes_no",
+            "default": false,
+            "required": false
+          },
+          "default": false
+        },
+        {
+          "type": "number",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": true,
+          "rules": [
+            {
+              "key": "2",
+              "action": "record",
+              "values": [
+                {
+                  "type": "record",
+                  "field": "field_75",
+                  "input": "field_143",
+                  "value": "",
+                  "connection_field": ""
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_121",
+                  "value": true,
+                  "operator": "is",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                },
+                {
+                  "field": "field_139",
+                  "value": "10",
+                  "operator": "higher than",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                },
+                {
+                  "field": "field_34",
+                  "value": {
+                    "date": "04/24/2022",
+                    "all_day": false
+                  },
+                  "operator": "is after",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                }
+              ],
+              "connection": "object_2.field_21"
+            },
+            {
+              "key": "11",
+              "action": "record",
+              "values": [
+                {
+                  "type": "record",
+                  "field": "field_75",
+                  "input": "field_141",
+                  "value": "",
+                  "connection_field": ""
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_121",
+                  "value": true,
+                  "operator": "is",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                },
+                {
+                  "field": "field_34",
+                  "value": {
+                    "date": "04/24/2022",
+                    "all_day": false
+                  },
+                  "operator": "is after",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                }
+              ],
+              "connection": "object_2.field_21"
+            },
+            {
+              "key": "10",
+              "action": "record",
+              "values": [
+                {
+                  "type": "record",
+                  "field": "field_75",
+                  "input": "field_182",
+                  "value": "",
+                  "connection_field": ""
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_121",
+                  "value": false,
+                  "operator": "is",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                }
+              ],
+              "connection": "object_2.field_21"
+            },
+            {
+              "key": "5",
+              "action": "record",
+              "values": [
+                {
+                  "type": "record",
+                  "field": "field_75",
+                  "input": "field_182",
+                  "value": "",
+                  "connection_field": ""
+                }
+              ],
+              "criteria": [],
+              "connection": "object_2.field_21"
+            }
+          ],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e5f9fd0f3f85400157d1e4e",
+          "key": "field_75",
+          "meta": {
+            "description": ""
+          },
+          "name": "Final Total",
+          "format": {
+            "format": "none",
+            "rounding": "none",
+            "precision": 2,
+            "mark_decimal": "period",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "number",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": true,
+          "rules": [
+            {
+              "key": "1",
+              "values": [
+                {
+                  "type": "record",
+                  "field": "field_144",
+                  "input": "field_143",
+                  "value": "",
+                  "connection_field": null
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_121",
+                  "value": true,
+                  "operator": "is",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                },
+                {
+                  "field": "field_139",
+                  "value": "10",
+                  "operator": "higher than",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                },
+                {
+                  "field": "field_34",
+                  "value": {
+                    "date": "04/24/2022",
+                    "all_day": false
+                  },
+                  "operator": "is after",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                }
+              ]
+            },
+            {
+              "key": "2",
+              "values": [
+                {
+                  "type": "record",
+                  "field": "field_144",
+                  "input": "field_141",
+                  "value": "",
+                  "connection_field": null
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_121",
+                  "value": true,
+                  "operator": "is",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                },
+                {
+                  "field": "field_34",
+                  "value": {
+                    "date": "04/24/2022",
+                    "all_day": false
+                  },
+                  "operator": "is after",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                }
+              ]
+            },
+            {
+              "key": "3",
+              "values": [
+                {
+                  "type": "record",
+                  "field": "field_144",
+                  "input": "field_182",
+                  "value": "",
+                  "connection_field": null
+                }
+              ],
+              "criteria": [
+                {
+                  "field": "field_121",
+                  "value": false,
+                  "operator": "is",
+                  "value_type": "custom",
+                  "value_field": "field_21"
+                }
+              ]
+            },
+            {
+              "key": "4",
+              "action": "record",
+              "values": [
+                {
+                  "type": "record",
+                  "field": "field_144",
+                  "input": "field_182",
+                  "value": "",
+                  "connection_field": ""
+                }
+              ],
+              "criteria": [],
+              "connection": "object_2.field_21"
+            }
+          ],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "6265fbdeaee9ed001e31d18a",
+          "key": "field_144",
+          "name": "Final Total 2",
+          "format": {
+            "format": "$",
+            "rounding": "none",
+            "precision": 2,
+            "mark_decimal": "none",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "concatenation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5f459e202c8d7630b4b71103",
+          "key": "field_91",
+          "meta": {
+            "description": ""
+          },
+          "name": "First Name",
+          "format": {
+            "equation": "getNameFirst({field_21.field_6})",
+            "count_field": "Connection",
+            "equation_type": "numeric",
+            "formula_field": "Field"
+          }
+        },
+        {
+          "type": "concatenation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5f45a4672c8d7630b4b711d1",
+          "key": "field_92",
+          "meta": {
+            "description": ""
+          },
+          "name": "Student Email",
+          "format": {
+            "equation": "{field_21.field_7}",
+            "count_field": "Connection",
+            "equation_type": "numeric",
+            "formula_field": "Field"
+          }
+        },
+        {
+          "type": "connection",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602ed0f7784083001b50c56b",
+          "key": "field_99",
+          "name": "Supervisor",
+          "format": {
+            "input": "chosen",
+            "conn_default": "none"
+          },
+          "relationship": {
+            "has": "one",
+            "object": "object_3",
+            "belongs_to": "many"
+          }
+        },
+        {
+          "type": "paragraph_text",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602ed1998d71f9001b94e642",
+          "key": "field_100",
+          "meta": {
+            "description": ""
+          },
+          "name": "Meeting Dates"
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "60c22010fb0e5e001e45058f",
+          "key": "field_125",
+          "name": "Last Day of Pay Period for related Invoiced Services",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "",
+            "equation": "{field_118.field_123}-1",
+            "rounding": "none",
+            "date_type": "days",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "date",
+            "time_format": "Ignore Time",
+            "mark_decimal": "none",
+            "equation_type": "date",
+            "formula_field": "Field",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "short_text",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65e7548b682bbc00286e4fd5",
+          "key": "field_179",
+          "name": "TEST"
+        }
+      ],
+      "identifier": "field_21"
+    },
+    {
+      "inflections": {
+        "plural": "Pay Periods",
+        "singular": "Pay Period"
+      },
+      "connections": {
+        "inbound": [
+          {
+            "has": "one",
+            "key": "field_118",
+            "name": "Pay Period",
+            "field": {
+              "name": "Pay Period",
+              "inflections": {
+                "plural": "Pay Periods",
+                "singular": "Pay Period"
+              }
+            },
+            "object": "object_4",
+            "belongs_to": "many"
+          },
+          {
+            "has": "one",
+            "key": "field_115",
+            "name": "Pay Period",
+            "field": {
+              "name": "Pay Period",
+              "inflections": {
+                "plural": "Pay Periods",
+                "singular": "Pay Period"
+              }
+            },
+            "object": "object_12",
+            "belongs_to": "many"
+          }
+        ],
+        "outbound": []
+      },
+      "sort": {
+        "field": "field_113",
+        "order": "desc"
+      },
+      "user": false,
+      "status": "current",
+      "tasks": [],
+      "type": "StandardObject",
+      "schemaChangeInProgress": false,
+      "_id": "602ff74dfdf67a001cdbe295",
+      "key": "object_13",
+      "name": "Pay Periods",
+      "uuid": "019390cf-05a4-76f4-8231-0484fd9c003c",
+      "fields": [
+        {
+          "type": "date_time",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602ff773fdf67a001cdbe324",
+          "key": "field_113",
+          "meta": {
+            "description": ""
+          },
+          "name": "Date Range",
+          "format": {
+            "calendar": true,
+            "time_type": "current",
+            "date_format": "mm/dd/yyyy",
+            "time_format": "Ignore Time",
+            "default_time": "",
+            "default_type": "none"
+          }
+        },
+        {
+          "type": "concatenation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602ff840f0465e001b373e6b",
+          "key": "field_114",
+          "meta": {
+            "description": ""
+          },
+          "name": "Month",
+          "format": {
+            "equation": "getDateMonthOfYearName({field_113})",
+            "count_field": "Connection",
+            "equation_type": "numeric",
+            "formula_field": "Field"
+          }
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "60c21f2e02a25f001ec9c771",
+          "key": "field_123",
+          "name": "Last Day of Pay Period",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "",
+            "equation": "getDateLastDateOfMonth({field_113})",
+            "rounding": "none",
+            "date_type": "days",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "date",
+            "time_format": "Ignore Time",
+            "mark_decimal": "none",
+            "equation_type": "date",
+            "formula_field": "Field",
+            "mark_thousands": "none"
+          }
+        }
+      ],
+      "template": "",
+      "identifier": "field_113"
+    },
+    {
+      "inflections": {
+        "plural": "Timesheets",
+        "singular": "Timesheet"
+      },
+      "connections": {
+        "inbound": [],
+        "outbound": [
+          {
+            "has": "one",
+            "key": "field_96",
+            "name": "Supervisor",
+            "field": {
+              "name": "Supervisor",
+              "inflections": {
+                "plural": "Supervisors",
+                "singular": "Supervisor"
+              }
+            },
+            "object": "object_3",
+            "belongs_to": "many"
+          },
+          {
+            "has": "one",
+            "key": "field_115",
+            "name": "Pay Period",
+            "field": {
+              "name": "Pay Period",
+              "inflections": {
+                "plural": "Pay Periods",
+                "singular": "Pay Period"
+              }
+            },
+            "object": "object_13",
+            "belongs_to": "many"
+          }
+        ]
+      },
+      "user": false,
+      "status": "current",
+      "tasks": [],
+      "type": "StandardObject",
+      "schemaChangeInProgress": false,
+      "_id": "5f7e2c2184dd8f00159c6abf",
+      "key": "object_12",
+      "name": "Timesheet",
+      "uuid": "019390cf-05ac-7618-ab81-7c4a236ebbef",
+      "fields": [
+        {
+          "type": "number",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5f7e2c94b5153e0015ba37e2",
+          "key": "field_94",
+          "meta": {
+            "description": "<p>Supervision Hours\n</p>"
+          },
+          "name": "Supervision Hours",
+          "format": {
+            "format": "none",
+            "rounding": "none",
+            "precision": 2,
+            "mark_decimal": "period",
+            "mark_thousands": "none"
+          },
+          "default": ""
+        },
+        {
+          "type": "number",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65b81b8a31cf33002661bb82",
+          "key": "field_147",
+          "name": "Group Supervision Hours ",
+          "format": {
+            "format": "none",
+            "rounding": "none",
+            "precision": 2,
+            "mark_decimal": "period",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "number",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5f7e2cadb924fa0015c56458",
+          "key": "field_95",
+          "meta": {
+            "description": "<p>Content/Blog writing\n</p>"
+          },
+          "name": "Content Writing",
+          "format": {
+            "format": "none",
+            "rounding": "none",
+            "precision": 2,
+            "mark_decimal": "period",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "connection",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5f7e2cd4c3b80600162937e9",
+          "key": "field_96",
+          "name": "Supervisor",
+          "format": {
+            "input": "chosen",
+            "conn_default": "none"
+          },
+          "relationship": {
+            "has": "one",
+            "object": "object_3",
+            "belongs_to": "many"
+          }
+        },
+        {
+          "type": "date_time",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5f7e2cf2daf17f001592e696",
+          "key": "field_97",
+          "meta": {
+            "description": ""
+          },
+          "name": "Date/Time",
+          "format": {
+            "calendar": false,
+            "time_type": "current",
+            "date_format": "mm/dd/yyyy",
+            "time_format": "Ignore Time",
+            "default_time": "",
+            "default_type": "current"
+          }
+        },
+        {
+          "type": "multiple_choice",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602ed7733264b7001b968ede",
+          "key": "field_101",
+          "meta": {
+            "description": ""
+          },
+          "name": "Month",
+          "format": {
+            "type": "single",
+            "blank": "Select...",
+            "default": "kn-blank",
+            "options": [
+              "Jan",
+              "Feb",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+              "Aug",
+              "Sept",
+              "Oct",
+              "Nov",
+              "Dec"
+            ],
+            "sorting": "custom"
+          }
+        },
+        {
+          "type": "paragraph_text",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602ecc3975f9aa001b18e2e5",
+          "key": "field_98",
+          "meta": {
+            "description": ""
+          },
+          "name": "Content Writing Hour Breakdown"
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602ee5bd2cced0001b080962",
+          "key": "field_105",
+          "meta": {
+            "description": ""
+          },
+          "name": "Supervision Total",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "$",
+            "equation": "{field_96.field_103}*{field_94}",
+            "rounding": "none",
+            "date_type": "hours",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "number",
+            "time_format": "Ignore Time",
+            "mark_decimal": "period",
+            "equation_type": "numeric",
+            "formula_field": "Field",
+            "mark_thousands": "comma"
+          }
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65b81bc250b31f002749983b",
+          "key": "field_148",
+          "name": "Group Supervision Total",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "$",
+            "equation": "{field_96.field_146}*{field_147}",
+            "rounding": "none",
+            "date_type": "hours",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "number",
+            "time_format": "Ignore Time",
+            "mark_decimal": "period",
+            "equation_type": "numeric",
+            "formula_field": "Field",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602ee5d63a9274001bfa1bdd",
+          "key": "field_106",
+          "meta": {
+            "description": ""
+          },
+          "name": "Content Total",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "$",
+            "equation": "{field_96.field_104}*{field_95}",
+            "rounding": "none",
+            "date_type": "hours",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "number",
+            "time_format": "Ignore Time",
+            "mark_decimal": "period",
+            "equation_type": "numeric",
+            "formula_field": "Field",
+            "mark_thousands": "comma"
+          }
+        },
+        {
+          "type": "boolean",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602ee69a506a2f001bbfb7a2",
+          "key": "field_107",
+          "meta": {
+            "description": ""
+          },
+          "name": "Approved",
+          "format": {
+            "input": "dropdown",
+            "format": "yes_no",
+            "default": false,
+            "required": false
+          },
+          "default": false
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602eeb4b5ff56d001b21617e",
+          "key": "field_108",
+          "meta": {
+            "description": ""
+          },
+          "name": "Total Timesheet Pay",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "$",
+            "equation": "{field_105}+{field_148}+{field_106}",
+            "rounding": "none",
+            "date_type": "hours",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "number",
+            "time_format": "Ignore Time",
+            "mark_decimal": "period",
+            "equation_type": "numeric",
+            "formula_field": "Field",
+            "mark_thousands": "comma"
+          }
+        },
+        {
+          "type": "connection",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "602ff8f0ed3888001ba08b88",
+          "key": "field_115",
+          "name": "Pay Period",
+          "format": {
+            "input": "chosen",
+            "conn_default": "none"
+          },
+          "relationship": {
+            "has": "one",
+            "object": "object_13",
+            "belongs_to": "many"
+          }
+        },
+        {
+          "type": "equation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "60c21fce02a25f001ec9c814",
+          "key": "field_124",
+          "name": "Last Day of Pay Period",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "",
+            "equation": "{field_115.field_123}-1",
+            "rounding": "down",
+            "date_type": "days",
+            "precision": "2",
+            "count_field": "Connection",
+            "date_format": "mm/dd/yyyy",
+            "date_result": "date",
+            "time_format": "Ignore Time",
+            "mark_decimal": "none",
+            "equation_type": "date",
+            "formula_field": "Field",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "short_text",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "60c2239f1e187f00216b4bb6",
+          "key": "field_126",
+          "name": "New Field test"
+        }
+      ],
+      "template": "",
+      "identifier": "field_94"
+    },
+    {
+      "inflections": {
+        "plural": "Website Contacts",
+        "singular": "Website Contact"
+      },
+      "connections": {
+        "inbound": [],
+        "outbound": []
+      },
+      "user": false,
+      "status": "current",
+      "tasks": [],
+      "type": "StandardObject",
+      "schemaChangeInProgress": false,
+      "_id": "61edb1d6317147001ff9336b",
+      "key": "object_14",
+      "name": "Website Contacts",
+      "uuid": "019390cf-05b7-7644-ac08-fbff96aa83c4",
+      "fields": [
+        {
+          "type": "name",
+          "required": true,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "61edb1ee063fd7001e704e33",
+          "key": "field_129",
+          "name": "Name",
+          "format": {
+            "format": "First Last"
+          }
+        },
+        {
+          "type": "email",
+          "required": true,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "61edb1f3ad73cd001f639a82",
+          "key": "field_130",
+          "name": "Email",
+          "format": {
+            "text_format": "url"
+          }
+        },
+        {
+          "type": "phone",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "61edb1f7063fd7001e704e3a",
+          "key": "field_131",
+          "name": "Phone",
+          "format": {
+            "format": "(999) 999-9999",
+            "extension": false
+          }
+        },
+        {
+          "type": "date_time",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "61edb200ad73cd001f639a8c",
+          "key": "field_132",
+          "name": "Date/Time",
+          "format": {
+            "calendar": false,
+            "time_type": "current",
+            "date_format": "mm/dd/yyyy",
+            "time_format": "HH:MM am",
+            "default_time": "",
+            "default_type": "current"
+          }
+        },
+        {
+          "type": "multiple_choice",
+          "required": true,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "6812f8c0080a3502f8be7a76",
+          "key": "field_185",
+          "meta": {
+            "description": ""
+          },
+          "name": "How can we help?",
+          "format": {
+            "type": "single",
+            "blank": "Select...",
+            "default": "kn-blank",
+            "options": [
+              "Tutoring",
+              "Supervision",
+              "Consulting"
+            ],
+            "sorting": "custom"
+          }
+        },
+        {
+          "type": "paragraph_text",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "61edb208317147001ff93397",
+          "key": "field_133",
+          "meta": {
+            "description": ""
+          },
+          "name": "Comment",
+          "default": ""
+        },
+        {
+          "type": "paragraph_text",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "61fece31970cb7001e47fad2",
+          "key": "field_138",
+          "name": "Notes"
+        }
+      ],
+      "template": "",
+      "identifier": "field_129"
+    },
+    {
+      "inflections": {
+        "plural": "Notes",
+        "singular": "Note"
+      },
+      "connections": {
+        "inbound": [],
+        "outbound": [
+          {
+            "has": "one",
+            "key": "field_18",
+            "name": "Student",
+            "field": {
+              "name": "Student",
+              "inflections": {
+                "plural": "Students",
+                "singular": "Student"
+              }
+            },
+            "object": "object_2",
+            "belongs_to": "many"
+          },
+          {
+            "has": "one",
+            "key": "field_83",
+            "name": "Supervisor",
+            "field": {
+              "name": "Supervisor",
+              "inflections": {
+                "plural": "Supervisors",
+                "singular": "Supervisor"
+              }
+            },
+            "object": "object_3",
+            "belongs_to": "many"
+          }
+        ]
+      },
+      "user": false,
+      "status": "current",
+      "tasks": [],
+      "type": "StandardObject",
+      "schemaChangeInProgress": false,
+      "_id": "5de853842e38a000178acad3",
+      "key": "object_5",
+      "name": "Notes",
+      "uuid": "019390cf-05c2-72c0-b7d6-2d5e559b3fad",
+      "conns": [],
+      "fields": [
+        {
+          "type": "connection",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de8538e3b3aca00189e70d0",
+          "key": "field_18",
+          "name": "Student",
+          "format": {
+            "input": "chosen",
+            "conn_default": "none"
+          },
+          "relationship": {
+            "has": "one",
+            "object": "object_2",
+            "belongs_to": "many"
+          }
+        },
+        {
+          "type": "connection",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e5fb605b237ec00159f6910",
+          "key": "field_83",
+          "name": "Supervisor",
+          "format": {
+            "input": "chosen",
+            "conn_default": "none"
+          },
+          "relationship": {
+            "has": "one",
+            "object": "object_3",
+            "belongs_to": "many"
+          }
+        },
+        {
+          "type": "paragraph_text",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85396cd06470015cbc68f",
+          "key": "field_19",
+          "name": "Note",
+          "default": "",
+          "object_key": "object_5"
+        },
+        {
+          "type": "date_time",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de853a2ec7bd00015d9d1f1",
+          "key": "field_20",
+          "name": "Date/Time",
+          "format": {
+            "calendar": false,
+            "date_format": "mm/dd/yyyy",
+            "time_format": "Ignore Time",
+            "default_date": "12/04/2019",
+            "default_type": "current"
+          },
+          "object_key": "object_5"
+        }
+      ],
+      "identifier": "field_18"
+    },
+    {
+      "inflections": {
+        "plural": "Institutions",
+        "singular": "Institution"
+      },
+      "connections": {
+        "inbound": [
+          {
+            "has": "one",
+            "key": "field_156",
+            "name": "Institution",
+            "field": {
+              "name": "Institution",
+              "inflections": {
+                "plural": "Institutions",
+                "singular": "Institution"
+              }
+            },
+            "object": "object_2",
+            "belongs_to": "many"
+          },
+          {
+            "has": "one",
+            "key": "field_157",
+            "name": "Institution",
+            "field": {
+              "name": "Institution",
+              "inflections": {
+                "plural": "Institutions",
+                "singular": "Institution"
+              }
+            },
+            "object": "object_15",
+            "belongs_to": "many"
+          }
+        ],
+        "outbound": []
+      },
+      "sort": {
+        "field": "field_155",
+        "order": "desc"
+      },
+      "user": false,
+      "status": "current",
+      "tasks": [],
+      "type": "StandardObject",
+      "schemaChangeInProgress": false,
+      "_id": "65d3fabfacd9ae0028016805",
+      "key": "object_16",
+      "name": "Institutions",
+      "uuid": "019390cf-05ce-7148-802f-deb2ee9d0006",
+      "fields": [
+        {
+          "type": "short_text",
+          "required": true,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d3fabfacd9ae0028016807",
+          "key": "field_155",
+          "name": "Name"
+        },
+        {
+          "type": "email",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d3ff66acd9ae002801a0ab",
+          "key": "field_160",
+          "name": "Billing Email",
+          "format": {
+            "text_format": "url"
+          }
+        },
+        {
+          "type": "count",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "65d3ffc837284f00286d783c",
+          "key": "field_163",
+          "name": "# Students",
+          "format": {
+            "pre": "",
+            "post": "",
+            "format": "",
+            "rounding": "none",
+            "precision": "2",
+            "connection": "field_156",
+            "count_field": "none",
+            "mark_decimal": "none",
+            "mark_thousands": "none"
+          }
+        },
+        {
+          "type": "currency",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "66303502415e1800283fb46e",
+          "key": "field_184",
+          "name": "Hourly Rate",
+          "format": {
+            "format": "$"
+          }
+        },
+        {
+          "type": "concatenation",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "6630348f4cde3c0029bcccaf",
+          "key": "field_183",
+          "name": "Display",
+          "format": {
+            "equation": "{field_155}: {field_184}",
+            "count_field": "Connection",
+            "equation_type": "numeric",
+            "formula_field": "Field"
+          }
+        }
+      ],
+      "template": "",
+      "identifier": "field_183"
+    },
+    {
+      "inflections": {
+        "plural": "Intake Forms",
+        "singular": "Intake Form"
+      },
+      "connections": {
+        "inbound": [],
+        "outbound": [
+          {
+            "has": "one",
+            "key": "field_50",
+            "name": "Student",
+            "field": {
+              "name": "Student",
+              "inflections": {
+                "plural": "Students",
+                "singular": "Student"
+              }
+            },
+            "object": "object_2",
+            "belongs_to": "many"
+          }
+        ]
+      },
+      "sort": {
+        "field": "field_50",
+        "order": "asc"
+      },
+      "user": false,
+      "status": "current",
+      "tasks": [],
+      "type": "StandardObject",
+      "schemaChangeInProgress": false,
+      "_id": "5de85a1a5b363200151418fc",
+      "key": "object_8",
+      "name": "Intake Form",
+      "uuid": "019390cf-05e1-7174-b767-b34ca6dbbcfa",
+      "conns": [],
+      "fields": [
+        {
+          "type": "connection",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85a21f799f100165fd452",
+          "key": "field_50",
+          "name": "Student",
+          "format": {
+            "input": "chosen",
+            "conn_default": "none"
+          },
+          "relationship": {
+            "has": "one",
+            "object": "object_2",
+            "belongs_to": "many"
+          }
+        },
+        {
+          "type": "name",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85bd4edea5c00175c89d0",
+          "key": "field_53",
+          "name": "Name",
+          "object_key": "object_8"
+        },
+        {
+          "type": "email",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85bd7bb407d0017f3ec08",
+          "key": "field_54",
+          "name": "Email",
+          "format": {
+            "text_format": "url"
+          },
+          "object_key": "object_8"
+        },
+        {
+          "type": "phone",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85bda475a0600171f1c10",
+          "key": "field_55",
+          "name": "Phone",
+          "format": {
+            "format": "(999) 999-9999",
+            "extension": false
+          },
+          "default": "",
+          "object_key": "object_8"
+        },
+        {
+          "type": "short_text",
+          "required": true,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85a1a5b363200151418fd",
+          "key": "field_49",
+          "name": "When do you want to start?",
+          "format": null,
+          "default": "",
+          "object_key": "object_8"
+        },
+        {
+          "type": "short_text",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85ae42e38a000178ad724",
+          "key": "field_51",
+          "name": "How many hours do you have? If any?",
+          "format": null,
+          "default": "",
+          "object_key": "object_8"
+        },
+        {
+          "type": "short_text",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5de85ae83b3aca00189e769d",
+          "key": "field_52",
+          "name": "What is your current work setting?",
+          "format": null,
+          "default": "",
+          "object_key": "object_8"
+        }
+      ],
+      "identifier": "field_50"
+    },
+    {
+      "inflections": {
+        "plural": "Shareable Files",
+        "singular": "Shareable File"
+      },
+      "connections": {
+        "inbound": [],
+        "outbound": []
+      },
+      "user": false,
+      "status": "current",
+      "tasks": [],
+      "type": "StandardObject",
+      "schemaChangeInProgress": false,
+      "_id": "5e73818c91221e0017e00ff2",
+      "key": "object_11",
+      "name": "Shareable Files",
+      "uuid": "019390cf-05eb-7990-87e5-58a17a13806b",
+      "fields": [
+        {
+          "type": "short_text",
+          "required": true,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e73818c91221e0017e00ff3",
+          "key": "field_86",
+          "name": "Shareable Files Name"
+        },
+        {
+          "type": "image",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e7382d722dd010015a74f10",
+          "key": "field_88",
+          "name": "Image",
+          "format": {
+            "source": "upload",
+            "thumbs": [
+              {
+                "key": "thumb_1",
+                "width": "200",
+                "height": "200",
+                "length": 100,
+                "percentage": "60",
+                "thumb_type": "percentage"
+              }
+            ]
+          }
+        },
+        {
+          "type": "file",
+          "required": false,
+          "unique": false,
+          "user": false,
+          "conditional": false,
+          "rules": [],
+          "validation": [],
+          "isSystemField": false,
+          "_id": "5e738194b75d5f0015bd573f",
+          "key": "field_87",
+          "name": "File",
+          "format": {
+            "secure": false
+          }
+        }
+      ],
+      "template": "",
+      "identifier": "field_86"
+    }
+  ]
+}

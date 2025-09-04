@@ -1,0 +1,67 @@
+{
+  "type": "sum",
+  "category": "field",
+  "count": 2,
+  "fields": [
+    {
+      "type": "sum",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65d42122acf355002a25e4ea",
+      "key": "field_176",
+      "name": "Total Group Hours",
+      "format": {
+        "pre": "",
+        "post": "",
+        "field": {
+          "key": "field_171"
+        },
+        "format": "",
+        "rounding": "none",
+        "precision": "2",
+        "connection": {
+          "key": "field_21"
+        },
+        "mark_decimal": "period",
+        "mark_thousands": "none"
+      },
+      "_object_key": "object_2",
+      "_object_name": "Student"
+    },
+    {
+      "type": "sum",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65d4213e1086e1002862ecc8",
+      "key": "field_177",
+      "name": "Total RSABA Hours",
+      "format": {
+        "pre": "",
+        "post": "",
+        "field": {
+          "key": "field_174"
+        },
+        "format": "",
+        "rounding": "none",
+        "precision": "2",
+        "connection": {
+          "key": "field_21"
+        },
+        "mark_decimal": "period",
+        "mark_thousands": "none"
+      },
+      "_object_key": "object_2",
+      "_object_name": "Student"
+    }
+  ]
+}

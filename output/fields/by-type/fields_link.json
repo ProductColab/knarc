@@ -1,0 +1,49 @@
+{
+  "type": "link",
+  "category": "field",
+  "count": 2,
+  "fields": [
+    {
+      "type": "link",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5e5fa31aa8b5640015df270c",
+      "key": "field_79",
+      "name": "Student Folder Link",
+      "format": {
+        "label": "link to folder",
+        "target": "_self",
+        "text_format": "same"
+      },
+      "default": "",
+      "_object_key": "object_2",
+      "_object_name": "Student"
+    },
+    {
+      "type": "link",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5e5fa21bdbc8f60015e2941b",
+      "key": "field_77",
+      "name": "Weekly Meeting Link",
+      "format": {
+        "label": "link to meeting",
+        "target": "_self",
+        "text_format": "same"
+      },
+      "default": "",
+      "_object_key": "object_2",
+      "_object_name": "Student"
+    }
+  ]
+}

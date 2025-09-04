@@ -1,0 +1,176 @@
+{
+  "type": "concatenation",
+  "category": "field",
+  "count": 6,
+  "fields": [
+    {
+      "type": "concatenation",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "602ef4d73c845d001b6d5a2c",
+      "key": "field_111",
+      "meta": {
+        "description": ""
+      },
+      "name": "Due Date Month",
+      "format": {
+        "equation": "getDateMonthOfYearName({field_125})",
+        "count_field": "Connection",
+        "equation_type": "numeric",
+        "formula_field": "Field"
+      },
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "concatenation",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5f459e202c8d7630b4b71103",
+      "key": "field_91",
+      "meta": {
+        "description": ""
+      },
+      "name": "First Name",
+      "format": {
+        "equation": "getNameFirst({field_21.field_6})",
+        "count_field": "Connection",
+        "equation_type": "numeric",
+        "formula_field": "Field"
+      },
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "concatenation",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5f45a4672c8d7630b4b711d1",
+      "key": "field_92",
+      "meta": {
+        "description": ""
+      },
+      "name": "Student Email",
+      "format": {
+        "equation": "{field_21.field_7}",
+        "count_field": "Connection",
+        "equation_type": "numeric",
+        "formula_field": "Field"
+      },
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "concatenation",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "602ff840f0465e001b373e6b",
+      "key": "field_114",
+      "meta": {
+        "description": ""
+      },
+      "name": "Month",
+      "format": {
+        "equation": "getDateMonthOfYearName({field_113})",
+        "count_field": "Connection",
+        "equation_type": "numeric",
+        "formula_field": "Field"
+      },
+      "_object_key": "object_13",
+      "_object_name": "Pay Periods"
+    },
+    {
+      "type": "concatenation",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "6630348f4cde3c0029bcccaf",
+      "key": "field_183",
+      "name": "Display",
+      "format": {
+        "equation": "{field_155}: {field_184}",
+        "count_field": "Connection",
+        "equation_type": "numeric",
+        "formula_field": "Field"
+      },
+      "_object_key": "object_16",
+      "_object_name": "Institutions"
+    },
+    {
+      "type": "concatenation",
+      "required": true,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de853bbedea5c00175c8183",
+      "key": "field_22",
+      "name": "Charge",
+      "format": {
+        "equation": [
+          {
+            "type": "field",
+            "field": {
+              "key": "field_25"
+            }
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "type": "field",
+            "field": {
+              "key": "field_23"
+            }
+          },
+          {
+            "text": " ",
+            "type": "text"
+          },
+          {
+            "type": "field",
+            "field": {
+              "key": "field_24"
+            }
+          },
+          {
+            "text": " ",
+            "type": "text"
+          }
+        ]
+      },
+      "immutable": true,
+      "read_only": true,
+      "charge_key": "record_info",
+      "_object_key": "object_6",
+      "_object_name": "Payments"
+    }
+  ]
+}

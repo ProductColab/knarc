@@ -9,6 +9,12 @@ export class DependencyGraph {
     const id = toNodeId(node);
     if (!this.nodes.has(id)) {
       this.nodes.set(id, node);
+      return;
+    }
+    // Merge-in name if previously missing
+    const existing = this.nodes.get(id)!;
+    if ((!existing.name || existing.name.length === 0) && node.name) {
+      this.nodes.set(id, { ...existing, name: node.name });
     }
   }
 
@@ -100,7 +106,6 @@ export class DependencyGraph {
   }
 
   topologicalSort(edgeTypes: EdgeType[] = ["derivesFrom"]): NodeRef[] {
-    // Kahn's algorithm over the subgraph filtered by edgeTypes
     const inDegree = new Map<string, number>();
     for (const node of this.getAllNodes()) {
       inDegree.set(toNodeId(node), 0);
@@ -132,7 +137,6 @@ export class DependencyGraph {
   stronglyConnectedComponents(
     edgeTypes: EdgeType[] = ["derivesFrom"]
   ): NodeRef[][] {
-    // Tarjan's algorithm on a filtered view of the graph
     let index = 0;
     const indices = new Map<string, number>();
     const lowlink = new Map<string, number>();

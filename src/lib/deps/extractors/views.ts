@@ -4,6 +4,11 @@ import { KnackFormView } from "@/lib/knack/types/views/form";
 import { KnackTableView } from "@/lib/knack/types/views/table";
 import { Edge } from "../types";
 import {
+  Resolvers,
+  resolveConnectionTargetObjectKey,
+  resolveObjectName,
+} from "../resolvers";
+import {
   sceneNode,
   viewNode,
   objectNode,
@@ -53,7 +58,8 @@ export function extractFromScene(
 function extractFromViewSource(
   source: KnackViewSource | undefined,
   view: KnackView,
-  basePath: string
+  basePath: string,
+  resolvers?: Resolvers
 ): Edge[] {
   if (!source) return [];
 
@@ -63,7 +69,7 @@ function extractFromViewSource(
   // Object reference
   edges.push({
     from: viewNode(view.key, view.name),
-    to: objectNode(source.object),
+    to: objectNode(source.object, resolveObjectName(resolvers, source.object)),
     type: "uses",
     locationPath: `${sourcePath}.object`,
   });
@@ -103,9 +109,15 @@ function extractFromViewSource(
 
   // Connection
   if (source.connection_key) {
+    const finalObjectKey =
+      resolveConnectionTargetObjectKey(resolvers, source.connection_key) ||
+      source.connection_key;
     edges.push({
       from: viewNode(view.key, view.name),
-      to: objectNode(source.connection_key),
+      to: objectNode(
+        finalObjectKey,
+        resolveObjectName(resolvers, finalObjectKey)
+      ),
       type: "connectsTo",
       locationPath: `${sourcePath}.connection_key`,
       details: { relationship_type: source.relationship_type },
@@ -143,6 +155,7 @@ function extractFromFormView(view: KnackFormView, basePath: string): Edge[] {
               createFieldEdge(view, r.field, "uses", `${path}.field`, {
                 operator: r.operator,
                 rule: r,
+                ruleCategory: "display",
               }),
             ]
           : []
@@ -156,9 +169,16 @@ function extractFromFormView(view: KnackFormView, basePath: string): Edge[] {
         `${rulesPath}.records`,
         (rr, i, recordPath) => {
           const recordEdges: Edge[] = [];
-          recordEdges.push(...extractFromValues(view, rr.values, recordPath));
           recordEdges.push(
-            ...extractFromCriteria(view, rr.criteria ?? [], recordPath)
+            ...extractFromValues(view, rr.values, recordPath, "record")
+          );
+          recordEdges.push(
+            ...extractFromCriteria(
+              view,
+              rr.criteria ?? [],
+              recordPath,
+              "record"
+            )
           );
           return recordEdges;
         }
@@ -171,6 +191,7 @@ function extractFromFormView(view: KnackFormView, basePath: string): Edge[] {
         typeof em.field === "string"
           ? extractFieldsFromText(view, em.field, `${path}.field`, {
               email: em,
+              ruleCategory: "email",
             })
           : []
       )
@@ -249,14 +270,17 @@ function extractFromTableView(view: KnackTableView, basePath: string): Edge[] {
 export function extractFromView(
   view: KnackView,
   sceneIndex: number,
-  viewIndex: number
+  viewIndex: number,
+  resolvers?: Resolvers
 ): Edge[] {
   const edges: Edge[] = [];
   const basePath = `scenes[${sceneIndex}].views[${viewIndex}]`;
 
   // Extract from view source if present
   if (view.source) {
-    edges.push(...extractFromViewSource(view.source, view, basePath));
+    edges.push(
+      ...extractFromViewSource(view.source, view, basePath, resolvers)
+    );
   }
 
   // Dispatch by view type

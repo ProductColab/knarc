@@ -1,0 +1,354 @@
+{
+  "type": "connection",
+  "category": "field",
+  "count": 14,
+  "fields": [
+    {
+      "type": "connection",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de853ac7ca5b5001505694c",
+      "key": "field_21",
+      "name": "Student",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "relationship": {
+        "has": "one",
+        "object": "object_2",
+        "belongs_to": "many"
+      },
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "connection",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "609d84a40541ea001ce8bec0",
+      "key": "field_118",
+      "name": "Pay Period",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "relationship": {
+        "has": "one",
+        "object": "object_13",
+        "belongs_to": "many"
+      },
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "connection",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de8584b2e38a000178ad49d",
+      "key": "field_43",
+      "name": "Payment",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "ecommerce": true,
+      "immutable": true,
+      "read_only": true,
+      "charge_key": "charge",
+      "object_key": "object_4",
+      "relationship": {
+        "has": "one",
+        "object": "object_6",
+        "belongs_to": "one"
+      },
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "connection",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "602ed0f7784083001b50c56b",
+      "key": "field_99",
+      "name": "Supervisor",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "relationship": {
+        "has": "one",
+        "object": "object_3",
+        "belongs_to": "many"
+      },
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "connection",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5f7e2cd4c3b80600162937e9",
+      "key": "field_96",
+      "name": "Supervisor",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "relationship": {
+        "has": "one",
+        "object": "object_3",
+        "belongs_to": "many"
+      },
+      "_object_key": "object_12",
+      "_object_name": "Timesheet"
+    },
+    {
+      "type": "connection",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "602ff8f0ed3888001ba08b88",
+      "key": "field_115",
+      "name": "Pay Period",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "relationship": {
+        "has": "one",
+        "object": "object_13",
+        "belongs_to": "many"
+      },
+      "_object_key": "object_12",
+      "_object_name": "Timesheet"
+    },
+    {
+      "type": "connection",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de8538e3b3aca00189e70d0",
+      "key": "field_18",
+      "name": "Student",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "relationship": {
+        "has": "one",
+        "object": "object_2",
+        "belongs_to": "many"
+      },
+      "_object_key": "object_5",
+      "_object_name": "Notes"
+    },
+    {
+      "type": "connection",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5e5fb605b237ec00159f6910",
+      "key": "field_83",
+      "name": "Supervisor",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "relationship": {
+        "has": "one",
+        "object": "object_3",
+        "belongs_to": "many"
+      },
+      "_object_key": "object_5",
+      "_object_name": "Notes"
+    },
+    {
+      "type": "connection",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de85a21f799f100165fd452",
+      "key": "field_50",
+      "name": "Student",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "relationship": {
+        "has": "one",
+        "object": "object_2",
+        "belongs_to": "many"
+      },
+      "_object_key": "object_8",
+      "_object_name": "Intake Form"
+    },
+    {
+      "type": "connection",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5e5c4a73e61aa60015b4c74a",
+      "key": "field_61",
+      "name": "Supervisor",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "relationship": {
+        "has": "one",
+        "object": "object_3",
+        "belongs_to": "many"
+      },
+      "_object_key": "object_2",
+      "_object_name": "Student"
+    },
+    {
+      "type": "connection",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65d3faef7e94000028989609",
+      "key": "field_156",
+      "name": "Institution",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "relationship": {
+        "has": "one",
+        "object": "object_16",
+        "belongs_to": "many"
+      },
+      "_object_key": "object_2",
+      "_object_name": "Student"
+    },
+    {
+      "type": "connection",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65d3fb0cf93c210028f4acc8",
+      "key": "field_157",
+      "name": "Institution",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "relationship": {
+        "has": "one",
+        "object": "object_16",
+        "belongs_to": "many"
+      },
+      "_object_key": "object_15",
+      "_object_name": "Institution Admin"
+    },
+    {
+      "type": "connection",
+      "required": true,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de853bbedea5c00175c8184",
+      "key": "field_32",
+      "name": "Account",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "immutable": true,
+      "read_only": true,
+      "charge_key": "account",
+      "relationship": {
+        "has": "one",
+        "object": "object_1",
+        "belongs_to": "many"
+      },
+      "_object_key": "object_6",
+      "_object_name": "Payments"
+    },
+    {
+      "type": "connection",
+      "required": true,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de8584d31e10e001553534c",
+      "key": "field_44",
+      "name": "Account",
+      "format": {
+        "input": "chosen",
+        "conn_default": "none"
+      },
+      "immutable": true,
+      "read_only": true,
+      "charge_key": "account",
+      "relationship": {
+        "has": "one",
+        "object": "object_1",
+        "belongs_to": "one"
+      },
+      "_object_key": "object_7",
+      "_object_name": "Payment Methods"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "type": "boolean",
+  "category": "field",
+  "count": 5,
+  "fields": [
+    {
+      "type": "boolean",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "611447665dd245001e375115",
+      "key": "field_127",
+      "name": "Approved On Hold",
+      "format": {
+        "input": "dropdown",
+        "format": "yes_no",
+        "default": false,
+        "required": false
+      },
+      "default": false,
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "boolean",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": true,
+      "rules": [
+        {
+          "values": [
+            {
+              "type": "value",
+              "field": "field_36",
+              "value": true,
+              "connection_field": null
+            }
+          ],
+          "criteria": [
+            {
+              "field": "field_43",
+              "value": "",
+              "operator": "is not blank",
+              "value_type": "custom"
+            }
+          ]
+        }
+      ],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de8564ccd06470015cbccac",
+      "key": "field_36",
+      "name": "Paid",
+      "format": {
+        "input": "dropdown",
+        "format": "yes_no",
+        "default": false,
+        "required": false
+      },
+      "default": false,
+      "object_key": "object_4",
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "boolean",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": true,
+      "rules": [
+        {
+          "key": "2",
+          "values": [
+            {
+              "type": "value",
+              "field": "field_121",
+              "value": true,
+              "connection_field": null
+            }
+          ],
+          "criteria": [
+            {
+              "field": "field_116",
+              "value": "10",
+              "operator": "higher than"
+            },
+            {
+              "field": "field_36",
+              "value": false,
+              "operator": "is",
+              "value_type": "custom",
+              "value_field": "field_21"
+            }
+          ]
+        }
+      ],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "60b9a76e6cc396001efe5e6d",
+      "key": "field_121",
+      "name": "Overdue",
+      "format": {
+        "input": "dropdown",
+        "format": "yes_no",
+        "default": false,
+        "required": false
+      },
+      "default": false,
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "boolean",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5e5c508c369a000016776b0b",
+      "key": "field_63",
+      "name": "Completed Hours",
+      "format": {
+        "input": "dropdown",
+        "format": "yes_no",
+        "default": false,
+        "required": false
+      },
+      "default": false,
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "boolean",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "602ee69a506a2f001bbfb7a2",
+      "key": "field_107",
+      "meta": {
+        "description": ""
+      },
+      "name": "Approved",
+      "format": {
+        "input": "dropdown",
+        "format": "yes_no",
+        "default": false,
+        "required": false
+      },
+      "default": false,
+      "_object_key": "object_12",
+      "_object_name": "Timesheet"
+    }
+  ]
+}

@@ -1,0 +1,265 @@
+{
+  "type": "charge",
+  "count": 3,
+  "views": [
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5e5fb887417e520015022247",
+      "key": "view_51",
+      "name": "Charge a payment",
+      "type": "charge",
+      "label": "Payment",
+      "rules": {
+        "emails": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Your payment was successfully submitted.",
+            "is_default": true,
+            "reload_show": false
+          }
+        ]
+      },
+      "title": "Invoice",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_21",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "reportType": null,
+      "description": "",
+      "checkout_page": {
+        "title": "Complete Payment",
+        "layout": "full",
+        "source": {
+          "object": "object_4"
+        },
+        "columns": [
+          {
+            "groups": [
+              {
+                "columns": [
+                  []
+                ]
+              }
+            ]
+          }
+        ],
+        "description": "The following is a summary of your order. Fill out the form below to enter your payment information and complete the order."
+      },
+      "logged_in_user": false,
+      "summary_fields": [
+        {
+          "text": "Charge Total",
+          "field": "field_75"
+        }
+      ],
+      "charge_customer": "field_21",
+      "first_connection": false,
+      "customer_optional": true,
+      "payment_processors": [
+        {
+          "type": "stripe",
+          "currency": "USD",
+          "total_field_key": "field_75",
+          "payment_processor_key": "payment_processor_1"
+        }
+      ],
+      "submit_button_text": "Make Payment",
+      "ecommerce_test_mode": false,
+      "remove_card_button_text": "Remove payment information",
+      "charge_description_field": "field_92",
+      "update_billing_button_text": "Update payment information",
+      "_scene_key": "scene_35",
+      "_scene_name": "View Invoice Details",
+      "_scene_slug": "view-invoice-details"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "5e5fb887417e520015022247",
+      "key": "view_51",
+      "name": "Charge a payment",
+      "type": "charge",
+      "label": "Payment",
+      "rules": {
+        "emails": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Your payment was successfully submitted.",
+            "is_default": true,
+            "reload_show": false
+          }
+        ]
+      },
+      "title": "Invoice",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_21",
+            "order": "asc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "reportType": null,
+      "description": "",
+      "checkout_page": {
+        "title": "Complete Payment",
+        "layout": "full",
+        "source": {
+          "object": "object_4"
+        },
+        "columns": [
+          {
+            "width": 100,
+            "groups": []
+          },
+          {
+            "groups": []
+          }
+        ],
+        "description": "The following is a summary of your order. Fill out the form below to enter your payment information and complete the order."
+      },
+      "logged_in_user": false,
+      "summary_fields": [
+        {
+          "text": "Charge Total",
+          "field": "field_75"
+        }
+      ],
+      "charge_customer": "field_21",
+      "first_connection": false,
+      "customer_optional": true,
+      "payment_processors": [
+        {
+          "type": "stripe",
+          "currency": "USD",
+          "total_field_key": "field_75",
+          "payment_processor_key": "payment_processor_1"
+        }
+      ],
+      "submit_button_text": "Charge",
+      "ecommerce_test_mode": true,
+      "remove_card_button_text": "Remove payment information",
+      "update_billing_button_text": "Update payment information",
+      "_scene_key": "scene_35",
+      "_scene_name": "View Invoice Details",
+      "_scene_slug": "view-invoice-details"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "6262b4802246c0001ee3bfef",
+      "key": "view_145",
+      "name": "Charge a payment",
+      "type": "charge",
+      "label": "Payment",
+      "rules": {
+        "emails": [],
+        "records": [],
+        "submits": [
+          {
+            "key": "submit_1",
+            "action": "message",
+            "message": "Your payment was successfully submitted.",
+            "is_default": true,
+            "reload_show": true
+          }
+        ]
+      },
+      "title": "Invoice",
+      "groups": [],
+      "source": {
+        "sort": [
+          {
+            "field": "field_34",
+            "order": "desc"
+          }
+        ],
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "reportType": null,
+      "description": "",
+      "checkout_page": {
+        "title": "Complete Payment",
+        "layout": "full",
+        "source": {
+          "object": "object_4"
+        },
+        "columns": [
+          {
+            "width": 100,
+            "groups": [
+              {
+                "columns": [
+                  []
+                ]
+              }
+            ]
+          }
+        ],
+        "description": "The following is a summary of your order. Fill out the form below to enter your payment information and complete the order.",
+        "label_format": "left"
+      },
+      "logged_in_user": false,
+      "summary_fields": [
+        {
+          "text": "Charge Total",
+          "field": "field_75"
+        }
+      ],
+      "charge_customer": "field_21",
+      "first_connection": false,
+      "customer_optional": false,
+      "payment_processors": [
+        {
+          "type": "stripe",
+          "currency": "USD",
+          "total_field_key": "field_75",
+          "payment_processor_key": "payment_processor_1"
+        }
+      ],
+      "submit_button_text": "Charge",
+      "ecommerce_test_mode": true,
+      "remove_card_button_text": "Remove payment information",
+      "update_billing_button_text": "Update payment information",
+      "_scene_key": "scene_86",
+      "_scene_name": "Invoice Details",
+      "_scene_slug": "invoice-details2"
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "type": "menu",
+  "count": 7,
+  "views": [
+    {
+      "columns": [],
+      "links": [
+        {
+          "url": "",
+          "icon": {
+            "icon": "fa-user-plus",
+            "align": "left"
+          },
+          "name": "Add Student",
+          "type": "scene",
+          "scene": "add-student",
+          "new_window": false
+        },
+        {
+          "name": "All Students",
+          "type": "scene",
+          "scene": "customers"
+        }
+      ],
+      "inputs": [],
+      "_id": "5de85481cd06470015cbc97c",
+      "key": "view_3",
+      "name": "Menu",
+      "type": "menu",
+      "label": "Menu",
+      "title": "",
+      "format": "none",
+      "groups": [],
+      "auto_link": false,
+      "child_views": [],
+      "description": "",
+      "child_scenes": [
+        "add-student"
+      ],
+      "child_child_views": [],
+      "menu_links_design_active": false,
+      "_scene_key": "scene_3",
+      "_scene_name": "My Students",
+      "_scene_slug": "supervisor"
+    },
+    {
+      "columns": [],
+      "links": [
+        {
+          "url": "",
+          "icon": {
+            "icon": "fa-user-plus",
+            "align": "left"
+          },
+          "name": "Add Student",
+          "type": "scene",
+          "scene": "add-student",
+          "new_window": false
+        },
+        {
+          "name": "All Students",
+          "type": "scene",
+          "scene": "customers"
+        }
+      ],
+      "inputs": [],
+      "_id": "5de85481cd06470015cbc97c",
+      "key": "view_3",
+      "name": "Menu",
+      "type": "menu",
+      "label": "Menu",
+      "title": "",
+      "format": "none",
+      "groups": [],
+      "auto_link": false,
+      "child_views": [],
+      "description": "",
+      "child_scenes": [
+        "add-student"
+      ],
+      "child_child_views": [],
+      "menu_links_design_active": false,
+      "_scene_key": "scene_3",
+      "_scene_name": "My Students",
+      "_scene_slug": "supervisor"
+    },
+    {
+      "columns": [],
+      "links": [
+        {
+          "url": "",
+          "icon": {
+            "icon": "fa-pencil",
+            "align": "left"
+          },
+          "name": "Add Note",
+          "type": "scene",
+          "scene": "add-note",
+          "new_window": false
+        },
+        {
+          "url": "",
+          "icon": {
+            "icon": "fa-dollar",
+            "align": "left"
+          },
+          "name": "Add Invoice",
+          "type": "scene",
+          "scene": "add-invoice",
+          "new_window": false
+        }
+      ],
+      "inputs": [],
+      "_id": "5de854c431e10e0015534cb1",
+      "key": "view_10",
+      "name": "Menu",
+      "type": "menu",
+      "label": "Menu",
+      "title": "",
+      "format": "none",
+      "groups": [],
+      "source": {
+        "sort": [],
+        "type": "database",
+        "limit": "",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "auto_link": false,
+      "description": "",
+      "menu_links_design_active": false,
+      "_scene_key": "scene_5",
+      "_scene_name": "Student Details",
+      "_scene_slug": "student-details"
+    },
+    {
+      "columns": [],
+      "links": [
+        {
+          "name": "Add Student",
+          "type": "scene",
+          "scene": "add-student2"
+        },
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "name": "View Inactive Students",
+          "type": "scene",
+          "scene": "view-inactive-students"
+        },
+        {
+          "name": "All Time Students",
+          "type": "scene",
+          "scene": "all-time-students",
+          "link_design_active": false
+        }
+      ],
+      "inputs": [],
+      "_id": "603006dc8224b6001b43663a",
+      "key": "view_126",
+      "name": "Menu",
+      "type": "menu",
+      "label": "Menu",
+      "title": "",
+      "format": "none",
+      "groups": [],
+      "source": {
+        "sort": [],
+        "type": "database",
+        "limit": "",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "menu_links_design_active": false,
+      "_scene_key": "scene_18",
+      "_scene_name": "Admin Manage Students",
+      "_scene_slug": "admin"
+    },
+    {
+      "columns": [],
+      "links": [
+        {
+          "icon": {
+            "icon": "fa-pencil-square-o",
+            "align": "left"
+          },
+          "name": "Add Invoice",
+          "type": "scene",
+          "scene": "add-invoice3"
+        },
+        {
+          "icon": {
+            "icon": "fa-pencil-square-o",
+            "align": "left"
+          },
+          "name": "Add Note",
+          "type": "scene",
+          "scene": "add-note2"
+        },
+        {
+          "icon": {
+            "icon": "fa-calendar-o",
+            "align": "left"
+          },
+          "name": "Add Meeting",
+          "type": "scene",
+          "scene": "add-meeting2"
+        }
+      ],
+      "inputs": [],
+      "_id": "5e611e9f534be40017e71afa",
+      "key": "view_90",
+      "name": "Menu",
+      "type": "menu",
+      "label": "Menu",
+      "format": "none",
+      "groups": [],
+      "_scene_key": "scene_21",
+      "_scene_name": "Student Details",
+      "_scene_slug": "student-details2"
+    },
+    {
+      "columns": [],
+      "links": [
+        {
+          "icon": {
+            "icon": "fa-pencil-square-o",
+            "align": "left"
+          },
+          "name": "Add Invoice",
+          "type": "scene",
+          "scene": "add-invoice2"
+        }
+      ],
+      "inputs": [],
+      "_id": "5e611db5ef622900172bedcd",
+      "key": "view_88",
+      "name": "Menu",
+      "type": "menu",
+      "label": "Menu",
+      "format": "none",
+      "groups": [],
+      "_scene_key": "scene_22",
+      "_scene_name": "Admin Billing",
+      "_scene_slug": "billing"
+    },
+    {
+      "columns": [],
+      "links": [
+        {
+          "icon": {
+            "icon": "",
+            "align": "left"
+          },
+          "name": "Add Supervisor",
+          "type": "scene",
+          "scene": "add-supervisor",
+          "new_window": false
+        }
+      ],
+      "inputs": [],
+      "_id": "5f60155a40ceb600156ac8f4",
+      "key": "view_104",
+      "name": "Menu",
+      "type": "menu",
+      "label": "Menu",
+      "format": "none",
+      "groups": [],
+      "_scene_key": "scene_45",
+      "_scene_name": "Admin Manage Supervisors",
+      "_scene_slug": "admin-supervisors"
+    }
+  ]
+}

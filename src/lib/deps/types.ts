@@ -1,6 +1,4 @@
-// Core types for the dependency graph and extractors
-
-export type NodeType = "object" | "field" | "view" | "scene";
+import type { EntityKind } from "../types";
 
 export type EdgeType =
   | "contains" // containment relationship (object->field, scene->view)
@@ -12,8 +10,8 @@ export type EdgeType =
   | "connectsTo"; // relationship dependency (object->object or field->object)
 
 export interface NodeRef {
-  type: NodeType;
-  key: string; // canonical key from Knack (e.g., object_1, field_23, view_5)
+  type: EntityKind;
+  key: string | undefined; // canonical key from Knack (e.g., object_1, field_23, view_5)
   name?: string;
 }
 
@@ -35,7 +33,6 @@ export interface Edge {
 }
 
 export interface GraphInitOptions {
-  // restrict which edges to index for topological sorts, etc.
   derivesEdgeTypes?: EdgeType[];
 }
 

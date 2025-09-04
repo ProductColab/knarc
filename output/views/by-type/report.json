@@ -1,0 +1,1132 @@
+{
+  "type": "report",
+  "count": 7,
+  "views": [
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "602ed0c23ba78e001b6411ee",
+      "key": "view_111",
+      "name": "Invoices",
+      "rows": [
+        {
+          "reports": [
+            {
+              "type": "bar",
+              "title": "",
+              "groups": [
+                {
+                  "type": "connection",
+                  "field": "field_99",
+                  "group": "connection-field_99",
+                  "label": "Supervisor"
+                }
+              ],
+              "layout": {
+                "legend": "bottom",
+                "bar_type": "column",
+                "stacking": "none",
+                "dimensions": "auto",
+                "chart_width": "500",
+                "data_labels": true,
+                "tilt_labels": false,
+                "chart_height": "350",
+                "legend_width": "170"
+              },
+              "source": {
+                "limit": "",
+                "object": "object_4",
+                "criteria": {
+                  "match": "all",
+                  "rules": [],
+                  "groups": []
+                }
+              },
+              "filters": {
+                "filter_type": "none",
+                "menu_filters": [
+                  {
+                    "text": "",
+                    "field": "field_21",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "filter_fields": "view",
+                "preset_filters": [
+                  {
+                    "field": "field_21",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "allow_preset_filters": false
+              },
+              "options": {
+                "export_links": false,
+                "child_records": true,
+                "hide_negatives": false,
+                "exclude_empties": false
+              },
+              "preview": false,
+              "settings": {
+                "export_links": false
+              },
+              "child_page": {
+                "scene": "bar-report-records",
+                "source": {
+                  "view": "view_111"
+                }
+              },
+              "description": "Invoiced hours included with last month's pay period. ",
+              "calculations": [
+                {
+                  "field": "field_33",
+                  "label": "Total",
+                  "calculation": "sum"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "report",
+      "title": "Invoice Hours",
+      "source": {
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [
+            {
+              "type": "months",
+              "field": "field_125",
+              "range": 1,
+              "value": "",
+              "operator": "is during the previous"
+            }
+          ],
+          "groups": []
+        }
+      },
+      "description": "",
+      "_scene_key": "scene_51",
+      "_scene_name": "Dashboard",
+      "_scene_slug": "dashboard"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "602ed29435a05f001e7c051f",
+      "key": "view_113",
+      "name": "Timesheets",
+      "rows": [
+        {
+          "reports": [
+            {
+              "type": "bar",
+              "title": "",
+              "groups": [
+                {
+                  "type": "connection",
+                  "field": "field_96",
+                  "group": "connection-field_96",
+                  "label": "Supervisor"
+                }
+              ],
+              "layout": {
+                "legend": "bottom",
+                "bar_type": "column",
+                "stacking": "none",
+                "dimensions": "auto",
+                "chart_width": "500",
+                "data_labels": true,
+                "tilt_labels": false,
+                "chart_height": "350",
+                "legend_width": "170"
+              },
+              "source": {
+                "limit": "",
+                "object": "object_12",
+                "criteria": {
+                  "match": "all",
+                  "rules": [
+                    {
+                      "type": "months",
+                      "field": "field_124",
+                      "range": 1,
+                      "value": "",
+                      "operator": "is during the previous"
+                    }
+                  ],
+                  "groups": []
+                }
+              },
+              "filters": {
+                "filter_type": "none",
+                "menu_filters": [
+                  {
+                    "text": "",
+                    "field": "field_94",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "filter_fields": "view",
+                "preset_filters": [
+                  {
+                    "field": "field_94",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "allow_preset_filters": false
+              },
+              "options": {
+                "export_links": false,
+                "child_records": true,
+                "hide_negatives": false,
+                "exclude_empties": false
+              },
+              "preview": false,
+              "settings": {
+                "export_links": false
+              },
+              "child_page": {
+                "scene": "bar-report-records2",
+                "source": {
+                  "view": "view_113"
+                }
+              },
+              "description": "Timesheet hours submitted for last month's pay period.",
+              "calculations": [
+                {
+                  "field": "field_94",
+                  "label": "Supervision Hours",
+                  "calculation": "sum"
+                },
+                {
+                  "field": "field_95",
+                  "label": "Content Writing Hours",
+                  "calculation": "sum"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "report",
+      "title": "Timesheets",
+      "source": {
+        "limit": "",
+        "object": "object_12",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "",
+      "_scene_key": "scene_51",
+      "_scene_name": "Dashboard",
+      "_scene_slug": "dashboard"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "602ffd867069d6001dded429",
+      "key": "view_120",
+      "name": "Timesheets",
+      "rows": [
+        {
+          "reports": [
+            {
+              "type": "bar",
+              "title": "",
+              "groups": [
+                {
+                  "type": "connection",
+                  "field": "field_115",
+                  "group": "connection-field_115",
+                  "label": "Pay Period"
+                }
+              ],
+              "layout": {
+                "legend": "bottom",
+                "bar_type": "bar",
+                "stacking": "none",
+                "dimensions": "auto",
+                "chart_width": "500",
+                "data_labels": true,
+                "tilt_labels": false,
+                "chart_height": "350",
+                "legend_width": "170"
+              },
+              "source": {
+                "limit": "",
+                "object": "object_12",
+                "criteria": {
+                  "match": "any",
+                  "rules": [
+                    {
+                      "type": "months",
+                      "field": "field_124",
+                      "range": "1",
+                      "value": "",
+                      "operator": "is during the previous"
+                    }
+                  ],
+                  "groups": []
+                }
+              },
+              "filters": {
+                "filter_type": "none",
+                "menu_filters": [
+                  {
+                    "text": "",
+                    "field": "field_94",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "filter_fields": "view",
+                "preset_filters": [
+                  {
+                    "field": "field_94",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "allow_preset_filters": false
+              },
+              "options": {
+                "export_links": false,
+                "child_records": false,
+                "hide_negatives": false,
+                "exclude_empties": true
+              },
+              "preview": false,
+              "settings": {
+                "export_links": false
+              },
+              "description": "",
+              "calculations": [
+                {
+                  "field": "field_105",
+                  "label": "Supervision Pay",
+                  "calculation": "sum"
+                },
+                {
+                  "field": "field_106",
+                  "label": "Content Writing Pay",
+                  "calculation": "sum"
+                },
+                {
+                  "field": "field_108",
+                  "label": "Total Timesheet Pay",
+                  "calculation": "sum"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "report",
+      "title": "Timesheets",
+      "source": {
+        "limit": "",
+        "object": "object_12",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "Timesheets for last month's pay period.",
+      "_scene_key": "scene_51",
+      "_scene_name": "Dashboard",
+      "_scene_slug": "dashboard"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "602ffde1fdf67a001cdbf27e",
+      "key": "view_121",
+      "name": "Invoices",
+      "rows": [
+        {
+          "reports": [
+            {
+              "type": "bar",
+              "title": "",
+              "groups": [
+                {
+                  "type": "connection",
+                  "field": "field_118",
+                  "group": "connection-field_118",
+                  "label": "Pay Period",
+                  "limit": "from",
+                  "range": "month",
+                  "number": 10,
+                  "date_to": "02/19/2021",
+                  "date_from": "01/01/2021"
+                },
+                {
+                  "type": "boolean",
+                  "field": "field_36",
+                  "group": "boolean-field_36",
+                  "label": "Paid"
+                }
+              ],
+              "layout": {
+                "legend": "bottom",
+                "bar_type": "bar",
+                "stacking": "none",
+                "dimensions": "auto",
+                "chart_width": "500",
+                "data_labels": true,
+                "tilt_labels": false,
+                "chart_height": "350",
+                "legend_width": "170"
+              },
+              "source": {
+                "limit": "",
+                "object": "object_4",
+                "criteria": {
+                  "match": "all",
+                  "rules": [
+                    {
+                      "type": "months",
+                      "field": "field_125",
+                      "range": 1,
+                      "value": "",
+                      "operator": "is during the previous"
+                    }
+                  ],
+                  "groups": []
+                }
+              },
+              "filters": {
+                "filter_type": "none",
+                "menu_filters": [
+                  {
+                    "text": "",
+                    "field": "field_21",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "filter_fields": "view",
+                "preset_filters": [
+                  {
+                    "field": "field_21",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "allow_preset_filters": false
+              },
+              "options": {
+                "export_links": false,
+                "child_records": true,
+                "hide_negatives": false,
+                "exclude_empties": true
+              },
+              "preview": false,
+              "settings": {
+                "export_links": false
+              },
+              "child_page": {
+                "scene": "bar-report-records3",
+                "source": {
+                  "view": "view_121"
+                }
+              },
+              "description": "",
+              "calculations": [
+                {
+                  "field": "field_75",
+                  "label": "Total",
+                  "calculation": "sum"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "report",
+      "title": "Invoices",
+      "source": {
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "Invoiced payments by pay period. Yes/No define if a payment has been made yet.",
+      "_scene_key": "scene_51",
+      "_scene_name": "Dashboard",
+      "_scene_slug": "dashboard"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "602ffffdc3bb9b001bcdfa99",
+      "key": "view_124",
+      "name": "Payments",
+      "rows": [
+        {
+          "layout": "half",
+          "reports": [
+            {
+              "type": "line",
+              "title": "Completed Payments By Month",
+              "groups": [
+                {
+                  "type": "date_time",
+                  "field": "field_24",
+                  "group": "date_time-field_24",
+                  "label": "Date",
+                  "limit": "from",
+                  "range": "month",
+                  "number": 10,
+                  "date_to": "02/19/2021",
+                  "date_from": "05/01/2020"
+                }
+              ],
+              "layout": {
+                "legend": "bottom",
+                "stacking": "none",
+                "dimensions": "auto",
+                "chart_width": "500",
+                "data_labels": true,
+                "tilt_labels": false,
+                "chart_height": "350",
+                "legend_width": "170"
+              },
+              "source": {
+                "limit": "",
+                "object": "object_6",
+                "criteria": {
+                  "match": "all",
+                  "rules": [
+                    {
+                      "type": "year",
+                      "field": "field_24",
+                      "value": "",
+                      "operator": "is during the current"
+                    }
+                  ],
+                  "groups": []
+                }
+              },
+              "filters": {
+                "filter_type": "none",
+                "menu_filters": [
+                  {
+                    "text": "",
+                    "field": "field_22",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "filter_fields": "view",
+                "preset_filters": [
+                  {
+                    "field": "field_22",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "allow_preset_filters": false
+              },
+              "options": {
+                "export_links": false,
+                "child_records": true,
+                "hide_negatives": false,
+                "exclude_empties": true
+              },
+              "preview": false,
+              "settings": {
+                "export_links": false
+              },
+              "child_page": {
+                "scene": "line-report-records",
+                "source": {
+                  "view": "view_124"
+                }
+              },
+              "description": "",
+              "calculations": [
+                {
+                  "field": "field_23",
+                  "label": "Total",
+                  "calculation": "sum"
+                }
+              ]
+            },
+            {
+              "type": "bar",
+              "title": "Completed Payments By Year",
+              "groups": [
+                {
+                  "type": "date_time",
+                  "field": "field_24",
+                  "group": "date_time-field_24",
+                  "label": "Date",
+                  "limit": "all",
+                  "range": "year",
+                  "number": 10,
+                  "date_to": "02/19/2021",
+                  "date_from": "12/31/2019"
+                }
+              ],
+              "layout": {
+                "legend": "bottom",
+                "bar_type": "bar",
+                "stacking": "none",
+                "dimensions": "auto",
+                "chart_width": "500",
+                "data_labels": true,
+                "tilt_labels": false,
+                "chart_height": "350",
+                "legend_width": "170"
+              },
+              "source": {
+                "limit": "",
+                "object": "object_6",
+                "criteria": {
+                  "match": "all",
+                  "rules": [],
+                  "groups": []
+                }
+              },
+              "filters": {
+                "filter_type": "none",
+                "menu_filters": [
+                  {
+                    "text": "",
+                    "field": "field_22",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "filter_fields": "view",
+                "preset_filters": [
+                  {
+                    "field": "field_22",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "allow_preset_filters": false
+              },
+              "options": {
+                "export_links": false,
+                "child_records": false,
+                "hide_negatives": false,
+                "exclude_empties": true
+              },
+              "preview": false,
+              "settings": {
+                "export_links": false
+              },
+              "description": "",
+              "calculations": [
+                {
+                  "field": "field_23",
+                  "label": "Total",
+                  "filters": [
+                    {
+                      "field": "field_24",
+                      "value": {
+                        "date": "01/01/2020",
+                        "time": "12:00am",
+                        "am_pm": "AM",
+                        "hours": 0,
+                        "allDay": false,
+                        "minutes": 0
+                      },
+                      "operator": "is after"
+                    }
+                  ],
+                  "calculation": "sum"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "reports": []
+        }
+      ],
+      "type": "report",
+      "title": "Payments",
+      "source": {
+        "limit": "",
+        "object": "object_6",
+        "criteria": {
+          "match": "all",
+          "rules": [],
+          "groups": []
+        }
+      },
+      "description": "Completed payments sent to Stripe. (Before Stripe fee has been applied). ",
+      "_scene_key": "scene_51",
+      "_scene_name": "Dashboard",
+      "_scene_slug": "dashboard"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "60300962fdf67a001cdc0a86",
+      "key": "view_129",
+      "name": "Timesheets",
+      "rows": [
+        {
+          "layout": "one-col",
+          "reports": [
+            {
+              "type": "bar",
+              "title": "Timesheet Hours",
+              "groups": [
+                {
+                  "type": "connection",
+                  "field": "field_115",
+                  "group": "connection-field_115",
+                  "label": "Pay Period"
+                }
+              ],
+              "layout": {
+                "legend": "bottom",
+                "bar_type": "bar",
+                "stacking": "none",
+                "dimensions": "auto",
+                "chart_width": "500",
+                "data_labels": true,
+                "tilt_labels": false,
+                "chart_height": "350",
+                "legend_width": "170"
+              },
+              "source": {
+                "limit": "",
+                "object": "object_12",
+                "criteria": {
+                  "match": "all",
+                  "rules": [
+                    {
+                      "type": "months",
+                      "field": "field_124",
+                      "range": 1,
+                      "value": "",
+                      "operator": "is during the previous"
+                    }
+                  ],
+                  "groups": []
+                },
+                "connection_key": "field_96",
+                "relationship_type": "foreign"
+              },
+              "filters": {
+                "filter_type": "none",
+                "menu_filters": [
+                  {
+                    "text": "",
+                    "field": "field_94",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "filter_fields": "view",
+                "preset_filters": [
+                  {
+                    "field": "field_94",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "allow_preset_filters": false
+              },
+              "options": {
+                "export_links": false,
+                "child_records": false,
+                "hide_negatives": false,
+                "exclude_empties": true,
+                "shouldShowDataTable": false
+              },
+              "preview": false,
+              "settings": {
+                "export_links": false,
+                "shouldShowDataTable": false
+              },
+              "description": "",
+              "calculations": [
+                {
+                  "field": "field_94",
+                  "label": "Supervison Hours",
+                  "calculation": "sum"
+                },
+                {
+                  "field": "field_95",
+                  "label": "Content Hours",
+                  "calculation": "sum"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "reports": [
+            {
+              "type": "bar",
+              "title": "Timesheet Pay",
+              "groups": [
+                {
+                  "type": "connection",
+                  "field": "field_115",
+                  "group": "connection-field_115",
+                  "label": "Pay Period"
+                }
+              ],
+              "layout": {
+                "legend": "bottom",
+                "bar_type": "bar",
+                "stacking": "none",
+                "dimensions": "auto",
+                "chart_width": "500",
+                "data_labels": true,
+                "tilt_labels": false,
+                "chart_height": "350",
+                "legend_width": "170"
+              },
+              "source": {
+                "limit": "",
+                "object": "object_12",
+                "criteria": {
+                  "match": "all",
+                  "rules": [
+                    {
+                      "type": "months",
+                      "field": "field_124",
+                      "range": 1,
+                      "operator": "is during the previous"
+                    }
+                  ],
+                  "groups": []
+                },
+                "connection_key": "field_96",
+                "relationship_type": "foreign"
+              },
+              "filters": {
+                "filter_type": "none",
+                "menu_filters": [
+                  {
+                    "text": "",
+                    "field": "field_94",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "filter_fields": "view",
+                "preset_filters": [
+                  {
+                    "field": "field_94",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "allow_preset_filters": false
+              },
+              "options": {
+                "export_links": false,
+                "child_records": false,
+                "hide_negatives": false,
+                "exclude_empties": true,
+                "shouldShowDataTable": false
+              },
+              "preview": false,
+              "settings": {
+                "export_links": false,
+                "shouldShowDataTable": false
+              },
+              "description": "",
+              "calculations": [
+                {
+                  "field": "field_105",
+                  "label": "Supervision Pay",
+                  "calculation": "sum"
+                },
+                {
+                  "field": "field_95",
+                  "label": "Content Writing Pay",
+                  "calculation": "sum"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "report",
+      "title": "Timesheets - Last Month",
+      "source": {
+        "limit": "",
+        "object": "object_12",
+        "criteria": {
+          "match": "all",
+          "rules": [
+            {
+              "type": "month",
+              "field": "field_97",
+              "value": "",
+              "operator": "is during the current"
+            }
+          ],
+          "groups": []
+        },
+        "connection_key": "field_96",
+        "relationship_type": "foreign"
+      },
+      "description": "",
+      "_scene_key": "scene_67",
+      "_scene_name": "Supervisor Payroll",
+      "_scene_slug": "view-supervisor-details"
+    },
+    {
+      "columns": [],
+      "links": [],
+      "inputs": [],
+      "_id": "60300a30fdf67a001cdc0bbd",
+      "key": "view_130",
+      "name": "Invoices",
+      "rows": [
+        {
+          "layout": "one-col",
+          "reports": [
+            {
+              "type": "bar",
+              "title": "Invoiced Hours",
+              "groups": [
+                {
+                  "type": "connection",
+                  "field": "field_118",
+                  "group": "connection-field_118",
+                  "label": "Pay Period",
+                  "limit": "all",
+                  "range": "month",
+                  "number": 10,
+                  "date_to": "02/19/2021",
+                  "date_from": "02/19/2021"
+                }
+              ],
+              "layout": {
+                "legend": "bottom",
+                "bar_type": "bar",
+                "stacking": "none",
+                "dimensions": "auto",
+                "chart_width": "500",
+                "data_labels": true,
+                "tilt_labels": false,
+                "chart_height": "350",
+                "legend_width": "170"
+              },
+              "source": {
+                "limit": "",
+                "object": "object_4",
+                "criteria": {
+                  "match": "all",
+                  "rules": [
+                    {
+                      "type": "months",
+                      "field": "field_125",
+                      "range": 1,
+                      "value": "",
+                      "operator": "is during the previous"
+                    }
+                  ],
+                  "groups": []
+                },
+                "connection_key": "field_99",
+                "relationship_type": "foreign"
+              },
+              "filters": {
+                "filter_type": "none",
+                "menu_filters": [
+                  {
+                    "text": "",
+                    "field": "field_21",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "filter_fields": "view",
+                "preset_filters": [
+                  {
+                    "field": "field_21",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "allow_preset_filters": false
+              },
+              "options": {
+                "export_links": false,
+                "child_records": true,
+                "hide_negatives": false,
+                "exclude_empties": true,
+                "shouldShowDataTable": false
+              },
+              "preview": false,
+              "settings": {
+                "export_links": false,
+                "shouldShowDataTable": false
+              },
+              "child_page": {
+                "scene": "invoiced-hours-records",
+                "source": {
+                  "view": "view_130"
+                }
+              },
+              "description": "",
+              "calculations": [
+                {
+                  "field": "field_174",
+                  "label": "Total",
+                  "calculation": "sum"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "reports": [
+            {
+              "type": "bar",
+              "title": "Invoiced Payments",
+              "groups": [
+                {
+                  "type": "connection",
+                  "field": "field_118",
+                  "group": "connection-field_118",
+                  "label": "Pay Period",
+                  "limit": "all",
+                  "range": "month",
+                  "number": 10,
+                  "date_to": "02/19/2021",
+                  "date_from": "02/19/2021"
+                },
+                {
+                  "type": "boolean",
+                  "field": "field_36",
+                  "group": "boolean-field_36",
+                  "label": "Paid"
+                }
+              ],
+              "layout": {
+                "legend": "bottom",
+                "bar_type": "bar",
+                "stacking": "none",
+                "dimensions": "auto",
+                "chart_width": "500",
+                "data_labels": true,
+                "tilt_labels": false,
+                "chart_height": "350",
+                "legend_width": "170"
+              },
+              "source": {
+                "limit": "",
+                "object": "object_4",
+                "criteria": {
+                  "match": "any",
+                  "rules": [
+                    {
+                      "type": "months",
+                      "field": "field_125",
+                      "range": 1,
+                      "value": "",
+                      "operator": "is during the previous"
+                    }
+                  ],
+                  "groups": []
+                },
+                "connection_key": "field_99",
+                "relationship_type": "foreign"
+              },
+              "filters": {
+                "filter_type": "none",
+                "menu_filters": [
+                  {
+                    "text": "",
+                    "field": "field_21",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "filter_fields": "view",
+                "preset_filters": [
+                  {
+                    "field": "field_21",
+                    "value": "",
+                    "operator": "contains"
+                  }
+                ],
+                "allow_preset_filters": false
+              },
+              "options": {
+                "export_links": false,
+                "child_records": false,
+                "hide_negatives": false,
+                "exclude_empties": true,
+                "shouldShowDataTable": false
+              },
+              "preview": false,
+              "settings": {
+                "export_links": false,
+                "shouldShowDataTable": false
+              },
+              "description": "Yes/No define if a payment has been made yet.",
+              "calculations": [
+                {
+                  "field": "field_144",
+                  "label": "Total",
+                  "calculation": "sum"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "report",
+      "title": "Invoices - Last Month",
+      "source": {
+        "limit": "",
+        "object": "object_4",
+        "criteria": {
+          "match": "any",
+          "rules": [
+            {
+              "type": "month",
+              "field": "field_34",
+              "value": "",
+              "operator": "is during the current"
+            }
+          ],
+          "groups": []
+        },
+        "connection_key": "field_99",
+        "relationship_type": "foreign"
+      },
+      "description": "",
+      "_scene_key": "scene_67",
+      "_scene_name": "Supervisor Payroll",
+      "_scene_slug": "view-supervisor-details"
+    }
+  ]
+}

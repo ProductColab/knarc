@@ -1,0 +1,549 @@
+{
+  "type": "number",
+  "category": "field",
+  "count": 12,
+  "fields": [
+    {
+      "type": "number",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de85609fbf8dd00157ae8de",
+      "key": "field_33",
+      "meta": {
+        "description": ""
+      },
+      "name": "Number of Supervision/Tutoring Hours (OLD)",
+      "format": {
+        "format": "none",
+        "rounding": "none",
+        "precision": "2",
+        "mark_decimal": "period",
+        "mark_thousands": "none"
+      },
+      "default": "",
+      "object_key": "object_4",
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "number",
+      "required": true,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65e753a52b9f3b002549feb2",
+      "key": "field_178",
+      "name": "1-1 Hours",
+      "format": {
+        "format": "none",
+        "rounding": "none",
+        "precision": 2,
+        "mark_decimal": "period",
+        "mark_thousands": "none"
+      },
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "number",
+      "required": true,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65d41e19cf9e9000287b3200",
+      "key": "field_171",
+      "name": "Number of Group Hours",
+      "format": {
+        "format": "none",
+        "rounding": "none",
+        "precision": 2,
+        "mark_decimal": "period",
+        "mark_thousands": "period"
+      },
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "number",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65d41dee92aa33002835c59b",
+      "key": "field_170",
+      "name": "Number of Fieldwork Hours",
+      "format": {
+        "format": "none",
+        "rounding": "none",
+        "precision": 2,
+        "mark_decimal": "period",
+        "mark_thousands": "period"
+      },
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "number",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": true,
+      "rules": [
+        {
+          "key": "1",
+          "values": [
+            {
+              "type": "value",
+              "field": "field_122",
+              "value": "25",
+              "connection_field": null
+            }
+          ],
+          "criteria": [
+            {
+              "field": "field_121",
+              "value": true,
+              "operator": "is"
+            }
+          ]
+        }
+      ],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "60b9a8fe87d5f90021228c06",
+      "key": "field_122",
+      "name": "Late Fee",
+      "format": {
+        "format": "none",
+        "rounding": "none",
+        "precision": 2,
+        "mark_decimal": "none",
+        "mark_thousands": "none"
+      },
+      "default": "0",
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "number",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": true,
+      "rules": [
+        {
+          "key": "2",
+          "action": "record",
+          "values": [
+            {
+              "type": "record",
+              "field": "field_75",
+              "input": "field_143",
+              "value": "",
+              "connection_field": ""
+            }
+          ],
+          "criteria": [
+            {
+              "field": "field_121",
+              "value": true,
+              "operator": "is",
+              "value_type": "custom",
+              "value_field": "field_21"
+            },
+            {
+              "field": "field_139",
+              "value": "10",
+              "operator": "higher than",
+              "value_type": "custom",
+              "value_field": "field_21"
+            },
+            {
+              "field": "field_34",
+              "value": {
+                "date": "04/24/2022",
+                "all_day": false
+              },
+              "operator": "is after",
+              "value_type": "custom",
+              "value_field": "field_21"
+            }
+          ],
+          "connection": "object_2.field_21"
+        },
+        {
+          "key": "11",
+          "action": "record",
+          "values": [
+            {
+              "type": "record",
+              "field": "field_75",
+              "input": "field_141",
+              "value": "",
+              "connection_field": ""
+            }
+          ],
+          "criteria": [
+            {
+              "field": "field_121",
+              "value": true,
+              "operator": "is",
+              "value_type": "custom",
+              "value_field": "field_21"
+            },
+            {
+              "field": "field_34",
+              "value": {
+                "date": "04/24/2022",
+                "all_day": false
+              },
+              "operator": "is after",
+              "value_type": "custom",
+              "value_field": "field_21"
+            }
+          ],
+          "connection": "object_2.field_21"
+        },
+        {
+          "key": "10",
+          "action": "record",
+          "values": [
+            {
+              "type": "record",
+              "field": "field_75",
+              "input": "field_182",
+              "value": "",
+              "connection_field": ""
+            }
+          ],
+          "criteria": [
+            {
+              "field": "field_121",
+              "value": false,
+              "operator": "is",
+              "value_type": "custom",
+              "value_field": "field_21"
+            }
+          ],
+          "connection": "object_2.field_21"
+        },
+        {
+          "key": "5",
+          "action": "record",
+          "values": [
+            {
+              "type": "record",
+              "field": "field_75",
+              "input": "field_182",
+              "value": "",
+              "connection_field": ""
+            }
+          ],
+          "criteria": [],
+          "connection": "object_2.field_21"
+        }
+      ],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5e5f9fd0f3f85400157d1e4e",
+      "key": "field_75",
+      "meta": {
+        "description": ""
+      },
+      "name": "Final Total",
+      "format": {
+        "format": "none",
+        "rounding": "none",
+        "precision": 2,
+        "mark_decimal": "period",
+        "mark_thousands": "none"
+      },
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "number",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": true,
+      "rules": [
+        {
+          "key": "1",
+          "values": [
+            {
+              "type": "record",
+              "field": "field_144",
+              "input": "field_143",
+              "value": "",
+              "connection_field": null
+            }
+          ],
+          "criteria": [
+            {
+              "field": "field_121",
+              "value": true,
+              "operator": "is",
+              "value_type": "custom",
+              "value_field": "field_21"
+            },
+            {
+              "field": "field_139",
+              "value": "10",
+              "operator": "higher than",
+              "value_type": "custom",
+              "value_field": "field_21"
+            },
+            {
+              "field": "field_34",
+              "value": {
+                "date": "04/24/2022",
+                "all_day": false
+              },
+              "operator": "is after",
+              "value_type": "custom",
+              "value_field": "field_21"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "values": [
+            {
+              "type": "record",
+              "field": "field_144",
+              "input": "field_141",
+              "value": "",
+              "connection_field": null
+            }
+          ],
+          "criteria": [
+            {
+              "field": "field_121",
+              "value": true,
+              "operator": "is",
+              "value_type": "custom",
+              "value_field": "field_21"
+            },
+            {
+              "field": "field_34",
+              "value": {
+                "date": "04/24/2022",
+                "all_day": false
+              },
+              "operator": "is after",
+              "value_type": "custom",
+              "value_field": "field_21"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "values": [
+            {
+              "type": "record",
+              "field": "field_144",
+              "input": "field_182",
+              "value": "",
+              "connection_field": null
+            }
+          ],
+          "criteria": [
+            {
+              "field": "field_121",
+              "value": false,
+              "operator": "is",
+              "value_type": "custom",
+              "value_field": "field_21"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "action": "record",
+          "values": [
+            {
+              "type": "record",
+              "field": "field_144",
+              "input": "field_182",
+              "value": "",
+              "connection_field": ""
+            }
+          ],
+          "criteria": [],
+          "connection": "object_2.field_21"
+        }
+      ],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "6265fbdeaee9ed001e31d18a",
+      "key": "field_144",
+      "name": "Final Total 2",
+      "format": {
+        "format": "$",
+        "rounding": "none",
+        "precision": 2,
+        "mark_decimal": "none",
+        "mark_thousands": "none"
+      },
+      "_object_key": "object_4",
+      "_object_name": "Invoices"
+    },
+    {
+      "type": "number",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5f7e2c94b5153e0015ba37e2",
+      "key": "field_94",
+      "meta": {
+        "description": "<p>Supervision Hours\n</p>"
+      },
+      "name": "Supervision Hours",
+      "format": {
+        "format": "none",
+        "rounding": "none",
+        "precision": 2,
+        "mark_decimal": "period",
+        "mark_thousands": "none"
+      },
+      "default": "",
+      "_object_key": "object_12",
+      "_object_name": "Timesheet"
+    },
+    {
+      "type": "number",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65b81b8a31cf33002661bb82",
+      "key": "field_147",
+      "name": "Group Supervision Hours ",
+      "format": {
+        "format": "none",
+        "rounding": "none",
+        "precision": 2,
+        "mark_decimal": "period",
+        "mark_thousands": "none"
+      },
+      "_object_key": "object_12",
+      "_object_name": "Timesheet"
+    },
+    {
+      "type": "number",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5f7e2cadb924fa0015c56458",
+      "key": "field_95",
+      "meta": {
+        "description": "<p>Content/Blog writing\n</p>"
+      },
+      "name": "Content Writing",
+      "format": {
+        "format": "none",
+        "rounding": "none",
+        "precision": 2,
+        "mark_decimal": "period",
+        "mark_thousands": "none"
+      },
+      "_object_key": "object_12",
+      "_object_name": "Timesheet"
+    },
+    {
+      "type": "number",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": false,
+      "rules": [],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "5de857395b3632001514146b",
+      "key": "field_40",
+      "name": "Starting Hours",
+      "format": {
+        "format": "none",
+        "rounding": "none",
+        "precision": "2",
+        "mark_decimal": "period",
+        "mark_thousands": "none"
+      },
+      "default": "0",
+      "object_key": "object_2",
+      "_object_key": "object_2",
+      "_object_name": "Student"
+    },
+    {
+      "type": "number",
+      "required": false,
+      "unique": false,
+      "user": false,
+      "conditional": true,
+      "rules": [
+        {
+          "key": "1",
+          "values": [
+            {
+              "type": "record",
+              "field": "field_168",
+              "input": "field_167",
+              "value": "",
+              "connection_field": null
+            }
+          ],
+          "criteria": [
+            {
+              "field": "field_156",
+              "value": "",
+              "operator": "is not blank",
+              "value_type": "custom",
+              "value_field": "field_6"
+            }
+          ]
+        }
+      ],
+      "validation": [],
+      "isSystemField": false,
+      "_id": "65d40e77acd9ae0028021d90",
+      "key": "field_168",
+      "name": "Hourly Rate",
+      "format": {
+        "format": "$",
+        "rounding": "none",
+        "precision": 2,
+        "mark_decimal": "none",
+        "mark_thousands": "none"
+      },
+      "default": "100",
+      "_object_key": "object_2",
+      "_object_name": "Student"
+    }
+  ]
+}

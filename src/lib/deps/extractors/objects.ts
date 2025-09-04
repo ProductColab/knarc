@@ -6,6 +6,11 @@ import {
   isSumField,
 } from "@/lib/knack/types/fields/formula";
 import { Edge, EdgeType, NodeRef } from "../types";
+import {
+  Resolvers,
+  resolveConnectionTargetObjectKey,
+  resolveObjectName,
+} from "../resolvers";
 import { parseEquation } from "../parsers/equation";
 import {
   createEdge,
@@ -121,7 +126,8 @@ function extractFromParsedEquation(
 
 export function extractFromObject(
   object: KnackObject,
-  objectIndex: number
+  objectIndex: number,
+  resolvers?: Resolvers
 ): Edge[] {
   const edges: Edge[] = [];
   const objNode = objectNode(object.key, object.name);
@@ -137,7 +143,7 @@ export function extractFromObject(
       `objects[${objectIndex}].fields`,
       (f, i, path) => [
         createEdge(objNode, fieldNode(f.key, f.name), "contains", path),
-        ...extractFromField(f, object, fieldByKey, objectIndex, i),
+        ...extractFromField(f, object, fieldByKey, objectIndex, i, resolvers),
       ]
     )
   );
@@ -147,7 +153,25 @@ export function extractFromObject(
       ...processArray(
         object.connections.outbound,
         `objects[${objectIndex}].connections.outbound`,
-        (c, i) => [extractFromConnections(objNode, c, true, objectIndex, i)]
+        (c, i) => [
+          (() => {
+            const targetKey = c.object;
+            const targetName = resolveObjectName(resolvers, targetKey);
+            const from = objNode;
+            const to = objectNode(targetKey, targetName);
+            return createEdge(
+              from,
+              to,
+              "connectsTo",
+              `objects[${objectIndex}].connections.outbound[${i}]`,
+              {
+                key: c.key,
+                has: c.has,
+                belongs_to: c.belongs_to,
+              }
+            );
+          })(),
+        ]
       )
     );
 
@@ -155,7 +179,25 @@ export function extractFromObject(
       ...processArray(
         object.connections.inbound,
         `objects[${objectIndex}].connections.inbound`,
-        (c, i) => [extractFromConnections(objNode, c, false, objectIndex, i)]
+        (c, i) => [
+          (() => {
+            const sourceKey = c.object;
+            const sourceName = resolveObjectName(resolvers, sourceKey);
+            const from = objectNode(sourceKey, sourceName);
+            const to = objNode;
+            return createEdge(
+              from,
+              to,
+              "connectsTo",
+              `objects[${objectIndex}].connections.inbound[${i}]`,
+              {
+                key: c.key,
+                has: c.has,
+                belongs_to: c.belongs_to,
+              }
+            );
+          })(),
+        ]
       )
     );
   }
@@ -180,7 +222,8 @@ export function extractFromField(
   object: KnackObject,
   fieldByKey: Map<string, KnackField>,
   objectIndex: number,
-  fieldIndex: number
+  fieldIndex: number,
+  resolvers?: Resolvers
 ): Edge[] {
   const edges: Edge[] = [];
   const basePath = `objects[${objectIndex}].fields[${fieldIndex}]`;
@@ -228,10 +271,15 @@ export function extractFromField(
     }
 
     if (f.connection?.key) {
+      const connectionKey = f.connection.key;
+      const finalObjectKey =
+        resolveConnectionTargetObjectKey(resolvers, connectionKey) ||
+        connectionKey;
+      const finalObjectName = resolveObjectName(resolvers, finalObjectKey);
       edges.push(
         createEdge(
           fieldNode(field.key, field.name),
-          objectNode(f.connection.key),
+          objectNode(finalObjectKey, finalObjectName),
           "connectsTo",
           `${basePath}.format.connection.key`
         )

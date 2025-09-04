@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "stats": "bun run src/scripts/stats.ts",
-    "search": "bun run src/scripts/search.ts"
+    "preview": "npm run build && vite preview",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@dagrejs/dagre": "^1.1.5",
@@ -33,9 +33,11 @@
     "lucide-react": "^0.542.0",
     "motion": "^12.23.12",
     "nanoid": "^5.1.5",
+    "next-themes": "^0.4.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.62.0",
+    "sonner": "^2.0.7",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
     "tw-animate": "^1.0.3",
@@ -44,6 +46,8 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.12.2",
+    "@cloudflare/workers-types": "^4.20250903.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
@@ -54,7 +58,8 @@
     "typescript": "^5.9.2",
     "vite": "^7.1.4",
     "vite-tsconfig-paths": "^5.1.4",
-    "worker-loader": "^3.0.8"
+    "worker-loader": "^3.0.8",
+    "wrangler": "^4.33.2"
   },
   "packageManager": "bun@1.2.1"
 }
