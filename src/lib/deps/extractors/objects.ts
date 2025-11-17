@@ -214,6 +214,122 @@ export function extractFromObject(
     );
   }
 
+  // Extract from tasks
+  if (object.tasks) {
+    edges.push(
+      ...processArray(
+        object.tasks,
+        `objects[${objectIndex}].tasks`,
+        (task, taskIndex, taskPath) => {
+          const taskEdges: Edge[] = [];
+          const action = task.action;
+          if (!action) return taskEdges;
+
+          const ruleCategory =
+            action.action === "record"
+              ? "record"
+              : action.action === "email"
+              ? "email"
+              : undefined;
+
+          if (ruleCategory) {
+            // Extract from criteria - create edges manually since we're working with object
+            if (action.criteria) {
+              taskEdges.push(
+                ...processArray(
+                  action.criteria,
+                  `${taskPath}.action.criteria`,
+                  (c, i, path) => {
+                    return c?.field
+                      ? [
+                          createEdge(
+                            objNode,
+                            fieldNode(c.field),
+                            "uses",
+                            `${path}.field`,
+                            {
+                              operator: c.operator,
+                              criterion: c,
+                              ruleType: "criteria",
+                              ruleCategory: ruleCategory,
+                              taskName: task.name,
+                              taskKey: task.key,
+                              taskSchedule: task.schedule,
+                              ruleSource: "task",
+                            }
+                          ),
+                        ]
+                      : [];
+                  }
+                )
+              );
+            }
+
+            // Extract from values - create edges manually
+            if (action.values) {
+              taskEdges.push(
+                ...processArray(
+                  action.values,
+                  `${taskPath}.action.values`,
+                  (val, i, path) => {
+                    return val?.field
+                      ? [
+                          createEdge(
+                            objNode,
+                            fieldNode(val.field),
+                            "uses",
+                            `${path}.field`,
+                            {
+                              value: val,
+                              ruleType: "values",
+                              ruleCategory: ruleCategory,
+                              taskName: task.name,
+                              taskKey: task.key,
+                              taskSchedule: task.schedule,
+                              ruleSource: "task",
+                            }
+                          ),
+                        ]
+                      : [];
+                  }
+                )
+              );
+            }
+
+            // Extract from email message (if email action)
+            if (action.action === "email" && action.email?.message) {
+              const message = String(action.email.message);
+              const matches = message.match(/field_\d+/g) ?? [];
+              taskEdges.push(
+                ...matches.map((fieldKey) =>
+                  createEdge(
+                    objNode,
+                    fieldNode(fieldKey),
+                    "uses",
+                    `${taskPath}.action.email.message`,
+                    {
+                      email: action.email,
+                      ruleType: "text",
+                      ruleCategory: "email",
+                      taskName: task.name,
+                      taskKey: task.key,
+                      taskSchedule: task.schedule,
+                      ruleSource: "task",
+                    }
+                  )
+                )
+              );
+            }
+
+            return taskEdges;
+          }
+
+          return taskEdges;
+        }
+      )
+    );
+  }
+
   return edges;
 }
 

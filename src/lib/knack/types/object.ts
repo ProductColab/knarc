@@ -1,4 +1,5 @@
 import { KnackField } from "./field";
+import { KnackTask } from "./task";
 
 interface KnackInflections {
   singular: string;
@@ -38,5 +39,6 @@ export interface KnackObject {
   identifier: string;
   schemaChangeInProgress: boolean;
   sort?: KnackObjectSort;
+  tasks?: KnackTask[];
   [key: string]: unknown;
 }

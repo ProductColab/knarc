@@ -187,14 +187,41 @@ function extractFromFormView(view: KnackFormView, basePath: string): Edge[] {
 
     // Email rules
     edges.push(
-      ...processArray(view.rules.emails, `${rulesPath}.emails`, (em, i, path) =>
-        typeof em.field === "string"
-          ? extractFieldsFromText(view, em.field, `${path}.field`, {
-              email: em,
-              ruleCategory: "email",
-            })
-          : []
-      )
+      ...processArray(view.rules.emails, `${rulesPath}.emails`, (em, i, path) => {
+        const emailEdges: Edge[] = [];
+        const emailObj = em.email;
+        
+        if (emailObj) {
+          // Extract fields from email message
+          if (emailObj.message && typeof emailObj.message === "string") {
+            emailEdges.push(
+              ...extractFieldsFromText(view, emailObj.message, `${path}.email.message`, {
+                email: em,
+                ruleCategory: "email",
+              })
+            );
+          }
+          
+          // Extract fields from email subject
+          if (emailObj.subject && typeof emailObj.subject === "string") {
+            emailEdges.push(
+              ...extractFieldsFromText(view, emailObj.subject, `${path}.email.subject`, {
+                email: em,
+                ruleCategory: "email",
+              })
+            );
+          }
+          
+          // Extract from criteria if present
+          if (em.criteria) {
+            emailEdges.push(
+              ...extractFromCriteria(view, em.criteria, `${path}.criteria`, "email")
+            );
+          }
+        }
+        
+        return emailEdges;
+      })
     );
   }
 
