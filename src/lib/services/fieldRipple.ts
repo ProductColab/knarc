@@ -87,15 +87,51 @@ export function buildFieldRipple(
     { node: field, depth: 0 },
   ];
 
+  console.log("[ripple:field] Building ripple for field", {
+    fieldKey,
+    fieldId: toNodeId(field),
+    include,
+    exclude,
+    maxDepth,
+  });
+
+  let depthStats: Record<number, number> = {};
+  let edgeTypeStats: Record<string, number> = {};
+
   while (queue.length) {
     const { node, depth } = queue.shift()!;
     if (depth >= maxDepth) continue;
 
+    depthStats[depth] = (depthStats[depth] || 0) + 1;
+
     const incoming = graph.getIncoming(node);
-    for (const e of incoming) {
-      if (!isAllowedEdge(e, include, exclude)) continue;
-      if (isFieldListUses(e)) continue;
+    const allowedIncoming = incoming.filter(
+      (e) => isAllowedEdge(e, include, exclude) && !isFieldListUses(e)
+    );
+
+    if (incoming.length > 0) {
+      console.log(`[ripple:field] Node at depth ${depth}`, {
+        nodeId: toNodeId(node),
+        nodeType: node.type,
+        totalIncoming: incoming.length,
+        allowedIncoming: allowedIncoming.length,
+        incomingTypes: Array.from(
+          new Set(incoming.map((e) => e.type))
+        ).reduce((acc, type) => {
+          acc[type] = incoming.filter((e) => e.type === type).length;
+          return acc;
+        }, {} as Record<string, number>),
+        sampleIncoming: incoming.slice(0, 5).map((e) => ({
+          type: e.type,
+          from: `${e.from.type}:${e.from.key}`,
+          locationPath: e.locationPath,
+        })),
+      });
+    }
+
+    for (const e of allowedIncoming) {
       edges.push(e);
+      edgeTypeStats[e.type] = (edgeTypeStats[e.type] || 0) + 1;
       const fromId = toNodeId(e.from);
       if (!nodesMap.has(fromId)) nodesMap.set(fromId, e.from);
       if (!visited.has(fromId)) {
@@ -104,6 +140,14 @@ export function buildFieldRipple(
       }
     }
   }
+
+  console.log("[ripple:field] Field ripple complete", {
+    fieldKey,
+    totalNodes: nodesMap.size,
+    totalEdges: edges.length,
+    depthStats,
+    edgeTypeStats,
+  });
 
   const nodes = Array.from(nodesMap.values());
   const impactedFields = nodes.filter(

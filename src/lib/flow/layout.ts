@@ -482,6 +482,17 @@ export function computeRipplePositions(
     const rootId = NodeIdUtils.getId(root);
     positions.set(rootId, { x: 0, y: 0 });
 
+    console.log("[layout:ripple] Computing ripple positions", {
+      rootId,
+      totalNodes: subgraph.nodes.length,
+      totalEdges: subgraph.edges.length,
+      fieldNodes: subgraph.nodes.filter((n) => n.type === "field").length,
+      depths: Array.from(depths.entries()).map(([id, depth]) => ({
+        id,
+        depth,
+      })),
+    });
+
     // Position fields by layer
     positionFieldsByLayerAlignedToParents(
       subgraph.nodes,
@@ -510,6 +521,16 @@ export function computeRipplePositions(
       config,
       isHorizontal
     );
+
+    console.log("[layout:ripple] Final positions computed", {
+      totalPositions: positions.size,
+      samplePositions: Array.from(positions.entries())
+        .slice(0, 20)
+        .map(([id, pos]) => ({ id, x: pos.x.toFixed(1), y: pos.y.toFixed(1) })),
+      fieldPositions: Array.from(positions.entries())
+        .filter(([id]) => id.startsWith("field:"))
+        .map(([id, pos]) => ({ id, x: pos.x.toFixed(1), y: pos.y.toFixed(1) })),
+    });
 
     return positions;
   } finally {
@@ -604,6 +625,17 @@ function buildImmediateParentMap(
     if (!parents.has(childId)) parents.set(childId, []);
     parents.get(childId)!.push(parentId);
   }
+
+  console.log("[layout:parent-map] Built parent map", {
+    totalFields: parents.size,
+    fieldsWithParents: Array.from(parents.entries())
+      .filter(([_, p]) => p.length > 0)
+      .map(([id, p]) => ({ id, parents: p })),
+    fieldsWithoutParents: Array.from(parents.entries())
+      .filter(([_, p]) => p.length === 0)
+      .map(([id]) => id),
+  });
+
   return parents;
 }
 
@@ -639,8 +671,15 @@ function positionFieldsByLayerAlignedToParents(
     const ids = layers.get(depth)!;
     const baseX = isHorizontal ? depth * config.rankSep : 0;
 
+    console.log(`[layout:layer] Processing depth ${depth}`, {
+      nodeCount: ids.length,
+      nodeIds: ids,
+    });
+
     // Compute target Y from parents' Y when available
-    const positioned: Array<{ id: string; y: number }> = [];
+    // Group nodes by their parent(s) to maintain parent-child relationships
+    const positioned: Array<{ id: string; y: number; parentIds: string[] }> =
+      [];
     const unpositioned: string[] = [];
 
     for (const id of ids) {
@@ -652,33 +691,216 @@ function positionFieldsByLayerAlignedToParents(
         const avgY =
           parentPositions.reduce((sum, pos) => sum + pos.y, 0) /
           parentPositions.length;
-        positioned.push({ id, y: avgY });
+        positioned.push({ id, y: avgY, parentIds: p });
       } else {
         unpositioned.push(id);
       }
     }
 
-    // Resolve collisions: sort by target Y, then space by nodeSep
-    positioned.sort((a, b) => a.y - b.y);
+    console.log(
+      `[layout:layer:${depth}] Positioned nodes:`,
+      positioned.map((n) => ({
+        id: n.id,
+        targetY: n.y.toFixed(1),
+        parents: n.parentIds,
+      }))
+    );
+
+    // Group nodes by their parent set (nodes with same parents should be grouped together)
+    const parentGroups = new Map<
+      string,
+      { nodes: Array<{ id: string; y: number }>; parentY: number }
+    >();
+    for (const { id, y, parentIds } of positioned) {
+      // Create a stable key for the parent set
+      const parentKey = parentIds.sort().join(",");
+      if (!parentGroups.has(parentKey)) {
+        // Calculate the actual parent Y position (average of all parents in the set)
+        const parentPositions = parentIds
+          .map((pid) => positions.get(pid))
+          .filter((pos): pos is XYPosition => !!pos);
+        const parentY =
+          parentPositions.length > 0
+            ? parentPositions.reduce((sum, pos) => sum + pos.y, 0) /
+              parentPositions.length
+            : y;
+        parentGroups.set(parentKey, { nodes: [], parentY });
+      }
+      parentGroups.get(parentKey)!.nodes.push({ id, y });
+    }
+
+    console.log(
+      `[layout:layer:${depth}] Parent groups:`,
+      Array.from(parentGroups.entries()).map(([key, group]) => ({
+        parentKey: key,
+        parentY: group.parentY.toFixed(1),
+        nodeCount: group.nodes.length,
+        nodeIds: group.nodes.map((n) => n.id),
+      }))
+    );
+
+    // Sort groups by their parent Y position
+    const sortedGroups = Array.from(parentGroups.entries())
+      .map(([parentKey, group]) => ({
+        parentKey,
+        nodes: group.nodes,
+        parentY: group.parentY,
+      }))
+      .sort((a, b) => a.parentY - b.parentY);
+
+    // Position nodes within each group relative to their parent's Y, then space groups
     const finalY = new Map<string, number>();
-    let lastY = Number.NEGATIVE_INFINITY;
-    for (const { id, y } of positioned) {
-      const yPlaced =
-        lastY === Number.NEGATIVE_INFINITY
-          ? y
-          : Math.max(y, lastY + config.nodeSep);
-      finalY.set(id, yPlaced);
-      lastY = yPlaced;
+    let lastGroupEndY = Number.NEGATIVE_INFINITY;
+
+    for (const { nodes, parentY } of sortedGroups) {
+      // Sort nodes within group by their target Y
+      nodes.sort((a, b) => a.y - b.y);
+
+      // Position nodes within this group centered around the parent's Y
+      const groupCenterY = parentY;
+      const groupHeight = (nodes.length - 1) * config.nodeSep;
+      const idealGroupStartY = groupCenterY - groupHeight / 2;
+      const idealGroupEndY = groupCenterY + groupHeight / 2;
+
+      // Calculate where this group should start to avoid overlap with previous group
+      // But prioritize staying close to the parent's Y position
+      let groupStartY = idealGroupStartY;
+
+      if (lastGroupEndY !== Number.NEGATIVE_INFINITY) {
+        // Need spacing from previous group
+        const minStartY = lastGroupEndY + config.nodeSep;
+
+        // If the ideal position would overlap, we have two options:
+        // 1. Shift this group down (away from parent)
+        // 2. Shift previous group up (towards its parent) if it helps
+        // We'll try to minimize the total deviation from parent positions
+
+        if (idealGroupStartY < minStartY) {
+          // Check if we can shift the previous group up instead
+          // This helps when groups are close together
+          const overlap = minStartY - idealGroupStartY;
+          const canShiftPrevious = overlap < config.nodeSep / 2;
+
+          if (canShiftPrevious && sortedGroups.length > 1) {
+            // Try to shift previous group nodes up slightly
+            // This is a heuristic to keep groups closer to their parents
+            groupStartY = idealGroupStartY;
+            // We'll handle spacing in the node placement loop
+          } else {
+            // Shift this group down
+            groupStartY = minStartY;
+          }
+        }
+      }
+
+      // Place nodes within the group, ensuring they stay close to parent
+      for (let i = 0; i < nodes.length; i++) {
+        const { id } = nodes[i];
+        const idealY = groupStartY + i * config.nodeSep;
+
+        // Ensure spacing from previous node in this group
+        const yPlaced =
+          i === 0
+            ? idealY
+            : Math.max(idealY, finalY.get(nodes[i - 1].id)! + config.nodeSep);
+
+        // Ensure node is closer to its parent than to any other parent
+        // This prevents nodes from being positioned at the midpoint between parents
+        const distanceToParent = Math.abs(yPlaced - parentY);
+        const otherParents = sortedGroups
+          .filter((g) => g.parentY !== parentY)
+          .map((g) => g.parentY);
+
+        let adjustedY = yPlaced;
+        const minSpacing =
+          i === 0
+            ? Number.NEGATIVE_INFINITY
+            : finalY.get(nodes[i - 1].id)! + config.nodeSep;
+
+        for (const otherParentY of otherParents) {
+          const distanceToOther = Math.abs(yPlaced - otherParentY);
+          // If we're equidistant or closer to another parent, we need to adjust
+          if (distanceToOther <= distanceToParent) {
+            // Calculate the midpoint and shift towards our parent
+            const midpoint = (parentY + otherParentY) / 2;
+            const isOnMidpoint = Math.abs(yPlaced - midpoint) < 1;
+
+            if (isOnMidpoint || distanceToOther < distanceToParent) {
+              // Shift towards our parent by at least 1 unit to ensure we're strictly closer
+              const shiftAmount = Math.max(
+                1,
+                (distanceToParent - distanceToOther) / 2 + 1
+              );
+              const shiftDirection = parentY > yPlaced ? 1 : -1;
+              const candidateY =
+                yPlaced +
+                shiftDirection * Math.min(shiftAmount, config.nodeSep / 3);
+
+              // Use adjusted position if it maintains spacing
+              if (candidateY >= minSpacing) {
+                adjustedY = candidateY;
+                break;
+              } else {
+                // If we can't shift this node, try shifting the previous node up
+                // This creates more room for this node to move towards its parent
+                if (i > 0) {
+                  const prevId = nodes[i - 1].id;
+                  const prevY = finalY.get(prevId)!;
+                  const prevShift = minSpacing - candidateY + 1;
+                  const prevCandidateY = prevY - prevShift;
+
+                  // Only shift previous if it doesn't violate its own constraints
+                  if (
+                    i === 1 ||
+                    prevCandidateY >=
+                      finalY.get(nodes[i - 2].id)! + config.nodeSep
+                  ) {
+                    finalY.set(prevId, prevCandidateY);
+                    adjustedY = candidateY;
+                    break;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        finalY.set(id, adjustedY);
+      }
+
+      // Update last group end position
+      const lastNodeInGroup = nodes[nodes.length - 1];
+      lastGroupEndY = finalY.get(lastNodeInGroup.id)!;
+
+      console.log(`[layout:layer:${depth}] Group positioned:`, {
+        parentY: parentY.toFixed(1),
+        nodeCount: nodes.length,
+        positions: nodes.map((n) => ({
+          id: n.id,
+          y: finalY.get(n.id)!.toFixed(1),
+        })),
+      });
     }
 
     // Place unpositioned nodes centered around 0 and spaced
     if (unpositioned.length) {
+      console.log(
+        `[layout:layer:${depth}] Unpositioned nodes (no parents found):`,
+        unpositioned
+      );
       const half = (unpositioned.length - 1) / 2;
       for (let i = 0; i < unpositioned.length; i++) {
         const id = unpositioned[i];
         const y = (i - half) * config.nodeSep;
         finalY.set(id, y);
       }
+      console.log(
+        `[layout:layer:${depth}] Unpositioned nodes placed:`,
+        unpositioned.map((id) => ({
+          id,
+          y: finalY.get(id)!.toFixed(1),
+        }))
+      );
     }
 
     // Write back positions
@@ -688,6 +910,14 @@ function positionFieldsByLayerAlignedToParents(
       const yy = isHorizontal ? y : baseX;
       positions.set(id, { x, y: yy });
     }
+
+    console.log(
+      `[layout:layer:${depth}] Final positions:`,
+      ids.map((id) => {
+        const pos = positions.get(id)!;
+        return { id, x: pos.x.toFixed(1), y: pos.y.toFixed(1) };
+      })
+    );
   }
 }
 
@@ -743,6 +973,7 @@ function positionFieldsByLayer(
 
 /**
  * Positions view nodes in bands above their target fields.
+ * Groups views by their target field(s) to prevent bunching when multiple views reference the same fields.
  */
 function positionViewsInBands(
   nodes: NodeRef[],
@@ -760,34 +991,159 @@ function positionViewsInBands(
     isHorizontal
   );
 
-  // For each view, align vertically (or horizontally) with the average of its target fields
-  for (const { id, layer } of viewPlacements) {
-    // Compute average target coordinate from referenced fields
-    const targetPositions: XYPosition[] = edges
-      .filter(
-        (e) => e.from.type === "view" && `${e.from.type}:${e.from.key}` === id
-      )
-      .filter((e) => e.type === "filtersBy" || e.type === "sortsBy")
-      .map((e) => positions.get(`${e.to.type}:${e.to.key}`))
-      .filter((p): p is XYPosition => !!p);
+  // Edge types that indicate view->field dependencies for positioning
+  const viewToFieldEdgeTypes = ["filtersBy", "sortsBy", "uses"];
 
-    // Fallback to layer's baseline if no targets resolved yet
-    const avg = targetPositions.length
-      ? targetPositions.reduce(
-          (acc, p) => ({ x: acc.x + p.x, y: acc.y + p.y }),
-          { x: 0, y: 0 }
-        )
-      : { x: 0, y: 0 };
-    if (targetPositions.length) {
-      avg.x /= targetPositions.length;
-      avg.y /= targetPositions.length;
+  // Group views by their target field set
+  const viewGroups = new Map<
+    string,
+    {
+      views: Array<{ id: string; layer: number }>;
+      targetFields: string[];
+      avgFieldY: number;
+    }
+  >();
+
+  for (const { id, layer } of viewPlacements) {
+    // Find all fields this view references
+    const targetFields = edges
+      .filter(
+        (e) =>
+          e.from.type === "view" &&
+          NodeIdUtils.getId(e.from) === id &&
+          viewToFieldEdgeTypes.includes(e.type)
+      )
+      .map((e) => NodeIdUtils.getId(e.to))
+      .filter((fieldId) => positions.has(fieldId));
+
+    // Create a stable key for the target field set
+    const fieldKey = targetFields.sort().join(",");
+
+    if (!viewGroups.has(fieldKey)) {
+      // Calculate average Y position of target fields
+      const targetPositions = targetFields
+        .map((fieldId) => positions.get(fieldId))
+        .filter((p): p is XYPosition => !!p);
+
+      const avgFieldY =
+        targetPositions.length > 0
+          ? targetPositions.reduce((sum, p) => sum + p.y, 0) /
+            targetPositions.length
+          : 0;
+
+      viewGroups.set(fieldKey, {
+        views: [],
+        targetFields,
+        avgFieldY,
+      });
     }
 
-    // Place view one layer after its targets, aligned to their average axis
-    const x = isHorizontal ? layer * config.rankSep : avg.x;
-    const y = isHorizontal ? avg.y : layer * config.rankSep;
+    viewGroups.get(fieldKey)!.views.push({ id, layer });
+  }
 
-    positions.set(id, { x, y });
+  // Sort groups by their average field Y position
+  const sortedGroups = Array.from(viewGroups.values()).sort(
+    (a, b) => a.avgFieldY - b.avgFieldY
+  );
+
+  console.log("[layout:views] View groups by target fields", {
+    totalGroups: sortedGroups.length,
+    groups: sortedGroups.map((g) => ({
+      targetFields: g.targetFields,
+      avgFieldY: g.avgFieldY.toFixed(1),
+      viewCount: g.views.length,
+      viewIds: g.views.map((v) => v.id),
+    })),
+  });
+
+  // Position views within each group, then space groups
+  let lastGroupEndY = Number.NEGATIVE_INFINITY;
+
+  for (const group of sortedGroups) {
+    // Sort views within group by layer, then by score
+    group.views.sort((a, b) => {
+      if (a.layer !== b.layer) return a.layer - b.layer;
+      return getScore(a.id) - getScore(b.id);
+    });
+
+    // Position views within this group centered around the average field Y
+    const groupCenterY = group.avgFieldY;
+    const groupHeight = (group.views.length - 1) * config.nodeSep;
+    const idealGroupStartY = groupCenterY - groupHeight / 2;
+
+    // Ensure minimum spacing from previous group
+    const groupStartY =
+      lastGroupEndY === Number.NEGATIVE_INFINITY
+        ? idealGroupStartY
+        : Math.max(idealGroupStartY, lastGroupEndY + config.nodeSep);
+
+    // Place views within the group
+    for (let i = 0; i < group.views.length; i++) {
+      const { id, layer } = group.views[i];
+      const idealY = groupStartY + i * config.nodeSep;
+
+      // Ensure spacing from previous view in this group
+      let yPlaced =
+        i === 0
+          ? idealY
+          : Math.max(
+              idealY,
+              positions.get(group.views[i - 1].id)!.y + config.nodeSep
+            );
+
+      // Ensure view is closer to its target field(s) than to other fields
+      // This prevents views from being positioned at the midpoint between fields
+      const distanceToTarget = Math.abs(yPlaced - groupCenterY);
+      const otherGroups = sortedGroups.filter((g) => g !== group);
+      
+      for (const otherGroup of otherGroups) {
+        const distanceToOther = Math.abs(yPlaced - otherGroup.avgFieldY);
+        // If we're equidistant or closer to another field, shift towards our target
+        if (distanceToOther <= distanceToTarget) {
+          const midpoint = (groupCenterY + otherGroup.avgFieldY) / 2;
+          const isOnMidpoint = Math.abs(yPlaced - midpoint) < 1;
+          
+          if (isOnMidpoint || distanceToOther < distanceToTarget) {
+            // Shift towards our target field by at least 1 unit
+            const shiftAmount = Math.max(1, (distanceToTarget - distanceToOther) / 2 + 1);
+            const shiftDirection = groupCenterY > yPlaced ? 1 : -1;
+            const candidateY = yPlaced + shiftDirection * Math.min(shiftAmount, config.nodeSep / 3);
+            
+            // Use adjusted position if it maintains spacing
+            const minSpacing = i === 0 ? Number.NEGATIVE_INFINITY : positions.get(group.views[i - 1].id)!.y + config.nodeSep;
+            if (candidateY >= minSpacing) {
+              yPlaced = candidateY;
+              break;
+            } else if (i > 0) {
+              // If we can't shift this view, try shifting the previous view up
+              // This creates more room for this view to move towards its target
+              const prevId = group.views[i - 1].id;
+              const prevY = positions.get(prevId)!;
+              const prevShift = minSpacing - candidateY + 1;
+              const prevCandidateY = prevY - prevShift;
+              
+              // Only shift previous if it doesn't violate its own constraints
+              const prevMinSpacing = i === 1 ? Number.NEGATIVE_INFINITY : positions.get(group.views[i - 2].id)!.y + config.nodeSep;
+              if (prevCandidateY >= prevMinSpacing) {
+                positions.set(prevId, { ...positions.get(prevId)!, y: prevCandidateY });
+                yPlaced = candidateY;
+                break;
+              }
+            }
+          }
+        }
+      }
+
+      // Calculate X position based on layer
+      const x = isHorizontal ? layer * config.rankSep : groupCenterY;
+      const y = isHorizontal ? yPlaced : layer * config.rankSep;
+
+      positions.set(id, { x, y });
+    }
+
+    // Update last group end position
+    const lastViewInGroup = group.views[group.views.length - 1];
+    lastGroupEndY = positions.get(lastViewInGroup.id)!.y;
   }
 }
 
@@ -803,6 +1159,9 @@ function computeViewPlacements(
 ): Array<{ id: string; layer: number }> {
   const viewPlacements: Array<{ id: string; layer: number }> = [];
 
+  // Edge types that indicate view->field dependencies
+  const viewToFieldEdgeTypes = ["filtersBy", "sortsBy", "uses"];
+
   for (const node of nodes) {
     if (node.type !== "view") continue;
 
@@ -812,7 +1171,7 @@ function computeViewPlacements(
         (edge) =>
           edge.from.type === "view" &&
           NodeIdUtils.getId(edge.from) === nodeId &&
-          (edge.type === "filtersBy" || edge.type === "sortsBy")
+          viewToFieldEdgeTypes.includes(edge.type)
       )
       .map((edge) => NodeIdUtils.getId(edge.to))
       .map((targetId) => {

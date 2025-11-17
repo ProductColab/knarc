@@ -136,9 +136,22 @@ export function toRippleFlowSimple(
     ? ("top" as Position)
     : ("bottom" as Position);
 
+  console.log("[layout:ripple:simple] Using Dagre layout (not computeRipplePositions)", {
+    rootId: root ? toNodeId(root) : "none",
+    nodeCount: subgraph.nodes.length,
+    edgeCount: subgraph.edges.length,
+  });
+  
   const positions = computeDagreLayoutForSubgraph(subgraph, direction, {
     width: 220,
     height: 48,
+  });
+  
+  console.log("[layout:ripple:simple] Dagre positions computed", {
+    totalPositions: positions.size,
+    samplePositions: Array.from(positions.entries())
+      .slice(0, 10)
+      .map(([id, pos]) => ({ id, x: pos.x.toFixed(1), y: pos.y.toFixed(1) })),
   });
 
   const nodes: AppNode[] = subgraph.nodes.map((n) => {

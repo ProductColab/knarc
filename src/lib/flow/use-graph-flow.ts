@@ -207,6 +207,18 @@ export function useGraphFlow() {
             keptIdSet.has(toNodeId(e.from)) && keptIdSet.has(toNodeId(e.to))
         ),
       };
+      console.log("[layout:use-graph-flow] Calling computeRipplePositions", {
+        rootId: toNodeId(root),
+        rootType: root.type,
+        filteredNodeCount: filteredSubgraph.nodes.length,
+        filteredEdgeCount: filteredSubgraph.edges.length,
+        spacing: {
+          rankSep: DEFAULT_RANK_SEP,
+          nodeSep: DEFAULT_NODE_SEP,
+          bandSep: DEFAULT_EDGE_SEP * 2,
+        },
+      });
+      
       const recomputedPositions = computeRipplePositions(
         graph,
         filteredSubgraph,
@@ -218,6 +230,13 @@ export function useGraphFlow() {
           bandSep: DEFAULT_EDGE_SEP * 2,
         }
       );
+      
+      console.log("[layout:use-graph-flow] Received positions from computeRipplePositions", {
+        positionCount: recomputedPositions.size,
+        samplePositions: Array.from(recomputedPositions.entries())
+          .slice(0, 10)
+          .map(([id, pos]) => ({ id, x: pos.x.toFixed(1), y: pos.y.toFixed(1) })),
+      });
       const recomputedFlow = toRippleFlowWithPositions(
         graph,
         filteredSubgraph,
